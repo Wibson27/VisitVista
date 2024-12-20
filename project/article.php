@@ -83,9 +83,7 @@ if (!$article) {
         <!-- Navbar Main -->
         <div class="navbar-main">
           <!-- Logo -->
-          <a data-w-id="ac2971f4-6f26-e7be-f7cd-a20c97325007" href="/" class="w-inline-block">
-            <img src="../images/agency-20logo.avif" loading="lazy" alt="" class="site-logo" />
-          </a>
+          <div class="site-logo" style="font-size: 40px; font-weight: bold; color:rgb(255, 255, 255);">VisitVista</div>
 
           <!-- Navigation Menu -->
           <nav role="navigation" class="nav-menu-wrapper w-nav-menu">
@@ -458,7 +456,7 @@ if (!$article) {
   <div class="container">
     <div data-w-id="3447bad0-4c97-caf6-2cc4-1b7d3321ffb7" class="footer-container">
       <div class="footer-block">
-        <div><img width="70" loading="lazy" alt="" src="../images/agency-20logo.avif" class="site-logo" /></div>
+      <div class="site-logo" style="font-size: 35px; font-weight: bold; color:rgb(255, 255, 255);">VisitVista</div>
         <div class="margin-bottom-23px">
           <p class="footer-text">Daftar sekarang dan optimalkan pengalaman wisata anda!</p>
         </div>
