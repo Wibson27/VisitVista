@@ -509,7 +509,7 @@ $articles = getAllArticles();
             <?php foreach($articles as $article): ?>
                     <div role="listitem" class="w-dyn-item">
                         <a data-w-id="89a00a31-e1dd-6742-3b71-4fad578cb15c"
-                            href="/Last/project/article.php?id=<?php echo $article['id']; ?>" 
+                            href="/visitvista/project/article.php?id=<?php echo $article['id']; ?>" 
                             class="portfolio-slide border w-inline-block">
                             <div class="_5px-rounded-mask">
                                 <img src="<?php echo htmlspecialchars($article['image_url']); ?>" 
