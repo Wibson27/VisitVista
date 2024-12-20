@@ -223,6 +223,46 @@ function getCityStatistics($city, $year = null, $month = null) {
     }
 }
 
+// ====== Article Functions ======
+function getAllArticles() {
+    global $db;
+    try {
+        $query = "SELECT * FROM articles ORDER BY created_at DESC";
+        $stmt = $db->query($query);
+        return $stmt->fetchAll(PDO::FETCH_ASSOC);
+    } catch(Exception $e) {
+        error_log($e->getMessage());
+        return [];
+    }
+}
+
+function getArticleById($id) {
+    global $db; // Gunakan global $db yang sudah ada
+    try {
+        $stmt = $db->prepare("SELECT *, 
+                           COALESCE(content_full, content) as full_content 
+                           FROM articles WHERE id = ?");
+        $stmt->execute([$id]);
+        return $stmt->fetch(PDO::FETCH_ASSOC);
+    } catch(Exception $e) {
+        error_log($e->getMessage());
+        return null;
+    }
+}
+
+function getArticlesByCategory($category) {
+    global $db;
+    try {
+        $query = "SELECT * FROM articles WHERE category = ? ORDER BY created_at DESC";
+        $stmt = $db->prepare($query);
+        $stmt->execute([$category]);
+        return $stmt->fetchAll();
+    } catch(Exception $e) {
+        error_log($e->getMessage());
+        return [];
+    }
+}
+
 // Example usage in your pages:
 /*
 // In your places.php:

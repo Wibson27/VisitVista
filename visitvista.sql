@@ -3,9 +3,9 @@
 -- https://www.phpmyadmin.net/
 --
 -- Host: 127.0.0.1
--- Generation Time: Dec 13, 2024 at 07:41 AM
--- Server version: 10.4.32-MariaDB
--- PHP Version: 8.2.12
+-- Waktu pembuatan: 20 Des 2024 pada 10.53
+-- Versi server: 10.4.32-MariaDB
+-- Versi PHP: 8.2.12
 
 SET SQL_MODE = "NO_AUTO_VALUE_ON_ZERO";
 START TRANSACTION;
@@ -24,7 +24,43 @@ SET time_zone = "+00:00";
 -- --------------------------------------------------------
 
 --
--- Table structure for table `bookings`
+-- Struktur dari tabel `articles`
+--
+
+CREATE TABLE `articles` (
+  `id` int(11) NOT NULL,
+  `title` varchar(255) NOT NULL,
+  `content` text NOT NULL,
+  `content_full` text DEFAULT NULL,
+  `image_url` varchar(255) NOT NULL,
+  `category` varchar(100) DEFAULT NULL,
+  `location` varchar(255) DEFAULT NULL,
+  `created_at` timestamp NOT NULL DEFAULT current_timestamp()
+) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_general_ci;
+
+--
+-- Dumping data untuk tabel `articles`
+--
+
+INSERT INTO `articles` (`id`, `title`, `content`, `content_full`, `image_url`, `category`, `location`, `created_at`) VALUES
+(1, 'Pesona Candi Borobudur: Warisan Budaya Dunia di Jantung Jawa', 'Candi Borobudur, warisan budaya UNESCO yang megah, menawarkan pengalaman spiritual dan budaya yang tak terlupakan. Dengan arsitektur yang menakjubkan dan relief yang detail, candi ini menjadi bukti kejayaan peradaban Jawa kuno.', 'Candi Borobudur adalah candi Buddha terbesar di dunia yang dibangun pada abad ke-8 Masehi. Terletak di Magelang, Jawa Tengah, candi ini merupakan warisan budaya dunia UNESCO yang menarik jutaan wisatawan setiap tahunnya.\r\n\r\nSejarah Candi Borobudur\r\nDibangun pada masa kejayaan Dinasti Syailendra, Borobudur merupakan representasi dari kosmologi Buddha. Struktur bangunan berbentuk mandala yang terdiri dari 10 tingkat melambangkan perjalanan pencerahan Sidharta Gautama.\r\n\r\nArsitektur yang Menakjubkan\r\n- 2.672 panel relief\r\n- 504 arca Buddha\r\n- 72 stupa berlubang\r\n- 1 stupa utama di puncak\r\n- Menggunakan teknik interlocking tanpa perekat\r\n\r\nWaktu Terbaik Mengunjungi\r\n- Sunrise (04.30 - 06.00): Menikmati matahari terbit\r\n- Sore hari (15.00 - 17.30): Suasana lebih sejuk\r\n- Hindari musim liburan untuk menghindari keramaian\r\n\r\nTips Berkunjung\r\n1. Beli tiket online untuk menghindari antrian\r\n2. Gunakan jasa guide untuk penjelasan detail sejarah\r\n3. Pakai alas kaki yang nyaman\r\n4. Bawa air minum dan payung/topi\r\n5. Hormati area sakral dengan berpakaian sopan', 'images/borobudur.jpg', 'Cultural', 'Magelang, Jawa Tengah', '2024-12-19 11:50:55'),
+(2, 'Jelajahi Malioboro: Jantung Kehidupan Yogyakarta', 'Jalan Malioboro, pusat keramaian kota Yogyakarta, menawarkan pengalaman berbelanja dan kuliner yang autentik. Dari batik hingga makanan tradisional, semua dapat ditemukan di sepanjang jalan legendaris ini.', 'Jalan Malioboro adalah ikon Yogyakarta yang telah menjadi saksi sejarah dan perkembangan kota ini selama berabad-abad. Stretching sepanjang 1,6 kilometer, jalan ini adalah pusat aktivitas ekonomi dan budaya yang tak pernah tidur.\r\n\r\nSejarah Malioboro\r\nNama Malioboro berasal dari nama Jenderal Inggris Marlborough yang pernah bertugas di Yogyakarta. Jalan ini telah menjadi pusat perdagangan sejak era kesultanan hingga sekarang.\r\n\r\nYang Dapat Ditemukan di Malioboro\r\n- Pasar Beringharjo: Pasar tradisional terbesar\r\n- Toko batik dan kerajinan tangan\r\n- Angkringan dan kuliner tradisional\r\n- Pertunjukan seniman jalanan\r\n- Hotel dan penginapan berbagai kelas\r\n\r\nKuliner Khas\r\n1. Gudeg Yu Djum\r\n2. Bakpia Pathok\r\n3. Sate Klathak\r\n4. Es Teler Malioboro\r\n5. Kopi Joss\r\n\r\nTips Berkunjung\r\n- Kunjungi pagi hari untuk belanja di Beringharjo\r\n- Sore hingga malam untuk suasana yang lebih hidup\r\n- Gunakan transportasi umum untuk menghindari masalah parkir\r\n- Jangan lupa tawar-menawar saat berbelanja\r\n- Coba kuliner khas di sepanjang jalan', 'images/malioboro.jpg', 'Shopping', 'Yogyakarta', '2024-12-19 11:50:55'),
+(3, 'Keraton Yogyakarta: Kemegahan Warisan Mataram Islam', 'Keraton Yogyakarta, istana Sultan yang masih berfungsi hingga kini, menjadi saksi bisu sejarah dan budaya Jawa. Arsitektur megah dan tradisi kerajaan yang masih terjaga menjadikannya destinasi wisata budaya yang tak boleh dilewatkan.', 'Keraton Yogyakarta atau Kraton Ngayogyakarta Hadiningrat adalah istana resmi Kesultanan Yogyakarta yang didirikan oleh Sultan Hamengku Buwono I pada tahun 1755. Kompleks keraton ini tidak hanya berfungsi sebagai tempat tinggal raja, tetapi juga sebagai pusat kebudayaan Jawa.\r\n\r\nArsitektur dan Filosofi\r\n- Bangunan menghadap ke utara\r\n- Terdiri dari 7 kompleks utama\r\n- Setiap ornamen memiliki makna filosofis\r\n- Mencerminkan perpaduan budaya Jawa, Islam, dan Eropa\r\n\r\nKoleksi Museum\r\n1. Pusaka kerajaan\r\n2. Kereta kencana\r\n3. Gamelan kuno\r\n4. Foto-foto bersejarah\r\n5. Pakaian kebesaran Sultan\r\n\r\nPertunjukan Budaya\r\n- Tari klasik setiap hari Minggu\r\n- Gamelan setiap hari Selasa\r\n- Wayang kulit pada acara khusus\r\n\r\nTips Kunjungan\r\n- Datang pagi hari untuk menghindari panas\r\n- Gunakan pakaian sopan\r\n- Sewa guide untuk penjelasan detail\r\n- Hormati aturan foto yang berlaku\r\n- Kunjungi saat ada upacara adat untuk pengalaman lebih lengkap', 'images/keraton.jpg', 'Cultural', 'Yogyakarta', '2024-12-19 11:50:55'),
+(4, 'Pantai Parangtritis: Pesona Selatan Yogyakarta', 'Pantai Parangtritis merupakan pantai yang paling terkenal di Yogyakarta. Dengan hamparan pasir hitam yang luas dan ombak yang besar...', 'Pantai Parangtritis adalah salah satu destinasi wisata pantai paling populer di Yogyakarta. Terletak sekitar 27 km dari pusat kota, pantai ini menawarkan pemandangan spektakuler dengan gundukan pasir (gumuk) dan ombak yang besar dari Samudera Hindia.\n\nSelain keindahan alamnya, Parangtritis juga kental dengan nilai budaya dan mistis dalam kepercayaan masyarakat Jawa. Pengunjung dapat menikmati sunset yang memukau, mencoba olahraga paralayang di bukit sekitar, atau sekadar bersantai di warung-warung pinggir pantai.\n\nFasilitas yang tersedia:\n- Area parkir luas\n- Penginapan dan hotel\n- Warung makan\n- Penyewaan ATV dan motor trail\n- Spot paralayang', 'images/parangtritis.jpg', 'Nature', 'Bantul, Yogyakarta', '2024-12-19 11:50:55'),
+(5, 'Taman Sari: Pesona Istana Air Keraton Yogyakarta', 'Taman Sari atau Water Castle adalah kompleks taman rekreasi keluarga kerajaan yang dibangun pada masa Sultan Hamengku Buwono I...', 'Taman Sari atau yang juga dikenal sebagai Water Castle adalah kompleks taman rekreasi keluarga Keraton Yogyakarta. Dibangun pada tahun 1758, kompleks ini dulunya merupakan taman rekreasi pribadi Sultan dan keluarganya yang dilengkapi dengan kolam pemandian, kanal air, dan berbagai bangunan megah.\n\nArsitektur Taman Sari menggabungkan gaya Jawa dengan pengaruh Portugis, Belanda, dan Cina. Kompleks ini terdiri dari beberapa bagian utama:\n- Umbul Binangun (kolam pemandian)\n- Gapura Agung\n- Sumur Gumuling\n- Pulo Kenanga\n\nSejarah dan Arsitektur:\n- Dibangun tahun 1758-1765\n- Luas area sekitar 12.000 m2\n- Memiliki sistem pengairan canggih\n- Dinding tebal untuk pertahanan', 'images/tamansari.jpg', 'Cultural', 'Yogyakarta', '2024-12-19 11:50:55'),
+(6, 'Gunung Merapi: Keagungan Vulkanik Jawa Tengah', 'Gunung Merapi, salah satu gunung berapi paling aktif di Indonesia, menawarkan pengalaman pendakian menantang dan pemandangan alam yang memukau...', 'Gunung Merapi, dengan ketinggian 2.968 mdpl, adalah salah satu gunung berapi paling aktif di Indonesia. Terletak di perbatasan Yogyakarta dan Jawa Tengah, gunung ini tidak hanya menjadi landmark alam yang megah tetapi juga memiliki nilai spiritual bagi masyarakat sekitar.\n\nJalur Pendakian:\n- Jalur Selo (New Selo)\n- Jalur Kaliadem\n- Jalur Babadan\n\nTips Mendaki:\n- Waktu terbaik: Musim kemarau (April-Oktober)\n- Durasi pendakian: 4-7 jam\n- Wajib dengan guide resmi\n- Membawa perlengkapan standar\n\nAtraksi sekitar:\n- Lava Tour\n- Museum Gunung Merapi\n- Bunker Kaliadem\n- Desa wisata sekitar', 'images/merapi.jpg', 'Adventure', 'Sleman, Yogyakarta', '2024-12-19 11:50:55'),
+(7, 'Pasar Beringharjo: Pusat Belanja Tradisional Yogyakarta', 'Pasar Beringharjo, pasar tradisional tertua di Yogyakarta, menawarkan berbagai produk tradisional dari batik hingga jamu...', 'Pasar Beringharjo adalah pasar tradisional tertua dan terbesar di Yogyakarta. Didirikan pada masa Sri Sultan Hamengku Buwono I tahun 1758, pasar ini menjadi pusat kegiatan ekonomi yang vital bagi Yogyakarta.\n\nProduk yang dijual:\n- Batik tradisional dan modern\n- Bahan rempah dan jamu\n- Makanan tradisional\n- Kerajinan tangan\n- Bahan sandang\n\nTips Berbelanja:\n- Datang pagi untuk suasana terbaik\n- Jangan lupa tawar\n- Bawa tas belanja sendiri\n- Kenali kualitas batik\n\nAkses dan Fasilitas:\n- Dekat Malioboro\n- Area parkir tersedia\n- ATM dan toilet umum\n- Food court traditional', 'images/beringharjo.jpg', 'Shopping', 'Yogyakarta', '2024-12-19 11:50:55'),
+(8, 'Candi Prambanan: Kemegahan Arsitektur Hindu Jawa', 'Candi Prambanan, kompleks candi Hindu terbesar di Indonesia, menampilkan keindahan arsitektur dan relief yang menakjubkan...', 'Candi Prambanan adalah kompleks candi Hindu terbesar di Indonesia dan salah satu yang terindah di Asia Tenggara. Dibangun pada abad ke-9, kompleks candi ini didedikasikan untuk Trimurti: Shiva, Vishnu, dan Brahma.\n\nArsitektur dan Struktur:\n- 8 candi utama dan 8 candi kecil\n- Tinggi candi utama 47 meter\n- Relief Ramayana dan Krishnayana\n- Teknologi konstruksi canggih\n\nSejarah Singkat:\n- Dibangun sekitar tahun 850 M\n- Ditinggalkan pada abad ke-10\n- Ditemukan kembali 1733\n- Status UNESCO sejak 1991\n\nAtraksi tambahan:\n- Sendratari Ramayana\n- Museum Prambanan\n- Taman sekitar candi\n- Paket wisata gabungan dengan Borobudur', 'images/prambanan.jpg', 'Cultural', 'Sleman, Yogyakarta', '2024-12-19 11:50:55'),
+(9, 'Hutan Pinus Mangunan Tempat Foto Instagramable', 'Hutan Pinus Mangunan adalah destinasi wisata alam yang menyajikan pemandangan indah dan spot foto menarik', 'Hutan Pinus Mangunan terletak di Kabupaten Bantul, Yogyakarta. Tempat ini terkenal sebagai lokasi foto yang populer berkat deretan pohon pinus yang tinggi dan suasana alam yang sejuk.\n\nFasilitas:\n- Area foto dengan properti unik\n- Spot panggung seni outdoor\n- Warung makan sederhana\n\nTips kunjungan:\n- Datang pagi untuk pencahayaan foto terbaik\n- Gunakan sepatu nyaman untuk berjalan di medan tanah', 'images/pinus.jpg', 'Nature', 'Bantul, Yogyakarta', '2024-12-19 11:50:55'),
+(10, 'Petualangan Caving Spektakuler di Goa Jomblang', 'Goa Jomblang menawarkan pengalaman caving unik dengan sinar \"cahaya surga\" yang terkenal', 'Goa Jomblang adalah goa vertikal yang terletak di Kabupaten Gunungkidul, Yogyakarta. Goa ini terkenal dengan fenomena \"cahaya surga\" yang terjadi ketika sinar matahari masuk melalui celah goa.\n\nPengalaman utama:\n- Caving dengan alat keselamatan\n- Menyaksikan \"cahaya surga\" sekitar pukul 10.00-12.00\n- Trekking di hutan purba sekitar goa\n\nTips kunjungan:\n- Pesan tiket sebelumnya karena kuota terbatas\n- Pakai pakaian nyaman dan tidak mudah kotor\n- Ikuti instruksi pemandu dengan cermat', 'images/jomblang.jpg', 'Adventure', 'Gunungkidul, Yogyakarta', '2024-12-19 11:50:55'),
+(11, 'Pantai Timang Tempat Wisata Ekstrem dan Kuliner Lobster', 'Pantai Timang terkenal dengan jembatan gantungnya yang memacu adrenalin dan lobster segarnya', 'Pantai Timang terletak di Gunungkidul, Yogyakarta. Pantai ini menawarkan pengalaman wisata yang unik dengan jembatan gantung menuju pulau karang dan kuliner lobster segar.\n\nAtraksi utama:\n- Jembatan gantung tradisional\n- Gondola kayu untuk menuju Pulau Timang\n- Wisata kuliner lobster\n\nTips kunjungan:\n- Gunakan alas kaki yang nyaman\n- Bawa uang tunai untuk menyewa gondola\n- Jangan lupa mencoba lobster segar di warung sekitar', 'images/timang.jpg', 'Adventure', 'Gunungkidul, Yogyakarta', '2024-12-19 11:50:55'),
+(12, 'Panorama Alam dengan Sentuhan Seni di Tebing Breksi', 'Tebing Breksi adalah destinasi wisata baru yang menggabungkan panorama alam dan seni ukir pada tebing batu kapur', 'Tebing Breksi terletak di Kabupaten Sleman, Yogyakarta. Tempat ini dulunya adalah lokasi penambangan batu kapur yang kemudian diubah menjadi destinasi wisata dengan tambahan ukiran-ukiran seni.\n\nFasilitas:\n- Spot foto Instagramable\n- Panggung seni outdoor\n- Warung makan dan kios oleh-oleh\n\nTips kunjungan:\n- Datang sore untuk menikmati sunset\n- Bawa kamera untuk foto-foto\n- Pakai pakaian nyaman', 'images/tebingbreksi.jpg', 'Nature', 'Sleman, Yogyakarta', '2024-12-19 11:50:55'),
+(13, 'Kaliurang: Wisata Alam dan Edukasi Gunung Merapi', 'Kaliurang adalah kawasan wisata di lereng Gunung Merapi yang menawarkan udara sejuk dan atraksi edukatif', 'Kaliurang terletak di Kabupaten Sleman, Yogyakarta. Kawasan ini merupakan tempat ideal untuk rekreasi keluarga dengan pemandangan alam pegunungan dan berbagai atraksi edukasi.\n\nAtraksi utama:\n- Museum Merapi\n- Gardu pandang Merapi\n- Taman rekreasi keluarga\n- Jeep tour lava Merapi\n\nFasilitas:\n- Penginapan keluarga\n- Restoran\n- Tempat bermain anak', 'images/kaliurang.jpg', 'Nature', 'Sleman, Yogyakarta', '2024-12-19 11:50:55');
+
+-- --------------------------------------------------------
+
+--
+-- Struktur dari tabel `bookings`
 --
 
 CREATE TABLE `bookings` (
@@ -43,7 +79,7 @@ CREATE TABLE `bookings` (
 -- --------------------------------------------------------
 
 --
--- Table structure for table `bookingstatus`
+-- Struktur dari tabel `bookingstatus`
 --
 
 CREATE TABLE `bookingstatus` (
@@ -51,7 +87,7 @@ CREATE TABLE `bookingstatus` (
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_unicode_ci;
 
 --
--- Dumping data for table `bookingstatus`
+-- Dumping data untuk tabel `bookingstatus`
 --
 
 INSERT INTO `bookingstatus` (`status`) VALUES
@@ -63,7 +99,7 @@ INSERT INTO `bookingstatus` (`status`) VALUES
 -- --------------------------------------------------------
 
 --
--- Table structure for table `business_profiles`
+-- Struktur dari tabel `business_profiles`
 --
 
 CREATE TABLE `business_profiles` (
@@ -79,7 +115,7 @@ CREATE TABLE `business_profiles` (
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_unicode_ci;
 
 --
--- Dumping data for table `business_profiles`
+-- Dumping data untuk tabel `business_profiles`
 --
 
 INSERT INTO `business_profiles` (`id`, `user_id`, `business_name`, `address`, `city`, `description`, `verification_status`, `document_url`, `created_at`) VALUES
@@ -91,7 +127,7 @@ INSERT INTO `business_profiles` (`id`, `user_id`, `business_name`, `address`, `c
 -- --------------------------------------------------------
 
 --
--- Table structure for table `places`
+-- Struktur dari tabel `places`
 --
 
 CREATE TABLE `places` (
@@ -110,7 +146,7 @@ CREATE TABLE `places` (
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_unicode_ci;
 
 --
--- Dumping data for table `places`
+-- Dumping data untuk tabel `places`
 --
 
 INSERT INTO `places` (`id`, `business_id`, `name`, `description`, `location`, `city`, `price`, `capacity`, `category`, `average_rating`, `created_at`, `updated_at`) VALUES
@@ -130,7 +166,7 @@ INSERT INTO `places` (`id`, `business_id`, `name`, `description`, `location`, `c
 -- --------------------------------------------------------
 
 --
--- Table structure for table `place_images`
+-- Struktur dari tabel `place_images`
 --
 
 CREATE TABLE `place_images` (
@@ -140,7 +176,7 @@ CREATE TABLE `place_images` (
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_unicode_ci;
 
 --
--- Dumping data for table `place_images`
+-- Dumping data untuk tabel `place_images`
 --
 
 INSERT INTO `place_images` (`id`, `place_id`, `image_url`) VALUES
@@ -160,7 +196,7 @@ INSERT INTO `place_images` (`id`, `place_id`, `image_url`) VALUES
 -- --------------------------------------------------------
 
 --
--- Table structure for table `reviews`
+-- Struktur dari tabel `reviews`
 --
 
 CREATE TABLE `reviews` (
@@ -171,12 +207,12 @@ CREATE TABLE `reviews` (
   `rating` int(11) NOT NULL,
   `comment` text DEFAULT NULL,
   `created_at` timestamp NOT NULL DEFAULT current_timestamp()
-) ;
+) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_general_ci;
 
 -- --------------------------------------------------------
 
 --
--- Table structure for table `tourism_statistics`
+-- Struktur dari tabel `tourism_statistics`
 --
 
 CREATE TABLE `tourism_statistics` (
@@ -195,7 +231,7 @@ CREATE TABLE `tourism_statistics` (
 -- --------------------------------------------------------
 
 --
--- Table structure for table `userrole`
+-- Struktur dari tabel `userrole`
 --
 
 CREATE TABLE `userrole` (
@@ -203,7 +239,7 @@ CREATE TABLE `userrole` (
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_unicode_ci;
 
 --
--- Dumping data for table `userrole`
+-- Dumping data untuk tabel `userrole`
 --
 
 INSERT INTO `userrole` (`role`) VALUES
@@ -214,7 +250,7 @@ INSERT INTO `userrole` (`role`) VALUES
 -- --------------------------------------------------------
 
 --
--- Table structure for table `users`
+-- Struktur dari tabel `users`
 --
 
 CREATE TABLE `users` (
@@ -229,7 +265,7 @@ CREATE TABLE `users` (
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_unicode_ci;
 
 --
--- Dumping data for table `users`
+-- Dumping data untuk tabel `users`
 --
 
 INSERT INTO `users` (`id`, `email`, `password`, `name`, `phone`, `role`, `created_at`, `updated_at`) VALUES
@@ -243,7 +279,13 @@ INSERT INTO `users` (`id`, `email`, `password`, `name`, `phone`, `role`, `create
 --
 
 --
--- Indexes for table `bookings`
+-- Indeks untuk tabel `articles`
+--
+ALTER TABLE `articles`
+  ADD PRIMARY KEY (`id`);
+
+--
+-- Indeks untuk tabel `bookings`
 --
 ALTER TABLE `bookings`
   ADD PRIMARY KEY (`id`),
@@ -252,34 +294,34 @@ ALTER TABLE `bookings`
   ADD KEY `idx_bookings_place` (`place_id`);
 
 --
--- Indexes for table `bookingstatus`
+-- Indeks untuk tabel `bookingstatus`
 --
 ALTER TABLE `bookingstatus`
   ADD PRIMARY KEY (`status`);
 
 --
--- Indexes for table `business_profiles`
+-- Indeks untuk tabel `business_profiles`
 --
 ALTER TABLE `business_profiles`
   ADD PRIMARY KEY (`id`),
   ADD UNIQUE KEY `user_id` (`user_id`);
 
 --
--- Indexes for table `places`
+-- Indeks untuk tabel `places`
 --
 ALTER TABLE `places`
   ADD PRIMARY KEY (`id`),
   ADD KEY `idx_places_business` (`business_id`);
 
 --
--- Indexes for table `place_images`
+-- Indeks untuk tabel `place_images`
 --
 ALTER TABLE `place_images`
   ADD PRIMARY KEY (`id`),
   ADD KEY `place_id` (`place_id`);
 
 --
--- Indexes for table `reviews`
+-- Indeks untuk tabel `reviews`
 --
 ALTER TABLE `reviews`
   ADD PRIMARY KEY (`id`),
@@ -288,20 +330,20 @@ ALTER TABLE `reviews`
   ADD KEY `idx_reviews_place` (`place_id`);
 
 --
--- Indexes for table `tourism_statistics`
+-- Indeks untuk tabel `tourism_statistics`
 --
 ALTER TABLE `tourism_statistics`
   ADD PRIMARY KEY (`id`),
   ADD KEY `idx_statistics_city_date` (`city`,`year`,`month`);
 
 --
--- Indexes for table `userrole`
+-- Indeks untuk tabel `userrole`
 --
 ALTER TABLE `userrole`
   ADD PRIMARY KEY (`role`);
 
 --
--- Indexes for table `users`
+-- Indeks untuk tabel `users`
 --
 ALTER TABLE `users`
   ADD PRIMARY KEY (`id`),
@@ -309,11 +351,21 @@ ALTER TABLE `users`
   ADD KEY `role` (`role`);
 
 --
--- Constraints for dumped tables
+-- AUTO_INCREMENT untuk tabel yang dibuang
 --
 
 --
--- Constraints for table `bookings`
+-- AUTO_INCREMENT untuk tabel `articles`
+--
+ALTER TABLE `articles`
+  MODIFY `id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=14;
+
+--
+-- Ketidakleluasaan untuk tabel pelimpahan (Dumped Tables)
+--
+
+--
+-- Ketidakleluasaan untuk tabel `bookings`
 --
 ALTER TABLE `bookings`
   ADD CONSTRAINT `bookings_ibfk_1` FOREIGN KEY (`user_id`) REFERENCES `users` (`id`),
@@ -321,36 +373,22 @@ ALTER TABLE `bookings`
   ADD CONSTRAINT `bookings_ibfk_3` FOREIGN KEY (`status`) REFERENCES `bookingstatus` (`status`);
 
 --
--- Constraints for table `business_profiles`
+-- Ketidakleluasaan untuk tabel `business_profiles`
 --
 ALTER TABLE `business_profiles`
   ADD CONSTRAINT `business_profiles_ibfk_1` FOREIGN KEY (`user_id`) REFERENCES `users` (`id`);
 
 --
--- Constraints for table `places`
+-- Ketidakleluasaan untuk tabel `places`
 --
 ALTER TABLE `places`
   ADD CONSTRAINT `places_ibfk_1` FOREIGN KEY (`business_id`) REFERENCES `business_profiles` (`id`);
 
 --
--- Constraints for table `place_images`
+-- Ketidakleluasaan untuk tabel `place_images`
 --
 ALTER TABLE `place_images`
   ADD CONSTRAINT `place_images_ibfk_1` FOREIGN KEY (`place_id`) REFERENCES `places` (`id`);
-
---
--- Constraints for table `reviews`
---
-ALTER TABLE `reviews`
-  ADD CONSTRAINT `reviews_ibfk_1` FOREIGN KEY (`user_id`) REFERENCES `users` (`id`),
-  ADD CONSTRAINT `reviews_ibfk_2` FOREIGN KEY (`place_id`) REFERENCES `places` (`id`),
-  ADD CONSTRAINT `reviews_ibfk_3` FOREIGN KEY (`booking_id`) REFERENCES `bookings` (`id`);
-
---
--- Constraints for table `users`
---
-ALTER TABLE `users`
-  ADD CONSTRAINT `users_ibfk_1` FOREIGN KEY (`role`) REFERENCES `userrole` (`role`);
 COMMIT;
 
 /*!40101 SET CHARACTER_SET_CLIENT=@OLD_CHARACTER_SET_CLIENT */;

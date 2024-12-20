@@ -1119,6 +1119,7 @@ $places = getAllPlaces();
               </div>
             </div>
 
+
             <?php foreach($places as $place): ?>
               <div role="listitem" class="w-dyn-item">
                 <div data-w-id="3aa9b968-98e2-906a-c7d1-034fdca8e2e9" class="blog-card">
@@ -1181,7 +1182,7 @@ $places = getAllPlaces();
               </div>
             <?php endforeach; ?>
 
-
+            
           </div>
 
 
@@ -1223,6 +1224,7 @@ $places = getAllPlaces();
                       <li class="carousel-item" style="--_index: 9; --_image-url: url('https://images.unsplash.com/photo-1700846968547-ace2dacd5e0b?q=80&w=2070&auto=format&fit=crop&ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D')"><a href="https://unsplash.com/de/fotos/eine-nahaufnahme-der-seite-eines-gebaudes-VvhIUx1lITA" target="_blank">Architecture Example 9</a></li>
                       <li class="carousel-item" style="--_index: 10; --_image-url: url('https://images.unsplash.com/photo-1700846978475-5f4dd936c00a?q=80&w=2070&auto=format&fit=crop&ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D')"><a href="https://unsplash.com/de/fotos/eine-wand-aus-metallquadraten-und-quadraten-a_XIDnN6C0Y" target="_blank">Architecture Example 10</a></li>
                       <li class="carousel-item" style="--_index: 11; --_image-url: url('https://images.unsplash.com/photo-1707788620837-cd3efcce3ceb?q=80&w=1974&auto=format&fit=crop&ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D')"><a href="https://unsplash.com/de/fotos/eine-nahaufnahme-einer-metallstruktur-mit-einem-himmelshintergrund-9u9t6gP8R-s" target="_blank">Architecture Example 11</a></li>
+
                       <li class="carousel-ground"></li>
 
                   </ul>
