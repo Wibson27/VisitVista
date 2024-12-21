@@ -120,7 +120,9 @@ $articles = getAllArticles();
         <!-- Navbar Main -->
         <div class="navbar-main">
           <!-- Logo -->
+          <a data-w-id="ac2971f4-6f26-e7be-f7cd-a20c97325007" href="/" class="w-inline-block">
           <div class="site-logo" style="font-size: 40px; font-weight: bold; color:rgb(255, 255, 255);">VisitVista</div>
+          </a>
 
           <!-- Navigation Menu -->
           <nav role="navigation" class="nav-menu-wrapper w-nav-menu">
@@ -146,14 +148,14 @@ $articles = getAllArticles();
                 </div>
                 <div class="absolute-hover-bottom"></div>
               </a>
-              <a href="../blog-2.php" data-w-id="279a1d22-4f80-d177-04f5-58c1a704eb82" class="nav-link-wrapper w-inline-block">
+              <a href="explore.php" data-w-id="279a1d22-4f80-d177-04f5-58c1a704eb82" class="nav-link-wrapper w-inline-block">
                 <div class="nav-link">
                   <div class="default-text">Explore</div>
                   <div class="default-text black-heading">Explore</div>
                 </div>
                 <div class="absolute-hover-bottom"></div>
               </a>
-              <a href="../portfolio-2.php" data-w-id="aeb1c1fc-3038-8a62-2af0-a4afc7395963" class="nav-link-wrapper w-inline-block">
+              <a href="portfolio-2.php" data-w-id="aeb1c1fc-3038-8a62-2af0-a4afc7395963" class="nav-link-wrapper w-inline-block">
                 <div class="nav-link">
                   <div class="default-text">Article</div>
                   <div class="default-text black-heading">Article</div>
@@ -566,7 +568,7 @@ $articles = getAllArticles();
             <div class="mask">
               <div class="nav-border"></div>
             </div>
-          </a><a data-w-id="ae4630f3-25c8-1af0-bf6f-a34696446e8b" href="blog-2.php" class="footer-link-wrapper w-inline-block">
+          </a><a data-w-id="ae4630f3-25c8-1af0-bf6f-a34696446e8b" href="/visitvista/explore.php" class="footer-link-wrapper w-inline-block">
             <div class="footer-link">
               <div class="text">Explore</div>
               <div class="text">Explore</div>

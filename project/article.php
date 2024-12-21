@@ -5,7 +5,7 @@ require_once __DIR__ . '/../functions/database_functions.php';
 $article_id = isset($_GET['id']) ? $_GET['id'] : null;
 
 if (!$article_id) {
-    header('Location: /Last/portfolio-2.php');
+    header('Location: /visistvista/portfolio-2.php');
     exit;
 }
 
@@ -13,7 +13,7 @@ if (!$article_id) {
 $article = getArticleById($article_id);
 
 if (!$article) {
-    header('Location: /Last/portfolio-2.php');
+    header('Location: /visitvista/portfolio-2.php');
     exit;
 }
 ?>
@@ -83,7 +83,9 @@ if (!$article) {
         <!-- Navbar Main -->
         <div class="navbar-main">
           <!-- Logo -->
+          <a data-w-id="ac2971f4-6f26-e7be-f7cd-a20c97325007" href="/" class="w-inline-block">
           <div class="site-logo" style="font-size: 40px; font-weight: bold; color:rgb(255, 255, 255);">VisitVista</div>
+          </a>
 
           <!-- Navigation Menu -->
           <nav role="navigation" class="nav-menu-wrapper w-nav-menu">
@@ -109,7 +111,7 @@ if (!$article) {
                 </div>
                 <div class="absolute-hover-bottom"></div>
               </a>
-              <a href="../blog-2.php" data-w-id="279a1d22-4f80-d177-04f5-58c1a704eb82" class="nav-link-wrapper w-inline-block">
+              <a href="../explore.php" data-w-id="279a1d22-4f80-d177-04f5-58c1a704eb82" class="nav-link-wrapper w-inline-block">
                 <div class="nav-link">
                   <div class="default-text">Explore</div>
                   <div class="default-text black-heading">Explore</div>
@@ -489,7 +491,7 @@ if (!$article) {
             <div class="mask">
               <div class="nav-border"></div>
             </div>
-          </a><a data-w-id="ae4630f3-25c8-1af0-bf6f-a34696446e8b" href="../blog-2.php" class="footer-link-wrapper w-inline-block">
+          </a><a data-w-id="ae4630f3-25c8-1af0-bf6f-a34696446e8b" href="../explore.php" class="footer-link-wrapper w-inline-block">
             <div class="footer-link">
               <div class="text">Explore</div>
               <div class="text">Explore</div>
