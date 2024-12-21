@@ -134,7 +134,7 @@ $articles = getAllArticles();
                 </div>
                 <div class="absolute-hover-bottom"></div>
               </a>
-              <a href="../about-us-1.php" data-w-id="783761a9-bb85-bb38-0e07-8475a4b307cb"class="nav-link-wrapper w-inline-block">
+              <a href="about-us-3.php" data-w-id="783761a9-bb85-bb38-0e07-8475a4b307cb"class="nav-link-wrapper w-inline-block">
                 <div class="nav-link">
                   <div class="default-text">About</div>
                   <div class="default-text black-heading">About</div>
@@ -552,7 +552,7 @@ $articles = getAllArticles();
             <div class="mask">
               <div class="nav-border"></div>
             </div>
-          </a><a data-w-id="ae4630f3-25c8-1af0-bf6f-a34696446e8b" href="about-us-1.php" class="footer-link-wrapper w-inline-block">
+          </a><a data-w-id="ae4630f3-25c8-1af0-bf6f-a34696446e8b" href="about-us-3.php" class="footer-link-wrapper w-inline-block">
             <div class="footer-link">
               <div class="text">About</div>
               <div class="text">About</div>

@@ -63,227 +63,43 @@
       <div class="w-layout-blockcontainer container nav-container w-container">
         <div class="navbar-main"><a data-w-id="ac2971f4-6f26-e7be-f7cd-a20c97325007" href="/"
             class="w-inline-block"><img src="images/agency-20logo.avif" loading="lazy" alt="" class="site-logo" /></a>
-          <nav role="navigation" class="nav-menu-wrapper w-nav-menu">
-            <div class="nav-menu-left-sidebar"><a href="/" data-w-id="783761a9-bb85-bb38-0e07-8475a4b307cb"
-                class="nav-link-wrapper w-inline-block">
+            <nav role="navigation" class="nav-menu-wrapper w-nav-menu">
+            <div class="nav-menu-left-sidebar">
+              <a href="/" data-w-id="783761a9-bb85-bb38-0e07-8475a4b307cb"class="nav-link-wrapper w-inline-block">
                 <div class="nav-link">
                   <div class="default-text">Home</div>
                   <div class="default-text black-heading">Home</div>
                 </div>
                 <div class="absolute-hover-bottom"></div>
-              </a><a href="/about-us-1" data-w-id="783761a9-bb85-bb38-0e07-8475a4b307cb"
-                class="nav-link-wrapper w-inline-block">
+              </a>
+              <a href="about-us-3.php" data-w-id="783761a9-bb85-bb38-0e07-8475a4b307cb"class="nav-link-wrapper w-inline-block">
                 <div class="nav-link">
                   <div class="default-text">About</div>
                   <div class="default-text black-heading">About</div>
                 </div>
                 <div class="absolute-hover-bottom"></div>
               </a>
-              <div data-delay="0" data-hover="true" class="nav-dropdown-wrapper w-dropdown">
-                <div data-w-id="983316c4-923a-8075-52d1-d1a1eb2cf7b2" class="nav-link-wrapper w-dropdown-toggle">
-                  <div class="nav-link">
-                    <div class="default-text">Pricing</div>
-                    <div class="default-text black-heading">Pricing</div>
-                  </div>
-                  <div class="nav-dropdown-icon">expand_more</div>
-                  <div class="absolute-hover-bottom"></div>
+              <a href="/pricing" data-w-id="983316c4-923a-8075-52d1-d1a1eb2cf7b2" class="nav-link-wrapper w-inline-block">
+                <div class="nav-link">
+                  <div class="default-text">Pricing</div>
+                  <div class="default-text black-heading">Pricing</div>
                 </div>
-                <nav class="nav-dropdown-contents w-dropdown-list">
-                  <div class="nav-dropdown-contents-body">
-                    <div class="nav-dropdown-padding">
-                      <div class="submenu-links-wrapper"><a href="/service-pricing"
-                          class="submenu-block w-inline-block">
-                          <div class="submenu-link">
-                            <div class="hover-divider"></div>
-                            <div>Pricing</div>
-                          </div>
-                        </a><a href="/membership-plans" class="submenu-block w-inline-block">
-                          <div class="submenu-link">
-                            <div class="hover-divider"></div>
-                            <div>Membership Plans</div>
-                          </div>
-                        </a><a href="/product/professional" class="submenu-block w-inline-block">
-                          <div class="submenu-link">
-                            <div class="hover-divider"></div>
-                            <div>Pricing Details</div>
-                          </div>
-                        </a></div>
-                    </div>
-                  </div>
-                </nav>
-              </div>
-              <div data-delay="0" data-hover="true" class="nav-dropdown-wrapper w-dropdown">
-                <div data-w-id="279a1d22-4f80-d177-04f5-58c1a704eb82" class="nav-link-wrapper w-dropdown-toggle">
-                  <div class="nav-link">
-                    <div class="default-text">Blogs</div>
-                    <div class="default-text black-heading">Blogs</div>
-                  </div>
-                  <div class="nav-dropdown-icon">expand_more</div>
-                  <div class="absolute-hover-bottom"></div>
+                <div class="absolute-hover-bottom"></div>
+              </a>
+              <a href="explore.php" data-w-id="279a1d22-4f80-d177-04f5-58c1a704eb82" class="nav-link-wrapper w-inline-block">
+                <div class="nav-link">
+                  <div class="default-text">Explore</div>
+                  <div class="default-text black-heading">Explore</div>
                 </div>
-                <nav class="nav-dropdown-contents w-dropdown-list">
-                  <div class="nav-dropdown-contents-body">
-                    <div class="nav-dropdown-padding">
-                      <div class="submenu-links-wrapper"><a href="/blog-1" class="submenu-block w-inline-block">
-                          <div class="submenu-link">
-                            <div class="hover-divider"></div>
-                            <div>Blog-1</div>
-                          </div>
-                        </a><a href="/blog-2" class="submenu-block w-inline-block">
-                          <div class="submenu-link">
-                            <div class="hover-divider"></div>
-                            <div>Blog-2</div>
-                          </div>
-                        </a><a href="/blog-3" class="submenu-block w-inline-block">
-                          <div class="submenu-link">
-                            <div class="hover-divider"></div>
-                            <div>Blog-3</div>
-                          </div>
-                        </a><a href="/post/agency-blog-post-1" class="submenu-block w-inline-block">
-                          <div class="submenu-link">
-                            <div class="hover-divider"></div>
-                            <div>Blog-Details</div>
-                          </div>
-                        </a></div>
-                    </div>
-                  </div>
-                </nav>
-              </div>
-              <div data-delay="0" data-hover="true" class="nav-dropdown-wrapper mega w-dropdown">
-                <div data-w-id="aeb1c1fc-3038-8a62-2af0-a4afc7395963" class="nav-link-wrapper w-dropdown-toggle">
-                  <div class="nav-link">
-                    <div class="default-text">Pages</div>
-                    <div class="default-text black-heading">Pages</div>
-                  </div>
-                  <div class="nav-dropdown-icon">expand_more</div>
-                  <div class="absolute-hover-bottom"></div>
+                <div class="absolute-hover-bottom"></div>
+              </a>
+              <a href="portfolio-2.php" data-w-id="aeb1c1fc-3038-8a62-2af0-a4afc7395963" class="nav-link-wrapper w-inline-block">
+                <div class="nav-link">
+                  <div class="default-text">Article</div>
+                  <div class="default-text black-heading">Article</div>
                 </div>
-                <nav class="nav-dropdown-contents mega-menu-wrapper w-dropdown-list">
-                  <div class="nav-dropdown-contents-body">
-                    <div class="nav-dropdown-padding">
-                      <div class="mb-25px">
-                        <div>PAGES</div>
-                      </div>
-                      <div class="nav-dropdown-links-block">
-                        <div class="submenu-links-wrapper"><a href="/" class="submenu-block w-inline-block">
-                            <div class="submenu-link">
-                              <div class="hover-divider"></div>
-                              <div>Home-1</div>
-                            </div>
-                          </a><a href="/home-2" class="submenu-block w-inline-block">
-                            <div class="submenu-link">
-                              <div class="hover-divider"></div>
-                              <div>Home-2</div>
-                            </div>
-                          </a><a href="/home-3" class="submenu-block w-inline-block">
-                            <div class="submenu-link">
-                              <div class="hover-divider"></div>
-                              <div>Home-3</div>
-                            </div>
-                          </a></div>
-                        <div class="submenu-links-wrapper"><a href="/about-us-1" class="submenu-block w-inline-block">
-                            <div class="submenu-link">
-                              <div class="hover-divider"></div>
-                              <div>About-1</div>
-                            </div>
-                          </a><a href="/about-us-2" class="submenu-block w-inline-block">
-                            <div class="submenu-link">
-                              <div class="hover-divider"></div>
-                              <div>About-2</div>
-                            </div>
-                          </a><a href="/about-us-3" aria-current="page" class="submenu-block w-inline-block w--current">
-                            <div class="submenu-link">
-                              <div class="hover-divider"></div>
-                              <div>About-3</div>
-                            </div>
-                          </a></div>
-                        <div id="w-node-_5ad55862-bde2-feec-393d-a8f374fc56c5-1dffdf68" class="submenu-links-wrapper"><a
-                            href="/contact-1" class="submenu-block w-inline-block">
-                            <div class="submenu-link">
-                              <div class="hover-divider"></div>
-                              <div>Contact-1</div>
-                            </div>
-                          </a><a href="/contact-2" class="submenu-block w-inline-block">
-                            <div class="submenu-link">
-                              <div class="hover-divider"></div>
-                              <div>Contact-2</div>
-                            </div>
-                          </a><a href="/contact-3" class="submenu-block w-inline-block">
-                            <div class="submenu-link">
-                              <div class="hover-divider"></div>
-                              <div>Contact-3</div>
-                            </div>
-                          </a></div>
-                        <div class="submenu-links-wrapper"><a href="/services-1" class="submenu-block w-inline-block">
-                            <div class="submenu-link">
-                              <div class="hover-divider"></div>
-                              <div>Services-1</div>
-                            </div>
-                          </a><a href="/services-2" class="submenu-block w-inline-block">
-                            <div class="submenu-link">
-                              <div class="hover-divider"></div>
-                              <div>Services-2</div>
-                            </div>
-                          </a><a href="/services-3" class="submenu-block w-inline-block">
-                            <div class="submenu-link">
-                              <div class="hover-divider"></div>
-                              <div>Services-3</div>
-                            </div>
-                          </a><a href="/services/marketing-copywriting" class="submenu-block w-inline-block">
-                            <div class="submenu-link">
-                              <div class="hover-divider"></div>
-                              <div>Services Details</div>
-                            </div>
-                          </a></div>
-                        <div id="w-node-_5e3d6e34-1a91-a483-780b-5b7bf334d75a-1dffdf68" class="submenu-links-wrapper"><a
-                            href="/blog-1" class="submenu-block w-inline-block">
-                            <div class="submenu-link">
-                              <div class="hover-divider"></div>
-                              <div>Blogs-1</div>
-                            </div>
-                          </a><a href="/blog-2" class="submenu-block w-inline-block">
-                            <div class="submenu-link">
-                              <div class="hover-divider"></div>
-                              <div>Blogs-2</div>
-                            </div>
-                          </a><a href="/blog-3" class="submenu-block w-inline-block">
-                            <div class="submenu-link">
-                              <div class="hover-divider"></div>
-                              <div>Blogs-3</div>
-                            </div>
-                          </a><a href="/post/agency-blog-post-1" class="submenu-block w-inline-block">
-                            <div class="submenu-link">
-                              <div class="hover-divider"></div>
-                              <div>Blog Details</div>
-                            </div>
-                          </a></div>
-                        <div id="w-node-_3d9ebc99-9390-4bff-6136-683b48b42d8b-1dffdf68" class="submenu-links-wrapper"><a
-                            href="/portfolio-1" class="submenu-block w-inline-block">
-                            <div class="submenu-link">
-                              <div class="hover-divider"></div>
-                              <div>Portfolio-1</div>
-                            </div>
-                          </a><a href="/portfolio-2" class="submenu-block w-inline-block">
-                            <div class="submenu-link">
-                              <div class="hover-divider"></div>
-                              <div>Portfolio-2</div>
-                            </div>
-                          </a><a href="/portfolio-3" class="submenu-block w-inline-block">
-                            <div class="submenu-link">
-                              <div class="hover-divider"></div>
-                              <div>Portfolio-3</div>
-                            </div>
-                          </a><a href="/project/social-media-project" class="submenu-block w-inline-block">
-                            <div class="submenu-link">
-                              <div class="hover-divider"></div>
-                              <div>Portfolio Details</div>
-                            </div>
-                          </a></div>
-                      </div>
-                    </div>
-                  </div>
-                </nav>
-              </div>
+                <div class="absolute-hover-bottom"></div>
+              </a>
             </div>
             <div class="close-navbar-icon w-nav-button">
               <div class="close-icon-rotate-white">close</div>
@@ -649,7 +465,7 @@
               <div class="gradient-color-initial-90"></div>
             </div>
             <div data-w-id="f1a75d16-09b6-443b-a25b-8f49522648ba" class="text-merge-title">
-              <h2 class="heading">Featured in Press</h2>
+              <h2 class="heading">VisitVista</h2>
               <div class="absolute-style-text"></div>
             </div>
           </div>
@@ -682,13 +498,11 @@
               <div>About Us</div>
             </div>
             <div class="mask">
-              <h2 class="heading">Your trusted partner in unforgettable moments</h2>
+              <h2 class="heading">Analitik Data untuk Pariwisata yang Lebih Baik</h2>
             </div>
             <div class="mt-20px-mb-45px">
               <div class="mask">
-                <p>At Nexoy, we are passionate about building exceptional websites that drive success. As a
-                  forward-thinking web development agency, we specialize in creating innovative digital solutions
-                  tailored to our clients&#x27; needs.</p>
+                <p>VisitVista adalah solusi berbasis data untuk meningkatkan pengalaman wisata. Dengan analitik prediktif dan wawasan berbasis data, kami membantu pemilik bisnis wisata memahami dan meningkatkan layanan mereka.</p>
               </div>
             </div><a href="#" data-w-id="b6951e6b-60e9-44a3-42d0-c76a6d52a492" class="nx-button-wrapper w-inline-block">
               <div class="button">
@@ -707,16 +521,16 @@
       <div class="container">
         <div data-w-id="9dd1368f-b22a-9577-4eeb-b7955fb8a101" class="heading-color-change-on-scroll">
           <div class="mask">
-            <h3 class="color-transition-text">We are passionate innovators, dedicated to</h3>
+            <h3 class="color-transition-text">We are passionate innovators, mengubah data</h3>
             <div class="text-overlay first-line"></div>
           </div>
           <div class="mask">
             <div class="text-overlay second-line"></div>
-            <h3 class="color-transition-text second-line">transforming ideas into impactful solutions. </h3>
+            <h3 class="color-transition-text second-line">menjadi solusi untuk pariwisata. </h3>
           </div>
           <div class="mask">
             <div class="text-overlay third-line"></div>
-            <h3 class="color-transition-text third-line">we help brands thrive in a dynamic market.</h3>
+            <h3 class="color-transition-text third-line">kami membantu destinasi wisata tumbuh berdasarkan wawasan pengunjung.</h3>
           </div>
         </div>
         <div class="_3-column-grid-middle-big">
@@ -829,7 +643,7 @@
               <div>Why Choose Us</div>
             </div>
             <div data-w-id="31205a3c-7929-4802-de05-79618652852f" class="text-merge-title">
-              <h2 class="heading">Crafting Creative Solutions for Modern Brands</h2>
+              <h2 class="heading">solusi berbasis data, wawasan pengunjung, dan strategi untuk meningkatkan pengalaman wisata.</h2>
               <div class="absolute-style-text"></div>
             </div>
           </div>
@@ -1252,72 +1066,64 @@
             <div role="listitem" class="w-dyn-item">
               <div id="w-node-_068beef7-fc07-7b79-951c-001bc5465e2f-c5465e2f"
                 data-w-id="068beef7-fc07-7b79-951c-001bc5465e2f" class="team-card-overlay-style">
-                <div class="w-layout-grid socials-links-wrapper-absolute"><a
-                    id="w-node-_068beef7-fc07-7b79-951c-001bc5465e31-c5465e2f" href="https://facebook.com/chrislee"
-                    class="social-links-rounded"></a><a id="w-node-_068beef7-fc07-7b79-951c-001bc5465e33-c5465e2f"
-                    href="https://instagram.com/chrislee" class="social-links-rounded"></a><a
-                    id="w-node-_068beef7-fc07-7b79-951c-001bc5465e35-c5465e2f" href="https://twitter.com/chrislee"
-                    class="social-links-rounded"></a></div>
+                <div class="w-layout-grid socials-links-wrapper-absolute">
+                  <a id="w-node-_068beef7-fc07-7b79-951c-001bc5465e33-c5465e2f"
+                    href="https://instagram.com/rifqiwbsno" class="social-links-rounded"></a>
+                </div>
                 <div class="thumbnail-wrapper-580px-height"><img src="images/13487.avif" alt=""
                     sizes="(max-width: 479px) 100vw, (max-width: 767px) 46vw, (max-width: 991px) 47vw, 22vw"
                     srcset="images/13487-p-500.avif 500w, images/13487.avif 768w" class="portrait-full" /></div><a
                   href="/team/sarah-leah" class="team-member-card-absolute w-inline-block">
-                  <h3 class="_22px-text">Sarah Leah</h3>
-                  <p class="_16px-500-primary">Branding Manager</p>
+                  <h3 class="_22px-text">Rifqi Wibisono</h3>
+                  <p class="_16px-500-primary">Project Manager</p>
                 </a><a href="/team/sarah-leah" class="black-overlay w-inline-block"></a>
               </div>
             </div>
             <div role="listitem" class="w-dyn-item">
               <div id="w-node-_068beef7-fc07-7b79-951c-001bc5465e2f-c5465e2f"
                 data-w-id="068beef7-fc07-7b79-951c-001bc5465e2f" class="team-card-overlay-style">
-                <div class="w-layout-grid socials-links-wrapper-absolute"><a
-                    id="w-node-_068beef7-fc07-7b79-951c-001bc5465e31-c5465e2f" href="https://facebook.com/johndoe"
-                    class="social-links-rounded"></a><a id="w-node-_068beef7-fc07-7b79-951c-001bc5465e33-c5465e2f"
-                    href="https://instagram.com/johndoe" class="social-links-rounded"></a><a
-                    id="w-node-_068beef7-fc07-7b79-951c-001bc5465e35-c5465e2f" href="https://twitter.com/johndoe"
-                    class="social-links-rounded"></a></div>
+                <div class="w-layout-grid socials-links-wrapper-absolute">
+                  <a id="w-node-_068beef7-fc07-7b79-951c-001bc5465e33-c5465e2f"
+                    href="https://instagram.com/lintanglangitan" class="social-links-rounded"></a>
+                </div>
                 <div class="thumbnail-wrapper-580px-height"><img src="images/303.avif" alt=""
                     sizes="(max-width: 479px) 100vw, (max-width: 767px) 46vw, (max-width: 991px) 47vw, 22vw"
                     srcset="images/303-p-500.avif 500w, images/303.avif 1000w" class="portrait-full" /></div><a
                   href="/team/john-doe" class="team-member-card-absolute w-inline-block">
-                  <h3 class="_22px-text">John Doe</h3>
-                  <p class="_16px-500-primary">Project Manager</p>
+                  <h3 class="_22px-text">Cahya Lintang Ayu Langitan</h3>
+                  <p class="_16px-500-primary">-</p>
                 </a><a href="/team/john-doe" class="black-overlay w-inline-block"></a>
               </div>
             </div>
             <div role="listitem" class="w-dyn-item">
               <div id="w-node-_068beef7-fc07-7b79-951c-001bc5465e2f-c5465e2f"
                 data-w-id="068beef7-fc07-7b79-951c-001bc5465e2f" class="team-card-overlay-style">
-                <div class="w-layout-grid socials-links-wrapper-absolute"><a
-                    id="w-node-_068beef7-fc07-7b79-951c-001bc5465e31-c5465e2f" href="https://facebook.com/janesmith"
-                    class="social-links-rounded"></a><a id="w-node-_068beef7-fc07-7b79-951c-001bc5465e33-c5465e2f"
-                    href="https://instagram.com/janesmith" class="social-links-rounded"></a><a
-                    id="w-node-_068beef7-fc07-7b79-951c-001bc5465e35-c5465e2f" href="https://twitter.com/janesmith"
-                    class="social-links-rounded"></a></div>
+                <div class="w-layout-grid socials-links-wrapper-absolute">
+                  <a id="w-node-_068beef7-fc07-7b79-951c-001bc5465e33-c5465e2f"
+                    href="https://instagram.com/nfllqid" class="social-links-rounded"></a>
+                </div>
                 <div class="thumbnail-wrapper-580px-height"><img src="images/2148493050-1.avif" alt=""
                     sizes="(max-width: 479px) 100vw, (max-width: 767px) 46vw, (max-width: 991px) 47vw, 22vw"
                     srcset="images/2148493050-p-500-1.avif 500w, images/2148493050-1.avif 1000w"
                     class="portrait-full" /></div><a href="/team/jane-smith"
                   class="team-member-card-absolute w-inline-block">
-                  <h3 class="_22px-text">Jane Smith</h3>
-                  <p class="_16px-500-primary">Lead Designer</p>
+                  <h3 class="_22px-text">Naufalqi Dwiskara</h3>
+                  <p class="_16px-500-primary">-</p>
                 </a><a href="/team/jane-smith" class="black-overlay w-inline-block"></a>
               </div>
             </div>
             <div role="listitem" class="w-dyn-item">
               <div id="w-node-_068beef7-fc07-7b79-951c-001bc5465e2f-c5465e2f"
                 data-w-id="068beef7-fc07-7b79-951c-001bc5465e2f" class="team-card-overlay-style">
-                <div class="w-layout-grid socials-links-wrapper-absolute"><a
-                    id="w-node-_068beef7-fc07-7b79-951c-001bc5465e31-c5465e2f" href="https://facebook.com/markjohnson"
-                    class="social-links-rounded"></a><a id="w-node-_068beef7-fc07-7b79-951c-001bc5465e33-c5465e2f"
-                    href="https://instagram.com/markjohnson" class="social-links-rounded"></a><a
-                    id="w-node-_068beef7-fc07-7b79-951c-001bc5465e35-c5465e2f" href="https://twitter.com/markjohnson"
-                    class="social-links-rounded"></a></div>
+                <div class="w-layout-grid socials-links-wrapper-absolute">
+                  <a id="w-node-_068beef7-fc07-7b79-951c-001bc5465e33-c5465e2f"
+                    href="https://instagram.com" class="social-links-rounded"></a>
+                </div>
                 <div class="thumbnail-wrapper-580px-height"><img src="images/15569-1.avif" alt=""
                     class="portrait-full" /></div><a href="/team/mark-johnson"
                   class="team-member-card-absolute w-inline-block">
-                  <h3 class="_22px-text">Mark Johnson</h3>
-                  <p class="_16px-500-primary">Content Strategist</p>
+                  <h3 class="_22px-text">Muhammad Ibnu R.</h3>
+                  <p class="_16px-500-primary">-</p>
                 </a><a href="/team/mark-johnson" class="black-overlay w-inline-block"></a>
               </div>
             </div>
@@ -1326,80 +1132,67 @@
       </div>
     </section>
     <footer class="footer">
-      <div class="container">
-        <div data-w-id="3447bad0-4c97-caf6-2cc4-1b7d3321ffb7" class="footer-container">
-          <div class="footer-block">
-            <div><img width="70" loading="lazy" alt="" src="images/agency-20logo.avif" class="site-logo" /></div>
-            <div class="margin-bottom-23px">
-              <p class="footer-text">Ready to elevate your online presence? Contact us today to discuss your project and
-                discover how we can bring your vision to life.</p>
-            </div>
-            <div class="horizontal-left-center-11px-gap"><img src="images/frame.avif" loading="lazy" alt=""
-                class="image-24px" />
-              <p class="_16px-text">Copyright © Agency | Designed by Nexoy</p>
-            </div>
-          </div>
-          <div class="footer-block end">
-            <div class="link-list"><a data-w-id="ae4630f3-25c8-1af0-bf6f-a34696446e8b" href="/"
-                class="footer-link-wrapper w-inline-block">
-                <div class="footer-link">
-                  <div class="text">Home</div>
-                  <div class="text">Home</div>
-                </div>
-                <div class="mask">
-                  <div class="nav-border"></div>
-                </div>
-              </a><a data-w-id="ae4630f3-25c8-1af0-bf6f-a34696446e8b" href="/about-us-1"
-                class="footer-link-wrapper w-inline-block">
-                <div class="footer-link">
-                  <div class="text">About</div>
-                  <div class="text">About</div>
-                </div>
-                <div class="mask">
-                  <div class="nav-border"></div>
-                </div>
-              </a><a data-w-id="ae4630f3-25c8-1af0-bf6f-a34696446e8b" href="/portfolio-1"
-                class="footer-link-wrapper w-inline-block">
-                <div class="footer-link">
-                  <div class="text">Works</div>
-                  <div class="text">Works</div>
-                </div>
-                <div class="mask">
-                  <div class="nav-border"></div>
-                </div>
-              </a><a data-w-id="ae4630f3-25c8-1af0-bf6f-a34696446e8b" href="/utility/license"
-                class="footer-link-wrapper w-inline-block">
-                <div class="footer-link">
-                  <div class="text">Licensing</div>
-                  <div class="text">Licensing</div>
-                </div>
-                <div class="mask">
-                  <div class="nav-border"></div>
-                </div>
-              </a></div>
-            <div class="social-icons-container"><a href="http://instagram.com" target="_blank"
-                class="social-icon-wrapper w-inline-block"><img src="images/group-2027181.png" loading="lazy" alt=""
-                  class="footer-icon" /></a><a href="http://linkedin.com" target="_blank"
-                class="social-icon-wrapper w-inline-block"><img src="images/group-2027180.png" loading="lazy" alt=""
-                  class="footer-icon" /></a><a href="http://tiktok.com" class="social-icon-wrapper w-inline-block"><img
-                  src="images/vector-20-1-.png" loading="lazy" alt="" class="footer-icon" /></a><a
-                href="http://dribble.com" target="_blank" class="social-icon-wrapper w-inline-block"><img
-                  src="images/vector.avif" loading="lazy" alt="" class="footer-icon" /></a></div>
-          </div>
+  <div class="container">
+    <div data-w-id="3447bad0-4c97-caf6-2cc4-1b7d3321ffb7" class="footer-container">
+      <div class="footer-block">
+        <div class="site-logo" style="font-size: 35px; font-weight: bold; color:rgb(255, 255, 255);">VisitVista</div>
+        <div class="margin-bottom-23px">
+          <p class="footer-text">Daftar sekarang dan optimalkan pengalaman wisata anda!</p>
+        </div>
+        <div class="horizontal-left-center-11px-gap"><img src="../images/frame.avif" loading="lazy" alt="" class="image-24px" />
+          <p class="_16px-text">Copyright © VisitVista by ExploreX</p>
         </div>
       </div>
-      <div data-w-id="9fe381cd-c836-00c2-b807-19331181b79b" class="site-line-wrapper">
-        <div class="line">
-          <div class="line-infinity _1"></div>
-        </div>
-        <div class="line">
-          <div class="line-infinity _2"></div>
-        </div>
-        <div class="line _3">
-          <div class="line-infinity _3"></div>
-        </div>
+      <div class="footer-block end">
+        <div class="link-list"><a data-w-id="ae4630f3-25c8-1af0-bf6f-a34696446e8b" href="/" class="footer-link-wrapper w-inline-block">
+            <div class="footer-link">
+              <div class="text">Home</div>
+              <div class="text">Home</div>
+            </div>
+            <div class="mask">
+              <div class="nav-border"></div>
+            </div>
+          </a><a data-w-id="ae4630f3-25c8-1af0-bf6f-a34696446e8b" href="about-us-3.php" class="footer-link-wrapper w-inline-block">
+            <div class="footer-link">
+              <div class="text">About</div>
+              <div class="text">About</div>
+            </div>
+            <div class="mask">
+              <div class="nav-border"></div>
+            </div>
+          </a><a data-w-id="ae4630f3-25c8-1af0-bf6f-a34696446e8b" href="/visitvista/portfolio-2.php" class="footer-link-wrapper w-inline-block">
+            <div class="footer-link">
+              <div class="text">Article</div>
+              <div class="text">Article</div>
+            </div>
+            <div class="mask">
+              <div class="nav-border"></div>
+            </div>
+          </a><a data-w-id="ae4630f3-25c8-1af0-bf6f-a34696446e8b" href="/visitvista/explore.php" class="footer-link-wrapper w-inline-block">
+            <div class="footer-link">
+              <div class="text">Explore</div>
+              <div class="text">Explore</div>
+            </div>
+            <div class="mask">
+              <div class="nav-border"></div>
+            </div>
+          </a></div>
+        <div class="social-icons-container"><a href="http://instagram.com" target="_blank" class="social-icon-wrapper w-inline-block"><img src="../images/group-2027181.png" loading="lazy" alt="" class="footer-icon" /></a><a href="http://linkedin.com" target="_blank" class="social-icon-wrapper w-inline-block"><img src="../images/group-2027180.png" loading="lazy" alt="" class="footer-icon" /></a><a href="http://tiktok.com" class="social-icon-wrapper w-inline-block"><img src="../images/vector-20-1-.png" loading="lazy" alt="" class="footer-icon" /></a><a href="http://dribble.com" target="_blank" class="social-icon-wrapper w-inline-block"><img src="../images/vector.avif" loading="lazy" alt="" class="footer-icon" /></a></div>
       </div>
-    </footer>
+    </div>
+  </div>
+  <div data-w-id="9fe381cd-c836-00c2-b807-19331181b79b" class="site-line-wrapper">
+    <div class="line">
+      <div class="line-infinity _1"></div>
+    </div>
+    <div class="line">
+      <div class="line-infinity _2"></div>
+    </div>
+    <div class="line _3">
+      <div class="line-infinity _3"></div>
+    </div>
+  </div>
+</footer>
     <div class="cursor-mouse-wrapper">
       <div class="main-cursor">
         <div class="cursor-mouse-pointer">
