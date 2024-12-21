@@ -302,6 +302,98 @@ function getAllPlacesWithCategories() {
     }
 }
 
+// Data tempat wisata untuk suggestions
+function getPlacesSuggestions() {
+    return [
+        "Borobudur Temple",
+        "Mount Bromo", 
+        "Bali Beach",
+        "Tana Toraja",
+        "Komodo Island",
+        "Lake Toba",
+        "Prambanan Temple",
+        "Raja Ampat"
+    ];
+}
+
+// Function untuk mencari suggestions
+function searchSuggestions($query) {
+    if (strlen($query) < 2) {
+        return [];
+    }
+    
+    $places = getPlacesSuggestions();
+    return array_filter($places, function($place) use ($query) {
+        return stripos($place, $query) !== false;
+    });
+}
+
+// Fungsi untuk mendapatkan script JavaScript
+function getSearchScripts() {
+    return <<<HTML
+    <script>
+    const places = [
+        "Borobudur Temple",
+        "Mount Bromo",
+        "Bali Beach",
+        "Tana Toraja",
+        "Komodo Island",
+        "Lake Toba",
+        "Prambanan Temple",
+        "Raja Ampat"
+    ];
+
+    function showAllSuggestions() {
+        const suggestionsDiv = document.getElementById('suggestions');
+        suggestionsDiv.innerHTML = places
+            .map(place => 
+                '<div class="suggestion-item">' + 
+                    place +
+                '</div>'
+            )
+            .join('');
+        suggestionsDiv.style.display = 'block';
+    }
+
+    function filterSuggestions(query) {
+        if (!query) {
+            showAllSuggestions();
+            return;
+        }
+
+        const suggestionsDiv = document.getElementById('suggestions');
+        const filteredPlaces = places.filter(place => 
+            place.toLowerCase().includes(query.toLowerCase())
+        );
+
+        if (filteredPlaces.length > 0) {
+            suggestionsDiv.innerHTML = filteredPlaces
+                .map(place => 
+                    '<div class="suggestion-item">' + 
+                        place +
+                    '</div>'
+                )
+                .join('');
+            suggestionsDiv.style.display = 'block';
+        } else {
+            suggestionsDiv.innerHTML = 
+                '<div class="suggestion-item">' +
+                    'No results found' +
+                '</div>';
+            suggestionsDiv.style.display = 'block';
+        }
+    }
+
+    // Sembunyikan suggestions saat klik di luar
+    document.addEventListener('click', function(e) {
+        if (!e.target.closest('.search-input-wrapper')) {
+            document.getElementById('suggestions').style.display = 'none';
+        }
+    });
+    </script>
+HTML;
+}
+
 // Example usage in your pages:
 /*
 // In your places.php:

@@ -1,5 +1,5 @@
 <?php
-require_once __DIR__ . '/functions/database_functions.php';
+require_once 'functions/database_functions.php';
 error_reporting(E_ALL);
 ini_set('display_errors', 1);
 
@@ -76,198 +76,44 @@ $places = getAllPlaces();
             class="w-inline-block">
             <div class="site-logo" style="font-size: 40px; font-weight: bold; color:rgb(255, 255, 255);">VisitVista</div>
           </a>
+          <!-- Navigation Menu -->
           <nav role="navigation" class="nav-menu-wrapper w-nav-menu">
-            <div class="nav-menu-left-sidebar"><a href="/" data-w-id="783761a9-bb85-bb38-0e07-8475a4b307cb"
-                class="nav-link-wrapper w-inline-block">
+            <div class="nav-menu-left-sidebar">
+              <a href="/" data-w-id="783761a9-bb85-bb38-0e07-8475a4b307cb" class="nav-link-wrapper w-inline-block">
                 <div class="nav-link">
                   <div class="default-text">Home</div>
                   <div class="default-text black-heading">Home</div>
                 </div>
                 <div class="absolute-hover-bottom"></div>
-              </a><a href="/about-us-1" data-w-id="783761a9-bb85-bb38-0e07-8475a4b307cb"
-                class="nav-link-wrapper w-inline-block">
+              </a>
+              <a href="../about-us-1.php" data-w-id="783761a9-bb85-bb38-0e07-8475a4b307cb" class="nav-link-wrapper w-inline-block">
                 <div class="nav-link">
                   <div class="default-text">About</div>
                   <div class="default-text black-heading">About</div>
                 </div>
                 <div class="absolute-hover-bottom"></div>
               </a>
-              <div data-delay="0" data-hover="true" class="nav-dropdown-wrapper w-dropdown">
-                <div data-w-id="983316c4-923a-8075-52d1-d1a1eb2cf7b2" class="nav-link-wrapper w-dropdown-toggle">
-                  <div class="nav-link">
-                    <div class="default-text">Pricing</div>
-                    <div class="default-text black-heading">Pricing</div>
-                  </div>
-                  <div class="nav-dropdown-icon">expand_more</div>
-                  <div class="absolute-hover-bottom"></div>
+              <a href="/pricing" data-w-id="983316c4-923a-8075-52d1-d1a1eb2cf7b2" class="nav-link-wrapper w-inline-block">
+                <div class="nav-link">
+                  <div class="default-text">Pricing</div>
+                  <div class="default-text black-heading">Pricing</div>
                 </div>
-                <nav class="nav-dropdown-contents w-dropdown-list">
-                  <div class="nav-dropdown-contents-body">
-                    <div class="nav-dropdown-padding">
-                      <div class="submenu-links-wrapper"><a href="/service-pricing"
-                          class="submenu-block w-inline-block">
-                          <div class="submenu-link">
-                            <div class="hover-divider"></div>
-                            <div>Pricing</div>
-                          </div>
-                        </a><a href="/membership-plans" class="submenu-block w-inline-block">
-                          <div class="submenu-link">
-                            <div class="hover-divider"></div>
-                            <div>Membership Plans</div>
-                          </div>
-                        </a><a href="/product/professional" class="submenu-block w-inline-block">
-                          <div class="submenu-link">
-                            <div class="hover-divider"></div>
-                            <div>Pricing Details</div>
-                          </div>
-                        </a></div>
-                    </div>
-                  </div>
-                </nav>
-              </div>
-              <div data-delay="0" data-hover="true" class="nav-dropdown-wrapper w-dropdown">
-                <div data-w-id="279a1d22-4f80-d177-04f5-58c1a704eb82" class="nav-link-wrapper w-dropdown-toggle">
-                  <div class="nav-link">
-                    <div class="default-text">Explore</div>
-                    <div class="default-text black-heading">Explore</div>
-                  </div>
-                  <div class="nav-dropdown-icon">expand_more</div>
-                  <div class="absolute-hover-bottom"></div>
+                <div class="absolute-hover-bottom"></div>
+              </a>
+              <a href="explore.php" data-w-id="279a1d22-4f80-d177-04f5-58c1a704eb82" class="nav-link-wrapper w-inline-block">
+                <div class="nav-link">
+                  <div class="default-text">Explore</div>
+                  <div class="default-text black-heading">Explore</div>
                 </div>
-                <nav class="nav-dropdown-contents w-dropdown-list">
-                  <div class="nav-dropdown-contents-body">
-                    <div class="nav-dropdown-padding">
-                      <div class="submenu-links-wrapper"><a href="explore.php" aria-current="page" class="submenu-block w-inline-block w--current">
-                          <div class="submenu-link">
-                            <div class="hover-divider"></div>
-                            <div>Explore</div>
-                          </div>
-                        </a></div>
-                    </div>
-                  </div>
-                </nav>
-              </div>
-              <div data-delay="0" data-hover="true" class="nav-dropdown-wrapper mega w-dropdown">
-                <div data-w-id="aeb1c1fc-3038-8a62-2af0-a4afc7395963" class="nav-link-wrapper w-dropdown-toggle">
-                  <div class="nav-link">
-                    <div class="default-text">Article</div>
-                    <div class="default-text black-heading">Article</div>
-                  </div>
-                  <div class="nav-dropdown-icon">expand_more</div>
-                  <div class="absolute-hover-bottom"></div>
+                <div class="absolute-hover-bottom"></div>
+              </a>
+              <a href="portfolio-2.php" data-w-id="aeb1c1fc-3038-8a62-2af0-a4afc7395963" class="nav-link-wrapper w-inline-block">
+                <div class="nav-link">
+                  <div class="default-text">Article</div>
+                  <div class="default-text black-heading">Article</div>
                 </div>
-                <nav class="nav-dropdown-contents mega-menu-wrapper w-dropdown-list">
-                  <div class="nav-dropdown-contents-body">
-                    <div class="nav-dropdown-padding">
-                      <div class="mb-25px">
-                        <div>Article</div>
-                      </div>
-                      <div class="nav-dropdown-links-block">
-                        <div class="submenu-links-wrapper"><a href="/" class="submenu-block w-inline-block">
-                            <div class="submenu-link">
-                              <div class="hover-divider"></div>
-                              <div>Home-1</div>
-                            </div>
-                          </a><a href="/home-2" class="submenu-block w-inline-block">
-                            <div class="submenu-link">
-                              <div class="hover-divider"></div>
-                              <div>Home-2</div>
-                            </div>
-                          </a><a href="/home-3" class="submenu-block w-inline-block">
-                            <div class="submenu-link">
-                              <div class="hover-divider"></div>
-                              <div>Home-3</div>
-                            </div>
-                          </a></div>
-                        <div class="submenu-links-wrapper"><a href="/about-us-1" class="submenu-block w-inline-block">
-                            <div class="submenu-link">
-                              <div class="hover-divider"></div>
-                              <div>About-1</div>
-                            </div>
-                          </a><a href="/about-us-2" class="submenu-block w-inline-block">
-                            <div class="submenu-link">
-                              <div class="hover-divider"></div>
-                              <div>About-2</div>
-                            </div>
-                          </a><a href="/about-us-3" class="submenu-block w-inline-block">
-                            <div class="submenu-link">
-                              <div class="hover-divider"></div>
-                              <div>About-3</div>
-                            </div>
-                          </a></div>
-                        <div id="w-node-_5ad55862-bde2-feec-393d-a8f374fc56c5-1dffdf68" class="submenu-links-wrapper"><a
-                            href="/contact-1" class="submenu-block w-inline-block">
-                            <div class="submenu-link">
-                              <div class="hover-divider"></div>
-                              <div>Contact-1</div>
-                            </div>
-                          </a><a href="/contact-2" class="submenu-block w-inline-block">
-                            <div class="submenu-link">
-                              <div class="hover-divider"></div>
-                              <div>Contact-2</div>
-                            </div>
-                          </a><a href="/contact-3" class="submenu-block w-inline-block">
-                            <div class="submenu-link">
-                              <div class="hover-divider"></div>
-                              <div>Contact-3</div>
-                            </div>
-                          </a></div>
-                        <div class="submenu-links-wrapper"><a href="/services-1" class="submenu-block w-inline-block">
-                            <div class="submenu-link">
-                              <div class="hover-divider"></div>
-                              <div>Services-1</div>
-                            </div>
-                          </a><a href="/services-2" class="submenu-block w-inline-block">
-                            <div class="submenu-link">
-                              <div class="hover-divider"></div>
-                              <div>Services-2</div>
-                            </div>
-                          </a><a href="/services-3" class="submenu-block w-inline-block">
-                            <div class="submenu-link">
-                              <div class="hover-divider"></div>
-                              <div>Services-3</div>
-                            </div>
-                          </a><a href="/services/marketing-copywriting" class="submenu-block w-inline-block">
-                            <div class="submenu-link">
-                              <div class="hover-divider"></div>
-                              <div>Services Details</div>
-                            </div>
-                          </a></div>
-                        <div id="w-node-_5e3d6e34-1a91-a483-780b-5b7bf334d75a-1dffdf68" class="submenu-links-wrapper">
-                          <a href="/blog-2" aria-current="page" class="submenu-block w-inline-block w--current">
-                            <div class="submenu-link">
-                              <div class="hover-divider"></div>
-                              <div>Explore</div>
-                            </div>
-                          </a>
-                        </div>
-                        <div id="w-node-_3d9ebc99-9390-4bff-6136-683b48b42d8b-1dffdf68" class="submenu-links-wrapper"><a
-                            href="/portfolio-1" class="submenu-block w-inline-block">
-                            <div class="submenu-link">
-                              <div class="hover-divider"></div>
-                              <div>Portfolio-1</div>
-                            </div>
-                          </a><a href="portfolio-2.php" class="submenu-block w-inline-block">
-                            <div class="submenu-link">
-                              <div class="hover-divider"></div>
-                              <div>Portfolio-2</div>
-                            </div>
-                          </a><a href="/portfolio-3" class="submenu-block w-inline-block">
-                            <div class="submenu-link">
-                              <div class="hover-divider"></div>
-                              <div>Portfolio-3</div>
-                            </div>
-                          </a><a href="/project/social-media-project" class="submenu-block w-inline-block">
-                            <div class="submenu-link">
-                              <div class="hover-divider"></div>
-                              <div>Portfolio Details</div>
-                            </div>
-                          </a></div>
-                      </div>
-                    </div>
-                  </div>
-                </nav>
-              </div>
+                <div class="absolute-hover-bottom"></div>
+              </a>
             </div>
             <div class="close-navbar-icon w-nav-button">
               <div class="close-icon-rotate-white">close</div>
@@ -278,9 +124,21 @@ $places = getAllPlaces();
                 src="images/magnifying-glass.png" class="icon-svg-20-px" />
               <div class="search-popup">
                 <div class="container">
-                  <form action="/search" class="search-field-wrapper w-form"><input class="popup-search-input w-input"
-                      maxlength="256" name="query" placeholder="Search…" type="search" id="search" required="" /><input
-                      type="submit" class="search-button-absolute w-button" value="search" /></form>
+                  <form action="/search" class="search-field-wrapper w-form">
+                    <div class="search-input-wrapper">
+                      <input class="popup-search-input w-input"
+                        maxlength="256"
+                        name="query"
+                        placeholder="Search destinations..."
+                        type="search"
+                        id="search"
+                        required=""
+                        autocomplete="off"
+                        onfocus="showAllSuggestions()"
+                        onkeyup="filterSuggestions(this.value)" />
+                      <div id="suggestions" class="search-suggestions"></div>
+                    </div>
+                  </form>
                   <div data-w-id="108e4025-824f-59fd-ba99-015fe13c7bcd" class="close-icon-white">close</div>
                 </div>
               </div>
@@ -588,10 +446,7 @@ $places = getAllPlaces();
     <section class="banner">
       <div class="container">
         <h1 class="heading">Explore</h1>
-        <div class="breadcrumb-block"><a href="/" class="breadcrumb">Home</a>
-          <div class="_8px-circle-title"></div>
-          <div class="breadcrumb">Explore</div>
-        </div>
+
       </div>
       <div data-w-id="86948c09-9ea6-0d24-c71d-cfb6b9e521b5" class="image-show-style">
         <div class="bg-column-mask">
@@ -617,20 +472,20 @@ $places = getAllPlaces();
         <div class="_2-column-block-top">
           <div class="full-width w-dyn-list">
             <div role="list" class="_2-column-grid w-dyn-items">
-              <?php foreach($places as $place): ?>
+              <?php foreach ($places as $place): ?>
                 <div role="listitem" class="w-dyn-item">
                   <div data-w-id="3aa9b968-98e2-906a-c7d1-034fdca8e2e9" class="blog-card">
                     <div class="blog-thubnail-mask">
                       <a href="/place/<?php echo htmlspecialchars($place['id']); ?>" class="mask-10px-rounded-full w-inline-block">
-                        <img src="<?php echo htmlspecialchars($place['image_url']); ?>" 
-                             loading="lazy" 
-                             alt="<?php echo htmlspecialchars($place['name']); ?>"
-                             class="blog-thumbnail-300px" />
+                        <img src="<?php echo htmlspecialchars($place['image_url']); ?>"
+                          loading="lazy"
+                          alt="<?php echo htmlspecialchars($place['name']); ?>"
+                          class="blog-thumbnail-300px" />
                       </a>
-                      
+
                       <?php if (!empty($place['category_name'])): ?>
-                        <a href="/blog-categories/<?php echo strtolower(htmlspecialchars($place['category_name'])); ?>" 
-                           class="blog-category w-inline-block">
+                        <a href="/blog-categories/<?php echo strtolower(htmlspecialchars($place['category_name'])); ?>"
+                          class="blog-category w-inline-block">
                           <div class="blog-category-left-shape"></div>
                           <div><?php echo htmlspecialchars($place['category_name']); ?></div>
                           <div class="blog-category-right-shape"></div>
@@ -654,16 +509,16 @@ $places = getAllPlaces();
                             <p class="_14px-text"><?php echo htmlspecialchars($place['city'] ?? ''); ?></p>
                           </div>
                         </div>
-                        
+
                         <a href="/place/<?php echo htmlspecialchars($place['id']); ?>" class="w-inline-block">
                           <h3 class="_24px-link"><?php echo htmlspecialchars($place['name']); ?></h3>
                         </a>
-                        
+
                         <div class="blog-divider">
                           <div class="blog-hover-divider"></div>
                         </div>
                       </div>
-                      
+
                       <a href="/place/<?php echo htmlspecialchars($place['id']); ?>" class="text-link-with-border w-inline-block">
                         <div>Read More</div>
                         <div class="mask">
@@ -684,7 +539,7 @@ $places = getAllPlaces();
               <input class="sidebar-search-input w-input" maxlength="256" name="query" placeholder="Search…" type="search" id="search-3" required="" />
               <input type="submit" class="sidebar-search-icon w-button" value="search" />
             </form>
-            
+
             <div class="blog-widget">
               <div class="sidebar-title">Categories</div>
               <div class="w-dyn-list">
@@ -788,6 +643,9 @@ $places = getAllPlaces();
   </div>
   <script src="js/jquery.js" type="text/javascript"></script>
   <script src="js/webflow-script.js" type="text/javascript"></script>
+  <?php
+  echo getSearchScripts();
+  ?>
 </body>
 
 </html>

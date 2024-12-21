@@ -1,0 +1,163 @@
+/* ... existing styles ... */
+
+/* Search Suggestions Styles */
+.search-input-wrapper {
+    position: relative;
+    width: 100%;
+    margin: 10px 0;
+}
+
+/* Style untuk input search */
+.popup-search-input {
+    width: 100% !important;
+    padding: 15px 20px !important;
+    padding-left: 20px !important;
+    border: 1px solid rgba(255, 255, 255, 0.2) !important;
+    border-radius: 12px !important;
+    font-size: 16px !important;
+    color: white !important;
+    background: rgba(255, 255, 255, 0.1) !important;
+    backdrop-filter: blur(8px) !important;
+    -webkit-backdrop-filter: blur(8px) !important;
+    transition: all 0.3s ease;
+}
+
+.popup-search-input:focus {
+    border-color: rgba(255, 255, 255, 0.3) !important;
+    box-shadow: 0 0 0 4px rgba(255, 255, 255, 0.1) !important;
+    outline: none !important;
+}
+
+.popup-search-input::placeholder {
+    color: rgba(255, 255, 255, 0.7) !important;
+    font-size: 15px;
+}
+
+/* Style untuk container suggestions */
+.search-suggestions {
+    position: absolute;
+    top: calc(100% + 5px);
+    left: 0;
+    right: 0;
+    background: rgba(255, 255, 255, 0.1);
+    backdrop-filter: blur(8px);
+    -webkit-backdrop-filter: blur(8px);
+    border: 1px solid rgba(255, 255, 255, 0.2);
+    border-radius: 12px;
+    box-shadow: 0 4px 20px rgba(0, 0, 0, 0.2);
+    display: none;
+    max-height: 350px;
+    overflow-y: auto;
+    z-index: 1000;
+    padding: 8px 0;
+}
+
+/* Style untuk item suggestion */
+.suggestion-item {
+    padding: 12px 20px;
+    cursor: pointer;
+    color: white;
+    display: flex;
+    align-items: center;
+    gap: 12px;
+    transition: all 0.2s ease;
+}
+
+.suggestion-item:hover {
+    background-color: rgba(255, 255, 255, 0.1);
+}
+
+.suggestion-item:active {
+    background-color: rgba(255, 255, 255, 0.2);
+}
+
+/* Icon dalam suggestion */
+.suggestion-icon {
+    color: rgba(255, 255, 255, 0.8);
+    font-size: 16px;
+    min-width: 24px;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+}
+
+/* Text dalam suggestion */
+.suggestion-text {
+    flex-grow: 1;
+    font-size: 14px;
+    line-height: 1.4;
+}
+
+/* Scrollbar styling */
+.search-suggestions::-webkit-scrollbar {
+    width: 8px;
+}
+
+.search-suggestions::-webkit-scrollbar-track {
+    background: rgba(255, 255, 255, 0.1);
+    border-radius: 4px;
+}
+
+.search-suggestions::-webkit-scrollbar-thumb {
+    background: rgba(255, 255, 255, 0.3);
+    border-radius: 4px;
+}
+
+.search-suggestions::-webkit-scrollbar-thumb:hover {
+    background: rgba(255, 255, 255, 0.4);
+}
+
+/* Style untuk search button */
+.search-button-absolute {
+    position: absolute !important;
+    left: 12px !important;
+    top: 50% !important;
+    transform: translateY(-50%) !important;
+    background: transparent !important;
+    border: none !important;
+    padding: 0 !important;
+    cursor: pointer !important;
+    color: rgba(255, 255, 255, 0.7) !important;
+}
+
+/* Animation untuk suggestions */
+@keyframes fadeIn {
+    from { opacity: 0; transform: translateY(-10px); }
+    to { opacity: 1; transform: translateY(0); }
+}
+
+.search-suggestions.show {
+    display: block;
+    animation: fadeIn 0.2s ease-out;
+}
+
+/* Divider antara suggestions */
+.suggestion-item:not(:last-child) {
+    border-bottom: 1px solid rgba(255, 255, 255, 0.1);
+}
+
+/* Style untuk "No results found" */
+.no-results {
+    padding: 20px;
+    text-align: center;
+    color: rgba(255, 255, 255, 0.7);
+    font-style: italic;
+}
+
+/* Styling untuk suggestions di sidebar */
+.blog-sidebar .search-input-wrapper {
+  position: relative;
+}
+
+.blog-sidebar .search-suggestions {
+  position: absolute;
+  top: 100%;
+  left: 0;
+  right: 0;
+  background: white;
+  border: 1px solid #ddd;
+  border-top: none;
+  max-height: 200px;
+  overflow-y: auto;
+  z-index: 1000;
+}
