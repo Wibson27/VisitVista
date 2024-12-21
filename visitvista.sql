@@ -3,9 +3,9 @@
 -- https://www.phpmyadmin.net/
 --
 -- Host: 127.0.0.1
--- Waktu pembuatan: 20 Des 2024 pada 10.53
--- Versi server: 10.4.32-MariaDB
--- Versi PHP: 8.2.12
+-- Generation Time: Dec 21, 2024 at 07:09 PM
+-- Server version: 10.4.32-MariaDB
+-- PHP Version: 8.2.12
 
 SET SQL_MODE = "NO_AUTO_VALUE_ON_ZERO";
 START TRANSACTION;
@@ -24,7 +24,7 @@ SET time_zone = "+00:00";
 -- --------------------------------------------------------
 
 --
--- Struktur dari tabel `articles`
+-- Table structure for table `articles`
 --
 
 CREATE TABLE `articles` (
@@ -39,7 +39,7 @@ CREATE TABLE `articles` (
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_general_ci;
 
 --
--- Dumping data untuk tabel `articles`
+-- Dumping data for table `articles`
 --
 
 INSERT INTO `articles` (`id`, `title`, `content`, `content_full`, `image_url`, `category`, `location`, `created_at`) VALUES
@@ -60,7 +60,7 @@ INSERT INTO `articles` (`id`, `title`, `content`, `content_full`, `image_url`, `
 -- --------------------------------------------------------
 
 --
--- Struktur dari tabel `bookings`
+-- Table structure for table `bookings`
 --
 
 CREATE TABLE `bookings` (
@@ -79,7 +79,7 @@ CREATE TABLE `bookings` (
 -- --------------------------------------------------------
 
 --
--- Struktur dari tabel `bookingstatus`
+-- Table structure for table `bookingstatus`
 --
 
 CREATE TABLE `bookingstatus` (
@@ -87,7 +87,7 @@ CREATE TABLE `bookingstatus` (
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_unicode_ci;
 
 --
--- Dumping data untuk tabel `bookingstatus`
+-- Dumping data for table `bookingstatus`
 --
 
 INSERT INTO `bookingstatus` (`status`) VALUES
@@ -99,7 +99,7 @@ INSERT INTO `bookingstatus` (`status`) VALUES
 -- --------------------------------------------------------
 
 --
--- Struktur dari tabel `business_profiles`
+-- Table structure for table `business_profiles`
 --
 
 CREATE TABLE `business_profiles` (
@@ -115,19 +115,75 @@ CREATE TABLE `business_profiles` (
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_unicode_ci;
 
 --
--- Dumping data untuk tabel `business_profiles`
+-- Dumping data for table `business_profiles`
 --
 
 INSERT INTO `business_profiles` (`id`, `user_id`, `business_name`, `address`, `city`, `description`, `verification_status`, `document_url`, `created_at`) VALUES
+('B001', 'B009', 'testing', '', 'Yogyakarta', 'bbbbbbbbbbbbbbbbbbbbbbbbbbbb', 'PENDING', NULL, '2024-12-21 16:36:19'),
+('B002', 'B010', 'Matang', '', 'Yogyakarta', 'ccccccccccccccccccccccccccccccccccc', 'PENDING', NULL, '2024-12-21 17:12:01'),
+('B003', 'B011', 'testing', '', 'Sleman', 'aaaaaaaaaaaaaaaaaaaaaaa', 'PENDING', NULL, '2024-12-21 17:40:24'),
 ('BP003', 'B003', 'Jogja Heritage Tours', 'Jl. Malioboro No. 45', 'Yogyakarta', 'Specializing in cultural and historical tours around Yogyakarta', 'VERIFIED', NULL, '2024-11-22 16:25:09'),
 ('BP004', 'B004', 'Bandung Adventure Tours', 'Jl. Dago No. 123', 'Bandung', 'Adventure and nature tours in and around Bandung', 'VERIFIED', NULL, '2024-11-22 16:25:09'),
 ('BP005', 'B005', 'Raja Ampat Diving Center', 'Jl. Waisai Raya No. 7', 'Raja Ampat', 'Premier diving experience in Raja Ampat', 'VERIFIED', NULL, '2024-11-22 16:25:09'),
 ('BP006', 'B006', 'Toraja Cultural Experience', 'Jl. Poros Makale No. 88', 'Toraja', 'Authentic Toraja cultural experiences and tours', 'VERIFIED', NULL, '2024-11-22 16:25:09');
 
+--
+-- Triggers `business_profiles`
+--
+DELIMITER $$
+CREATE TRIGGER `before_business_profile_insert` BEFORE INSERT ON `business_profiles` FOR EACH ROW BEGIN
+    DECLARE next_id INT;
+    SET next_id = (SELECT COALESCE(MAX(CAST(SUBSTRING(id, 2) AS UNSIGNED)), 0) + 1 
+                   FROM business_profiles);
+    SET NEW.id = CONCAT('B', LPAD(next_id, 3, '0'));
+END
+$$
+DELIMITER ;
+
 -- --------------------------------------------------------
 
 --
--- Struktur dari tabel `places`
+-- Table structure for table `customer_profiles`
+--
+
+CREATE TABLE `customer_profiles` (
+  `id` varchar(255) NOT NULL,
+  `user_id` varchar(255) NOT NULL,
+  `date_of_birth` date DEFAULT NULL,
+  `gender` varchar(20) DEFAULT NULL,
+  `bio` text DEFAULT NULL
+) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_unicode_ci;
+
+--
+-- Dumping data for table `customer_profiles`
+--
+
+INSERT INTO `customer_profiles` (`id`, `user_id`, `date_of_birth`, `gender`, `bio`) VALUES
+('C001', 'C001', '2024-12-11', 'male', 'qaaaaaaaaaaaaaa'),
+('C002', 'C002', '2024-12-11', 'male', 'aaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaa'),
+('C003', 'C003', '2024-12-10', 'male', 'bbbbbbbbbbbbbbbbbbbbbbbbbbbb'),
+('C004', 'C004', '2024-12-04', 'male', 'bbbbbbbbbbbbbbbbbbbbbbbbbbbb'),
+('C005', 'C005', '2024-12-18', 'male', 'zzzzzzzzzzzzzzzzzzz'),
+('C006', 'C006', '2024-12-31', 'male', 'zzzzzzzzzzzzzzzzzzz'),
+('C007', 'C007', '2025-01-08', 'male', 'ddddddddddddddddddddd');
+
+--
+-- Triggers `customer_profiles`
+--
+DELIMITER $$
+CREATE TRIGGER `before_customer_profile_insert` BEFORE INSERT ON `customer_profiles` FOR EACH ROW BEGIN
+    DECLARE next_id INT;
+    SET next_id = (SELECT COALESCE(MAX(CAST(SUBSTRING(id, 2) AS UNSIGNED)), 0) + 1 
+                   FROM customer_profiles);
+    SET NEW.id = CONCAT('C', LPAD(next_id, 3, '0'));
+END
+$$
+DELIMITER ;
+
+-- --------------------------------------------------------
+
+--
+-- Table structure for table `places`
 --
 
 CREATE TABLE `places` (
@@ -146,7 +202,7 @@ CREATE TABLE `places` (
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_unicode_ci;
 
 --
--- Dumping data untuk tabel `places`
+-- Dumping data for table `places`
 --
 
 INSERT INTO `places` (`id`, `business_id`, `name`, `description`, `location`, `city`, `price`, `capacity`, `category`, `average_rating`, `created_at`, `updated_at`) VALUES
@@ -166,7 +222,7 @@ INSERT INTO `places` (`id`, `business_id`, `name`, `description`, `location`, `c
 -- --------------------------------------------------------
 
 --
--- Struktur dari tabel `place_images`
+-- Table structure for table `place_images`
 --
 
 CREATE TABLE `place_images` (
@@ -176,7 +232,7 @@ CREATE TABLE `place_images` (
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_unicode_ci;
 
 --
--- Dumping data untuk tabel `place_images`
+-- Dumping data for table `place_images`
 --
 
 INSERT INTO `place_images` (`id`, `place_id`, `image_url`) VALUES
@@ -196,7 +252,7 @@ INSERT INTO `place_images` (`id`, `place_id`, `image_url`) VALUES
 -- --------------------------------------------------------
 
 --
--- Struktur dari tabel `reviews`
+-- Table structure for table `reviews`
 --
 
 CREATE TABLE `reviews` (
@@ -212,7 +268,7 @@ CREATE TABLE `reviews` (
 -- --------------------------------------------------------
 
 --
--- Struktur dari tabel `tourism_statistics`
+-- Table structure for table `tourism_statistics`
 --
 
 CREATE TABLE `tourism_statistics` (
@@ -231,7 +287,7 @@ CREATE TABLE `tourism_statistics` (
 -- --------------------------------------------------------
 
 --
--- Struktur dari tabel `userrole`
+-- Table structure for table `userrole`
 --
 
 CREATE TABLE `userrole` (
@@ -239,7 +295,7 @@ CREATE TABLE `userrole` (
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_unicode_ci;
 
 --
--- Dumping data untuk tabel `userrole`
+-- Dumping data for table `userrole`
 --
 
 INSERT INTO `userrole` (`role`) VALUES
@@ -250,7 +306,7 @@ INSERT INTO `userrole` (`role`) VALUES
 -- --------------------------------------------------------
 
 --
--- Struktur dari tabel `users`
+-- Table structure for table `users`
 --
 
 CREATE TABLE `users` (
@@ -261,31 +317,44 @@ CREATE TABLE `users` (
   `phone` varchar(50) DEFAULT NULL,
   `role` varchar(50) NOT NULL,
   `created_at` timestamp NOT NULL DEFAULT current_timestamp(),
-  `updated_at` timestamp NOT NULL DEFAULT '0000-00-00 00:00:00' ON UPDATE current_timestamp()
+  `updated_at` timestamp NULL DEFAULT NULL ON UPDATE current_timestamp(),
+  `profile_image_url` varchar(255) DEFAULT NULL
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_unicode_ci;
 
 --
--- Dumping data untuk tabel `users`
+-- Dumping data for table `users`
 --
 
-INSERT INTO `users` (`id`, `email`, `password`, `name`, `phone`, `role`, `created_at`, `updated_at`) VALUES
-('B003', 'jogja.heritage@example.com', '$2y$10$abcdefghijklmnopqrstuv', 'Jogja Heritage', '+6281234567895', 'BUSINESS', '2024-11-22 16:25:09', '2024-11-22 16:25:09'),
-('B004', 'bandung.adventure@example.com', '$2y$10$abcdefghijklmnopqrstuv', 'Bandung Adventure', '+6281234567896', 'BUSINESS', '2024-11-22 16:25:09', '2024-11-22 16:25:09'),
-('B005', 'raja.ampat@example.com', '$2y$10$abcdefghijklmnopqrstuv', 'Raja Ampat Diving', '+6281234567897', 'BUSINESS', '2024-11-22 16:25:09', '2024-11-22 16:25:09'),
-('B006', 'toraja.cultural@example.com', '$2y$10$abcdefghijklmnopqrstuv', 'Toraja Cultural Tours', '+6281234567898', 'BUSINESS', '2024-11-22 16:25:09', '2024-11-22 16:25:09');
+INSERT INTO `users` (`id`, `email`, `password`, `name`, `phone`, `role`, `created_at`, `updated_at`, `profile_image_url`) VALUES
+('B003', 'jogja.heritage@example.com', '$2y$10$abcdefghijklmnopqrstuv', 'Jogja Heritage', '+6281234567895', 'BUSINESS', '2024-11-22 16:25:09', '2024-11-22 16:25:09', NULL),
+('B004', 'bandung.adventure@example.com', '$2y$10$abcdefghijklmnopqrstuv', 'Bandung Adventure', '+6281234567896', 'BUSINESS', '2024-11-22 16:25:09', '2024-11-22 16:25:09', NULL),
+('B005', 'raja.ampat@example.com', '$2y$10$abcdefghijklmnopqrstuv', 'Raja Ampat Diving', '+6281234567897', 'BUSINESS', '2024-11-22 16:25:09', '2024-11-22 16:25:09', NULL),
+('B006', 'toraja.cultural@example.com', '$2y$10$abcdefghijklmnopqrstuv', 'Toraja Cultural Tours', '+6281234567898', 'BUSINESS', '2024-11-22 16:25:09', '2024-11-22 16:25:09', NULL),
+('B007', 'haihai@gmail.com', '$2y$10$xd8SXHHcrhMp72DPx2nYa.Q1x4RitaSKMM0hn.ZQ/pS7X5tUp.Toq', 'Zukhri', NULL, 'BUSINESS', '2024-12-21 16:19:49', NULL, NULL),
+('B008', 'bobobo@gmail.com', '$2y$10$3/A1Uldc2/Df98HIoRDpB.8gvC7rduJLE.AfmZsL8wAWsaJVgQetu', 'Zukhri', NULL, 'BUSINESS', '2024-12-21 16:23:21', NULL, NULL),
+('B009', 'patrick@gmail.com', '$2y$10$vOTtMLieSPqWA0CS1FlBhuf8lud8IoqrqTVtIsx4RzVmxZXRIxQL.', 'Zukhri', NULL, 'BUSINESS', '2024-12-21 16:36:19', NULL, NULL),
+('B010', 'lintang@gmail.com', '$2y$10$O56Trnx.H.sfOpxpQkVP9OsFcxM.RxtFXQAmesvkJz88FkArxJxtW', 'Dimas', NULL, 'BUSINESS', '2024-12-21 17:12:01', NULL, NULL),
+('B011', 'palqi@gmail.com', '$2y$10$FxC/KhM/XoXgEK9OG/BwUuitLZBiVLIkjxvcH9f2ZPkvF6ua1Hr2W', 'Zukhri', NULL, 'BUSINESS', '2024-12-21 17:40:24', NULL, NULL),
+('C001', 'halohalo@gmail.com', '$2y$10$UVRV4eAUrRt/bbN5bs8FR.QGJgACIBKpzJByjjZ/yJRLNpTOLGAcC', 'Zukhri', NULL, 'CUSTOMER', '2024-12-21 16:21:18', NULL, NULL),
+('C002', 'dadada@gmail.com', '$2y$10$wCVYSa/n4ZD6/QI.LMU0ZO0ZI3L9H96/9PGpft1LBjQhusfX5Xane', 'dadada', NULL, 'CUSTOMER', '2024-12-21 16:22:47', NULL, NULL),
+('C003', 'cponbob@gmail.com', '$2y$10$WinByJ28gi45893ev9fATeP9PWAiOvRgaGyycedsIeM05s4p3T4ke', 'Zukhri', NULL, 'CUSTOMER', '2024-12-21 16:37:24', NULL, NULL),
+('C004', 'sandycheeks@gmail.com', '$2y$10$zZlNPrDp4pNbeFtrhCDT7elYotiPtY7nnM2i6cqTKc0KPD/kKkRMO', 'Zukhri', NULL, 'CUSTOMER', '2024-12-21 17:11:26', NULL, NULL),
+('C005', '12345@gmail.com', '$2y$10$2SuSx/8SnEPIyoBd4sA.7..h0AjlRTMIEvpGnmFghQhIE4v1fsPe.', 'Zukhri', NULL, 'CUSTOMER', '2024-12-21 17:42:55', NULL, NULL),
+('C006', '45678@gmail.com', '$2y$10$5y4lLb6JwG/Q2m8zUF4bI.65R5bUZU2e5vTrO2nNDsh1boEd794U2', 'patrick', NULL, 'CUSTOMER', '2024-12-21 17:53:39', NULL, NULL),
+('C007', 'bbbbbb@gmail.com', '$2y$10$HnwZhzU13lFGI5rI7zqvq.QwBW4nQIQNk7sRrWWmLdBgozOG1wa6K', 'haloooo', NULL, 'CUSTOMER', '2024-12-21 18:03:07', NULL, NULL);
 
 --
 -- Indexes for dumped tables
 --
 
 --
--- Indeks untuk tabel `articles`
+-- Indexes for table `articles`
 --
 ALTER TABLE `articles`
   ADD PRIMARY KEY (`id`);
 
 --
--- Indeks untuk tabel `bookings`
+-- Indexes for table `bookings`
 --
 ALTER TABLE `bookings`
   ADD PRIMARY KEY (`id`),
@@ -294,34 +363,41 @@ ALTER TABLE `bookings`
   ADD KEY `idx_bookings_place` (`place_id`);
 
 --
--- Indeks untuk tabel `bookingstatus`
+-- Indexes for table `bookingstatus`
 --
 ALTER TABLE `bookingstatus`
   ADD PRIMARY KEY (`status`);
 
 --
--- Indeks untuk tabel `business_profiles`
+-- Indexes for table `business_profiles`
 --
 ALTER TABLE `business_profiles`
   ADD PRIMARY KEY (`id`),
   ADD UNIQUE KEY `user_id` (`user_id`);
 
 --
--- Indeks untuk tabel `places`
+-- Indexes for table `customer_profiles`
+--
+ALTER TABLE `customer_profiles`
+  ADD PRIMARY KEY (`id`),
+  ADD UNIQUE KEY `user_id` (`user_id`);
+
+--
+-- Indexes for table `places`
 --
 ALTER TABLE `places`
   ADD PRIMARY KEY (`id`),
   ADD KEY `idx_places_business` (`business_id`);
 
 --
--- Indeks untuk tabel `place_images`
+-- Indexes for table `place_images`
 --
 ALTER TABLE `place_images`
   ADD PRIMARY KEY (`id`),
   ADD KEY `place_id` (`place_id`);
 
 --
--- Indeks untuk tabel `reviews`
+-- Indexes for table `reviews`
 --
 ALTER TABLE `reviews`
   ADD PRIMARY KEY (`id`),
@@ -330,20 +406,20 @@ ALTER TABLE `reviews`
   ADD KEY `idx_reviews_place` (`place_id`);
 
 --
--- Indeks untuk tabel `tourism_statistics`
+-- Indexes for table `tourism_statistics`
 --
 ALTER TABLE `tourism_statistics`
   ADD PRIMARY KEY (`id`),
   ADD KEY `idx_statistics_city_date` (`city`,`year`,`month`);
 
 --
--- Indeks untuk tabel `userrole`
+-- Indexes for table `userrole`
 --
 ALTER TABLE `userrole`
   ADD PRIMARY KEY (`role`);
 
 --
--- Indeks untuk tabel `users`
+-- Indexes for table `users`
 --
 ALTER TABLE `users`
   ADD PRIMARY KEY (`id`),
@@ -351,21 +427,21 @@ ALTER TABLE `users`
   ADD KEY `role` (`role`);
 
 --
--- AUTO_INCREMENT untuk tabel yang dibuang
+-- AUTO_INCREMENT for dumped tables
 --
 
 --
--- AUTO_INCREMENT untuk tabel `articles`
+-- AUTO_INCREMENT for table `articles`
 --
 ALTER TABLE `articles`
   MODIFY `id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=14;
 
 --
--- Ketidakleluasaan untuk tabel pelimpahan (Dumped Tables)
+-- Constraints for dumped tables
 --
 
 --
--- Ketidakleluasaan untuk tabel `bookings`
+-- Constraints for table `bookings`
 --
 ALTER TABLE `bookings`
   ADD CONSTRAINT `bookings_ibfk_1` FOREIGN KEY (`user_id`) REFERENCES `users` (`id`),
@@ -373,19 +449,25 @@ ALTER TABLE `bookings`
   ADD CONSTRAINT `bookings_ibfk_3` FOREIGN KEY (`status`) REFERENCES `bookingstatus` (`status`);
 
 --
--- Ketidakleluasaan untuk tabel `business_profiles`
+-- Constraints for table `business_profiles`
 --
 ALTER TABLE `business_profiles`
   ADD CONSTRAINT `business_profiles_ibfk_1` FOREIGN KEY (`user_id`) REFERENCES `users` (`id`);
 
 --
--- Ketidakleluasaan untuk tabel `places`
+-- Constraints for table `customer_profiles`
+--
+ALTER TABLE `customer_profiles`
+  ADD CONSTRAINT `customer_profiles_ibfk_1` FOREIGN KEY (`user_id`) REFERENCES `users` (`id`);
+
+--
+-- Constraints for table `places`
 --
 ALTER TABLE `places`
   ADD CONSTRAINT `places_ibfk_1` FOREIGN KEY (`business_id`) REFERENCES `business_profiles` (`id`);
 
 --
--- Ketidakleluasaan untuk tabel `place_images`
+-- Constraints for table `place_images`
 --
 ALTER TABLE `place_images`
   ADD CONSTRAINT `place_images_ibfk_1` FOREIGN KEY (`place_id`) REFERENCES `places` (`id`);
