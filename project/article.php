@@ -5,7 +5,7 @@ require_once __DIR__ . '/../functions/database_functions.php';
 $article_id = isset($_GET['id']) ? $_GET['id'] : null;
 
 if (!$article_id) {
-    header('Location: /Last/portfolio-2.php');
+    header('Location: /visistvista/portfolio-2.php');
     exit;
 }
 
@@ -13,7 +13,7 @@ if (!$article_id) {
 $article = getArticleById($article_id);
 
 if (!$article) {
-    header('Location: /Last/portfolio-2.php');
+    header('Location: /visitvista/portfolio-2.php');
     exit;
 }
 ?>
@@ -83,7 +83,9 @@ if (!$article) {
         <!-- Navbar Main -->
         <div class="navbar-main">
           <!-- Logo -->
+          <a data-w-id="ac2971f4-6f26-e7be-f7cd-a20c97325007" href="/" class="w-inline-block">
           <div class="site-logo" style="font-size: 40px; font-weight: bold; color:rgb(255, 255, 255);">VisitVista</div>
+          </a>
 
           <!-- Navigation Menu -->
           <nav role="navigation" class="nav-menu-wrapper w-nav-menu">

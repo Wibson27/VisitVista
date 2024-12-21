@@ -120,7 +120,9 @@ $articles = getAllArticles();
         <!-- Navbar Main -->
         <div class="navbar-main">
           <!-- Logo -->
+          <a data-w-id="ac2971f4-6f26-e7be-f7cd-a20c97325007" href="/" class="w-inline-block">
           <div class="site-logo" style="font-size: 40px; font-weight: bold; color:rgb(255, 255, 255);">VisitVista</div>
+          </a>
 
           <!-- Navigation Menu -->
           <nav role="navigation" class="nav-menu-wrapper w-nav-menu">
