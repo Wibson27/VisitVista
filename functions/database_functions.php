@@ -263,6 +263,45 @@ function getArticlesByCategory($category) {
     }
 }
 
+// Fungsi untuk mengambil semua kategori
+function getAllCategories() {
+    global $conn;
+    
+    try {
+        $sql = "SELECT * FROM categories ORDER BY name ASC";
+        $result = $conn->query($sql);
+        
+        if ($result->num_rows > 0) {
+            return $result->fetch_all(MYSQLI_ASSOC);
+        }
+        return [];
+    } catch (Exception $e) {
+        error_log($e->getMessage());
+        return [];
+    }
+}
+
+// Fungsi untuk mengambil places dengan kategorinya
+function getAllPlacesWithCategories() {
+    global $conn;
+    
+    try {
+        $sql = "SELECT p.*, c.name as category_name 
+                FROM places p 
+                LEFT JOIN categories c ON p.category_id = c.id 
+                ORDER BY p.created_at DESC";
+        $result = $conn->query($sql);
+        
+        if ($result->num_rows > 0) {
+            return $result->fetch_all(MYSQLI_ASSOC);
+        }
+        return [];
+    } catch (Exception $e) {
+        error_log($e->getMessage());
+        return [];
+    }
+}
+
 // Example usage in your pages:
 /*
 // In your places.php:
