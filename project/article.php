@@ -84,7 +84,7 @@ if (!$article) {
         <div class="navbar-main">
           <!-- Logo -->
           <a data-w-id="ac2971f4-6f26-e7be-f7cd-a20c97325007" href="/" class="w-inline-block">
-          <div class="site-logo" style="font-size: 40px; font-weight: bold; color:rgb(255, 255, 255);">VisitVista</div>
+            <img src="images/logovisitvista.png" loading="lazy" alt="" class="site-logo" />
           </a>
 
           <!-- Navigation Menu -->
@@ -101,13 +101,6 @@ if (!$article) {
                 <div class="nav-link">
                   <div class="default-text">About</div>
                   <div class="default-text black-heading">About</div>
-                </div>
-                <div class="absolute-hover-bottom"></div>
-              </a>
-              <a href="/pricing" data-w-id="983316c4-923a-8075-52d1-d1a1eb2cf7b2" class="nav-link-wrapper w-inline-block">
-                <div class="nav-link">
-                  <div class="default-text">Pricing</div>
-                  <div class="default-text black-heading">Pricing</div>
                 </div>
                 <div class="absolute-hover-bottom"></div>
               </a>
@@ -458,8 +451,8 @@ if (!$article) {
   <div class="container">
     <div data-w-id="3447bad0-4c97-caf6-2cc4-1b7d3321ffb7" class="footer-container">
       <div class="footer-block">
-      <div class="site-logo" style="font-size: 35px; font-weight: bold; color:rgb(255, 255, 255);">VisitVista</div>
-        <div class="margin-bottom-23px">
+      <div><img width="70" loading="lazy" alt="" src="images/logovisitvista.png" class="site-logo" /></div>
+      <div class="margin-bottom-23px">
           <p class="footer-text">Daftar sekarang dan optimalkan pengalaman wisata anda!</p>
         </div>
         <div class="horizontal-left-center-11px-gap"><img src="../images/frame.avif" loading="lazy" alt="" class="image-24px" />

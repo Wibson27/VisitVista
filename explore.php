@@ -71,10 +71,10 @@ $places = getAllPlaces();
       data-collapse="medium" data-w-id="51e4b855-d29a-c7d2-d7af-78ea1dffdf68" role="banner" data-duration="1000"
       id="navbar">
       <div class="w-layout-blockcontainer container nav-container w-container">
-        <div class="navbar-main"><a data-w-id="ac2971f4-6f26-e7be-f7cd-a20c97325007" href="/"
-            class="w-inline-block">
-            <div class="site-logo" style="font-size: 40px; font-weight: bold; color:rgb(255, 255, 255);">VisitVista</div>
-          </a>
+        <div class="navbar-main">
+        <a data-w-id="ac2971f4-6f26-e7be-f7cd-a20c97325007" href="/" class="w-inline-block">
+            <img src="images/logovisitvista.png" loading="lazy" alt="" class="site-logo" />
+        </a>
           <!-- Navigation Menu -->
           <nav role="navigation" class="nav-menu-wrapper w-nav-menu">
             <div class="nav-menu-left-sidebar">
@@ -89,13 +89,6 @@ $places = getAllPlaces();
                 <div class="nav-link">
                   <div class="default-text">About</div>
                   <div class="default-text black-heading">About</div>
-                </div>
-                <div class="absolute-hover-bottom"></div>
-              </a>
-              <a href="/pricing" data-w-id="983316c4-923a-8075-52d1-d1a1eb2cf7b2" class="nav-link-wrapper w-inline-block">
-                <div class="nav-link">
-                  <div class="default-text">Pricing</div>
-                  <div class="default-text black-heading">Pricing</div>
                 </div>
                 <div class="absolute-hover-bottom"></div>
               </a>
@@ -572,10 +565,9 @@ $places = getAllPlaces();
       <div class="container">
         <div data-w-id="3447bad0-4c97-caf6-2cc4-1b7d3321ffb7" class="footer-container">
           <div class="footer-block">
-            <div class="site-logo" style="font-size: 35px; font-weight: bold; color:rgb(255, 255, 255);">VisitVista</div>
-            <div class="margin-bottom-23px">
-              <p class="footer-text">Ready to elevate your online presence? Contact us today to discuss your project and
-                discover how we can bring your vision to life.</p>
+          <div><img width="70" loading="lazy" alt="" src="images/logovisitvista.png" class="site-logo" /></div>
+          <div class="margin-bottom-23px">
+              <p class="footer-text">Daftar sekarang dan optimalkan pengalaman wisata anda!</p>
             </div>
           </div>
           <div class="footer-block end">
@@ -588,7 +580,7 @@ $places = getAllPlaces();
                 <div class="mask">
                   <div class="nav-border"></div>
                 </div>
-              </a><a data-w-id="ae4630f3-25c8-1af0-bf6f-a34696446e8b" href="/about-us-1"
+              </a><a data-w-id="ae4630f3-25c8-1af0-bf6f-a34696446e8b" href="about-us-3.php"
                 class="footer-link-wrapper w-inline-block">
                 <div class="footer-link">
                   <div class="text">About</div>
@@ -597,7 +589,7 @@ $places = getAllPlaces();
                 <div class="mask">
                   <div class="nav-border"></div>
                 </div>
-              </a><a data-w-id="ae4630f3-25c8-1af0-bf6f-a34696446e8b" href="/portfolio-1"
+              </a><a data-w-id="ae4630f3-25c8-1af0-bf6f-a34696446e8b" href="/visitvista/portfolio-2.php"
                 class="footer-link-wrapper w-inline-block">
                 <div class="footer-link">
                   <div class="text">Article</div>
@@ -606,8 +598,7 @@ $places = getAllPlaces();
                 <div class="mask">
                   <div class="nav-border"></div>
                 </div>
-              </a><a data-w-id="ae4630f3-25c8-1af0-bf6f-a34696446e8b" href="/utility/license"
-                class="footer-link-wrapper w-inline-block">
+              </a><a data-w-id="ae4630f3-25c8-1af0-bf6f-a34696446e8b" href="/visitvista/explore.php" class="footer-link-wrapper w-inline-block">
                 <div class="footer-link">
                   <div class="text">Explore</div>
                   <div class="text">Explore</div>

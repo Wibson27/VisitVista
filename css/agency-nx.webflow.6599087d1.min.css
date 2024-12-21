@@ -4067,7 +4067,7 @@ blockquote {
   object-fit: contain;
   min-width: 80px;
   max-width: 170px;
-  max-height: 30px
+  max-height: 100px
 }
 
 .hero-section {

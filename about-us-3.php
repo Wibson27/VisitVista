@@ -61,8 +61,10 @@
       data-collapse="medium" data-w-id="51e4b855-d29a-c7d2-d7af-78ea1dffdf68" role="banner" data-duration="1000"
       id="navbar">
       <div class="w-layout-blockcontainer container nav-container w-container">
-        <div class="navbar-main"><a data-w-id="ac2971f4-6f26-e7be-f7cd-a20c97325007" href="/"
-            class="w-inline-block"><img src="images/agency-20logo.avif" loading="lazy" alt="" class="site-logo" /></a>
+        <div class="navbar-main">
+        <a data-w-id="ac2971f4-6f26-e7be-f7cd-a20c97325007" href="/" class="w-inline-block">
+            <img src="images/logovisitvista.png" loading="lazy" alt="" class="site-logo" />
+        </a>
             <nav role="navigation" class="nav-menu-wrapper w-nav-menu">
             <div class="nav-menu-left-sidebar">
               <a href="/" data-w-id="783761a9-bb85-bb38-0e07-8475a4b307cb"class="nav-link-wrapper w-inline-block">
@@ -76,13 +78,6 @@
                 <div class="nav-link">
                   <div class="default-text">About</div>
                   <div class="default-text black-heading">About</div>
-                </div>
-                <div class="absolute-hover-bottom"></div>
-              </a>
-              <a href="/pricing" data-w-id="983316c4-923a-8075-52d1-d1a1eb2cf7b2" class="nav-link-wrapper w-inline-block">
-                <div class="nav-link">
-                  <div class="default-text">Pricing</div>
-                  <div class="default-text black-heading">Pricing</div>
                 </div>
                 <div class="absolute-hover-bottom"></div>
               </a>
@@ -425,10 +420,6 @@
     <section class="banner">
       <div class="container">
         <h1 class="heading">About Us</h1>
-        <div class="breadcrumb-block"><a href="/" class="breadcrumb">Home</a>
-          <div class="_8px-circle-title"></div>
-          <div class="breadcrumb">About Us</div>
-        </div>
       </div>
       <div data-w-id="86948c09-9ea6-0d24-c71d-cfb6b9e521b5" class="image-show-style">
         <div class="bg-column-mask">
@@ -504,15 +495,7 @@
               <div class="mask">
                 <p>VisitVista adalah solusi berbasis data untuk meningkatkan pengalaman wisata. Dengan analitik prediktif dan wawasan berbasis data, kami membantu pemilik bisnis wisata memahami dan meningkatkan layanan mereka.</p>
               </div>
-            </div><a href="#" data-w-id="b6951e6b-60e9-44a3-42d0-c76a6d52a492" class="nx-button-wrapper w-inline-block">
-              <div class="button">
-                <div class="button-text-wrapper">
-                  <div class="default-text">Contact Us</div>
-                  <div class="default-text">Contact Us</div>
-                </div>
-              </div>
-              <div class="button-gradient"></div>
-            </a>
+            </div>
           </div>
         </div>
       </div>
@@ -646,10 +629,6 @@
               <h2 class="heading">solusi berbasis data, wawasan pengunjung, dan strategi untuk meningkatkan pengalaman wisata.</h2>
               <div class="absolute-style-text"></div>
             </div>
-          </div>
-          <div class="contents">
-            <p>At the intersection of vision and execution, we bringcreative ideas team transforms concepts
-              intocompelling narratives,</p>
           </div>
         </div>
         <div data-duration-in="200" data-duration-out="300" data-current="Tab 1" data-easing="ease-out-quart"
