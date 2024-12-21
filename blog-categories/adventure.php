@@ -1,8 +1,9 @@
 <?php
-require_once __DIR__ . '/functions/database_functions.php';
+// Change the path to the database_functions.php file
+require_once '../functions/database_functions.php';
 error_reporting(E_ALL);
 ini_set('display_errors', 1);
-// Get all places using the function
+// Ambil data tempat menggunakan fungsi getAllPlaces
 $places = getAllPlaces();
 ?>
 
@@ -12,7 +13,7 @@ $places = getAllPlaces();
 
 <head>
   <meta charset="utf-8" />
-  <title>Destination</title>
+  <title>Adventure</title>
   <meta content="width=device-width, initial-scale=1" name="viewport" />
   <meta content="Webflow" name="generator" />
   <link href="../css/agency-nx.webflow.6599087d1.min.css" rel="stylesheet" type="text/css" />
@@ -20,9 +21,21 @@ $places = getAllPlaces();
   <link href="https://fonts.gstatic.com" rel="preconnect" crossorigin="anonymous" />
   <script src="https://ajax.googleapis.com/ajax/libs/webfont/1.6.26/webfont.js" type="text/javascript"></script>
   <script
-    type="text/javascript">WebFont.load({ google: { families: ["Oswald:200,300,400,500,600,700", "Inter:300,regular,500,600,700,800", "Material Icons:regular", "Material Icons Outlined:regular"] } });</script>
+    type="text/javascript">
+    WebFont.load({
+      google: {
+        families: ["Oswald:200,300,400,500,600,700", "Inter:300,regular,500,600,700,800", "Material Icons:regular", "Material Icons Outlined:regular"]
+      }
+    });
+  </script>
   <script
-    type="text/javascript">!function (o, c) { var n = c.documentElement, t = " w-mod-"; n.className += t + "js", ("ontouchstart" in o || o.DocumentTouch && c instanceof DocumentTouch) && (n.className += t + "touch") }(window, document);</script>
+    type="text/javascript">
+    ! function(o, c) {
+      var n = c.documentElement,
+        t = " w-mod-";
+      n.className += t + "js", ("ontouchstart" in o || o.DocumentTouch && c instanceof DocumentTouch) && (n.className += t + "touch")
+    }(window, document);
+  </script>
   <link href="../images/favicon.png" rel="shortcut icon" type="image/x-icon" />
   <link href="../images/app-icon.png" rel="apple-touch-icon" />
   <style>
@@ -32,7 +45,17 @@ $places = getAllPlaces();
     }
   </style>
   <script
-    type="text/javascript">window.__WEBFLOW_CURRENCY_SETTINGS = { "currencyCode": "USD", "symbol": "$", "decimal": ".", "fractionDigits": 2, "group": ",", "template": "{{wf {\"path\":\"symbol\",\"type\":\"PlainText\"} }} {{wf {\"path\":\"amount\",\"type\":\"CommercePrice\"} }} {{wf {\"path\":\"currencyCode\",\"type\":\"PlainText\"} }}", "hideDecimalForWholeNumbers": false };</script>
+    type="text/javascript">
+    window.__WEBFLOW_CURRENCY_SETTINGS = {
+      "currencyCode": "USD",
+      "symbol": "$",
+      "decimal": ".",
+      "fractionDigits": 2,
+      "group": ",",
+      "template": "{{wf {\"path\":\"symbol\",\"type\":\"PlainText\"} }} {{wf {\"path\":\"amount\",\"type\":\"CommercePrice\"} }} {{wf {\"path\":\"currencyCode\",\"type\":\"PlainText\"} }}",
+      "hideDecimalForWholeNumbers": false
+    };
+  </script>
   <link href="../css/style.css" rel="stylesheet" type="text/css" />
   <script type="text/javascript" src="../js/script.js"></script>
 </head>
@@ -44,228 +67,46 @@ $places = getAllPlaces();
       id="navbar">
       <div class="w-layout-blockcontainer container nav-container w-container">
         <div class="navbar-main"><a data-w-id="ac2971f4-6f26-e7be-f7cd-a20c97325007" href="/" class="w-inline-block">
-            <div class="site-logo" style="font-size: 40px; font-weight: bold; color:rgb(255, 255, 255);">VisitVista</div></a>
+            <div class="site-logo" style="font-size: 40px; font-weight: bold; color:rgb(255, 255, 255);">VisitVista</div>
+          </a>
+          <!-- Navigation Menu -->
           <nav role="navigation" class="nav-menu-wrapper w-nav-menu">
-            <div class="nav-menu-left-sidebar"><a href="/" data-w-id="783761a9-bb85-bb38-0e07-8475a4b307cb"
-                class="nav-link-wrapper w-inline-block">
+            <div class="nav-menu-left-sidebar">
+              <a href="/" data-w-id="783761a9-bb85-bb38-0e07-8475a4b307cb" class="nav-link-wrapper w-inline-block">
                 <div class="nav-link">
                   <div class="default-text">Home</div>
                   <div class="default-text black-heading">Home</div>
                 </div>
                 <div class="absolute-hover-bottom"></div>
-              </a><a href="/about-us-1" data-w-id="783761a9-bb85-bb38-0e07-8475a4b307cb"
-                class="nav-link-wrapper w-inline-block">
+              </a>
+              <a href="../about-us-1.php" data-w-id="783761a9-bb85-bb38-0e07-8475a4b307cb" class="nav-link-wrapper w-inline-block">
                 <div class="nav-link">
                   <div class="default-text">About</div>
                   <div class="default-text black-heading">About</div>
                 </div>
                 <div class="absolute-hover-bottom"></div>
               </a>
-              <div data-delay="0" data-hover="true" class="nav-dropdown-wrapper w-dropdown">
-                <div data-w-id="983316c4-923a-8075-52d1-d1a1eb2cf7b2" class="nav-link-wrapper w-dropdown-toggle">
-                  <div class="nav-link">
-                    <div class="default-text">Pricing</div>
-                    <div class="default-text black-heading">Pricing</div>
-                  </div>
-                  <div class="nav-dropdown-icon">expand_more</div>
-                  <div class="absolute-hover-bottom"></div>
+              <a href="/pricing" data-w-id="983316c4-923a-8075-52d1-d1a1eb2cf7b2" class="nav-link-wrapper w-inline-block">
+                <div class="nav-link">
+                  <div class="default-text">Pricing</div>
+                  <div class="default-text black-heading">Pricing</div>
                 </div>
-                <nav class="nav-dropdown-contents w-dropdown-list">
-                  <div class="nav-dropdown-contents-body">
-                    <div class="nav-dropdown-padding">
-                      <div class="submenu-links-wrapper"><a href="/service-pricing"
-                          class="submenu-block w-inline-block">
-                          <div class="submenu-link">
-                            <div class="hover-divider"></div>
-                            <div>Pricing</div>
-                          </div>
-                        </a><a href="/membership-plans" class="submenu-block w-inline-block">
-                          <div class="submenu-link">
-                            <div class="hover-divider"></div>
-                            <div>Membership Plans</div>
-                          </div>
-                        </a><a href="/product/professional" class="submenu-block w-inline-block">
-                          <div class="submenu-link">
-                            <div class="hover-divider"></div>
-                            <div>Pricing Details</div>
-                          </div>
-                        </a></div>
-                    </div>
-                  </div>
-                </nav>
-              </div>
-              <div data-delay="0" data-hover="true" class="nav-dropdown-wrapper w-dropdown">
-                <div data-w-id="279a1d22-4f80-d177-04f5-58c1a704eb82" class="nav-link-wrapper w-dropdown-toggle">
-                  <div class="nav-link">
-                    <div class="default-text">Blogs</div>
-                    <div class="default-text black-heading">Blogs</div>
-                  </div>
-                  <div class="nav-dropdown-icon">expand_more</div>
-                  <div class="absolute-hover-bottom"></div>
+                <div class="absolute-hover-bottom"></div>
+              </a>
+              <a href="explore.php" data-w-id="279a1d22-4f80-d177-04f5-58c1a704eb82" class="nav-link-wrapper w-inline-block">
+                <div class="nav-link">
+                  <div class="default-text">Explore</div>
+                  <div class="default-text black-heading">Explore</div>
                 </div>
-                <nav class="nav-dropdown-contents w-dropdown-list">
-                  <div class="nav-dropdown-contents-body">
-                    <div class="nav-dropdown-padding">
-                      <div class="submenu-links-wrapper"><a href="/blog-1" class="submenu-block w-inline-block">
-                          <div class="submenu-link">
-                            <div class="hover-divider"></div>
-                            <div>Blog-1</div>
-                          </div>
-                        </a><a href="/blog-2" class="submenu-block w-inline-block">
-                          <div class="submenu-link">
-                            <div class="hover-divider"></div>
-                            <div>Blog-2</div>
-                          </div>
-                        </a><a href="/blog-3" class="submenu-block w-inline-block">
-                          <div class="submenu-link">
-                            <div class="hover-divider"></div>
-                            <div>Blog-3</div>
-                          </div>
-                        </a><a href="/post/agency-blog-post-1" class="submenu-block w-inline-block">
-                          <div class="submenu-link">
-                            <div class="hover-divider"></div>
-                            <div>Blog-Details</div>
-                          </div>
-                        </a></div>
-                    </div>
-                  </div>
-                </nav>
-              </div>
-              <div data-delay="0" data-hover="true" class="nav-dropdown-wrapper mega w-dropdown">
-                <div data-w-id="aeb1c1fc-3038-8a62-2af0-a4afc7395963" class="nav-link-wrapper w-dropdown-toggle">
-                  <div class="nav-link">
-                    <div class="default-text">Pages</div>
-                    <div class="default-text black-heading">Pages</div>
-                  </div>
-                  <div class="nav-dropdown-icon">expand_more</div>
-                  <div class="absolute-hover-bottom"></div>
+                <div class="absolute-hover-bottom"></div>
+              </a>
+              <a href="portfolio-2.php" data-w-id="aeb1c1fc-3038-8a62-2af0-a4afc7395963" class="nav-link-wrapper w-inline-block">
+                <div class="nav-link">
+                  <div class="default-text">Article</div>
+                  <div class="default-text black-heading">Article</div>
                 </div>
-                <nav class="nav-dropdown-contents mega-menu-wrapper w-dropdown-list">
-                  <div class="nav-dropdown-contents-body">
-                    <div class="nav-dropdown-padding">
-                      <div class="mb-25px">
-                        <div>PAGES</div>
-                      </div>
-                      <div class="nav-dropdown-links-block">
-                        <div class="submenu-links-wrapper"><a href="/" class="submenu-block w-inline-block">
-                            <div class="submenu-link">
-                              <div class="hover-divider"></div>
-                              <div>Home-1</div>
-                            </div>
-                          </a><a href="/home-2" class="submenu-block w-inline-block">
-                            <div class="submenu-link">
-                              <div class="hover-divider"></div>
-                              <div>Home-2</div>
-                            </div>
-                          </a><a href="/home-3" class="submenu-block w-inline-block">
-                            <div class="submenu-link">
-                              <div class="hover-divider"></div>
-                              <div>Home-3</div>
-                            </div>
-                          </a></div>
-                        <div class="submenu-links-wrapper"><a href="/about-us-1" class="submenu-block w-inline-block">
-                            <div class="submenu-link">
-                              <div class="hover-divider"></div>
-                              <div>About-1</div>
-                            </div>
-                          </a><a href="/about-us-2" class="submenu-block w-inline-block">
-                            <div class="submenu-link">
-                              <div class="hover-divider"></div>
-                              <div>About-2</div>
-                            </div>
-                          </a><a href="/about-us-3" class="submenu-block w-inline-block">
-                            <div class="submenu-link">
-                              <div class="hover-divider"></div>
-                              <div>About-3</div>
-                            </div>
-                          </a></div>
-                        <div id="w-node-_5ad55862-bde2-feec-393d-a8f374fc56c5-1dffdf68" class="submenu-links-wrapper"><a
-                            href="/contact-1" class="submenu-block w-inline-block">
-                            <div class="submenu-link">
-                              <div class="hover-divider"></div>
-                              <div>Contact-1</div>
-                            </div>
-                          </a><a href="/contact-2" class="submenu-block w-inline-block">
-                            <div class="submenu-link">
-                              <div class="hover-divider"></div>
-                              <div>Contact-2</div>
-                            </div>
-                          </a><a href="/contact-3" class="submenu-block w-inline-block">
-                            <div class="submenu-link">
-                              <div class="hover-divider"></div>
-                              <div>Contact-3</div>
-                            </div>
-                          </a></div>
-                        <div class="submenu-links-wrapper"><a href="/services-1" class="submenu-block w-inline-block">
-                            <div class="submenu-link">
-                              <div class="hover-divider"></div>
-                              <div>Services-1</div>
-                            </div>
-                          </a><a href="/services-2" class="submenu-block w-inline-block">
-                            <div class="submenu-link">
-                              <div class="hover-divider"></div>
-                              <div>Services-2</div>
-                            </div>
-                          </a><a href="/services-3" class="submenu-block w-inline-block">
-                            <div class="submenu-link">
-                              <div class="hover-divider"></div>
-                              <div>Services-3</div>
-                            </div>
-                          </a><a href="/services/marketing-copywriting" class="submenu-block w-inline-block">
-                            <div class="submenu-link">
-                              <div class="hover-divider"></div>
-                              <div>Services Details</div>
-                            </div>
-                          </a></div>
-                        <div id="w-node-_5e3d6e34-1a91-a483-780b-5b7bf334d75a-1dffdf68" class="submenu-links-wrapper"><a
-                            href="/blog-1" class="submenu-block w-inline-block">
-                            <div class="submenu-link">
-                              <div class="hover-divider"></div>
-                              <div>Blogs-1</div>
-                            </div>
-                          </a><a href="/blog-2" class="submenu-block w-inline-block">
-                            <div class="submenu-link">
-                              <div class="hover-divider"></div>
-                              <div>Blogs-2</div>
-                            </div>
-                          </a><a href="/blog-3" class="submenu-block w-inline-block">
-                            <div class="submenu-link">
-                              <div class="hover-divider"></div>
-                              <div>Blogs-3</div>
-                            </div>
-                          </a><a href="/post/agency-blog-post-1" class="submenu-block w-inline-block">
-                            <div class="submenu-link">
-                              <div class="hover-divider"></div>
-                              <div>Blog Details</div>
-                            </div>
-                          </a></div>
-                        <div id="w-node-_3d9ebc99-9390-4bff-6136-683b48b42d8b-1dffdf68" class="submenu-links-wrapper"><a
-                            href="/portfolio-1" class="submenu-block w-inline-block">
-                            <div class="submenu-link">
-                              <div class="hover-divider"></div>
-                              <div>Portfolio-1</div>
-                            </div>
-                          </a><a href="/portfolio-2" class="submenu-block w-inline-block">
-                            <div class="submenu-link">
-                              <div class="hover-divider"></div>
-                              <div>Portfolio-2</div>
-                            </div>
-                          </a><a href="/portfolio-3" class="submenu-block w-inline-block">
-                            <div class="submenu-link">
-                              <div class="hover-divider"></div>
-                              <div>Portfolio-3</div>
-                            </div>
-                          </a><a href="/project/social-media-project" class="submenu-block w-inline-block">
-                            <div class="submenu-link">
-                              <div class="hover-divider"></div>
-                              <div>Portfolio Details</div>
-                            </div>
-                          </a></div>
-                      </div>
-                    </div>
-                  </div>
-                </nav>
-              </div>
+                <div class="absolute-hover-bottom"></div>
+              </a>
             </div>
             <div class="close-navbar-icon w-nav-button">
               <div class="close-icon-rotate-white">close</div>
@@ -433,7 +274,7 @@ $places = getAllPlaces();
                   <div class="w-commerce-commercecartformwrapper">
                     <form style="display:none" class="w-commerce-commercecartform" data-node-type="commerce-cart-form">
                       <script type="text/x-wf-template"
-                        id="wf-template-c3bc403f-e038-7da7-8235-50266ba9683f">%3Cdiv%20class%3D%22w-commerce-commercecartitem%20no-padding%22%3E%3Cdiv%20class%3D%22cart-item-wrapper%22%3E%3Cdiv%20class%3D%22mask-10px-rounded%22%3E%3Cimg%20data-wf-bindings%3D%22%255B%257B%2522src%2522%253A%257B%2522type%2522%253A%2522ImageRef%2522%252C%2522filter%2522%253A%257B%2522type%2522%253A%2522identity%2522%252C%2522params%2522%253A%255B%255D%257D%252C%2522dataPath%2522%253A%2522database.commerceOrder.userItems%255B%255D.sku.f_main_image_4dr%2522%257D%257D%255D%22%20src%3D%22%22%20alt%3D%22%22%20class%3D%22w-commerce-commercecartitemimage%20cart-thumbnail%20w-dyn-bind-empty%22%2F%3E%3C%2Fdiv%3E%3Cdiv%20class%3D%22w-commerce-commercecartiteminfo%20cart-info-wrapper%22%3E%3Cdiv%20data-wf-bindings%3D%22%255B%257B%2522innerHTML%2522%253A%257B%2522type%2522%253A%2522PlainText%2522%252C%2522filter%2522%253A%257B%2522type%2522%253A%2522identity%2522%252C%2522params%2522%253A%255B%255D%257D%252C%2522dataPath%2522%253A%2522database.commerceOrder.userItems%255B%255D.product.f_name_%2522%257D%257D%255D%22%20class%3D%22w-commerce-commercecartproductname%20_24px-text%20w-dyn-bind-empty%22%3E%3C%2Fdiv%3E%3Cp%20data-wf-bindings%3D%22%255B%257B%2522innerHTML%2522%253A%257B%2522type%2522%253A%2522CommercePrice%2522%252C%2522filter%2522%253A%257B%2522type%2522%253A%2522price%2522%252C%2522params%2522%253A%255B%255D%257D%252C%2522dataPath%2522%253A%2522database.commerceOrder.userItems%255B%255D.price%2522%257D%257D%255D%22%20class%3D%22_14px-text-500%22%3E%24%C2%A00.00%C2%A0USD%3C%2Fp%3E%3Cscript%20type%3D%22text%2Fx-wf-template%22%20id%3D%22wf-template-c3bc403f-e038-7da7-8235-50266ba96845%22%3E%253Cli%253E%253Cspan%2520data-wf-bindings%253D%2522%25255B%25257B%252522innerHTML%252522%25253A%25257B%252522type%252522%25253A%252522PlainText%252522%25252C%252522filter%252522%25253A%25257B%252522type%252522%25253A%252522identity%252522%25252C%252522params%252522%25253A%25255B%25255D%25257D%25252C%252522dataPath%252522%25253A%252522database.commerceOrder.userItems%25255B%25255D.product.f_sku_properties_3dr%25255B%25255D.name%252522%25257D%25257D%25255D%2522%2520class%253D%2522w-dyn-bind-empty%2522%253E%253C%252Fspan%253E%253Cspan%253E%253A%2520%253C%252Fspan%253E%253Cspan%2520data-wf-bindings%253D%2522%25255B%25257B%252522innerHTML%252522%25253A%25257B%252522type%252522%25253A%252522CommercePropValues%252522%25252C%252522filter%252522%25253A%25257B%252522type%252522%25253A%252522identity%252522%25252C%252522params%252522%25253A%25255B%25255D%25257D%25252C%252522dataPath%252522%25253A%252522database.commerceOrder.userItems%25255B%25255D.product.f_sku_properties_3dr%25255B%25255D%252522%25257D%25257D%25255D%2522%2520class%253D%2522w-dyn-bind-empty%2522%253E%253C%252Fspan%253E%253C%252Fli%253E%3C%2Fscript%3E%3Cul%20data-wf-bindings%3D%22%255B%257B%2522optionSets%2522%253A%257B%2522type%2522%253A%2522CommercePropTable%2522%252C%2522filter%2522%253A%257B%2522type%2522%253A%2522identity%2522%252C%2522params%2522%253A%255B%255D%257D%252C%2522dataPath%2522%253A%2522database.commerceOrder.userItems%255B%255D.product.f_sku_properties_3dr%5B%5D%2522%257D%257D%252C%257B%2522optionValues%2522%253A%257B%2522type%2522%253A%2522CommercePropValues%2522%252C%2522filter%2522%253A%257B%2522type%2522%253A%2522identity%2522%252C%2522params%2522%253A%255B%255D%257D%252C%2522dataPath%2522%253A%2522database.commerceOrder.userItems%255B%255D.sku.f_sku_values_3dr%2522%257D%257D%255D%22%20class%3D%22w-commerce-commercecartoptionlist%22%20data-wf-collection%3D%22database.commerceOrder.userItems%255B%255D.product.f_sku_properties_3dr%22%20data-wf-template-id%3D%22wf-template-c3bc403f-e038-7da7-8235-50266ba96845%22%3E%3Cli%3E%3Cspan%20data-wf-bindings%3D%22%255B%257B%2522innerHTML%2522%253A%257B%2522type%2522%253A%2522PlainText%2522%252C%2522filter%2522%253A%257B%2522type%2522%253A%2522identity%2522%252C%2522params%2522%253A%255B%255D%257D%252C%2522dataPath%2522%253A%2522database.commerceOrder.userItems%255B%255D.product.f_sku_properties_3dr%255B%255D.name%2522%257D%257D%255D%22%20class%3D%22w-dyn-bind-empty%22%3E%3C%2Fspan%3E%3Cspan%3E%3A%20%3C%2Fspan%3E%3Cspan%20data-wf-bindings%3D%22%255B%257B%2522innerHTML%2522%253A%257B%2522type%2522%253A%2522CommercePropValues%2522%252C%2522filter%2522%253A%257B%2522type%2522%253A%2522identity%2522%252C%2522params%2522%253A%255B%255D%257D%252C%2522dataPath%2522%253A%2522database.commerceOrder.userItems%255B%255D.product.f_sku_properties_3dr%255B%255D%2522%257D%257D%255D%22%20class%3D%22w-dyn-bind-empty%22%3E%3C%2Fspan%3E%3C%2Fli%3E%3C%2Ful%3E%3C%2Fdiv%3E%3Cdiv%20class%3D%22cart-qty-remove-icon-wrapper%22%3E%3Cinput%20aria-label%3D%22Update%20quantity%22%20data-wf-bindings%3D%22%255B%257B%2522value%2522%253A%257B%2522type%2522%253A%2522Number%2522%252C%2522filter%2522%253A%257B%2522type%2522%253A%2522numberPrecision%2522%252C%2522params%2522%253A%255B%25220%2522%252C%2522numberPrecision%2522%255D%257D%252C%2522dataPath%2522%253A%2522database.commerceOrder.userItems%255B%255D.count%2522%257D%257D%252C%257B%2522data-commerce-sku-id%2522%253A%257B%2522type%2522%253A%2522ItemRef%2522%252C%2522filter%2522%253A%257B%2522type%2522%253A%2522identity%2522%252C%2522params%2522%253A%255B%255D%257D%252C%2522dataPath%2522%253A%2522database.commerceOrder.userItems%255B%255D.sku.id%2522%257D%257D%255D%22%20data-wf-conditions%3D%22%257B%2522condition%2522%253A%257B%2522fields%2522%253A%257B%2522product%253Aec-product-type%2522%253A%257B%2522ne%2522%253A%2522e348fd487d0102946c9179d2a94bb613%2522%252C%2522type%2522%253A%2522Option%2522%257D%257D%257D%252C%2522dataPath%2522%253A%2522database.commerceOrder.userItems%255B%255D%2522%257D%22%20class%3D%22w-commerce-commercecartquantity%20cart-quantity-border%22%20required%3D%22%22%20pattern%3D%22%5E%5B0-9%5D%2B%24%22%20inputMode%3D%22numeric%22%20type%3D%22number%22%20name%3D%22quantity%22%20autoComplete%3D%22off%22%20data-wf-cart-action%3D%22update-item-quantity%22%20data-commerce-sku-id%3D%22%22%20value%3D%221%22%2F%3E%3Ca%20href%3D%22%23%22%20role%3D%22button%22%20data-wf-bindings%3D%22%255B%257B%2522data-commerce-sku-id%2522%253A%257B%2522type%2522%253A%2522ItemRef%2522%252C%2522filter%2522%253A%257B%2522type%2522%253A%2522identity%2522%252C%2522params%2522%253A%255B%255D%257D%252C%2522dataPath%2522%253A%2522database.commerceOrder.userItems%255B%255D.sku.id%2522%257D%257D%255D%22%20class%3D%22remove-item%20w-inline-block%22%20data-wf-cart-action%3D%22remove-item%22%20data-commerce-sku-id%3D%22%22%20aria-label%3D%22Remove%20item%20from%20cart%22%3E%3Cdiv%20class%3D%22remove-button-icon-cart%22%3Edelete%3C%2Fdiv%3E%3C%2Fa%3E%3C%2Fdiv%3E%3C%2Fdiv%3E%3C%2Fdiv%3E</script>
+                        id="wf-template-c3bc403f-e038-7da7-8235-50266ba9683f">%3Cdiv%20class%3D%22w-commerce-commercecartitem%20no-padding%22%3E%3Cdiv%20class%3D%22cart-item-wrapper%22%3E%3Cdiv%20class%3D%22mask-10px-rounded%22%3E%3Cimg%20data-wf-bindings%3D%22%255B%257B%2522src%2522%253A%257B%2522type%2522%253A%2522ImageRef%2522%252C%2522filter%2522%253A%257B%2522type%2522%253A%2522identity%2522%252C%2522params%2522%253A%255B%255D%257D%252C%2522dataPath%2522%253A%2522database.commerceOrder.userItems%255B%255D.sku.f_main_image_4dr%2522%257D%257D%255D%22%20src%3D%22%22%20alt%3D%22%22%20class%3D%22w-commerce-commercecartitemimage%20cart-thumbnail%20w-dyn-bind-empty%22%2F%3E%3C%2Fdiv%3E%3Cdiv%20class%3D%22w-commerce-commercecartiteminfo%20cart-info-wrapper%22%3E%3Cdiv%20data-wf-bindings%3D%22%255B%257B%2522innerHTML%2522%253A%257B%2522type%2522%253A%2522PlainText%2522%252C%2522filter%2522%253A%257B%2522type%2522%253A%2522identity%2522%252C%2522params%2522%253A%255B%255D%257D%252C%2522dataPath%2522%253A%2522database.commerceOrder.userItems%255B%255D.product.f_name_%2522%257D%257D%255D%22%20class%3D%22w-commerce-commercecartproductname%20_24px-text%20w-dyn-bind-empty%22%3E%3C%2Fdiv%3E%3Cp%20data-wf-bindings%3D%22%255B%257B%2522innerHTML%2522%253A%257B%2522type%2522%253A%2522CommercePrice%2522%252C%2522filter%2522%253A%257B%2522type%2522%253A%2522price%2522%252C%2522params%2522%253A%255B%255D%257D%252C%2522dataPath%2522%253A%2522database.commerceOrder.userItems%255B%255D.price%2522%257D%257D%255D%22%20class%3D%22_14px-text-500%22%3E%24%C2%A00.00%C2%A0USD%3C%2Fp%3E%3Cscript%20type%3D%22text%2Fx-wf-template%22%20id%3D%22wf-template-c3bc403f-e038-7da7-8235-50266ba96845%22%3E%253Cli%253E%253Cspan%2520data-wf-bindings%253D%2522%25255B%25257B%252522innerHTML%252522%25253A%25257B%252522type%252522%25253A%252522PlainText%252522%25252C%252522filter%252522%25253A%25257B%252522type%252522%25253A%252522identity%252522%25252C%252522params%252522%25253A%25255B%25255D%25257D%25252C%252522dataPath%252522%25253A%252522database.commerceOrder.userItems%25255B%25255D.product.f_sku_properties_3dr%25255B%25255D.name%252522%25257D%25257D%25255D%2522%2520class%253D%2522w-dyn-bind-empty%2522%253E%253C%252Fspan%253E%253Cspan%253E%253A%2520%253C%252Fspan%253E%253Cspan%2520data-wf-bindings%253D%2522%25255B%25257B%252522innerHTML%252522%25253A%25257B%252522type%252522%25253A%252522CommercePropValues%252522%25252C%252522filter%252522%25253A%25257B%252522type%252522%25253A%252522identity%252522%25252C%252522params%252522%25253A%25255B%25255D%25257D%25252C%252522dataPath%252522%25253A%252522database.commerceOrder.userItems%25255B%25255D.product.f_sku_properties_3dr%25255B%25255D%252522%25257D%25257D%25255D%2522%2520class%253D%2522w-dyn-bind-empty%2522%253E%253C%252Fspan%253E%253C%252Fli%253E%3C%2Fscript%3E%3Cul%20data-wf-bindings%3D%22%255B%257B%2522optionSets%2522%253A%257B%2522type%2522%253A%2522CommercePropTable%2522%252C%2522filter%2522%253A%257B%2522type%2522%253A%2522identity%2522%252C%2522params%2522%253A%255B%255D%257D%252C%2522dataPath%2522%253A%2522database.commerceOrder.userItems%255B%255D.product.f_sku_properties_3dr%5B%5D%2522%257D%257D%252C%257B%2522optionValues%2522%253A%257B%2522type%2522%253A%2522CommercePropValues%2522%252C%2522filter%2522%253A%257B%2522type%2522%253A%2522identity%2522%252C%2522params%2522%253A%255B%255D%257D%252C%2522dataPath%2522%253A%2522database.commerceOrder.userItems%255B%255D.sku.f_sku_values_3dr%2522%257D%257D%255D%22%20class%3D%22w-commerce-commercecartoptionlist%22%20data-wf-collection%3D%22database.commerceOrder.userItems%255B%255D.product.f_sku_properties_3dr%22%20data-wf-template-id%3D%22wf-template-c3bc403f-e038-7da7-8235-50266ba96845%22%3E%3Cli%3E%3Cspan%20data-wf-bindings%3D%22%255B%257B%2522innerHTML%2522%253A%257B%2522type%2522%253A%2522PlainText%2522%252C%2522filter%2522%253A%257B%2522type%2522%253A%2522identity%2522%252C%2522params%2522%253A%255B%255D%257D%252C%2522dataPath%2522%253A%2522database.commerceOrder.userItems%255B%255D.product.f_sku_properties_3dr%255B%255D.name%2522%257D%257D%255D%22%20class%3D%22w-dyn-bind-empty%22%3E%3C%2Fspan%3E%3Cspan%3E%3A%20%3C%2Fspan%3E%3Cspan%20data-wf-bindings%3D%22%255B%257B%2522innerHTML%2522%253A%257B%2522type%2522%253A%2522CommercePropValues%2522%252C%2522filter%2522%253A%257B%2522type%2522%253A%2522identity%2522%252C%2522params%2522%253A%255B%255D%257D%252C%2522dataPath%2522%253A%2522database.commerceOrder.userItems%255B%255D.product.f_sku_properties_3dr%255B%255D%2522%257D%257D%255D%22%20class%3D%22w-dyn-bind-empty%22%3E%3C%2Fspan%3E%3C%2Fli%3E%3C%2Ful%3E%3C%2Fdiv%3E%3Cdiv%20class%3D%22cart-qty-remove-icon-wrapper%22%3E%3Cinput%20aria-label%3D%22Update%20quantity%22%20data-wf-bindings%3D%22%255B%257B%2522value%2522%253A%257B%2522type%2522%253A%2522Number%2522%252C%2522filter%2522%253A%257B%2522type%2522%253A%2522numberPrecision%2522%252C%2522params%2522%253A%255B%25220%2522%252C%2522numberPrecision%2522%255D%257D%252C%2522dataPath%2522%253A%2522database.commerceOrder.userItems%255B%255D.count%2522%257D%257D%252C%7B%2522data-commerce-sku-id%2522%253A%257B%2522type%2522%253A%2522ItemRef%2522%252C%2522filter%2522%253A%257B%2522type%2522%253A%2522identity%2522%252C%2522params%2522%253A%255B%255D%257D%252C%2522dataPath%2522%253A%2522database.commerceOrder.userItems%255B%255D.sku.id%2522%257D%257D%255D%22%20data-wf-conditions%3D%22%257B%2522condition%2522%253A%7B%2522fields%2522%253A%7B%2522product%253Aec-product-type%2522%253A%7B%2522ne%2522%253A%2522e348fd487d0102946c9179d2a94bb613%2522%252C%2522type%2522%253A%2522Option%2522%257D%257D%257D%252C%2522dataPath%2522%253A%2522database.commerceOrder.userItems%255B%255D%2522%257D%22%20class%3D%22w-commerce-commercecartquantity%20cart-quantity-border%22%20required%3D%22%22%20pattern%3D%22%5E%5B0-9%5D%2B%24%22%20inputMode%3D%22numeric%22%20type%3D%22number%22%20name%3D%22quantity%22%20autoComplete%3D%22off%22%20data-wf-cart-action%3D%22update-item-quantity%22%20data-commerce-sku-id%3D%22%22%20value%3D%221%22%2F%3E%3Ca%20href%3D%22%23%22%20role%3D%22button%22%20data-wf-bindings%3D%22%255B%257B%2522data-commerce-sku-id%2522%253A%257B%2522type%2522%253A%2522ItemRef%2522%252C%2522filter%2522%253A%257B%2522type%2522%253A%2522identity%2522%252C%2522params%2522%253A%255B%255D%257D%252C%2522dataPath%2522%253A%2522database.commerceOrder.userItems%255B%255D.sku.id%2522%257D%257D%255D%22%20class%3D%22remove-item%20w-inline-block%22%20data-wf-cart-action%3D%22remove-item%22%20data-commerce-sku-id%3D%22%22%20aria-label%3D%22Remove%20item%20from%20cart%22%3E%3Cdiv%20class%3D%22remove-button-icon-cart%22%3Edelete%3C%2Fdiv%3E%3C%2Fa%3E%3C%2Fdiv%3E%3C%2Fdiv%3E%3C%2Fdiv%3E</script>
                       <div class="w-commerce-commercecartlist cart-list"
                         data-wf-collection="database.commerceOrder.userItems"
                         data-wf-template-id="wf-template-c3bc403f-e038-7da7-8235-50266ba9683f">
@@ -585,11 +426,7 @@ $places = getAllPlaces();
     </div>
     <section class="banner">
       <div class="container">
-        <h1 class="heading">Destination</h1>
-        <div class="breadcrumb-block"><a href="/" class="breadcrumb">Home</a>
-          <div class="_8px-circle-title"></div>
-          <div class="breadcrumb">Destination</div>
-        </div>
+        <h1 class="heading">Adventure</h1>
       </div>
       <div data-w-id="86948c09-9ea6-0d24-c71d-cfb6b9e521b5" class="image-show-style">
         <div class="bg-column-mask">
@@ -954,7 +791,7 @@ $places = getAllPlaces();
                         </a>
                       </div>
                     </div><a href="/post/content-marketing-tips-for-agencies" class="w-inline-block">
-                      <h3 class="_24px-link">Unraveling the Cultural Richness of Jogja’s Traditions</h3>
+                      <h3 class="_24px-link">Unraveling the Cultural Richness of Jogja's Traditions</h3>
                     </a>
                     <div class="blog-divider">
                       <div class="blog-hover-divider"></div>
@@ -1072,7 +909,7 @@ $places = getAllPlaces();
                         </a>
                       </div>
                     </div><a href="/post/top-networking-agencies-in-the-world" class="w-inline-block">
-                      <h3 class="_24px-link">Taste the Authentic Flavors of Jogja’s Culinary Heritage</h3>
+                      <h3 class="_24px-link">Taste the Authentic Flavors of Jogja's Culinary Heritage</h3>
                     </a>
                     <div class="blog-divider">
                       <div class="blog-hover-divider"></div>
@@ -1164,16 +1001,16 @@ $places = getAllPlaces();
       <div class="container">
         <div data-w-id="3447bad0-4c97-caf6-2cc4-1b7d3321ffb7" class="footer-container">
           <div class="footer-block">
-            <div class="site-logo" style="font-size: 40px; font-weight: bold; color:rgb(255, 255, 255);">VisitVista
-            </div>
+            <div class="site-logo" style="font-size: 35px; font-weight: bold; color:rgb(255, 255, 255);">VisitVista</div>
             <div class="margin-bottom-23px">
-              <p class="footer-text">Ready to elevate your online presence? Contact us today to discuss your project and
-                discover how we can bring your vision to life.</p>
+              <p class="footer-text">Daftar sekarang dan optimalkan pengalaman wisata anda!</p>
+            </div>
+            <div class="horizontal-left-center-11px-gap"><img src="../images/frame.avif" loading="lazy" alt="" class="image-24px" />
+              <p class="_16px-text">Copyright © VisitVista by ExploreX</p>
             </div>
           </div>
           <div class="footer-block end">
-            <div class="link-list"><a data-w-id="ae4630f3-25c8-1af0-bf6f-a34696446e8b" href="/"
-                class="footer-link-wrapper w-inline-block">
+            <div class="link-list"><a data-w-id="ae4630f3-25c8-1af0-bf6f-a34696446e8b" href="/" class="footer-link-wrapper w-inline-block">
                 <div class="footer-link">
                   <div class="text">Home</div>
                   <div class="text">Home</div>
@@ -1181,8 +1018,7 @@ $places = getAllPlaces();
                 <div class="mask">
                   <div class="nav-border"></div>
                 </div>
-              </a><a data-w-id="ae4630f3-25c8-1af0-bf6f-a34696446e8b" href="/about-us-1"
-                class="footer-link-wrapper w-inline-block">
+              </a><a data-w-id="ae4630f3-25c8-1af0-bf6f-a34696446e8b" href="about-us-1.php" class="footer-link-wrapper w-inline-block">
                 <div class="footer-link">
                   <div class="text">About</div>
                   <div class="text">About</div>
@@ -1190,20 +1026,18 @@ $places = getAllPlaces();
                 <div class="mask">
                   <div class="nav-border"></div>
                 </div>
-              </a><a data-w-id="ae4630f3-25c8-1af0-bf6f-a34696446e8b" href="/portfolio-1"
-                class="footer-link-wrapper w-inline-block">
+              </a><a data-w-id="ae4630f3-25c8-1af0-bf6f-a34696446e8b" href="/visitvista/portfolio-2.php" class="footer-link-wrapper w-inline-block">
                 <div class="footer-link">
-                  <div class="text">Works</div>
-                  <div class="text">Works</div>
+                  <div class="text">Article</div>
+                  <div class="text">Article</div>
                 </div>
                 <div class="mask">
                   <div class="nav-border"></div>
                 </div>
-              </a><a data-w-id="ae4630f3-25c8-1af0-bf6f-a34696446e8b" href="/utility/license"
-                class="footer-link-wrapper w-inline-block">
+              </a><a data-w-id="ae4630f3-25c8-1af0-bf6f-a34696446e8b" href="/visitvista/explore.php" class="footer-link-wrapper w-inline-block">
                 <div class="footer-link">
-                  <div class="text">Licensing</div>
-                  <div class="text">Licensing</div>
+                  <div class="text">Explore</div>
+                  <div class="text">Explore</div>
                 </div>
                 <div class="mask">
                   <div class="nav-border"></div>
