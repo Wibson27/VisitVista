@@ -1,3 +1,11 @@
+<?php
+require_once __DIR__ . '/functions/database_functions.php';
+error_reporting(E_ALL);
+ini_set('display_errors', 1);
+// Get all places using the function
+
+?>
+
 <!DOCTYPE html>
 <html data-wf-page="66f00efc0ba3b86a13792a52" data-wf-site="66f00efc0ba3b86a13792a55" lang="en">
 

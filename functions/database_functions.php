@@ -239,8 +239,8 @@ function getAllArticles() {
 function getArticleById($id) {
     global $db; // Gunakan global $db yang sudah ada
     try {
-        $stmt = $db->prepare("SELECT *, 
-                           COALESCE(content_full, content) as full_content 
+        $stmt = $db->prepare("SELECT *,
+                           COALESCE(content_full, content) as full_content
                            FROM articles WHERE id = ?");
         $stmt->execute([$id]);
         return $stmt->fetch(PDO::FETCH_ASSOC);
@@ -263,14 +263,63 @@ function getArticlesByCategory($category) {
     }
 }
 
+function createUser($email, $password, $name, $phone, $role) {
+  global $db;
+  try {
+      // Generate user ID based on role
+      $prefix = ($role === 'BUSINESS') ? 'B' : 'C';
+      $stmt = $db->prepare("SELECT MAX(CAST(SUBSTRING(id, 2) AS UNSIGNED)) as max_id FROM users WHERE id LIKE ?");
+      $stmt->execute([$prefix . '%']);
+      $result = $stmt->fetch();
+      $nextId = ($result['max_id'] ?? 0) + 1;
+      $userId = $prefix . str_pad($nextId, 3, '0', STR_PAD_LEFT);
+
+      // Insert user
+      $stmt = $db->prepare("INSERT INTO users (id, email, password, name, phone, role) VALUES (?, ?, ?, ?, ?, ?)");
+      $stmt->execute([$userId, $email, password_hash($password, PASSWORD_DEFAULT), $name, $phone, $role]);
+
+      return $userId;
+  } catch(Exception $e) {
+      error_log($e->getMessage());
+      return false;
+  }
+}
+
+function createProfile($userId, $profileData, $role) {
+  global $db;
+  try {
+      if ($role === 'BUSINESS') {
+          $stmt = $db->prepare("INSERT INTO business_profiles (user_id, business_name, city, description, verification_status) VALUES (?, ?, ?, ?, 'PENDING')");
+          $stmt->execute([
+              $userId,
+              $profileData['business_name'],
+              $profileData['city'],
+              $profileData['description']
+          ]);
+      } else {
+          $stmt = $db->prepare("INSERT INTO customer_profiles (user_id, date_of_birth, gender, bio) VALUES (?, ?, ?, ?)");
+          $stmt->execute([
+              $userId,
+              $profileData['date_of_birth'],
+              $profileData['gender'],
+              $profileData['bio']
+          ]);
+      }
+      return true;
+  } catch(Exception $e) {
+      error_log($e->getMessage());
+      return false;
+  }
+}
+
 // Fungsi untuk mengambil semua kategori
 function getAllCategories() {
     global $conn;
-    
+
     try {
         $sql = "SELECT * FROM categories ORDER BY name ASC";
         $result = $conn->query($sql);
-        
+
         if ($result->num_rows > 0) {
             return $result->fetch_all(MYSQLI_ASSOC);
         }
@@ -284,14 +333,14 @@ function getAllCategories() {
 // Fungsi untuk mengambil places dengan kategorinya
 function getAllPlacesWithCategories() {
     global $conn;
-    
+
     try {
-        $sql = "SELECT p.*, c.name as category_name 
-                FROM places p 
-                LEFT JOIN categories c ON p.category_id = c.id 
+        $sql = "SELECT p.*, c.name as category_name
+                FROM places p
+                LEFT JOIN categories c ON p.category_id = c.id
                 ORDER BY p.created_at DESC";
         $result = $conn->query($sql);
-        
+
         if ($result->num_rows > 0) {
             return $result->fetch_all(MYSQLI_ASSOC);
         }
@@ -306,7 +355,7 @@ function getAllPlacesWithCategories() {
 function getPlacesSuggestions() {
     return [
         "Borobudur Temple",
-        "Mount Bromo", 
+        "Mount Bromo",
         "Bali Beach",
         "Tana Toraja",
         "Komodo Island",
@@ -321,7 +370,7 @@ function searchSuggestions($query) {
     if (strlen($query) < 2) {
         return [];
     }
-    
+
     $places = getPlacesSuggestions();
     return array_filter($places, function($place) use ($query) {
         return stripos($place, $query) !== false;
@@ -346,8 +395,8 @@ function getSearchScripts() {
     function showAllSuggestions() {
         const suggestionsDiv = document.getElementById('suggestions');
         suggestionsDiv.innerHTML = places
-            .map(place => 
-                '<div class="suggestion-item">' + 
+            .map(place =>
+                '<div class="suggestion-item">' +
                     place +
                 '</div>'
             )
@@ -362,21 +411,21 @@ function getSearchScripts() {
         }
 
         const suggestionsDiv = document.getElementById('suggestions');
-        const filteredPlaces = places.filter(place => 
+        const filteredPlaces = places.filter(place =>
             place.toLowerCase().includes(query.toLowerCase())
         );
 
         if (filteredPlaces.length > 0) {
             suggestionsDiv.innerHTML = filteredPlaces
-                .map(place => 
-                    '<div class="suggestion-item">' + 
+                .map(place =>
+                    '<div class="suggestion-item">' +
                         place +
                     '</div>'
                 )
                 .join('');
             suggestionsDiv.style.display = 'block';
         } else {
-            suggestionsDiv.innerHTML = 
+            suggestionsDiv.innerHTML =
                 '<div class="suggestion-item">' +
                     'No results found' +
                 '</div>';
