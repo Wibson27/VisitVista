@@ -120,9 +120,7 @@ $articles = getAllArticles();
         <!-- Navbar Main -->
         <div class="navbar-main">
           <!-- Logo -->
-          <a data-w-id="ac2971f4-6f26-e7be-f7cd-a20c97325007" href="/" class="w-inline-block">
-            <img src="images/agency-20logo.avif" loading="lazy" alt="" class="site-logo" />
-          </a>
+          <div class="site-logo" style="font-size: 40px; font-weight: bold; color:rgb(255, 255, 255);">VisitVista</div>
 
           <!-- Navigation Menu -->
           <nav role="navigation" class="nav-menu-wrapper w-nav-menu">
@@ -509,7 +507,7 @@ $articles = getAllArticles();
             <?php foreach($articles as $article): ?>
                     <div role="listitem" class="w-dyn-item">
                         <a data-w-id="89a00a31-e1dd-6742-3b71-4fad578cb15c"
-                            href="/Last/project/article.php?id=<?php echo $article['id']; ?>" 
+                            href="/visitvista/project/article.php?id=<?php echo $article['id']; ?>" 
                             class="portfolio-slide border w-inline-block">
                             <div class="_5px-rounded-mask">
                                 <img src="<?php echo htmlspecialchars($article['image_url']); ?>" 
@@ -530,80 +528,69 @@ $articles = getAllArticles();
         </div>
     </div>
 </section>
-    <footer class="footer">
-      <div class="container">
-        <div data-w-id="3447bad0-4c97-caf6-2cc4-1b7d3321ffb7" class="footer-container">
-          <div class="footer-block">
-            <div><img width="70" loading="lazy" alt="" src="images/agency-20logo.avif" class="site-logo" /></div>
-            <div class="margin-bottom-23px">
-              <p class="footer-text">Daftar sekarang dan optimalkan pengalaman wisata anda!</p>
-            </div>
-            <div class="horizontal-left-center-11px-gap"><img src="images/frame.avif" loading="lazy" alt=""
-                class="image-24px" />
-              <p class="_16px-text">Copyright © VisitVista by ExploreX</p>
-            </div>
-          </div>
-          <div class="footer-block end">
-            <div class="link-list"><a data-w-id="ae4630f3-25c8-1af0-bf6f-a34696446e8b" href="/"
-                class="footer-link-wrapper w-inline-block">
-                <div class="footer-link">
-                  <div class="text">Home</div>
-                  <div class="text">Home</div>
-                </div>
-                <div class="mask">
-                  <div class="nav-border"></div>
-                </div>
-              </a><a data-w-id="ae4630f3-25c8-1af0-bf6f-a34696446e8b" href="../about-us-1.php"
-                class="footer-link-wrapper w-inline-block">
-                <div class="footer-link">
-                  <div class="text">About</div>
-                  <div class="text">About</div>
-                </div>
-                <div class="mask">
-                  <div class="nav-border"></div>
-                </div>
-              </a><a data-w-id="ae4630f3-25c8-1af0-bf6f-a34696446e8b" href="../portfolio-2.php"
-                class="footer-link-wrapper w-inline-block">
-                <div class="footer-link">
-                  <div class="text">Article</div>
-                  <div class="text">Article</div>
-                </div>
-                <div class="mask">
-                  <div class="nav-border"></div>
-                </div>
-              </a><a data-w-id="ae4630f3-25c8-1af0-bf6f-a34696446e8b" href="../blog-2.php"
-                class="footer-link-wrapper w-inline-block">
-                <div class="footer-link">
-                  <div class="text">Explore</div>
-                  <div class="text">Explore</div>
-                </div>
-                <div class="mask">
-                  <div class="nav-border"></div>
-                </div>
-              </a></div>
-            <div class="social-icons-container"><a href="http://instagram.com" target="_blank"
-                class="social-icon-wrapper w-inline-block"><img src="images/group-2027181.png" loading="lazy" alt=""
-                  class="footer-icon" /></a><a href="http://linkedin.com" target="_blank"
-                class="social-icon-wrapper w-inline-block"><img src="images/group-2027180.png" loading="lazy" alt=""
-                  class="footer-icon" /></a><a href="http://tiktok.com" class="social-icon-wrapper w-inline-block"><img
-                  src="images/vector-20-1-.png" loading="lazy" alt="" class="footer-icon" /></a><a
-                href="http://dribble.com" target="_blank" class="social-icon-wrapper w-inline-block"><img
-                  src="images/vector.avif" loading="lazy" alt="" class="footer-icon" /></a></div>
-          </div>
+<!-- Footer -->
+<footer class="footer">
+  <div class="container">
+    <div data-w-id="3447bad0-4c97-caf6-2cc4-1b7d3321ffb7" class="footer-container">
+      <div class="footer-block">
+        <div class="site-logo" style="font-size: 35px; font-weight: bold; color:rgb(255, 255, 255);">VisitVista</div>
+        <div class="margin-bottom-23px">
+          <p class="footer-text">Daftar sekarang dan optimalkan pengalaman wisata anda!</p>
+        </div>
+        <div class="horizontal-left-center-11px-gap"><img src="../images/frame.avif" loading="lazy" alt="" class="image-24px" />
+          <p class="_16px-text">Copyright © VisitVista by ExploreX</p>
         </div>
       </div>
-      <div data-w-id="9fe381cd-c836-00c2-b807-19331181b79b" class="site-line-wrapper">
-        <div class="line">
-          <div class="line-infinity _1"></div>
-        </div>
-        <div class="line">
-          <div class="line-infinity _2"></div>
-        </div>
-        <div class="line _3">
-          <div class="line-infinity _3"></div>
-        </div>
+      <div class="footer-block end">
+        <div class="link-list"><a data-w-id="ae4630f3-25c8-1af0-bf6f-a34696446e8b" href="/" class="footer-link-wrapper w-inline-block">
+            <div class="footer-link">
+              <div class="text">Home</div>
+              <div class="text">Home</div>
+            </div>
+            <div class="mask">
+              <div class="nav-border"></div>
+            </div>
+          </a><a data-w-id="ae4630f3-25c8-1af0-bf6f-a34696446e8b" href="about-us-1.php" class="footer-link-wrapper w-inline-block">
+            <div class="footer-link">
+              <div class="text">About</div>
+              <div class="text">About</div>
+            </div>
+            <div class="mask">
+              <div class="nav-border"></div>
+            </div>
+          </a><a data-w-id="ae4630f3-25c8-1af0-bf6f-a34696446e8b" href="/visitvista/portfolio-2.php" class="footer-link-wrapper w-inline-block">
+            <div class="footer-link">
+              <div class="text">Article</div>
+              <div class="text">Article</div>
+            </div>
+            <div class="mask">
+              <div class="nav-border"></div>
+            </div>
+          </a><a data-w-id="ae4630f3-25c8-1af0-bf6f-a34696446e8b" href="blog-2.php" class="footer-link-wrapper w-inline-block">
+            <div class="footer-link">
+              <div class="text">Explore</div>
+              <div class="text">Explore</div>
+            </div>
+            <div class="mask">
+              <div class="nav-border"></div>
+            </div>
+          </a></div>
+        <div class="social-icons-container"><a href="http://instagram.com" target="_blank" class="social-icon-wrapper w-inline-block"><img src="../images/group-2027181.png" loading="lazy" alt="" class="footer-icon" /></a><a href="http://linkedin.com" target="_blank" class="social-icon-wrapper w-inline-block"><img src="../images/group-2027180.png" loading="lazy" alt="" class="footer-icon" /></a><a href="http://tiktok.com" class="social-icon-wrapper w-inline-block"><img src="../images/vector-20-1-.png" loading="lazy" alt="" class="footer-icon" /></a><a href="http://dribble.com" target="_blank" class="social-icon-wrapper w-inline-block"><img src="../images/vector.avif" loading="lazy" alt="" class="footer-icon" /></a></div>
       </div>
-    </footer>
+    </div>
+  </div>
+  <div data-w-id="9fe381cd-c836-00c2-b807-19331181b79b" class="site-line-wrapper">
+    <div class="line">
+      <div class="line-infinity _1"></div>
+    </div>
+    <div class="line">
+      <div class="line-infinity _2"></div>
+    </div>
+    <div class="line _3">
+      <div class="line-infinity _3"></div>
+    </div>
+  </div>
+</footer>
   </div>
   <script src="js/jquery.js" type="text/javascript"></script>
   <script src="js/webflow-script.js" type="text/javascript"></script>
