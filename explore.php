@@ -12,8 +12,8 @@ $places = getAllPlaces();
 <head>
   <meta charset="utf-8" />
   <title>Explore</title>
-  <meta content="Blog-2" property="og:title" />
-  <meta content="Blog-2" property="twitter:title" />
+  <meta content="explore.php" property="og:title" />
+  <meta content="explore.php" property="twitter:title" />
   <meta content="width=device-width, initial-scale=1" name="viewport" />
   <meta content="Webflow" name="generator" />
   <link href="css/agency-nx.webflow.6599087d1.min.css" rel="stylesheet" type="text/css" />
@@ -137,7 +137,7 @@ $places = getAllPlaces();
                 <nav class="nav-dropdown-contents w-dropdown-list">
                   <div class="nav-dropdown-contents-body">
                     <div class="nav-dropdown-padding">
-                      <div class="submenu-links-wrapper"><a href="/blog-2" aria-current="page" class="submenu-block w-inline-block w--current">
+                      <div class="submenu-links-wrapper"><a href="explore.php" aria-current="page" class="submenu-block w-inline-block w--current">
                           <div class="submenu-link">
                             <div class="hover-divider"></div>
                             <div>Explore</div>
@@ -150,8 +150,8 @@ $places = getAllPlaces();
               <div data-delay="0" data-hover="true" class="nav-dropdown-wrapper mega w-dropdown">
                 <div data-w-id="aeb1c1fc-3038-8a62-2af0-a4afc7395963" class="nav-link-wrapper w-dropdown-toggle">
                   <div class="nav-link">
-                    <div class="default-text">Pages</div>
-                    <div class="default-text black-heading">Pages</div>
+                    <div class="default-text">Article</div>
+                    <div class="default-text black-heading">Article</div>
                   </div>
                   <div class="nav-dropdown-icon">expand_more</div>
                   <div class="absolute-hover-bottom"></div>
@@ -160,7 +160,7 @@ $places = getAllPlaces();
                   <div class="nav-dropdown-contents-body">
                     <div class="nav-dropdown-padding">
                       <div class="mb-25px">
-                        <div>PAGES</div>
+                        <div>Article</div>
                       </div>
                       <div class="nav-dropdown-links-block">
                         <div class="submenu-links-wrapper"><a href="/" class="submenu-block w-inline-block">
@@ -247,7 +247,7 @@ $places = getAllPlaces();
                               <div class="hover-divider"></div>
                               <div>Portfolio-1</div>
                             </div>
-                          </a><a href="/portfolio-2" class="submenu-block w-inline-block">
+                          </a><a href="portfolio-2.php" class="submenu-block w-inline-block">
                             <div class="submenu-link">
                               <div class="hover-divider"></div>
                               <div>Portfolio-2</div>
@@ -641,6 +641,28 @@ $places = getAllPlaces();
                 </a>
               </div>
             <?php endforeach; ?>
+            <div class="blog-widget">
+              <div class="sidebar-title">Categories</div>
+              <div class="w-dyn-list">
+                <div role="list" class="category-container w-dyn-items">
+                  <div role="listitem" class="w-dyn-item"><a href="/blog-categories/adventure.php"
+                      class="sidebar-category-block w-inline-block">
+                      <div class="icon">navigate_next</div>
+                      <div>Adventure</div>
+                    </a></div>
+                  <div role="listitem" class="w-dyn-item"><a href="/blog-categories/cultural.php"
+                      class="sidebar-category-block w-inline-block">
+                      <div class="icon">navigate_next</div>
+                      <div>Cultural</div>
+                    </a></div>
+                  <div role="listitem" class="w-dyn-item"><a href="/blog-categories/nature.php"
+                      class="sidebar-category-block w-inline-block">
+                      <div class="icon">navigate_next</div>
+                      <div>Nature</div>
+                    </a></div>
+                </div>
+              </div>
+            </div>
           </div>
         </div>
       </div>
@@ -677,8 +699,8 @@ $places = getAllPlaces();
               </a><a data-w-id="ae4630f3-25c8-1af0-bf6f-a34696446e8b" href="/portfolio-1"
                 class="footer-link-wrapper w-inline-block">
                 <div class="footer-link">
-                  <div class="text">Works</div>
-                  <div class="text">Works</div>
+                  <div class="text">Article</div>
+                  <div class="text">Article</div>
                 </div>
                 <div class="mask">
                   <div class="nav-border"></div>
@@ -686,8 +708,8 @@ $places = getAllPlaces();
               </a><a data-w-id="ae4630f3-25c8-1af0-bf6f-a34696446e8b" href="/utility/license"
                 class="footer-link-wrapper w-inline-block">
                 <div class="footer-link">
-                  <div class="text">Licensing</div>
-                  <div class="text">Licensing</div>
+                  <div class="text">Explore</div>
+                  <div class="text">Explore</div>
                 </div>
                 <div class="mask">
                   <div class="nav-border"></div>
