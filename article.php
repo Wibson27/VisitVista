@@ -120,14 +120,14 @@ $articles = getAllArticles();
         <!-- Navbar Main -->
         <div class="navbar-main">
           <!-- Logo -->
-          <a data-w-id="ac2971f4-6f26-e7be-f7cd-a20c97325007" href="/" class="w-inline-block">
+          <a data-w-id="ac2971f4-6f26-e7be-f7cd-a20c97325007" href="index.php" class="w-inline-block">
             <img src="images/logovisitvista.png" loading="lazy" alt="" class="site-logo" />
           </a>
 
           <!-- Navigation Menu -->
           <nav role="navigation" class="nav-menu-wrapper w-nav-menu">
             <div class="nav-menu-left-sidebar">
-              <a href="/" data-w-id="783761a9-bb85-bb38-0e07-8475a4b307cb" class="nav-link-wrapper w-inline-block">
+              <a href="index.php" data-w-id="783761a9-bb85-bb38-0e07-8475a4b307cb"class="nav-link-wrapper w-inline-block">
                 <div class="nav-link">
                   <div class="default-text">Home</div>
                   <div class="default-text black-heading">Home</div>
@@ -499,28 +499,28 @@ $articles = getAllArticles();
     <section class="section">
       <div class="container">
         <div class="w-dyn-list">
-          <div role="list" class="_3-column-grid w-dyn-items">
-            <?php foreach ($articles as $article): ?>
-              <div role="listitem" class="w-dyn-item">
-                <a data-w-id="89a00a31-e1dd-6742-3b71-4fad578cb15c"
-                  href="/visitvista/project/article.php?id=<?php echo $article['id']; ?>"
-                  class="portfolio-slide border w-inline-block">
-                  <div class="_5px-rounded-mask">
-                    <img src="<?php echo htmlspecialchars($article['image_url']); ?>"
-                      loading="lazy"
-                      alt="<?php echo htmlspecialchars($article['title']); ?>"
-                      class="portfolio-thumbnail-420px" />
-                    <div class="linear-background">
-                      <h3 class="_24px-text"><?php echo htmlspecialchars($article['title']); ?></h3>
-                      <p class="_14px-text"><?php echo htmlspecialchars($article['content']); ?></p>
+            <div role="list" class="_3-column-grid w-dyn-items">
+            <?php foreach($articles as $article): ?>
+                    <div role="listitem" class="w-dyn-item">
+                        <a data-w-id="89a00a31-e1dd-6742-3b71-4fad578cb15c"
+                            href="/visitvista/project/article.php?id=<?php echo $article['id']; ?>"
+                            class="portfolio-slide border w-inline-block">
+                            <div class="_5px-rounded-mask">
+                                <img src="<?php echo htmlspecialchars($article['image_url']); ?>"
+                                     loading="lazy"
+                                     alt="<?php echo htmlspecialchars($article['title']); ?>"
+                                     class="portfolio-thumbnail-420px" />
+                                <div class="linear-background">
+                                    <h3 class="_24px-text"><?php echo htmlspecialchars($article['title']); ?></h3>
+                                    <p class="_14px-text"><?php echo htmlspecialchars($article['content']); ?></p>
+                                </div>
+                            </div>
+                            <div style="height:0%" class="hover-from-bottom"></div>
+                            <div style="height:0%" class="hover-from-top"></div>
+                        </a>
                     </div>
-                  </div>
-                  <div style="height:0%" class="hover-from-bottom"></div>
-                  <div style="height:0%" class="hover-from-top"></div>
-                </a>
-              </div>
-            <?php endforeach; ?>
-          </div>
+                <?php endforeach; ?>
+            </div>
         </div>
       </div>
     </section>

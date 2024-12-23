@@ -60,54 +60,33 @@ function getPlacesByBusinessId($businessId) {
         return [];
     }
 }
+
 function getTopRecommendedPlaces($limit = 6) {
   global $db;
   try {
-      // This query:
-      // 1. Gets places with their review counts and existing average rating
-      // 2. Only includes places with 10+ reviews
-      // 3. Calculates weighted score based on both rating and number of reviews
       $query = "
-          WITH place_stats AS (
-              SELECT
-                  p.id,
-                  p.name,
-                  p.description,
-                  p.location,
-                  p.city,
-                  p.price,
-                  p.category,
-                  p.average_rating,
-                  p.created_at,
-                  bp.business_name,
-                  COUNT(r.id) as review_count,
-                  (SELECT image_url FROM place_images WHERE place_id = p.id LIMIT 1) as image_url
-              FROM places p
-              LEFT JOIN reviews r ON p.id = r.place_id
-              LEFT JOIN business_profiles bp ON p.business_id = bp.id
-              GROUP BY
-                  p.id, p.name, p.description, p.location, p.city,
-                  p.price, p.category, p.average_rating, p.created_at,
-                  bp.business_name
-              HAVING review_count >= 10
-          )
-          SELECT
-              *,
-              (
-                  (review_count / (review_count + 10.0)) * average_rating +
-                  (10.0 / (review_count + 10.0)) * (
-                      SELECT AVG(average_rating)
-                      FROM places
-                      WHERE id IN (SELECT place_id FROM reviews GROUP BY place_id HAVING COUNT(*) >= 10)
-                  )
-              ) as weighted_score
-          FROM place_stats
-          ORDER BY weighted_score DESC, review_count DESC
-          LIMIT ?
+          SELECT DISTINCT
+              p.id,
+              p.name,
+              p.description,
+              p.location,
+              p.city,
+              p.price,
+              p.category,
+              p.average_rating,
+              p.created_at,
+              p.updated_at,  -- Added this
+              bp.business_name,
+              (SELECT COUNT(*) FROM reviews WHERE place_id = p.id) as review_count,
+              (SELECT image_url FROM place_images WHERE place_id = p.id LIMIT 1) as image_url
+          FROM places p
+          LEFT JOIN business_profiles bp ON p.business_id = bp.id
+          HAVING (SELECT COUNT(*) FROM reviews WHERE place_id = p.id) > 0
+          ORDER BY p.average_rating DESC
+          LIMIT $limit
       ";
 
-      $stmt = $db->prepare($query);
-      $stmt->execute([$limit]);
+      $stmt = $db->query($query);
       return $stmt->fetchAll(PDO::FETCH_ASSOC);
   } catch(Exception $e) {
       error_log($e->getMessage());
@@ -295,6 +274,30 @@ function getUserReviews($userId) {
         return [];
     }
 }
+
+function getAllReviews() {
+  global $db;
+  try {
+      $query = "
+          SELECT
+              r.*,
+              u.name as reviewer_name,
+              u.profile_image_url as reviewer_image,
+              p.name as place_name
+          FROM reviews r
+          JOIN users u ON r.user_id = u.id
+          JOIN places p ON r.place_id = p.id
+          ORDER BY r.created_at DESC
+      ";
+
+      $stmt = $db->query($query); // Using query() since no parameters are required
+      return $stmt->fetchAll(PDO::FETCH_ASSOC);
+  } catch(Exception $e) {
+      error_log($e->getMessage());
+      return [];
+  }
+}
+
 
 // ====== Statistics Functions ======
 function getCityStatistics($city, $year = null, $month = null) {

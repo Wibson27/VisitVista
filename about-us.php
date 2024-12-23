@@ -62,12 +62,12 @@
       id="navbar">
       <div class="w-layout-blockcontainer container nav-container w-container">
         <div class="navbar-main">
-          <a data-w-id="ac2971f4-6f26-e7be-f7cd-a20c97325007" href="/" class="w-inline-block">
+        <a data-w-id="ac2971f4-6f26-e7be-f7cd-a20c97325007" href="index.php" class="w-inline-block">
             <img src="images/logovisitvista.png" loading="lazy" alt="" class="site-logo" />
           </a>
           <nav role="navigation" class="nav-menu-wrapper w-nav-menu">
             <div class="nav-menu-left-sidebar">
-              <a href="/" data-w-id="783761a9-bb85-bb38-0e07-8475a4b307cb" class="nav-link-wrapper w-inline-block">
+              <a href="index.php" data-w-id="783761a9-bb85-bb38-0e07-8475a4b307cb"class="nav-link-wrapper w-inline-block">
                 <div class="nav-link">
                   <div class="default-text">Home</div>
                   <div class="default-text black-heading">Home</div>

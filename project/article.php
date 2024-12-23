@@ -83,21 +83,21 @@ if (!$article) {
         <!-- Navbar Main -->
         <div class="navbar-main">
           <!-- Logo -->
-          <a data-w-id="ac2971f4-6f26-e7be-f7cd-a20c97325007" href="/" class="w-inline-block">
+          <a data-w-id="ac2971f4-6f26-e7be-f7cd-a20c97325007" href="index.php" class="w-inline-block">
             <img src="images/logovisitvista.png" loading="lazy" alt="" class="site-logo" />
           </a>
 
           <!-- Navigation Menu -->
           <nav role="navigation" class="nav-menu-wrapper w-nav-menu">
             <div class="nav-menu-left-sidebar">
-              <a href="/" data-w-id="783761a9-bb85-bb38-0e07-8475a4b307cb"class="nav-link-wrapper w-inline-block">
+              <a href="../index.php" data-w-id="783761a9-bb85-bb38-0e07-8475a4b307cb"class="nav-link-wrapper w-inline-block">
                 <div class="nav-link">
                   <div class="default-text">Home</div>
                   <div class="default-text black-heading">Home</div>
                 </div>
                 <div class="absolute-hover-bottom"></div>
               </a>
-              <a href="/about-us-1" data-w-id="783761a9-bb85-bb38-0e07-8475a4b307cb"class="nav-link-wrapper w-inline-block">
+              <a href="../about-us-3.php" data-w-id="783761a9-bb85-bb38-0e07-8475a4b307cb"class="nav-link-wrapper w-inline-block">
                 <div class="nav-link">
                   <div class="default-text">About</div>
                   <div class="default-text black-heading">About</div>
@@ -376,7 +376,7 @@ if (!$article) {
                 <div class="mt-10px-mb-20px">
                     <h1 class="heading-display-1"><?php echo htmlspecialchars($article['title']); ?></h1>
                 </div>
-            
+
             </div>
             <div class="black-overlay"></div>
         </div>
@@ -391,14 +391,14 @@ if (!$article) {
             <div class="rich-text-block w-richtext">
             <h3 id="tentang"><strong>Tentang</strong></h3>
             <p><?php echo nl2br(htmlspecialchars($article['content'])); ?></p>
-    
+
             <h3 id="informasi-lengkap"><strong>Informasi Lengkap</strong></h3>
             <p><?php echo nl2br(htmlspecialchars($article['content_full'])); ?></p>
 
             <h3 id="lokasi"><strong>Lokasi</strong></h3>
             <p><?php echo htmlspecialchars($article['location']); ?></p>
         </div>
-            
+
             <!-- Service Sidebar -->
             <div class="service-sidebar">
     <div class="mb-20px">
