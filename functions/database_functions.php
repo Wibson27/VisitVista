@@ -60,6 +60,131 @@ function getPlacesByBusinessId($businessId) {
         return [];
     }
 }
+function getTopRecommendedPlaces($limit = 6) {
+  global $db;
+  try {
+      // This query:
+      // 1. Gets places with their review counts and existing average rating
+      // 2. Only includes places with 10+ reviews
+      // 3. Calculates weighted score based on both rating and number of reviews
+      $query = "
+          WITH place_stats AS (
+              SELECT
+                  p.id,
+                  p.name,
+                  p.description,
+                  p.location,
+                  p.city,
+                  p.price,
+                  p.category,
+                  p.average_rating,
+                  p.created_at,
+                  bp.business_name,
+                  COUNT(r.id) as review_count,
+                  (SELECT image_url FROM place_images WHERE place_id = p.id LIMIT 1) as image_url
+              FROM places p
+              LEFT JOIN reviews r ON p.id = r.place_id
+              LEFT JOIN business_profiles bp ON p.business_id = bp.id
+              GROUP BY
+                  p.id, p.name, p.description, p.location, p.city,
+                  p.price, p.category, p.average_rating, p.created_at,
+                  bp.business_name
+              HAVING review_count >= 10
+          )
+          SELECT
+              *,
+              (
+                  (review_count / (review_count + 10.0)) * average_rating +
+                  (10.0 / (review_count + 10.0)) * (
+                      SELECT AVG(average_rating)
+                      FROM places
+                      WHERE id IN (SELECT place_id FROM reviews GROUP BY place_id HAVING COUNT(*) >= 10)
+                  )
+              ) as weighted_score
+          FROM place_stats
+          ORDER BY weighted_score DESC, review_count DESC
+          LIMIT ?
+      ";
+
+      $stmt = $db->prepare($query);
+      $stmt->execute([$limit]);
+      return $stmt->fetchAll(PDO::FETCH_ASSOC);
+  } catch(Exception $e) {
+      error_log($e->getMessage());
+      return [];
+  }
+}
+
+function getPlaceReviewStats($placeId) {
+  global $db;
+  try {
+      $query = "
+          SELECT
+              p.id,
+              p.name,
+              p.average_rating,
+              COUNT(r.id) as total_reviews,
+              SUM(CASE WHEN r.rating = 5 THEN 1 ELSE 0 END) as five_star,
+              SUM(CASE WHEN r.rating = 4 THEN 1 ELSE 0 END) as four_star,
+              SUM(CASE WHEN r.rating = 3 THEN 1 ELSE 0 END) as three_star,
+              SUM(CASE WHEN r.rating = 2 THEN 1 ELSE 0 END) as two_star,
+              SUM(CASE WHEN r.rating = 1 THEN 1 ELSE 0 END) as one_star,
+              MIN(r.created_at) as first_review_date,
+              MAX(r.created_at) as last_review_date
+          FROM places p
+          LEFT JOIN reviews r ON p.id = r.place_id
+          WHERE p.id = ?
+          GROUP BY p.id, p.name, p.average_rating
+      ";
+
+      $stmt = $db->prepare($query);
+      $stmt->execute([$placeId]);
+      return $stmt->fetch(PDO::FETCH_ASSOC);
+  } catch(Exception $e) {
+      error_log($e->getMessage());
+      return null;
+  }
+}
+
+function getPlaceReviews($placeId, $limit = 5, $offset = 0) {
+  global $db;
+  try {
+      $query = "
+          SELECT
+              r.*,
+              u.name as reviewer_name,
+              u.profile_image_url as reviewer_image
+          FROM reviews r
+          JOIN users u ON r.user_id = u.id
+          WHERE r.place_id = ?
+          ORDER BY r.created_at DESC
+          LIMIT ? OFFSET ?
+      ";
+
+      $stmt = $db->prepare($query);
+      $stmt->execute([$placeId, $limit, $offset]);
+      return $stmt->fetchAll(PDO::FETCH_ASSOC);
+  } catch(Exception $e) {
+      error_log($e->getMessage());
+      return [];
+  }
+}
+
+// Helper function to calculate confidence score (0-100)
+function calculateConfidenceScore($reviewCount, $avgRating) {
+  // Minimum reviews we want for full confidence
+  $minReviews = 10;
+  $maxReviews = 50;
+
+  // Calculate review weight (0-1)
+  $reviewWeight = min($reviewCount / $minReviews, 1);
+
+  // Calculate rating score (0-100)
+  $ratingScore = ($avgRating / 5) * 100;
+
+  // Weight the score by number of reviews
+  return round($ratingScore * $reviewWeight);
+}
 
 
 // ====== User Functions ======
@@ -149,27 +274,6 @@ function getBookingById($id) {
 }
 
 // ====== Review Functions ======
-function getPlaceReviews($placeId) {
-    global $db;
-    try {
-        $query = "
-            SELECT
-                r.*,
-                u.name as user_name
-            FROM reviews r
-            JOIN users u ON r.user_id = u.id
-            WHERE r.place_id = ?
-            ORDER BY r.created_at DESC
-        ";
-        $stmt = $db->prepare($query);
-        $stmt->execute([$placeId]);
-        return $stmt->fetchAll();
-    } catch(Exception $e) {
-        error_log($e->getMessage());
-        return [];
-    }
-}
-
 function getUserReviews($userId) {
     global $db;
     try {
