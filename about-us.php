@@ -637,15 +637,15 @@
                   class="image-24px" />
               </div>
               <div class="vertical-left-top-10px-gap">
-                <h3 class="_30px-text">Real-Time Visitor Insights</h3>
-                <div class="tab-summery">Memantau jumlah pengunjung secara langsung untuk memberikan data akurat dan relevan.</div>
+                <h3 class="_30px-text">Predictive Visitor Analytics</h3>
+                <div class="tab-summery">Menggunakan analitik prediktif untuk memproyeksikan jumlah pengunjung di masa mendatang, membantu pemangku kepentingan dalam mengambil keputusan strategis berbasis data akurat.</div>
               </div>
             </a><a data-w-tab="Tab 2" class="address-tab-link w-inline-block w-tab-link">
               <div class="_70px-icon-wrapper"><img loading="lazy" src="images/targeting.avif" alt=""
                   class="image-24px" /></div>
               <div class="vertical-left-top-10px-gap">
                 <h3 class="_30px-text">User-Friendly Registration</h3>
-                <div class="tab-summery">Fitur pendaftaran yang sederhana dan mudah digunakan untuk wisatawan.</div>
+                <div class="tab-summery">Fitur pendaftaran yang sederhana dan mudah digunakan untuk wisatawan dan pemilik pariwisata.</div>
               </div>
             </a><a data-w-tab="Tab 3" id="w-node-e3f31453-c665-384e-5961-bb7011a49c6b-6baae74d"
               class="address-tab-link w-inline-block w-tab-link">
@@ -653,7 +653,7 @@
                   class="image-24px" /></div>
               <div class="vertical-left-top-10px-gap">
                 <h3 class="_30px-text">Feedback & Booking System</h3>
-                <div class="tab-summery">Memadukan fitur pemesanan tiket pariwisata yang mudah dengan sistem ulasan yang memungkinkan pengunjung memberikan komentar dan rating, membantu meningkatkan pengalaman wisata dan kualitas layanan</div>
+                <div class="tab-summery">Memadukan fitur pemesanan tiket pariwisata yang mudah dengan sistem ulasan yang memungkinkan pengunjung memberikan komentar dan rating, membantu meningkatkan pengalaman wisata dan kualitas layanan.</div>
               </div>
             </a><a data-w-tab="Tab 4" id="w-node-d95bb3f2-57ed-4706-c69d-6db369fbc43f-6baae74d"
               class="address-tab-link w-inline-block w-tab-link">
@@ -701,7 +701,6 @@
                     srcset="images/fotolintang.png 500w, images/fotolintang.png 1000w" class="portrait-full" /></div><a
                   href="/team/john-doe" class="team-member-card-absolute w-inline-block">
                   <h3 class="_22px-text">Cahya Lintang Ayu Langitan</h3>
-                  <p class="_16px-500-primary">-</p>
                 </a><a href="/team/john-doe" class="black-overlay w-inline-block"></a>
               </div>
             </div>
@@ -718,7 +717,6 @@
                     class="portrait-full" /></div><a href="/team/jane-smith"
                   class="team-member-card-absolute w-inline-block">
                   <h3 class="_22px-text">Naufalqi Dwiskara</h3>
-                  <p class="_16px-500-primary">-</p>
                 </a><a href="/team/jane-smith" class="black-overlay w-inline-block"></a>
               </div>
             </div>
@@ -733,7 +731,6 @@
                     class="portrait-full" /></div><a href="/team/mark-johnson"
                   class="team-member-card-absolute w-inline-block">
                   <h3 class="_22px-text">Muhammad Ibnu R.</h3>
-                  <p class="_16px-500-primary">-</p>
                 </a><a href="/team/mark-johnson" class="black-overlay w-inline-block"></a>
               </div>
             </div>
