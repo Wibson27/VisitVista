@@ -1,19 +1,18 @@
 <?php
-// Change the path to the database_functions.php file
 require_once '../functions/database_functions.php';
 error_reporting(E_ALL);
 ini_set('display_errors', 1);
-// Ambil data tempat menggunakan fungsi getAllPlaces
 $places = getAllPlaces();
 ?>
-
 <!DOCTYPE html>
-<html data-wf-page="66f9a5a16b6fd608f7134ae3" data-wf-site="66f00efc0ba3b86a13792a55" lang="en"
-  data-wf-collection="66f9a5a16b6fd608f7134ab9" data-wf-item-slug="media">
+<html data-wf-page="6700fdb6e1bf8d9b83f92131" data-wf-site="66f00efc0ba3b86a13792a55" lang="en">
 
 <head>
   <meta charset="utf-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
   <title>Nature</title>
+  <meta content="adventure.php" property="og:title" />
+  <meta content="adventure.php" property="twitter:title" />
   <meta content="width=device-width, initial-scale=1" name="viewport" />
   <meta content="Webflow" name="generator" />
   <link href="../css/agency-nx.webflow.6599087d1.min.css" rel="stylesheet" type="text/css" />
@@ -61,14 +60,20 @@ $places = getAllPlaces();
 </head>
 
 <body>
-  <div data-w-id="fc0be30d-889f-63b3-a48a-1692d43ecad3" class="site-wrapper">
+  <div data-w-id="23d7d02c-4317-0890-8bf3-20ad7d0c046c" class="site-wrapper">
+    <div class="progress-bar">
+      <div class="progress-bar-line"></div>
+    </div>
+    <div class="navbar-hide-show-effect">
+      <div data-w-id="9dabe443-61bf-363b-c654-3ce84672a380" class="navbar-hide"></div>
+    </div>
     <div data-animation="over-left" class="navbar-rounded w-nav" data-easing2="ease" data-easing="ease-out-quart"
       data-collapse="medium" data-w-id="51e4b855-d29a-c7d2-d7af-78ea1dffdf68" role="banner" data-duration="1000"
       id="navbar">
       <div class="w-layout-blockcontainer container nav-container w-container">
-        <div class="navbar-main"><a data-w-id="ac2971f4-6f26-e7be-f7cd-a20c97325007" href="/" class="w-inline-block">
-            <div class="site-logo" style="font-size: 40px; font-weight: bold; color:rgb(255, 255, 255);">VisitVista
-            </div>
+        <div class="navbar-main">
+          <a data-w-id="ac2971f4-6f26-e7be-f7cd-a20c97325007" href="/" class="w-inline-block">
+            <img src="../images/logovisitvista.png" loading="lazy" alt="" class="site-logo" />
           </a>
           <!-- Navigation Menu -->
           <nav role="navigation" class="nav-menu-wrapper w-nav-menu">
@@ -87,21 +92,14 @@ $places = getAllPlaces();
                 </div>
                 <div class="absolute-hover-bottom"></div>
               </a>
-              <a href="/pricing" data-w-id="983316c4-923a-8075-52d1-d1a1eb2cf7b2" class="nav-link-wrapper w-inline-block">
-                <div class="nav-link">
-                  <div class="default-text">Pricing</div>
-                  <div class="default-text black-heading">Pricing</div>
-                </div>
-                <div class="absolute-hover-bottom"></div>
-              </a>
-              <a href="explore.php" data-w-id="279a1d22-4f80-d177-04f5-58c1a704eb82" class="nav-link-wrapper w-inline-block">
+              <a href="../adventure.php" data-w-id="279a1d22-4f80-d177-04f5-58c1a704eb82" class="nav-link-wrapper w-inline-block">
                 <div class="nav-link">
                   <div class="default-text">Explore</div>
                   <div class="default-text black-heading">Explore</div>
                 </div>
                 <div class="absolute-hover-bottom"></div>
               </a>
-              <a href="portfolio-2.php" data-w-id="aeb1c1fc-3038-8a62-2af0-a4afc7395963" class="nav-link-wrapper w-inline-block">
+              <a href="../portfolio-2.php" data-w-id="aeb1c1fc-3038-8a62-2af0-a4afc7395963" class="nav-link-wrapper w-inline-block">
                 <div class="nav-link">
                   <div class="default-text">Article</div>
                   <div class="default-text black-heading">Article</div>
@@ -118,9 +116,21 @@ $places = getAllPlaces();
                 src="../images/magnifying-glass.png" class="icon-svg-20-px" />
               <div class="search-popup">
                 <div class="container">
-                  <form action="/search" class="search-field-wrapper w-form"><input class="popup-search-input w-input"
-                      maxlength="256" name="query" placeholder="Search…" type="search" id="search" required="" /><input
-                      type="submit" class="search-button-absolute w-button" value="search" /></form>
+                  <form action="/search" class="search-field-wrapper w-form">
+                    <div class="search-input-wrapper">
+                      <input class="popup-search-input w-input"
+                        maxlength="256"
+                        name="query"
+                        placeholder="Search destinations..."
+                        type="search"
+                        id="search"
+                        required=""
+                        autocomplete="off"
+                        onfocus="showAllSuggestions()"
+                        onkeyup="filterSuggestions(this.value)" />
+                      <div id="suggestions" class="search-suggestions"></div>
+                    </div>
+                  </form>
                   <div data-w-id="108e4025-824f-59fd-ba99-015fe13c7bcd" class="close-icon-white">close</div>
                 </div>
               </div>
@@ -251,7 +261,8 @@ $places = getAllPlaces();
       quickCheckoutEnabled
     }
   }
-}" data-wf-page-link-href-prefix="" class="w-commerce-commercecartwrapper pointer"
+}"
+              data-wf-page-link-href-prefix="" class="w-commerce-commercecartwrapper pointer"
               data-node-type="commerce-cart-wrapper"><a
                 class="w-commerce-commercecartopenlink cart-button w-inline-block" role="button" aria-haspopup="dialog"
                 aria-label="Open cart" data-node-type="commerce-cart-open-link" href="#"><img src="../images/cart.png"
@@ -275,7 +286,7 @@ $places = getAllPlaces();
                   <div class="w-commerce-commercecartformwrapper">
                     <form style="display:none" class="w-commerce-commercecartform" data-node-type="commerce-cart-form">
                       <script type="text/x-wf-template"
-                        id="wf-template-c3bc403f-e038-7da7-8235-50266ba9683f">%3Cdiv%20class%3D%22w-commerce-commercecartitem%20no-padding%22%3E%3Cdiv%20class%3D%22cart-item-wrapper%22%3E%3Cdiv%20class%3D%22mask-10px-rounded%22%3E%3Cimg%20data-wf-bindings%3D%22%255B%257B%2522src%2522%253A%257B%2522type%2522%253A%2522ImageRef%2522%252C%2522filter%2522%253A%257B%2522type%2522%253A%2522identity%2522%252C%2522params%2522%253A%255B%255D%257D%252C%2522dataPath%2522%253A%2522database.commerceOrder.userItems%255B%255D.sku.f_main_image_4dr%2522%257D%257D%255D%22%20src%3D%22%22%20alt%3D%22%22%20class%3D%22w-commerce-commercecartitemimage%20cart-thumbnail%20w-dyn-bind-empty%22%2F%3E%3C%2Fdiv%3E%3Cdiv%20class%3D%22w-commerce-commercecartiteminfo%20cart-info-wrapper%22%3E%3Cdiv%20data-wf-bindings%3D%22%255B%257B%2522innerHTML%2522%253A%257B%2522type%2522%253A%2522PlainText%2522%252C%2522filter%2522%253A%257B%2522type%2522%253A%2522identity%2522%252C%2522params%2522%253A%255B%255D%257D%252C%2522dataPath%2522%253A%2522database.commerceOrder.userItems%255B%255D.product.f_name_%2522%257D%257D%255D%22%20class%3D%22w-commerce-commercecartproductname%20_24px-text%20w-dyn-bind-empty%22%3E%3C%2Fdiv%3E%3Cp%20data-wf-bindings%3D%22%255B%257B%2522innerHTML%2522%253A%257B%2522type%2522%253A%2522CommercePrice%2522%252C%2522filter%2522%253A%257B%2522type%2522%253A%2522price%2522%252C%2522params%2522%253A%255B%255D%257D%252C%2522dataPath%2522%253A%2522database.commerceOrder.userItems%255B%255D.price%2522%257D%257D%255D%22%20class%3D%22_14px-text-500%22%3E%24%C2%A00.00%C2%A0USD%3C%2Fp%3E%3Cscript%20type%3D%22text%2Fx-wf-template%22%20id%3D%22wf-template-c3bc403f-e038-7da7-8235-50266ba96845%22%3E%253Cli%253E%253Cspan%2520data-wf-bindings%253D%2522%25255B%25257B%252522innerHTML%252522%25253A%25257B%252522type%252522%25253A%252522PlainText%252522%25252C%252522filter%252522%25253A%25257B%252522type%252522%25253A%252522identity%252522%25252C%252522params%252522%25253A%25255B%25255D%25257D%25252C%252522dataPath%252522%25253A%252522database.commerceOrder.userItems%25255B%25255D.product.f_sku_properties_3dr%25255B%25255D.name%252522%25257D%25257D%25255D%2522%2520class%253D%2522w-dyn-bind-empty%2522%253E%253C%252Fspan%253E%253Cspan%253E%253A%2520%253C%252Fspan%253E%253Cspan%2520data-wf-bindings%253D%2522%25255B%25257B%252522innerHTML%252522%25253A%25257B%252522type%252522%25253A%252522CommercePropValues%252522%25252C%252522filter%252522%25253A%25257B%252522type%252522%25253A%252522identity%252522%25252C%252522params%252522%25253A%25255B%25255D%25257D%25252C%252522dataPath%252522%25253A%252522database.commerceOrder.userItems%25255B%25255D.product.f_sku_properties_3dr%25255B%25255D%252522%25257D%25257D%25255D%2522%2520class%253D%2522w-dyn-bind-empty%2522%253E%253C%252Fspan%253E%253C%252Fli%253E%3C%2Fscript%3E%3Cul%20data-wf-bindings%3D%22%255B%257B%2522optionSets%2522%253A%257B%2522type%2522%253A%2522CommercePropTable%2522%252C%2522filter%2522%253A%257B%2522type%2522%253A%2522identity%2522%252C%2522params%2522%253A%255B%255D%257D%252C%2522dataPath%2522%253A%2522database.commerceOrder.userItems%255B%255D.product.f_sku_properties_3dr%5B%5D%2522%257D%257D%252C%257B%2522optionValues%2522%253A%257B%2522type%2522%253A%2522CommercePropValues%2522%252C%2522filter%2522%253A%257B%2522type%2522%253A%2522identity%2522%252C%2522params%2522%253A%255B%255D%257D%252C%2522dataPath%2522%253A%2522database.commerceOrder.userItems%255B%255D.sku.f_sku_values_3dr%2522%257D%257D%255D%22%20class%3D%22w-commerce-commercecartoptionlist%22%20data-wf-collection%3D%22database.commerceOrder.userItems%255B%255D.product.f_sku_properties_3dr%22%20data-wf-template-id%3D%22wf-template-c3bc403f-e038-7da7-8235-50266ba96845%22%3E%3Cli%3E%3Cspan%20data-wf-bindings%3D%22%255B%257B%2522innerHTML%2522%253A%257B%2522type%2522%253A%2522PlainText%2522%252C%2522filter%2522%253A%257B%2522type%2522%253A%2522identity%2522%252C%2522params%2522%253A%255B%255D%257D%252C%2522dataPath%2522%253A%2522database.commerceOrder.userItems%255B%255D.product.f_sku_properties_3dr%255B%255D.name%2522%257D%257D%255D%22%20class%3D%22w-dyn-bind-empty%22%3E%3C%2Fspan%3E%3Cspan%3E%3A%20%3C%2Fspan%3E%3Cspan%20data-wf-bindings%3D%22%255B%257B%2522innerHTML%2522%253A%257B%2522type%2522%253A%2522CommercePropValues%2522%252C%2522filter%2522%253A%257B%2522type%2522%253A%2522identity%2522%252C%2522params%2522%253A%255B%255D%257D%252C%2522dataPath%2522%253A%2522database.commerceOrder.userItems%255B%255D.product.f_sku_properties_3dr%255B%255D%2522%257D%257D%255D%22%20class%3D%22w-dyn-bind-empty%22%3E%3C%2Fspan%3E%3C%2Fli%3E%3C%2Ful%3E%3C%2Fdiv%3E%3Cdiv%20class%3D%22cart-qty-remove-icon-wrapper%22%3E%3Cinput%20aria-label%3D%22Update%20quantity%22%20data-wf-bindings%3D%22%255B%257B%2522value%2522%253A%257B%2522type%2522%253A%2522Number%2522%252C%2522filter%2522%253A%257B%2522type%2522%253A%2522numberPrecision%2522%252C%2522params%2522%253A%255B%25220%2522%252C%2522numberPrecision%2522%255D%257D%252C%2522dataPath%2522%253A%2522database.commerceOrder.userItems%255B%255D.count%2522%257D%257D%252C%257B%2522data-commerce-sku-id%2522%253A%257B%2522type%2522%253A%2522ItemRef%2522%252C%2522filter%2522%253A%257B%2522type%2522%253A%2522identity%2522%252C%2522params%2522%253A%255B%255D%257D%252C%2522dataPath%2522%253A%2522database.commerceOrder.userItems%255B%255D.sku.id%2522%257D%257D%255D%22%20data-wf-conditions%3D%22%257B%2522condition%2522%253A%257B%2522fields%2522%253A%257B%2522product%253Aec-product-type%2522%253A%257B%2522ne%2522%253A%2522e348fd487d0102946c9179d2a94bb613%2522%252C%2522type%2522%253A%2522Option%2522%257D%257D%257D%252C%2522dataPath%2522%253A%2522database.commerceOrder.userItems%255B%255D%2522%257D%22%20class%3D%22w-commerce-commercecartquantity%20cart-quantity-border%22%20required%3D%22%22%20pattern%3D%22%5E%5B0-9%5D%2B%24%22%20inputMode%3D%22numeric%22%20type%3D%22number%22%20name%3D%22quantity%22%20autoComplete%3D%22off%22%20data-wf-cart-action%3D%22update-item-quantity%22%20data-commerce-sku-id%3D%22%22%20value%3D%221%22%2F%3E%3Ca%20href%3D%22%23%22%20role%3D%22button%22%20data-wf-bindings%3D%22%255B%257B%2522data-commerce-sku-id%2522%253A%257B%2522type%2522%253A%2522ItemRef%2522%252C%2522filter%2522%253A%257B%2522type%2522%253A%2522identity%2522%252C%2522params%2522%253A%255B%255D%257D%252C%2522dataPath%2522%253A%2522database.commerceOrder.userItems%255B%255D.sku.id%2522%257D%257D%255D%22%20class%3D%22remove-item%20w-inline-block%22%20data-wf-cart-action%3D%22remove-item%22%20data-commerce-sku-id%3D%22%22%20aria-label%3D%22Remove%20item%20from%20cart%22%3E%3Cdiv%20class%3D%22remove-button-icon-cart%22%3Edelete%3C%2Fdiv%3E%3C%2Fa%3E%3C%2Fdiv%3E%3C%2Fdiv%3E%3C%2Fdiv%3E</script>
+                        id="wf-template-c3bc403f-e038-7da7-8235-50266ba9683f">%3Cdiv%20class%3D%22w-commerce-commercecartitem%20no-padding%22%3E%3Cdiv%20class%3D%22cart-item-wrapper%22%3E%3Cdiv%20class%3D%22mask-10px-rounded%22%3E%3Cimg%20data-wf-bindings%3D%22%255B%257B%2522src%2522%253A%257B%2522type%2522%253A%2522ImageRef%2522%252C%2522filter%2522%253A%257B%2522type%2522%253A%2522identity%2522%252C%2522params%2522%253A%255B%255D%257D%252C%2522dataPath%2522%253A%2522database.commerceOrder.userItems%255B%255D.sku.f_main_image_4dr%2522%257D%257D%255D%22%20src%3D%22%22%20alt%3D%22%22%20class%3D%22w-commerce-commercecartitemimage%20cart-thumbnail%20w-dyn-bind-empty%22%2F%3E%3C%2Fdiv%3E%3Cdiv%20class%3D%22w-commerce-commercecartiteminfo%20cart-info-wrapper%22%3E%3Cdiv%20data-wf-bindings%3D%22%255B%257B%2522innerHTML%2522%253A%257B%2522type%2522%253A%2522PlainText%2522%252C%2522filter%2522%253A%257B%2522type%2522%253A%2522identity%2522%252C%2522params%2522%253A%255B%255D%257D%252C%2522dataPath%2522%253A%2522database.commerceOrder.userItems%255B%255D.product.f_name_%2522%257D%257D%255D%22%20class%3D%22w-commerce-commercecartproductname%20_24px-text%20w-dyn-bind-empty%22%3E%3C%2Fdiv%3E%3Cp%20data-wf-bindings%3D%22%255B%257B%2522innerHTML%2522%253A%257B%2522type%2522%253A%2522CommercePrice%2522%252C%2522filter%2522%253A%257B%2522type%2522%253A%2522price%2522%252C%2522params%2522%253A%255B%255D%257D%252C%2522dataPath%2522%253A%2522database.commerceOrder.userItems%255B%255D.price%2522%257D%257D%255D%22%20class%3D%22_14px-text-500%22%3E%24%C2%A00.00%C2%A0USD%3C%2Fp%3E%3Cscript%20type%3D%22text%2Fx-wf-template%22%20id%3D%22wf-template-c3bc403f-e038-7da7-8235-50266ba96845%22%3E%253Cli%253E%253Cspan%2520data-wf-bindings%253D%2522%25255B%25257B%252522innerHTML%252522%25253A%25257B%252522type%252522%25253A%252522PlainText%252522%25252C%252522filter%252522%25253A%25257B%252522type%252522%25253A%252522identity%252522%25252C%252522params%252522%25253A%25255B%25255D%25257D%25252C%252522dataPath%252522%25253A%252522database.commerceOrder.userItems%25255B%25255D.product.f_sku_properties_3dr%25255B%25255D.name%252522%25257D%25257D%25255D%2522%2520class%253D%2522w-dyn-bind-empty%2522%253E%253C%252Fspan%253E%253Cspan%253E%253A%2520%253C%252Fspan%253E%253Cspan%2520data-wf-bindings%253D%2522%25255B%25257B%252522innerHTML%252522%25253A%25257B%252522type%252522%25253A%252522CommercePropValues%252522%25252C%252522filter%252522%25253A%25257B%252522type%252522%25253A%252522identity%252522%25252C%252522params%252522%25253A%25255B%25255D%25257D%25252C%252522dataPath%252522%25253A%252522database.commerceOrder.userItems%25255B%25255D.product.f_sku_properties_3dr%25255B%25255D%252522%25257D%25257D%25255D%2522%2520class%253D%2522w-dyn-bind-empty%2522%253E%253C%252Fspan%253E%253C%252Fli%253E%3C%2Fscript%3E%3Cul%20data-wf-bindings%3D%22%255B%257B%2522optionSets%2522%253A%257B%2522type%2522%253A%2522CommercePropTable%2522%252C%2522filter%2522%253A%257B%2522type%2522%253A%2522identity%2522%252C%2522params%2522%253A%255B%255D%257D%252C%2522dataPath%2522%253A%2522database.commerceOrder.userItems%255B%255D.product.f_sku_properties_3dr%5B%5D%2522%7D%7D%2C%7B%2522optionValues%2522%253A%257B%2522type%2522%253A%2522CommercePropValues%2522%252C%2522filter%2522%253A%257B%2522type%2522%253A%2522identity%2522%252C%2522params%2522%253A%255B%255D%257D%252C%2522dataPath%2522%253A%2522database.commerceOrder.userItems%255B%255D.sku.f_sku_values_3dr%2522%257D%7D%5D%22%20class%3D%22w-commerce-commercecartoptionlist%22%20data-wf-collection%3D%22database.commerceOrder.userItems%255B%255D.product.f_sku_properties_3dr%22%20data-wf-template-id%3D%22wf-template-c3bc403f-e038-7da7-8235-50266ba96845%22%3E%3Cli%3E%3Cspan%20data-wf-bindings%3D%22%255B%257B%2522innerHTML%2522%253A%257B%2522type%2522%253A%2522PlainText%2522%252C%2522filter%2522%253A%257B%2522type%2522%253A%2522identity%2522%252C%2522params%2522%253A%255B%255D%257D%252C%2522dataPath%2522%253A%2522database.commerceOrder.userItems%255B%255D.product.f_sku_properties_3dr%255B%255D.name%2522%257D%257D%255D%22%20class%3D%22w-dyn-bind-empty%22%3E%3C%2Fspan%3E%3Cspan%3E%3A%20%3C%2Fspan%3E%3Cspan%20data-wf-bindings%3D%22%255B%257B%2522innerHTML%2522%253A%257B%2522type%2522%253A%2522CommercePropValues%2522%252C%2522filter%2522%253A%257B%2522type%2522%253A%2522identity%2522%252C%2522params%2522%253A%255B%255D%257D%252C%2522dataPath%2522%253A%2522database.commerceOrder.userItems%255B%255D.product.f_sku_properties_3dr%255B%255D%2522%257D%257D%255D%22%20class%3D%22w-dyn-bind-empty%22%3E%3C%2Fspan%3E%3C%2Fli%3E%3C%2Ful%3E%3C%2Fdiv%3E%3Cdiv%20class%3D%22cart-qty-remove-icon-wrapper%22%3E%3Cinput%20aria-label%3D%22Update%20quantity%22%20data-wf-bindings%3D%22%255B%257B%2522value%2522%253A%257B%2522type%2522%253A%2522Number%2522%252C%2522filter%2522%253A%257B%2522type%2522%253A%2522numberPrecision%2522%252C%2522params%2522%253A%255B%25220%2522%252C%2522numberPrecision%2522%255D%257D%252C%2522dataPath%2522%253A%2522database.commerceOrder.userItems%255B%255D.count%2522%257D%257D%2C%7B%2522data-commerce-sku-id%2522%253A%257B%2522type%2522%253A%2522ItemRef%2522%252C%2522filter%2522%253A%257B%2522type%2522%253A%2522identity%2522%252C%2522params%2522%253A%255B%255D%257D%252C%2522dataPath%2522%253A%2522database.commerceOrder.userItems%255B%255D.sku.id%2522%257D%257D%255D%22%20data-wf-conditions%3D%22%257B%2522condition%2522%253A%7B%2522fields%2522%253A%7B%2522product%3Aec-product-type%2522%253A%7B%2522ne%2522%253A%2522e348fd487d0102946c9179d2a94bb613%2522%252C%2522type%2522%253A%2522Option%2522%257D%257D%257D%252C%2522dataPath%2522%253A%2522database.commerceOrder.userItems%255B%255D%2522%257D%22%20class%3D%22w-commerce-commercecartquantity%20cart-quantity-border%22%20required%3D%22%22%20pattern%3D%22%5E%5B0-9%5D%2B%24%22%20inputMode%3D%22numeric%22%20type%3D%22number%22%20name%3D%22quantity%22%20autoComplete%3D%22off%22%20data-wf-cart-action%3D%22update-item-quantity%22%20data-commerce-sku-id%3D%22%22%20value%3D%221%22%2F%3E%3Ca%20href%3D%22%23%22%20role%3D%22button%22%20data-wf-bindings%3D%22%255B%257B%2522data-commerce-sku-id%2522%253A%257B%2522type%2522%253A%2522ItemRef%2522%252C%2522filter%2522%253A%257B%2522type%2522%253A%2522identity%2522%252C%2522params%2522%253A%255B%255D%257D%252C%2522dataPath%2522%253A%2522database.commerceOrder.userItems%255B%255D.sku.id%2522%257D%257D%255D%22%20class%3D%22remove-item%20w-inline-block%22%20data-wf-cart-action%3D%22remove-item%22%20data-commerce-sku-id%3D%22%22%20aria-label%3D%22Remove%20item%20from%20cart%22%3E%3Cdiv%20class%3D%22remove-button-icon-cart%22%3Edelete%3C%2Fdiv%3E%3C%2Fa%3E%3C%2Fdiv%3E%3C%2Fdiv%3E%3C%2Fdiv%3E%3C%2Fdiv%3E%3C%2Fdiv%3E</script>
                       <div class="w-commerce-commercecartlist cart-list"
                         data-wf-collection="database.commerceOrder.userItems"
                         data-wf-template-id="wf-template-c3bc403f-e038-7da7-8235-50266ba9683f">
@@ -290,7 +301,7 @@ $places = getAllPlaces();
                                 data-wf-bindings="%5B%7B%22innerHTML%22%3A%7B%22type%22%3A%22PlainText%22%2C%22filter%22%3A%7B%22type%22%3A%22identity%22%2C%22params%22%3A%5B%5D%7D%2C%22dataPath%22%3A%22database.commerceOrder.userItems%5B%5D.product.f_name_%22%7D%7D%5D"
                                 class="w-commerce-commercecartproductname _24px-text w-dyn-bind-empty"></div>
                               <p data-wf-bindings="%5B%7B%22innerHTML%22%3A%7B%22type%22%3A%22CommercePrice%22%2C%22filter%22%3A%7B%22type%22%3A%22price%22%2C%22params%22%3A%5B%5D%7D%2C%22dataPath%22%3A%22database.commerceOrder.userItems%5B%5D.price%22%7D%7D%5D"
-                                class="_14px-text-500">$ 0.00 USD</p>
+                                class="_14px-text-500">$ 0.00 USD</p>
                               <script type="text/x-wf-template"
                                 id="wf-template-c3bc403f-e038-7da7-8235-50266ba96845">%3Cli%3E%3Cspan%20data-wf-bindings%3D%22%255B%257B%2522innerHTML%2522%253A%257B%2522type%2522%253A%2522PlainText%2522%252C%2522filter%2522%253A%257B%2522type%2522%253A%2522identity%2522%252C%2522params%2522%253A%255B%255D%257D%252C%2522dataPath%2522%253A%2522database.commerceOrder.userItems%255B%255D.product.f_sku_properties_3dr%255B%255D.name%2522%257D%257D%255D%22%20class%3D%22w-dyn-bind-empty%22%3E%3C%2Fspan%3E%3Cspan%3E%3A%20%3C%2Fspan%3E%3Cspan%20data-wf-bindings%3D%22%255B%257B%2522innerHTML%2522%253A%257B%2522type%2522%253A%2522CommercePropValues%2522%252C%2522filter%2522%253A%257B%2522type%2522%253A%2522identity%2522%252C%2522params%2522%253A%255B%255D%257D%252C%2522dataPath%2522%253A%2522database.commerceOrder.userItems%255B%255D.product.f_sku_properties_3dr%255B%255D%2522%257D%257D%255D%22%20class%3D%22w-dyn-bind-empty%22%3E%3C%2Fspan%3E%3C%2Fli%3E</script>
                               <ul
@@ -377,7 +388,7 @@ $places = getAllPlaces();
                               </svg>
                               <div>Pay with browser.</div>
                             </a></div>
-                          <div class="primary-button user-button"><a href="/checkout" value="Continue to Checkout"
+                          <div class="primary-button user-button"><a href="../checkout" value="Continue to Checkout"
                               class="w-commerce-commercecartcheckoutbutton custom-button black"
                               data-loading-text="Hang Tight..." data-node-type="cart-checkout-button">Continue to
                               Checkout</a>
@@ -403,8 +414,8 @@ $places = getAllPlaces();
                 </div>
               </div>
             </div>
-            <div class="pointer"><button class="log-button" data-wf-user-logout="logout" data-wf-user-login="login"
-                type="button">logout</button></div>
+            <div class="pointer"><a href="../register.php" class="log-button" data-wf-user-logout="logout" data-wf-user-login="login"
+                type="button">logout</a></div>
             <div data-w-id="c83eb7d7-4575-cda2-4005-1e693e785387" class="hamburger-menu w-nav-button">
               <div class="bars">
                 <div class="bar-wrapper">
@@ -428,6 +439,7 @@ $places = getAllPlaces();
     <section class="banner">
       <div class="container">
         <h1 class="heading">Nature</h1>
+
       </div>
       <div data-w-id="86948c09-9ea6-0d24-c71d-cfb6b9e521b5" class="image-show-style">
         <div class="bg-column-mask">
@@ -448,552 +460,101 @@ $places = getAllPlaces();
         </div>
       </div>
     </section>
-    <div class="progress-bar">
-      <div class="progress-bar-line"></div>
-    </div>
-    <div class="navbar-hide-show-effect">
-      <div data-w-id="9dabe443-61bf-363b-c654-3ce84672a380" class="navbar-hide"></div>
-    </div>
     <section class="section">
       <div class="container">
-        <div class="w-dyn-list">
-          <div role="list" class="_3-column-grid w-dyn-items">
-            <div role="listitem" class="w-dyn-item">
-              <div data-w-id="3aa9b968-98e2-906a-c7d1-034fdca8e2e9" class="blog-card">
-                <div class="blog-thubnail-mask"><a href="/post/the-importance-of-digital-marketing-for-agencies"
-                    class="mask-10px-rounded-full w-inline-block"><img src="../images/pexels-essow-k-251295-936722.avif"
-                      loading="lazy" alt=""
-                      sizes="(max-width: 479px) 100vw, (max-width: 767px) 92vw, (max-width: 991px) 46vw, 28vw"
-                      srcset="../images/pexels-essow-k-251295-936722-p-500.avif 500w, ../images/pexels-essow-k-251295-936722-p-800.avif 800w, ../images/pexels-essow-k-251295-936722-p-1080.avif 1080w, ../images/pexels-essow-k-251295-936722.avif 1920w"
-                      class="blog-thumbnail-300px" /></a><a href="/blog-categories/destination.html"
-                    class="blog-category w-inline-block">
-                    <div class="blog-category-left-shape"></div>
-                    <div>Destination</div>
-                    <div class="blog-category-right-shape"></div>
-                  </a>
-                  <div data-w-id="86948c09-9ea6-0d24-c71d-cfb6b9e521b5" class="image-show-style">
-                    <div class="bg-column-mask">
-                      <div class="bg-color-column"></div>
-                      <div class="primary-color-column"></div>
+        <div class="_2-column-block-top">
+          <div class="full-width w-dyn-list">
+            <div role="list" class="_2-column-grid w-dyn-items">
+              <?php foreach ($places as $place): ?>
+                <div role="listitem" class="w-dyn-item">
+                  <div data-w-id="3aa9b968-98e2-906a-c7d1-034fdca8e2e9" class="blog-card">
+                    <div class="blog-thubnail-mask">
+                      <a href="../place/<?php echo htmlspecialchars($place['id']); ?>" class="mask-10px-rounded-full w-inline-block">
+                        <img src="../<?php echo htmlspecialchars($place['image_url']); ?>"
+                          loading="lazy"
+                          alt="<?php echo htmlspecialchars($place['name']); ?>"
+                          class="blog-thumbnail-300px" />
+                      </a>
+
+                      <div class="blog-category">
+                        <div class="blog-category-left-shape"></div>
+                        <div><?php echo htmlspecialchars($place['category']); ?></div>
+                        <div class="blog-category-right-shape"></div>
+                      </div>
+
+
+                      <div class="image-show-style">
+                        <div class="bg-column-mask">
+                          <div class="bg-color-column"></div>
+                          <div class="primary-color-column"></div>
+                        </div>
+                      </div>
                     </div>
-                    <div id="w-node-_86948c09-9ea6-0d24-c71d-cfb6b9e521b9-b9e521b5" class="bg-column-mask">
-                      <div class="bg-color-column"></div>
-                      <div class="primary-color-column"></div>
-                    </div>
-                    <div id="w-node-_86948c09-9ea6-0d24-c71d-cfb6b9e521bc-b9e521b5" class="bg-column-mask">
-                      <div class="bg-color-column"></div>
-                      <div class="primary-color-column"></div>
-                    </div>
-                    <div id="w-node-_86948c09-9ea6-0d24-c71d-cfb6b9e521bf-b9e521b5" class="bg-column-mask">
-                      <div class="bg-color-column"></div>
-                      <div class="primary-color-column"></div>
+
+                    <div class="w-layout-vflex blog-body">
+                      <div class="w-layout-vflex heading-category-wrapper">
+                        <div class="horizontal-left-center-8px-gap-wrap">
+                          <?php echo htmlspecialchars(date('F j, Y', strtotime($place['created_at']))); ?>
+                          <div class="_5px-circle"></div>
+                          <div class="horizontal-left-center-5px-gap">
+                            <p class="_14px-text"><?php echo htmlspecialchars($place['city'] ?? ''); ?></p>
+                          </div>
+                        </div>
+
+                        <a href="../place/<?php echo htmlspecialchars($place['id']); ?>" class="w-inline-block">
+                          <h3 class="_24px-link"><?php echo htmlspecialchars($place['name']); ?></h3>
+                        </a>
+
+                        <div class="blog-divider">
+                          <div class="blog-hover-divider"></div>
+                        </div>
+                      </div>
+
+                      <a href="../backup.php?place_id=<?php echo htmlspecialchars($place['id']); ?>">
+                        <div>Read More</div>
+                        <div class="mask">
+                          <div class="link-border"></div>
+                          <div class="link-border-secodnary"></div>
+                        </div>
+                      </a>
                     </div>
                   </div>
                 </div>
-                <div class="w-layout-vflex blog-body">
-                  <div class="w-layout-vflex heading-category-wrapper">
-                    <div class="horizontal-left-center-8px-gap-wrap">
-                      <p href="#" class="_14px-text">October 17, 2024</p>
-                      <div class="_5px-circle"></div>
-                      <div class="horizontal-left-center-5px-gap">
-                        <p class="_14px-text">By</p><a href="/author/tom-brown" class="w-inline-block">
-                          <p href="#" class="_14px-link">Tom Brown</p>
-                        </a>
-                      </div>
-                    </div><a href="/post/the-importance-of-digital-marketing-for-agencies" class="w-inline-block">
-                      <h3 class="_24px-link">The Importance of Digital Marketing for Agencies</h3>
-                    </a>
-                    <div class="blog-divider">
-                      <div class="blog-hover-divider"></div>
-                    </div>
-                  </div><a href="/post/the-importance-of-digital-marketing-for-agencies"
-                    class="text-link-with-border w-inline-block">
-                    <div>Read More</div>
-                    <div class="mask">
-                      <div class="link-border"></div>
-                      <div class="link-border-secodnary"></div>
-                    </div>
-                  </a>
-                </div>
-              </div>
-            </div>
-            <div role="listitem" class="w-dyn-item">
-              <div data-w-id="3aa9b968-98e2-906a-c7d1-034fdca8e2e9" class="blog-card">
-                <div class="blog-thubnail-mask"><a href="/post/how-to-build-a-strong-brand-identity"
-                    class="mask-10px-rounded-full w-inline-block"><img src="../images/pexels-fauxels-3184357.avif"
-                      loading="lazy" alt=""
-                      sizes="(max-width: 479px) 100vw, (max-width: 767px) 92vw, (max-width: 991px) 46vw, 28vw"
-                      srcset="../images/pexels-fauxels-3184357-p-500.avif 500w, ../images/pexels-fauxels-3184357-p-800.avif 800w, ../images/pexels-fauxels-3184357.avif 1920w"
-                      class="blog-thumbnail-300px" /></a><a href="/blog-categories/destination.html"
-                    class="blog-category w-inline-block">
-                    <div class="blog-category-left-shape"></div>
-                    <div>Destination</div>
-                    <div class="blog-category-right-shape"></div>
-                  </a>
-                  <div data-w-id="86948c09-9ea6-0d24-c71d-cfb6b9e521b5" class="image-show-style">
-                    <div class="bg-column-mask">
-                      <div class="bg-color-column"></div>
-                      <div class="primary-color-column"></div>
-                    </div>
-                    <div id="w-node-_86948c09-9ea6-0d24-c71d-cfb6b9e521b9-b9e521b5" class="bg-column-mask">
-                      <div class="bg-color-column"></div>
-                      <div class="primary-color-column"></div>
-                    </div>
-                    <div id="w-node-_86948c09-9ea6-0d24-c71d-cfb6b9e521bc-b9e521b5" class="bg-column-mask">
-                      <div class="bg-color-column"></div>
-                      <div class="primary-color-column"></div>
-                    </div>
-                    <div id="w-node-_86948c09-9ea6-0d24-c71d-cfb6b9e521bf-b9e521b5" class="bg-column-mask">
-                      <div class="bg-color-column"></div>
-                      <div class="primary-color-column"></div>
-                    </div>
-                  </div>
-                </div>
-                <div class="w-layout-vflex blog-body">
-                  <div class="w-layout-vflex heading-category-wrapper">
-                    <div class="horizontal-left-center-8px-gap-wrap">
-                      <p href="#" class="_14px-text">October 17, 2024</p>
-                      <div class="_5px-circle"></div>
-                      <div class="horizontal-left-center-5px-gap">
-                        <p class="_14px-text">By</p><a href="/author/sara-lee" class="w-inline-block">
-                          <p href="#" class="_14px-link">Sara Lee</p>
-                        </a>
-                      </div>
-                    </div><a href="/post/how-to-build-a-strong-brand-identity" class="w-inline-block">
-                      <h3 class="_24px-link">Must-Visit Landmarks in the Heart of Jogja</h3>
-                    </a>
-                    <div class="blog-divider">
-                      <div class="blog-hover-divider"></div>
-                    </div>
-                  </div><a href="/post/how-to-build-a-strong-brand-identity"
-                    class="text-link-with-border w-inline-block">
-                    <div>Read More</div>
-                    <div class="mask">
-                      <div class="link-border"></div>
-                      <div class="link-border-secodnary"></div>
-                    </div>
-                  </a>
-                </div>
-              </div>
-            </div>
-            <div role="listitem" class="w-dyn-item">
-              <div data-w-id="3aa9b968-98e2-906a-c7d1-034fdca8e2e9" class="blog-card">
-                <div class="blog-thubnail-mask"><a href="/post/effective-client-communication-strategies"
-                    class="mask-10px-rounded-full w-inline-block"><img src="../images/image17.avif" loading="lazy"
-                      alt="" class="blog-thumbnail-300px" /></a><a href="/blog-categories/travel.html"
-                    class="blog-category w-inline-block">
-                    <div class="blog-category-left-shape"></div>
-                    <div>Travel</div>
-                    <div class="blog-category-right-shape"></div>
-                  </a>
-                  <div data-w-id="86948c09-9ea6-0d24-c71d-cfb6b9e521b5" class="image-show-style">
-                    <div class="bg-column-mask">
-                      <div class="bg-color-column"></div>
-                      <div class="primary-color-column"></div>
-                    </div>
-                    <div id="w-node-_86948c09-9ea6-0d24-c71d-cfb6b9e521b9-b9e521b5" class="bg-column-mask">
-                      <div class="bg-color-column"></div>
-                      <div class="primary-color-column"></div>
-                    </div>
-                    <div id="w-node-_86948c09-9ea6-0d24-c71d-cfb6b9e521bc-b9e521b5" class="bg-column-mask">
-                      <div class="bg-color-column"></div>
-                      <div class="primary-color-column"></div>
-                    </div>
-                    <div id="w-node-_86948c09-9ea6-0d24-c71d-cfb6b9e521bf-b9e521b5" class="bg-column-mask">
-                      <div class="bg-color-column"></div>
-                      <div class="primary-color-column"></div>
-                    </div>
-                  </div>
-                </div>
-                <div class="w-layout-vflex blog-body">
-                  <div class="w-layout-vflex heading-category-wrapper">
-                    <div class="horizontal-left-center-8px-gap-wrap">
-                      <p href="#" class="_14px-text">October 17, 2024</p>
-                      <div class="_5px-circle"></div>
-                      <div class="horizontal-left-center-5px-gap">
-                        <p class="_14px-text">By</p><a href="/author/jane-smith" class="w-inline-block">
-                          <p href="#" class="_14px-link">Jane Smith</p>
-                        </a>
-                      </div>
-                    </div><a href="/post/effective-client-communication-strategies" class="w-inline-block">
-                      <h3 class="_24px-link">Effective Client Communication Strategies</h3>
-                    </a>
-                    <div class="blog-divider">
-                      <div class="blog-hover-divider"></div>
-                    </div>
-                  </div><a href="/post/effective-client-communication-strategies"
-                    class="text-link-with-border w-inline-block">
-                    <div>Read More</div>
-                    <div class="mask">
-                      <div class="link-border"></div>
-                      <div class="link-border-secodnary"></div>
-                    </div>
-                  </a>
-                </div>
-              </div>
-            </div>
-            <div role="listitem" class="w-dyn-item">
-              <div data-w-id="3aa9b968-98e2-906a-c7d1-034fdca8e2e9" class="blog-card">
-                <div class="blog-thubnail-mask"><a href="/post/the-role-of-social-media-in-agency-marketing"
-                    class="mask-10px-rounded-full w-inline-block"><img
-                      src="../images/pexels-gk-kumawat-750014492-25537759.avif" loading="lazy" alt=""
-                      sizes="(max-width: 479px) 100vw, (max-width: 767px) 92vw, (max-width: 991px) 46vw, 28vw"
-                      srcset="../images/pexels-gk-kumawat-750014492-25537759-p-500.avif 500w, ../images/pexels-gk-kumawat-750014492-25537759-p-800.avif 800w, ../images/pexels-gk-kumawat-750014492-25537759-p-1080.avif 1080w, ../images/pexels-gk-kumawat-750014492-25537759.avif 1920w"
-                      class="blog-thumbnail-300px" /></a><a href="/blog-categories/culture.html"
-                    class="blog-category w-inline-block">
-                    <div class="blog-category-left-shape"></div>
-                    <div>Culture</div>
-                    <div class="blog-category-right-shape"></div>
-                  </a>
-                  <div data-w-id="86948c09-9ea6-0d24-c71d-cfb6b9e521b5" class="image-show-style">
-                    <div class="bg-column-mask">
-                      <div class="bg-color-column"></div>
-                      <div class="primary-color-column"></div>
-                    </div>
-                    <div id="w-node-_86948c09-9ea6-0d24-c71d-cfb6b9e521b9-b9e521b5" class="bg-column-mask">
-                      <div class="bg-color-column"></div>
-                      <div class="primary-color-column"></div>
-                    </div>
-                    <div id="w-node-_86948c09-9ea6-0d24-c71d-cfb6b9e521bc-b9e521b5" class="bg-column-mask">
-                      <div class="bg-color-column"></div>
-                      <div class="primary-color-column"></div>
-                    </div>
-                    <div id="w-node-_86948c09-9ea6-0d24-c71d-cfb6b9e521bf-b9e521b5" class="bg-column-mask">
-                      <div class="bg-color-column"></div>
-                      <div class="primary-color-column"></div>
-                    </div>
-                  </div>
-                </div>
-                <div class="w-layout-vflex blog-body">
-                  <div class="w-layout-vflex heading-category-wrapper">
-                    <div class="horizontal-left-center-8px-gap-wrap">
-                      <p href="#" class="_14px-text">October 17, 2024</p>
-                      <div class="_5px-circle"></div>
-                      <div class="horizontal-left-center-5px-gap">
-                        <p class="_14px-text">By</p><a href="/author/jane-smith" class="w-inline-block">
-                          <p href="#" class="_14px-link">Jane Smith</p>
-                        </a>
-                      </div>
-                    </div><a href="/post/the-role-of-social-media-in-agency-marketing" class="w-inline-block">
-                      <h3 class="_24px-link">The Art and Soul of Yogyakarta: A Cultural Journey</h3>
-                    </a>
-                    <div class="blog-divider">
-                      <div class="blog-hover-divider"></div>
-                    </div>
-                  </div><a href="/post/the-role-of-social-media-in-agency-marketing"
-                    class="text-link-with-border w-inline-block">
-                    <div>Read More</div>
-                    <div class="mask">
-                      <div class="link-border"></div>
-                      <div class="link-border-secodnary"></div>
-                    </div>
-                  </a>
-                </div>
-              </div>
-            </div>
-            <div role="listitem" class="w-dyn-item">
-              <div data-w-id="3aa9b968-98e2-906a-c7d1-034fdca8e2e9" class="blog-card">
-                <div class="blog-thubnail-mask"><a href="/post/understanding-seo-for-agencies"
-                    class="mask-10px-rounded-full w-inline-block"><img src="../images/pexels-seven11nash-380769.avif"
-                      loading="lazy" alt=""
-                      sizes="(max-width: 479px) 100vw, (max-width: 767px) 92vw, (max-width: 991px) 46vw, 28vw"
-                      srcset="../images/pexels-seven11nash-380769-p-500.avif 500w, ../images/pexels-seven11nash-380769-p-800.avif 800w, ../images/pexels-seven11nash-380769.avif 1920w"
-                      class="blog-thumbnail-300px" /></a><a href="/blog-categories/destination.html"
-                    class="blog-category w-inline-block">
-                    <div class="blog-category-left-shape"></div>
-                    <div>Destination</div>
-                    <div class="blog-category-right-shape"></div>
-                  </a>
-                  <div data-w-id="86948c09-9ea6-0d24-c71d-cfb6b9e521b5" class="image-show-style">
-                    <div class="bg-column-mask">
-                      <div class="bg-color-column"></div>
-                      <div class="primary-color-column"></div>
-                    </div>
-                    <div id="w-node-_86948c09-9ea6-0d24-c71d-cfb6b9e521b9-b9e521b5" class="bg-column-mask">
-                      <div class="bg-color-column"></div>
-                      <div class="primary-color-column"></div>
-                    </div>
-                    <div id="w-node-_86948c09-9ea6-0d24-c71d-cfb6b9e521bc-b9e521b5" class="bg-column-mask">
-                      <div class="bg-color-column"></div>
-                      <div class="primary-color-column"></div>
-                    </div>
-                    <div id="w-node-_86948c09-9ea6-0d24-c71d-cfb6b9e521bf-b9e521b5" class="bg-column-mask">
-                      <div class="bg-color-column"></div>
-                      <div class="primary-color-column"></div>
-                    </div>
-                  </div>
-                </div>
-                <div class="w-layout-vflex blog-body">
-                  <div class="w-layout-vflex heading-category-wrapper">
-                    <div class="horizontal-left-center-8px-gap-wrap">
-                      <p href="#" class="_14px-text">October 17, 2024</p>
-                      <div class="_5px-circle"></div>
-                      <div class="horizontal-left-center-5px-gap">
-                        <p class="_14px-text">By</p><a href="/author/sara-lee" class="w-inline-block">
-                          <p href="#" class="_14px-link">Sara Lee</p>
-                        </a>
-                      </div>
-                    </div><a href="/post/understanding-seo-for-agencies" class="w-inline-block">
-                      <h3 class="_24px-link">Understanding SEO for Agencies</h3>
-                    </a>
-                    <div class="blog-divider">
-                      <div class="blog-hover-divider"></div>
-                    </div>
-                  </div><a href="/post/understanding-seo-for-agencies" class="text-link-with-border w-inline-block">
-                    <div>Read More</div>
-                    <div class="mask">
-                      <div class="link-border"></div>
-                      <div class="link-border-secodnary"></div>
-                    </div>
-                  </a>
-                </div>
-              </div>
-            </div>
-            <div role="listitem" class="w-dyn-item">
-              <div data-w-id="3aa9b968-98e2-906a-c7d1-034fdca8e2e9" class="blog-card">
-                <div class="blog-thubnail-mask"><a href="/post/content-marketing-tips-for-agencies"
-                    class="mask-10px-rounded-full w-inline-block"><img
-                      src="../images/pexels-divinetechygirl-1181396.avif" loading="lazy" alt=""
-                      sizes="(max-width: 479px) 100vw, (max-width: 767px) 92vw, (max-width: 991px) 46vw, 28vw"
-                      srcset="../images/pexels-divinetechygirl-1181396-p-500.avif 500w, ../images/pexels-divinetechygirl-1181396-p-800.avif 800w, ../images/pexels-divinetechygirl-1181396-p-1080.avif 1080w, ../images/pexels-divinetechygirl-1181396.avif 1920w"
-                      class="blog-thumbnail-300px" /></a><a href="/blog-categories/culture.html"
-                    class="blog-category w-inline-block">
-                    <div class="blog-category-left-shape"></div>
-                    <div>Culture</div>
-                    <div class="blog-category-right-shape"></div>
-                  </a>
-                  <div data-w-id="86948c09-9ea6-0d24-c71d-cfb6b9e521b5" class="image-show-style">
-                    <div class="bg-column-mask">
-                      <div class="bg-color-column"></div>
-                      <div class="primary-color-column"></div>
-                    </div>
-                    <div id="w-node-_86948c09-9ea6-0d24-c71d-cfb6b9e521b9-b9e521b5" class="bg-column-mask">
-                      <div class="bg-color-column"></div>
-                      <div class="primary-color-column"></div>
-                    </div>
-                    <div id="w-node-_86948c09-9ea6-0d24-c71d-cfb6b9e521bc-b9e521b5" class="bg-column-mask">
-                      <div class="bg-color-column"></div>
-                      <div class="primary-color-column"></div>
-                    </div>
-                    <div id="w-node-_86948c09-9ea6-0d24-c71d-cfb6b9e521bf-b9e521b5" class="bg-column-mask">
-                      <div class="bg-color-column"></div>
-                      <div class="primary-color-column"></div>
-                    </div>
-                  </div>
-                </div>
-                <div class="w-layout-vflex blog-body">
-                  <div class="w-layout-vflex heading-category-wrapper">
-                    <div class="horizontal-left-center-8px-gap-wrap">
-                      <p href="#" class="_14px-text">October 17, 2024</p>
-                      <div class="_5px-circle"></div>
-                      <div class="horizontal-left-center-5px-gap">
-                        <p class="_14px-text">By</p><a href="/author/mike-johnson" class="w-inline-block">
-                          <p href="#" class="_14px-link">Mike Johnson</p>
-                        </a>
-                      </div>
-                    </div><a href="/post/content-marketing-tips-for-agencies" class="w-inline-block">
-                      <h3 class="_24px-link">Unraveling the Cultural Richness of Jogja’s Traditions</h3>
-                    </a>
-                    <div class="blog-divider">
-                      <div class="blog-hover-divider"></div>
-                    </div>
-                  </div><a href="/post/content-marketing-tips-for-agencies"
-                    class="text-link-with-border w-inline-block">
-                    <div>Read More</div>
-                    <div class="mask">
-                      <div class="link-border"></div>
-                      <div class="link-border-secodnary"></div>
-                    </div>
-                  </a>
-                </div>
-              </div>
-            </div>
-            <div role="listitem" class="w-dyn-item">
-              <div data-w-id="3aa9b968-98e2-906a-c7d1-034fdca8e2e9" class="blog-card">
-                <div class="blog-thubnail-mask"><a href="/post/the-benefits-of-email-marketing-for-agencies"
-                    class="mask-10px-rounded-full w-inline-block"><img src="../images/pexels-kindelmedia-7688336.avif"
-                      loading="lazy" alt=""
-                      sizes="(max-width: 479px) 100vw, (max-width: 767px) 92vw, (max-width: 991px) 46vw, 28vw"
-                      srcset="../images/pexels-kindelmedia-7688336-p-500.avif 500w, ../images/pexels-kindelmedia-7688336-p-800.avif 800w, ../images/pexels-kindelmedia-7688336-p-1080.avif 1080w, ../images/pexels-kindelmedia-7688336.avif 1920w"
-                      class="blog-thumbnail-300px" /></a><a href="/blog-categories/culinary.html"
-                    class="blog-category w-inline-block">
-                    <div class="blog-category-left-shape"></div>
-                    <div>Travel</div>
-                    <div class="blog-category-right-shape"></div>
-                  </a>
-                  <div data-w-id="86948c09-9ea6-0d24-c71d-cfb6b9e521b5" class="image-show-style">
-                    <div class="bg-column-mask">
-                      <div class="bg-color-column"></div>
-                      <div class="primary-color-column"></div>
-                    </div>
-                    <div id="w-node-_86948c09-9ea6-0d24-c71d-cfb6b9e521b9-b9e521b5" class="bg-column-mask">
-                      <div class="bg-color-column"></div>
-                      <div class="primary-color-column"></div>
-                    </div>
-                    <div id="w-node-_86948c09-9ea6-0d24-c71d-cfb6b9e521bc-b9e521b5" class="bg-column-mask">
-                      <div class="bg-color-column"></div>
-                      <div class="primary-color-column"></div>
-                    </div>
-                    <div id="w-node-_86948c09-9ea6-0d24-c71d-cfb6b9e521bf-b9e521b5" class="bg-column-mask">
-                      <div class="bg-color-column"></div>
-                      <div class="primary-color-column"></div>
-                    </div>
-                  </div>
-                </div>
-                <div class="w-layout-vflex blog-body">
-                  <div class="w-layout-vflex heading-category-wrapper">
-                    <div class="horizontal-left-center-8px-gap-wrap">
-                      <p href="#" class="_14px-text">October 17, 2024</p>
-                      <div class="_5px-circle"></div>
-                      <div class="horizontal-left-center-5px-gap">
-                        <p class="_14px-text">By</p><a href="/author/mike-johnson" class="w-inline-block">
-                          <p href="#" class="_14px-link">Mike Johnson</p>
-                        </a>
-                      </div>
-                    </div><a href="/post/the-benefits-of-email-marketing-for-agencies" class="w-inline-block">
-                      <h3 class="_24px-link">The Benefits of Email Marketing for Agencies</h3>
-                    </a>
-                    <div class="blog-divider">
-                      <div class="blog-hover-divider"></div>
-                    </div>
-                  </div><a href="/post/the-benefits-of-email-marketing-for-agencies"
-                    class="text-link-with-border w-inline-block">
-                    <div>Read More</div>
-                    <div class="mask">
-                      <div class="link-border"></div>
-                      <div class="link-border-secodnary"></div>
-                    </div>
-                  </a>
-                </div>
-              </div>
-            </div>
-            <div role="listitem" class="w-dyn-item">
-              <div data-w-id="3aa9b968-98e2-906a-c7d1-034fdca8e2e9" class="blog-card">
-                <div class="blog-thubnail-mask"><a href="/post/top-networking-agencies-in-the-world"
-                    class="mask-10px-rounded-full w-inline-block"><img src="../images/pexels-pixabay-302769.avif"
-                      loading="lazy" alt=""
-                      sizes="(max-width: 479px) 100vw, (max-width: 767px) 92vw, (max-width: 991px) 46vw, 28vw"
-                      srcset="../images/pexels-pixabay-302769-p-500.avif 500w, ../images/pexels-pixabay-302769-p-800.avif 800w, ../images/pexels-pixabay-302769-p-1080.avif 1080w, ../images/pexels-pixabay-302769.avif 1920w"
-                      class="blog-thumbnail-300px" /></a><a href="/blog-categories/culinary.html" aria-current="page"
-                    class="blog-category w-inline-block w--current">
-                    <div class="blog-category-left-shape"></div>
-                    <div>Culinary</div>
-                    <div class="blog-category-right-shape"></div>
-                  </a>
-                  <div data-w-id="86948c09-9ea6-0d24-c71d-cfb6b9e521b5" class="image-show-style">
-                    <div class="bg-column-mask">
-                      <div class="bg-color-column"></div>
-                      <div class="primary-color-column"></div>
-                    </div>
-                    <div id="w-node-_86948c09-9ea6-0d24-c71d-cfb6b9e521b9-b9e521b5" class="bg-column-mask">
-                      <div class="bg-color-column"></div>
-                      <div class="primary-color-column"></div>
-                    </div>
-                    <div id="w-node-_86948c09-9ea6-0d24-c71d-cfb6b9e521bc-b9e521b5" class="bg-column-mask">
-                      <div class="bg-color-column"></div>
-                      <div class="primary-color-column"></div>
-                    </div>
-                    <div id="w-node-_86948c09-9ea6-0d24-c71d-cfb6b9e521bf-b9e521b5" class="bg-column-mask">
-                      <div class="bg-color-column"></div>
-                      <div class="primary-color-column"></div>
-                    </div>
-                  </div>
-                </div>
-                <div class="w-layout-vflex blog-body">
-                  <div class="w-layout-vflex heading-category-wrapper">
-                    <div class="horizontal-left-center-8px-gap-wrap">
-                      <p href="#" class="_14px-text">October 18, 2024</p>
-                      <div class="_5px-circle"></div>
-                      <div class="horizontal-left-center-5px-gap">
-                        <p class="_14px-text">By</p><a href="/author/tom-brown" class="w-inline-block">
-                          <p href="#" class="_14px-link">Tom Brown</p>
-                        </a>
-                      </div>
-                    </div><a href="/post/top-networking-agencies-in-the-world" class="w-inline-block">
-                      <h3 class="_24px-link">Taste the Authentic Flavors of Jogja’s Culinary Heritage</h3>
-                    </a>
-                    <div class="blog-divider">
-                      <div class="blog-hover-divider"></div>
-                    </div>
-                  </div><a href="/post/top-networking-agencies-in-the-world"
-                    class="text-link-with-border w-inline-block">
-                    <div>Read More</div>
-                    <div class="mask">
-                      <div class="link-border"></div>
-                      <div class="link-border-secodnary"></div>
-                    </div>
-                  </a>
-                </div>
-              </div>
-            </div>
-            <div role="listitem" class="w-dyn-item">
-              <div data-w-id="3aa9b968-98e2-906a-c7d1-034fdca8e2e9" class="blog-card">
-                <div class="blog-thubnail-mask"><a href="/post/trends-in-digital-marketing-for-agencies"
-                    class="mask-10px-rounded-full w-inline-block"><img src="../images/pexels-janetrangdoan-1024248.avif"
-                      loading="lazy" alt=""
-                      sizes="(max-width: 479px) 100vw, (max-width: 767px) 92vw, (max-width: 991px) 46vw, 28vw"
-                      srcset="../images/pexels-janetrangdoan-1024248-p-500.avif 500w, ../images/pexels-janetrangdoan-1024248-p-800.avif 800w, ../images/pexels-janetrangdoan-1024248-p-1080.avif 1080w, ../images/pexels-janetrangdoan-1024248.avif 1920w"
-                      class="blog-thumbnail-300px" /></a><a href="/blog-categories/culinary.html" aria-current="page"
-                    class="blog-category w-inline-block w--current">
-                    <div class="blog-category-left-shape"></div>
-                    <div>Culinary</div>
-                    <div class="blog-category-right-shape"></div>
-                  </a>
-                  <div data-w-id="86948c09-9ea6-0d24-c71d-cfb6b9e521b5" class="image-show-style">
-                    <div class="bg-column-mask">
-                      <div class="bg-color-column"></div>
-                      <div class="primary-color-column"></div>
-                    </div>
-                    <div id="w-node-_86948c09-9ea6-0d24-c71d-cfb6b9e521b9-b9e521b5" class="bg-column-mask">
-                      <div class="bg-color-column"></div>
-                      <div class="primary-color-column"></div>
-                    </div>
-                    <div id="w-node-_86948c09-9ea6-0d24-c71d-cfb6b9e521bc-b9e521b5" class="bg-column-mask">
-                      <div class="bg-color-column"></div>
-                      <div class="primary-color-column"></div>
-                    </div>
-                    <div id="w-node-_86948c09-9ea6-0d24-c71d-cfb6b9e521bf-b9e521b5" class="bg-column-mask">
-                      <div class="bg-color-column"></div>
-                      <div class="primary-color-column"></div>
-                    </div>
-                  </div>
-                </div>
-                <div class="w-layout-vflex blog-body">
-                  <div class="w-layout-vflex heading-category-wrapper">
-                    <div class="horizontal-left-center-8px-gap-wrap">
-                      <p href="#" class="_14px-text">October 17, 2024</p>
-                      <div class="_5px-circle"></div>
-                      <div class="horizontal-left-center-5px-gap">
-                        <p class="_14px-text">By</p><a href="/author/ana-doe" class="w-inline-block">
-                          <p href="#" class="_14px-link">Ana Doe</p>
-                        </a>
-                      </div>
-                    </div><a href="/post/trends-in-digital-marketing-for-agencies" class="w-inline-block">
-                      <h3 class="_24px-link">Trends in Digital Marketing for Agencies</h3>
-                    </a>
-                    <div class="blog-divider">
-                      <div class="blog-hover-divider"></div>
-                    </div>
-                  </div><a href="/post/trends-in-digital-marketing-for-agencies"
-                    class="text-link-with-border w-inline-block">
-                    <div>Read More</div>
-                    <div class="mask">
-                      <div class="link-border"></div>
-                      <div class="link-border-secodnary"></div>
-                    </div>
-                  </a>
-                </div>
-              </div>
+              <?php endforeach; ?>
             </div>
           </div>
-          <div role="navigation" aria-label="List" class="w-pagination-wrapper"><a href="?d43ecadb_page=2"
-              aria-label="Next Page" class="w-pagination-next pagination-button">
-              <div class="w-inline-block">Next</div><svg class="w-pagination-next-icon" height="12px" width="12px"
-                xmlns="http://www.w3.org/2000/svg" viewBox="0 0 12 12" transform="translate(0, 1)">
-                <path fill="none" stroke="currentColor" fill-rule="evenodd" d="M4 2l4 4-4 4"></path>
-              </svg>
-            </a>
-            <link rel="prerender" href="?d43ecadb_page=2" />
+          <!-- Categories Sidebar -->
+          <div class="blog-sidebar">
+            <form action="/search" class="sidebar-search-filter w-form">
+              <input class="sidebar-search-input w-input" maxlength="256" name="query" placeholder="Search…" type="search" id="search-3" required="" />
+              <input type="submit" class="sidebar-search-icon w-button" value="search" />
+            </form>
+
+            <div class="blog-widget">
+              <div class="sidebar-title">Categories</div>
+              <div class="w-dyn-list">
+                <div role="list" class="category-container w-dyn-items">
+                  <div role="listitem" class="w-dyn-item">
+                    <a href="../blog-categories/adventure.php" class="sidebar-category-block w-inline-block">
+                      <div class="icon">navigate_next</div>
+                      <div>Adventure</div>
+                    </a>
+                  </div>
+                  <div role="listitem" class="w-dyn-item">
+                    <a href="../blog-categories/cultural.php" class="sidebar-category-block w-inline-block">
+                      <div class="icon">navigate_next</div>
+                      <div>Cultural</div>
+                    </a>
+                  </div>
+                  <div role="listitem" class="w-dyn-item">
+                    <a href="../blog-categories/nature.php" class="sidebar-category-block w-inline-block">
+                      <div class="icon">navigate_next</div>
+                      <div>Nature</div>
+                    </a>
+                  </div>
+                </div>
+              </div>
+            </div>
           </div>
         </div>
       </div>
@@ -1002,16 +563,14 @@ $places = getAllPlaces();
       <div class="container">
         <div data-w-id="3447bad0-4c97-caf6-2cc4-1b7d3321ffb7" class="footer-container">
           <div class="footer-block">
-            <div class="site-logo" style="font-size: 35px; font-weight: bold; color:rgb(255, 255, 255);">VisitVista</div>
+            <div><img width="70" loading="lazy" alt="" src="../images/logovisitvista.png" class="site-logo" /></div>
             <div class="margin-bottom-23px">
               <p class="footer-text">Daftar sekarang dan optimalkan pengalaman wisata anda!</p>
             </div>
-            <div class="horizontal-left-center-11px-gap"><img src="../images/frame.avif" loading="lazy" alt="" class="image-24px" />
-              <p class="_16px-text">Copyright © VisitVista by ExploreX</p>
-            </div>
           </div>
           <div class="footer-block end">
-            <div class="link-list"><a data-w-id="ae4630f3-25c8-1af0-bf6f-a34696446e8b" href="/" class="footer-link-wrapper w-inline-block">
+            <div class="link-list"><a data-w-id="ae4630f3-25c8-1af0-bf6f-a34696446e8b" href="/"
+                class="footer-link-wrapper w-inline-block">
                 <div class="footer-link">
                   <div class="text">Home</div>
                   <div class="text">Home</div>
@@ -1019,7 +578,8 @@ $places = getAllPlaces();
                 <div class="mask">
                   <div class="nav-border"></div>
                 </div>
-              </a><a data-w-id="ae4630f3-25c8-1af0-bf6f-a34696446e8b" href="about-us-1.php" class="footer-link-wrapper w-inline-block">
+              </a><a data-w-id="ae4630f3-25c8-1af0-bf6f-a34696446e8b" href="../about-us-3.php"
+                class="footer-link-wrapper w-inline-block">
                 <div class="footer-link">
                   <div class="text">About</div>
                   <div class="text">About</div>
@@ -1027,7 +587,8 @@ $places = getAllPlaces();
                 <div class="mask">
                   <div class="nav-border"></div>
                 </div>
-              </a><a data-w-id="ae4630f3-25c8-1af0-bf6f-a34696446e8b" href="/visitvista/portfolio-2.php" class="footer-link-wrapper w-inline-block">
+              </a><a data-w-id="ae4630f3-25c8-1af0-bf6f-a34696446e8b" href="../visitvista/portfolio-2.php"
+                class="footer-link-wrapper w-inline-block">
                 <div class="footer-link">
                   <div class="text">Article</div>
                   <div class="text">Article</div>
@@ -1035,10 +596,10 @@ $places = getAllPlaces();
                 <div class="mask">
                   <div class="nav-border"></div>
                 </div>
-              </a><a data-w-id="ae4630f3-25c8-1af0-bf6f-a34696446e8b" href="/visitvista/explore.php" class="footer-link-wrapper w-inline-block">
+              </a><a data-w-id="ae4630f3-25c8-1af0-bf6f-a34696446e8b" href="../visitvista/adventure.php" class="footer-link-wrapper w-inline-block">
                 <div class="footer-link">
-                  <div class="text">Explore</div>
-                  <div class="text">Explore</div>
+                  <div class="text">Adventure</div>
+                  <div class="text">Adventure</div>
                 </div>
                 <div class="mask">
                   <div class="nav-border"></div>
@@ -1067,24 +628,11 @@ $places = getAllPlaces();
         </div>
       </div>
     </footer>
-    <div class="cursor-mouse-wrapper">
-      <div class="main-cursor">
-        <div class="cursor-mouse-pointer">
-          <div class="side-parts"></div>
-          <div class="cursor-mouse"></div>
-          <div class="side-parts"></div>
-        </div>
-        <div class="cursor-circle"></div>
-      </div>
-      <div class="main-cursor horizontal">
-        <div class="arrow-part left"></div>
-        <div class="arrow-part right"></div>
-        <div class="main-part"></div>
-      </div>
-    </div>
   </div>
   <script src="../js/jquery.js" type="text/javascript"></script>
   <script src="../js/webflow-script.js" type="text/javascript"></script>
+  <?php
+  echo getSearchScripts();
+  ?>
 </body>
-
 </html>

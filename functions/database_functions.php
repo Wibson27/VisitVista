@@ -8,10 +8,8 @@ function getAllPlaces() {
         $query = "
             SELECT
                 p.*,
-                bp.business_name,
                 (SELECT image_url FROM place_images WHERE place_id = p.id LIMIT 1) as image_url
             FROM places p
-            LEFT JOIN business_profiles bp ON p.business_id = bp.id
             ORDER BY p.created_at DESC
         ";
         $stmt = $db->query($query);
@@ -28,11 +26,8 @@ function getPlaceById($id) {
         $query = "
             SELECT
                 p.*,
-                bp.business_name,
-                bp.city as business_city,
                 GROUP_CONCAT(pi.image_url) as images
             FROM places p
-            LEFT JOIN business_profiles bp ON p.business_id = bp.id
             LEFT JOIN place_images pi ON p.id = pi.place_id
             WHERE p.id = ?
             GROUP BY p.id
@@ -65,6 +60,7 @@ function getPlacesByBusinessId($businessId) {
         return [];
     }
 }
+
 
 // ====== User Functions ======
 function getUserById($id) {
@@ -312,44 +308,7 @@ function createProfile($userId, $profileData, $role) {
   }
 }
 
-// Fungsi untuk mengambil semua kategori
-function getAllCategories() {
-    global $conn;
 
-    try {
-        $sql = "SELECT * FROM categories ORDER BY name ASC";
-        $result = $conn->query($sql);
-
-        if ($result->num_rows > 0) {
-            return $result->fetch_all(MYSQLI_ASSOC);
-        }
-        return [];
-    } catch (Exception $e) {
-        error_log($e->getMessage());
-        return [];
-    }
-}
-
-// Fungsi untuk mengambil places dengan kategorinya
-function getAllPlacesWithCategories() {
-    global $conn;
-
-    try {
-        $sql = "SELECT p.*, c.name as category_name
-                FROM places p
-                LEFT JOIN categories c ON p.category_id = c.id
-                ORDER BY p.created_at DESC";
-        $result = $conn->query($sql);
-
-        if ($result->num_rows > 0) {
-            return $result->fetch_all(MYSQLI_ASSOC);
-        }
-        return [];
-    } catch (Exception $e) {
-        error_log($e->getMessage());
-        return [];
-    }
-}
 
 // Data tempat wisata untuk suggestions
 function getPlacesSuggestions() {

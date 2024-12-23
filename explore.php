@@ -2,7 +2,6 @@
 require_once 'functions/database_functions.php';
 error_reporting(E_ALL);
 ini_set('display_errors', 1);
-// Ambil data tempat menggunakan fungsi getAllPlaces
 $places = getAllPlaces();
 ?>
 <!DOCTYPE html>
@@ -10,6 +9,7 @@ $places = getAllPlaces();
 
 <head>
   <meta charset="utf-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
   <title>Explore</title>
   <meta content="explore.php" property="og:title" />
   <meta content="explore.php" property="twitter:title" />
@@ -72,9 +72,9 @@ $places = getAllPlaces();
       id="navbar">
       <div class="w-layout-blockcontainer container nav-container w-container">
         <div class="navbar-main">
-        <a data-w-id="ac2971f4-6f26-e7be-f7cd-a20c97325007" href="/" class="w-inline-block">
+          <a data-w-id="ac2971f4-6f26-e7be-f7cd-a20c97325007" href="/" class="w-inline-block">
             <img src="images/logovisitvista.png" loading="lazy" alt="" class="site-logo" />
-        </a>
+          </a>
           <!-- Navigation Menu -->
           <nav role="navigation" class="nav-menu-wrapper w-nav-menu">
             <div class="nav-menu-left-sidebar">
@@ -261,7 +261,8 @@ $places = getAllPlaces();
       quickCheckoutEnabled
     }
   }
-}" data-wf-page-link-href-prefix="" class="w-commerce-commercecartwrapper pointer"
+}"
+              data-wf-page-link-href-prefix="" class="w-commerce-commercecartwrapper pointer"
               data-node-type="commerce-cart-wrapper"><a
                 class="w-commerce-commercecartopenlink cart-button w-inline-block" role="button" aria-haspopup="dialog"
                 aria-label="Open cart" data-node-type="commerce-cart-open-link" href="#"><img src="images/cart.png"
@@ -413,8 +414,8 @@ $places = getAllPlaces();
                 </div>
               </div>
             </div>
-            <div class="pointer"><button class="log-button" data-wf-user-logout="logout" data-wf-user-login="login"
-                type="button">logout</button></div>
+            <div class="pointer"><a href="register.php" class="log-button" data-wf-user-logout="logout" data-wf-user-login="login"
+                type="button">logout</a></div>
             <div data-w-id="c83eb7d7-4575-cda2-4005-1e693e785387" class="hamburger-menu w-nav-button">
               <div class="bars">
                 <div class="bar-wrapper">
@@ -475,14 +476,12 @@ $places = getAllPlaces();
                           class="blog-thumbnail-300px" />
                       </a>
 
-                      <?php if (!empty($place['category_name'])): ?>
-                        <a href="/blog-categories/<?php echo strtolower(htmlspecialchars($place['category_name'])); ?>"
-                          class="blog-category w-inline-block">
-                          <div class="blog-category-left-shape"></div>
-                          <div><?php echo htmlspecialchars($place['category_name']); ?></div>
-                          <div class="blog-category-right-shape"></div>
-                        </a>
-                      <?php endif; ?>
+                      <div class="blog-category">
+                        <div class="blog-category-left-shape"></div>
+                        <div><?php echo htmlspecialchars($place['category']); ?></div>
+                        <div class="blog-category-right-shape"></div>
+                      </div>
+
 
                       <div class="image-show-style">
                         <div class="bg-column-mask">
@@ -495,7 +494,7 @@ $places = getAllPlaces();
                     <div class="w-layout-vflex blog-body">
                       <div class="w-layout-vflex heading-category-wrapper">
                         <div class="horizontal-left-center-8px-gap-wrap">
-                          <p class="_14px-text"><?php echo htmlspecialchars($place['business_name']); ?></p>
+                          <?php echo htmlspecialchars(date('F j, Y', strtotime($place['created_at']))); ?>
                           <div class="_5px-circle"></div>
                           <div class="horizontal-left-center-5px-gap">
                             <p class="_14px-text"><?php echo htmlspecialchars($place['city'] ?? ''); ?></p>
@@ -511,7 +510,7 @@ $places = getAllPlaces();
                         </div>
                       </div>
 
-                      <a href="/place/<?php echo htmlspecialchars($place['id']); ?>" class="text-link-with-border w-inline-block">
+                      <a href="backup.php?place_id=<?php echo htmlspecialchars($place['id']); ?>">
                         <div>Read More</div>
                         <div class="mask">
                           <div class="link-border"></div>
@@ -524,7 +523,6 @@ $places = getAllPlaces();
               <?php endforeach; ?>
             </div>
           </div>
-
           <!-- Categories Sidebar -->
           <div class="blog-sidebar">
             <form action="/search" class="sidebar-search-filter w-form">
@@ -537,19 +535,19 @@ $places = getAllPlaces();
               <div class="w-dyn-list">
                 <div role="list" class="category-container w-dyn-items">
                   <div role="listitem" class="w-dyn-item">
-                    <a href="/blog-categories/adventure.php" class="sidebar-category-block w-inline-block">
+                    <a href="/visitvista/blog-categories/adventure.php" class="sidebar-category-block w-inline-block">
                       <div class="icon">navigate_next</div>
                       <div>Adventure</div>
                     </a>
                   </div>
                   <div role="listitem" class="w-dyn-item">
-                    <a href="/blog-categories/cultural.php" class="sidebar-category-block w-inline-block">
+                    <a href="/visitvista/blog-categories/cultural.php" class="sidebar-category-block w-inline-block">
                       <div class="icon">navigate_next</div>
                       <div>Cultural</div>
                     </a>
                   </div>
                   <div role="listitem" class="w-dyn-item">
-                    <a href="/blog-categories/nature.php" class="sidebar-category-block w-inline-block">
+                    <a href="/visitvista/blog-categories/nature.php" class="sidebar-category-block w-inline-block">
                       <div class="icon">navigate_next</div>
                       <div>Nature</div>
                     </a>
@@ -565,8 +563,8 @@ $places = getAllPlaces();
       <div class="container">
         <div data-w-id="3447bad0-4c97-caf6-2cc4-1b7d3321ffb7" class="footer-container">
           <div class="footer-block">
-          <div><img width="70" loading="lazy" alt="" src="images/logovisitvista.png" class="site-logo" /></div>
-          <div class="margin-bottom-23px">
+            <div><img width="70" loading="lazy" alt="" src="images/logovisitvista.png" class="site-logo" /></div>
+            <div class="margin-bottom-23px">
               <p class="footer-text">Daftar sekarang dan optimalkan pengalaman wisata anda!</p>
             </div>
           </div>
