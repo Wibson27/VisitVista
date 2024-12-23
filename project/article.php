@@ -5,7 +5,7 @@ require_once __DIR__ . '/../functions/database_functions.php';
 $article_id = isset($_GET['id']) ? $_GET['id'] : null;
 
 if (!$article_id) {
-    header('Location: /visistvista/portfolio-2.php');
+    header('Location: /visistvista/article.php');
     exit;
 }
 
@@ -13,7 +13,7 @@ if (!$article_id) {
 $article = getArticleById($article_id);
 
 if (!$article) {
-    header('Location: /visitvista/portfolio-2.php');
+    header('Location: /visitvista/article.php');
     exit;
 }
 ?>
@@ -111,7 +111,7 @@ if (!$article) {
                 </div>
                 <div class="absolute-hover-bottom"></div>
               </a>
-              <a href="../portfolio-2.php" data-w-id="aeb1c1fc-3038-8a62-2af0-a4afc7395963" class="nav-link-wrapper w-inline-block">
+              <a href="../article.php" data-w-id="aeb1c1fc-3038-8a62-2af0-a4afc7395963" class="nav-link-wrapper w-inline-block">
                 <div class="nav-link">
                   <div class="default-text">Article</div>
                   <div class="default-text black-heading">Article</div>
@@ -439,7 +439,7 @@ if (!$article) {
 <div class="section no-padding-top">
     <div class="container">
         <div class="project-navigation">
-            <a href="../portfolio-2.php" class="button-wrapper w-inline-block">
+            <a href="../article.php" class="button-wrapper w-inline-block">
                 <div class="button-text">Kembali ke Artikel</div>
             </a>
         </div>
@@ -476,7 +476,7 @@ if (!$article) {
             <div class="mask">
               <div class="nav-border"></div>
             </div>
-          </a><a data-w-id="ae4630f3-25c8-1af0-bf6f-a34696446e8b" href="../portfolio-2.php" class="footer-link-wrapper w-inline-block">
+          </a><a data-w-id="ae4630f3-25c8-1af0-bf6f-a34696446e8b" href="../article.php" class="footer-link-wrapper w-inline-block">
             <div class="footer-link">
               <div class="text">Article</div>
               <div class="text">Article</div>
