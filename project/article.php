@@ -460,7 +460,7 @@ if (!$article) {
         </div>
       </div>
       <div class="footer-block end">
-        <div class="link-list"><a data-w-id="ae4630f3-25c8-1af0-bf6f-a34696446e8b" href="/" class="footer-link-wrapper w-inline-block">
+        <div class="link-list"><a data-w-id="ae4630f3-25c8-1af0-bf6f-a34696446e8b" href="../index.php" class="footer-link-wrapper w-inline-block">
             <div class="footer-link">
               <div class="text">Home</div>
               <div class="text">Home</div>
@@ -493,7 +493,20 @@ if (!$article) {
               <div class="nav-border"></div>
             </div>
           </a></div>
-        <div class="social-icons-container"><a href="http://instagram.com" target="_blank" class="social-icon-wrapper w-inline-block"><img src="../images/group-2027181.png" loading="lazy" alt="" class="footer-icon" /></a><a href="http://linkedin.com" target="_blank" class="social-icon-wrapper w-inline-block"><img src="../images/group-2027180.png" loading="lazy" alt="" class="footer-icon" /></a><a href="http://tiktok.com" class="social-icon-wrapper w-inline-block"><img src="../images/vector-20-1-.png" loading="lazy" alt="" class="footer-icon" /></a><a href="http://dribble.com" target="_blank" class="social-icon-wrapper w-inline-block"><img src="../images/vector.avif" loading="lazy" alt="" class="footer-icon" /></a></div>
+          <div class="social-icons-container">
+              <a href="http://instagram.com/rifqiwbsno" target="_blank" class="social-icon-wrapper w-inline-block">
+                <img src="images/group-2027181.png" loading="lazy" alt="" class="footer-icon" />
+              </a>
+              <a href="http://instagram.com/lintanglangitan" target="_blank" class="social-icon-wrapper w-inline-block">
+                <img src="images/group-2027181.png" loading="lazy" alt="" class="footer-icon" />
+              </a>
+              <a href="http://instagram.com/nfllqid" target="_blank" class="social-icon-wrapper w-inline-block">
+                <img src="images/group-2027181.png" loading="lazy" alt="" class="footer-icon" />
+              </a>
+              <a href="http://instagram.com" target="_blank" class="social-icon-wrapper w-inline-block">
+                <img src="images/group-2027181.png" loading="lazy" alt="" class="footer-icon" />
+              </a>
+            </div>
       </div>
     </div>
   </div>

@@ -191,7 +191,7 @@ $places = getAllPlaces();
                 </div>
                 <div class="absolute-hover-bottom"></div>
               </a>
-              <a href="about-us-3.php" data-w-id="783761a9-bb85-bb38-0e07-8475a4b307cb"class="nav-link-wrapper w-inline-block">
+              <a href="about-us.php" data-w-id="783761a9-bb85-bb38-0e07-8475a4b307cb"class="nav-link-wrapper w-inline-block">
                 <div class="nav-link">
                   <div class="default-text">About</div>
                   <div class="default-text black-heading">About</div>
@@ -205,7 +205,7 @@ $places = getAllPlaces();
                 </div>
                 <div class="absolute-hover-bottom"></div>
               </a>
-              <a href="portfolio-2.php" data-w-id="aeb1c1fc-3038-8a62-2af0-a4afc7395963" class="nav-link-wrapper w-inline-block">
+              <a href="article.php" data-w-id="aeb1c1fc-3038-8a62-2af0-a4afc7395963" class="nav-link-wrapper w-inline-block">
                 <div class="nav-link">
                   <div class="default-text">Article</div>
                   <div class="default-text black-heading">Article</div>
@@ -508,7 +508,7 @@ $places = getAllPlaces();
               </div>
             </div>
             <div class="pointer">
-              <button class="log-button" data-wf-user-logout="logout" data-wf-user-login="login" type="button">logout</button>
+              <a href="register.php" class="log-button" data-wf-user-logout="logout" data-wf-user-login="login" type="button">login</a>
             </div>
             <div data-w-id="c83eb7d7-4575-cda2-4005-1e693e785387" class="hamburger-menu w-nav-button">
               <div class="bars">
@@ -1354,19 +1354,18 @@ $places = getAllPlaces();
       <div class="container">
         <div data-w-id="3447bad0-4c97-caf6-2cc4-1b7d3321ffb7" class="footer-container">
           <div class="footer-block">
-            <div><img width="70" loading="lazy" alt="" src="images/agency-20logo.avif" class="site-logo" /></div>
+            <div><img width="70" loading="lazy" alt="" src="images/logovisitvista.png" class="site-logo" /></div>
             <div class="margin-bottom-23px">
-              <p class="footer-text">Ready to elevate your online presence? Contact us today to discuss your project and
-                discover how we can bring your vision to life.</p>
+              <p class="footer-text">Daftar sekarang dan optimalkan pengalaman wisata anda!</p>
             </div>
-            <div class="horizontal-left-center-11px-gap"><img src="images/frame.avif" loading="lazy" alt=""
-                class="image-24px" />
-              <p class="_16px-text">Copyright © Agency | Designed by Nexoy</p>
+            <div class="horizontal-left-center-11px-gap"><img src="images/frame.avif" loading="lazy" alt="" class="image-24px" />
+              <p class="_16px-text">Copyright © VisitVista by ExploreX</p>
             </div>
           </div>
           <div class="footer-block end">
-            <div class="link-list"><a data-w-id="ae4630f3-25c8-1af0-bf6f-a34696446e8b" href="/" aria-current="page"
-                class="footer-link-wrapper w-inline-block w--current">
+            <div class="link-list">
+              <a data-w-id="ae4630f3-25c8-1af0-bf6f-a34696446e8b" href="/visitvista/index.php"
+                class="footer-link-wrapper w-inline-block">
                 <div class="footer-link">
                   <div class="text">Home</div>
                   <div class="text">Home</div>
@@ -1374,7 +1373,8 @@ $places = getAllPlaces();
                 <div class="mask">
                   <div class="nav-border"></div>
                 </div>
-              </a><a data-w-id="ae4630f3-25c8-1af0-bf6f-a34696446e8b" href="/about-us-1"
+              </a>
+              <a data-w-id="ae4630f3-25c8-1af0-bf6f-a34696446e8b" href="/visitvista/about-us.php"
                 class="footer-link-wrapper w-inline-block">
                 <div class="footer-link">
                   <div class="text">About</div>
@@ -1383,33 +1383,41 @@ $places = getAllPlaces();
                 <div class="mask">
                   <div class="nav-border"></div>
                 </div>
-              </a><a data-w-id="ae4630f3-25c8-1af0-bf6f-a34696446e8b" href="/portfolio-1"
-                class="footer-link-wrapper w-inline-block">
+              </a>
+              <a data-w-id="ae4630f3-25c8-1af0-bf6f-a34696446e8b" href="/visitvista/explore.php" class="footer-link-wrapper w-inline-block">
                 <div class="footer-link">
-                  <div class="text">Works</div>
-                  <div class="text">Works</div>
+                  <div class="text">Explore</div>
+                  <div class="text">Explore</div>
                 </div>
                 <div class="mask">
                   <div class="nav-border"></div>
                 </div>
-              </a><a data-w-id="ae4630f3-25c8-1af0-bf6f-a34696446e8b" href="/utility/license"
+              </a>
+              <a data-w-id="ae4630f3-25c8-1af0-bf6f-a34696446e8b" href="/visitvista/article.php"
                 class="footer-link-wrapper w-inline-block">
                 <div class="footer-link">
-                  <div class="text">Licensing</div>
-                  <div class="text">Licensing</div>
+                  <div class="text">Article</div>
+                  <div class="text">Article</div>
                 </div>
                 <div class="mask">
                   <div class="nav-border"></div>
                 </div>
-              </a></div>
-            <div class="social-icons-container"><a href="http://instagram.com" target="_blank"
-                class="social-icon-wrapper w-inline-block"><img src="images/group-2027181.png" loading="lazy" alt=""
-                  class="footer-icon" /></a><a href="http://linkedin.com" target="_blank"
-                class="social-icon-wrapper w-inline-block"><img src="images/group-2027180.png" loading="lazy" alt=""
-                  class="footer-icon" /></a><a href="http://tiktok.com" class="social-icon-wrapper w-inline-block"><img
-                  src="images/vector-20-1-.png" loading="lazy" alt="" class="footer-icon" /></a><a
-                href="http://dribble.com" target="_blank" class="social-icon-wrapper w-inline-block"><img
-                  src="images/vector.avif" loading="lazy" alt="" class="footer-icon" /></a></div>
+              </a>
+            </div>
+            <div class="social-icons-container">
+              <a href="http://instagram.com/rifqiwbsno" target="_blank" class="social-icon-wrapper w-inline-block">
+                <img src="images/group-2027181.png" loading="lazy" alt="" class="footer-icon" />
+              </a>
+              <a href="http://instagram.com/lintanglangitan" target="_blank" class="social-icon-wrapper w-inline-block">
+                <img src="images/group-2027181.png" loading="lazy" alt="" class="footer-icon" />
+              </a>
+              <a href="http://instagram.com/nfllqid" target="_blank" class="social-icon-wrapper w-inline-block">
+                <img src="images/group-2027181.png" loading="lazy" alt="" class="footer-icon" />
+              </a>
+              <a href="http://instagram.com" target="_blank" class="social-icon-wrapper w-inline-block">
+                <img src="images/group-2027181.png" loading="lazy" alt="" class="footer-icon" />
+              </a>
+            </div>
           </div>
         </div>
       </div>

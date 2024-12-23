@@ -685,7 +685,7 @@
                     srcset="images/fotowibson.jpg 500w, images/fotowibson.jpg 768w" class="portrait-full" /></div><a
                   href="/team/sarah-leah" class="team-member-card-absolute w-inline-block">
                   <h3 class="_22px-text">Rifqi Wibisono</h3>
-                  <p class="_16px-500-primary">Project Manager</p>
+                  <p class="_16px-500-primary">Data Scientist</p>
                 </a><a href="/team/sarah-leah" class="black-overlay w-inline-block"></a>
               </div>
             </div>
@@ -698,9 +698,10 @@
                 </div>
                 <div class="thumbnail-wrapper-580px-height"><img src="images/303.avif" alt=""
                     sizes="(max-width: 479px) 100vw, (max-width: 767px) 46vw, (max-width: 991px) 47vw, 22vw"
-                    srcset="images/fotolintang.png 500w, images/fotolintang.png 1000w" class="portrait-full" /></div><a
+                    srcset="images/fotolintang.jpg 500w, images/fotolintang.png 1000w" class="portrait-full" /></div><a
                   href="/team/john-doe" class="team-member-card-absolute w-inline-block">
                   <h3 class="_22px-text">Cahya Lintang Ayu Langitan</h3>
+                  <p class="_16px-500-primary">Frontend Developer</p>
                 </a><a href="/team/john-doe" class="black-overlay w-inline-block"></a>
               </div>
             </div>
@@ -717,6 +718,7 @@
                     class="portrait-full" /></div><a href="/team/jane-smith"
                   class="team-member-card-absolute w-inline-block">
                   <h3 class="_22px-text">Naufalqi Dwiskara</h3>
+                  <p class="_16px-500-primary">Backend Developer</p>
                 </a><a href="/team/jane-smith" class="black-overlay w-inline-block"></a>
               </div>
             </div>
@@ -730,7 +732,8 @@
                 <div class="thumbnail-wrapper-580px-height"><img src="images/fotoibnu.jpg" alt=""
                     class="portrait-full" /></div><a href="/team/mark-johnson"
                   class="team-member-card-absolute w-inline-block">
-                  <h3 class="_22px-text">Muhammad Ibnu R.</h3>
+                  <h3 class="_22px-text">Muhammad Ibnu Rasyid</h3>
+                  <p class="_16px-500-primary">Database Engineer</p>
                 </a><a href="/team/mark-johnson" class="black-overlay w-inline-block"></a>
               </div>
             </div>
@@ -752,7 +755,7 @@
           </div>
           <div class="footer-block end">
             <div class="link-list">
-              <a data-w-id="ae4630f3-25c8-1af0-bf6f-a34696446e8b" href="/"
+              <a data-w-id="ae4630f3-25c8-1af0-bf6f-a34696446e8b" href="/visitvista/index.php"
                 class="footer-link-wrapper w-inline-block">
                 <div class="footer-link">
                   <div class="text">Home</div>
@@ -792,14 +795,19 @@
                 </div>
               </a>
             </div>
-            <div class="social-icons-container"><a href="http://instagram.com" target="_blank"
-                class="social-icon-wrapper w-inline-block"><img src="images/group-2027181.png" loading="lazy" alt=""
-                  class="footer-icon" /></a><a href="http://linkedin.com" target="_blank"
-                class="social-icon-wrapper w-inline-block"><img src="images/group-2027180.png" loading="lazy" alt=""
-                  class="footer-icon" /></a><a href="http://tiktok.com" class="social-icon-wrapper w-inline-block"><img
-                  src="images/vector-20-1-.png" loading="lazy" alt="" class="footer-icon" /></a><a
-                href="http://dribble.com" target="_blank" class="social-icon-wrapper w-inline-block"><img
-                  src="images/vector.avif" loading="lazy" alt="" class="footer-icon" /></a>
+            <div class="social-icons-container">
+              <a href="http://instagram.com/rifqiwbsno" target="_blank" class="social-icon-wrapper w-inline-block">
+                <img src="images/group-2027181.png" loading="lazy" alt="" class="footer-icon" />
+              </a>
+              <a href="http://instagram.com/lintanglangitan" target="_blank" class="social-icon-wrapper w-inline-block">
+                <img src="images/group-2027181.png" loading="lazy" alt="" class="footer-icon" />
+              </a>
+              <a href="http://instagram.com/nfllqid" target="_blank" class="social-icon-wrapper w-inline-block">
+                <img src="images/group-2027181.png" loading="lazy" alt="" class="footer-icon" />
+              </a>
+              <a href="http://instagram.com" target="_blank" class="social-icon-wrapper w-inline-block">
+                <img src="images/group-2027181.png" loading="lazy" alt="" class="footer-icon" />
+              </a>
             </div>
           </div>
         </div>

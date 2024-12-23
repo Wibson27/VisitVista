@@ -108,7 +108,7 @@ $places = getAllPlaces();
                 </div>
                 <div class="absolute-hover-bottom"></div>
               </a>
-              <a href="about-us-3.php" data-w-id="783761a9-bb85-bb38-0e07-8475a4b307cb" class="nav-link-wrapper w-inline-block">
+              <a href="about-us.php" data-w-id="783761a9-bb85-bb38-0e07-8475a4b307cb" class="nav-link-wrapper w-inline-block">
                 <div class="nav-link">
                   <div class="default-text">About</div>
                   <div class="default-text black-heading">About</div>
@@ -597,7 +597,7 @@ $places = getAllPlaces();
           </div>
           <div class="footer-block end">
             <div class="link-list">
-              <a data-w-id="ae4630f3-25c8-1af0-bf6f-a34696446e8b" href="/"
+              <a data-w-id="ae4630f3-25c8-1af0-bf6f-a34696446e8b" href="/visitvista/index.php"
                 class="footer-link-wrapper w-inline-block">
                 <div class="footer-link">
                   <div class="text">Home</div>
@@ -637,14 +637,19 @@ $places = getAllPlaces();
                 </div>
               </a>
             </div>
-            <div class="social-icons-container"><a href="http://instagram.com" target="_blank"
-                class="social-icon-wrapper w-inline-block"><img src="images/group-2027181.png" loading="lazy" alt=""
-                  class="footer-icon" /></a><a href="http://linkedin.com" target="_blank"
-                class="social-icon-wrapper w-inline-block"><img src="images/group-2027180.png" loading="lazy" alt=""
-                  class="footer-icon" /></a><a href="http://tiktok.com" class="social-icon-wrapper w-inline-block"><img
-                  src="images/vector-20-1-.png" loading="lazy" alt="" class="footer-icon" /></a><a
-                href="http://dribble.com" target="_blank" class="social-icon-wrapper w-inline-block"><img
-                  src="images/vector.avif" loading="lazy" alt="" class="footer-icon" /></a>
+            <div class="social-icons-container">
+              <a href="http://instagram.com/rifqiwbsno" target="_blank" class="social-icon-wrapper w-inline-block">
+                <img src="images/group-2027181.png" loading="lazy" alt="" class="footer-icon" />
+              </a>
+              <a href="http://instagram.com/lintanglangitan" target="_blank" class="social-icon-wrapper w-inline-block">
+                <img src="images/group-2027181.png" loading="lazy" alt="" class="footer-icon" />
+              </a>
+              <a href="http://instagram.com/nfllqid" target="_blank" class="social-icon-wrapper w-inline-block">
+                <img src="images/group-2027181.png" loading="lazy" alt="" class="footer-icon" />
+              </a>
+              <a href="http://instagram.com" target="_blank" class="social-icon-wrapper w-inline-block">
+                <img src="images/group-2027181.png" loading="lazy" alt="" class="footer-icon" />
+              </a>
             </div>
           </div>
         </div>
