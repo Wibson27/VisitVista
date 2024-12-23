@@ -85,21 +85,21 @@ $places = getAllPlaces();
                 </div>
                 <div class="absolute-hover-bottom"></div>
               </a>
-              <a href="../about-us-1.php" data-w-id="783761a9-bb85-bb38-0e07-8475a4b307cb" class="nav-link-wrapper w-inline-block">
+              <a href="../about-us.php" data-w-id="783761a9-bb85-bb38-0e07-8475a4b307cb" class="nav-link-wrapper w-inline-block">
                 <div class="nav-link">
                   <div class="default-text">About</div>
                   <div class="default-text black-heading">About</div>
                 </div>
                 <div class="absolute-hover-bottom"></div>
               </a>
-              <a href="../adventure.php" data-w-id="279a1d22-4f80-d177-04f5-58c1a704eb82" class="nav-link-wrapper w-inline-block">
+              <a href="../explore.php" data-w-id="279a1d22-4f80-d177-04f5-58c1a704eb82" class="nav-link-wrapper w-inline-block">
                 <div class="nav-link">
                   <div class="default-text">Explore</div>
                   <div class="default-text black-heading">Explore</div>
                 </div>
                 <div class="absolute-hover-bottom"></div>
               </a>
-              <a href="../portfolio-2.php" data-w-id="aeb1c1fc-3038-8a62-2af0-a4afc7395963" class="nav-link-wrapper w-inline-block">
+              <a href="../article.php" data-w-id="aeb1c1fc-3038-8a62-2af0-a4afc7395963" class="nav-link-wrapper w-inline-block">
                 <div class="nav-link">
                   <div class="default-text">Article</div>
                   <div class="default-text black-heading">Article</div>
@@ -578,7 +578,7 @@ $places = getAllPlaces();
                 <div class="mask">
                   <div class="nav-border"></div>
                 </div>
-              </a><a data-w-id="ae4630f3-25c8-1af0-bf6f-a34696446e8b" href="../about-us-3.php"
+              </a><a data-w-id="ae4630f3-25c8-1af0-bf6f-a34696446e8b" href="../about-us.php"
                 class="footer-link-wrapper w-inline-block">
                 <div class="footer-link">
                   <div class="text">About</div>
@@ -587,7 +587,7 @@ $places = getAllPlaces();
                 <div class="mask">
                   <div class="nav-border"></div>
                 </div>
-              </a><a data-w-id="ae4630f3-25c8-1af0-bf6f-a34696446e8b" href="../visitvista/portfolio-2.php"
+              </a><a data-w-id="ae4630f3-25c8-1af0-bf6f-a34696446e8b" href="../article.php"
                 class="footer-link-wrapper w-inline-block">
                 <div class="footer-link">
                   <div class="text">Article</div>
@@ -596,10 +596,10 @@ $places = getAllPlaces();
                 <div class="mask">
                   <div class="nav-border"></div>
                 </div>
-              </a><a data-w-id="ae4630f3-25c8-1af0-bf6f-a34696446e8b" href="../visitvista/adventure.php" class="footer-link-wrapper w-inline-block">
+              </a><a data-w-id="ae4630f3-25c8-1af0-bf6f-a34696446e8b" href="../explore.php" class="footer-link-wrapper w-inline-block">
                 <div class="footer-link">
-                  <div class="text">Adventure</div>
-                  <div class="text">Adventure</div>
+                  <div class="text">Explore</div>
+                  <div class="text">Explore</div>
                 </div>
                 <div class="mask">
                   <div class="nav-border"></div>
