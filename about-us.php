@@ -22,7 +22,7 @@
     });
   </script>
   <script type="text/javascript">
-    ! function (o, c) {
+    ! function(o, c) {
       var n = c.documentElement,
         t = " w-mod-";
       n.className += t + "js", ("ontouchstart" in o || o.DocumentTouch && c instanceof DocumentTouch) && (n.className +=
@@ -62,33 +62,33 @@
       id="navbar">
       <div class="w-layout-blockcontainer container nav-container w-container">
         <div class="navbar-main">
-        <a data-w-id="ac2971f4-6f26-e7be-f7cd-a20c97325007" href="/" class="w-inline-block">
+          <a data-w-id="ac2971f4-6f26-e7be-f7cd-a20c97325007" href="/" class="w-inline-block">
             <img src="images/logovisitvista.png" loading="lazy" alt="" class="site-logo" />
-        </a>
-            <nav role="navigation" class="nav-menu-wrapper w-nav-menu">
+          </a>
+          <nav role="navigation" class="nav-menu-wrapper w-nav-menu">
             <div class="nav-menu-left-sidebar">
-              <a href="/" data-w-id="783761a9-bb85-bb38-0e07-8475a4b307cb"class="nav-link-wrapper w-inline-block">
+              <a href="/" data-w-id="783761a9-bb85-bb38-0e07-8475a4b307cb" class="nav-link-wrapper w-inline-block">
                 <div class="nav-link">
                   <div class="default-text">Home</div>
                   <div class="default-text black-heading">Home</div>
                 </div>
                 <div class="absolute-hover-bottom"></div>
               </a>
-              <a href="about-us.php" data-w-id="783761a9-bb85-bb38-0e07-8475a4b307cb"class="nav-link-wrapper w-inline-block">
+              <a href="about-us.php" data-w-id="783761a9-bb85-bb38-0e07-8475a4b307cb" class="nav-link-wrapper w-inline-block">
                 <div class="nav-link">
                   <div class="default-text">About</div>
                   <div class="default-text black-heading">About</div>
                 </div>
                 <div class="absolute-hover-bottom"></div>
               </a>
-              <a href="explore.php" data-w-id="279a1d22-4f80-d177-04f5-58c1a704eb82" class="nav-link-wrapper w-inline-block">
+              <a href="explore.php" data-w-id="783761a9-bb85-bb38-0e07-8475a4b307cb" class="nav-link-wrapper w-inline-block">
                 <div class="nav-link">
                   <div class="default-text">Explore</div>
                   <div class="default-text black-heading">Explore</div>
                 </div>
                 <div class="absolute-hover-bottom"></div>
               </a>
-              <a href="article.php" data-w-id="aeb1c1fc-3038-8a62-2af0-a4afc7395963" class="nav-link-wrapper w-inline-block">
+              <a href="article.php" data-w-id="783761a9-bb85-bb38-0e07-8475a4b307cb" class="nav-link-wrapper w-inline-block">
                 <div class="nav-link">
                   <div class="default-text">Article</div>
                   <div class="default-text black-heading">Article</div>
@@ -393,9 +393,7 @@
               </div>
             </div>
             <div class="pointer">
-              <button class="log-button" data-wf-user-logout="logout" data-wf-user-login="login"
-                type="button">logout
-              </button>
+              <a href="register.php" class="log-button" data-wf-user-logout="logout" data-wf-user-login="login" type="button">login</a>
             </div>
             <div data-w-id="c83eb7d7-4575-cda2-4005-1e693e785387" class="hamburger-menu w-nav-button">
               <div class="bars">
@@ -670,7 +668,7 @@
         </div>
       </div>
     </section>
-    
+
     <section id="services" class="section">
       <div class="container">
         <div class="w-dyn-list">
@@ -744,67 +742,83 @@
       </div>
     </section>
     <footer class="footer">
-  <div class="container">
-    <div data-w-id="3447bad0-4c97-caf6-2cc4-1b7d3321ffb7" class="footer-container">
-      <div class="footer-block">
-        <div class="site-logo" style="font-size: 35px; font-weight: bold; color:rgb(255, 255, 255);">VisitVista</div>
-        <div class="margin-bottom-23px">
-          <p class="footer-text">Daftar sekarang dan optimalkan pengalaman wisata anda!</p>
-        </div>
-        <div class="horizontal-left-center-11px-gap"><img src="../images/frame.avif" loading="lazy" alt="" class="image-24px" />
-          <p class="_16px-text">Copyright © VisitVista by ExploreX</p>
+      <div class="container">
+        <div data-w-id="3447bad0-4c97-caf6-2cc4-1b7d3321ffb7" class="footer-container">
+          <div class="footer-block">
+            <div class="site-logo" style="font-size: 35px; font-weight: bold; color:rgb(255, 255, 255);">VisitVista</div>
+            <div class="margin-bottom-23px">
+              <p class="footer-text">Daftar sekarang dan optimalkan pengalaman wisata anda!</p>
+            </div>
+            <div class="horizontal-left-center-11px-gap"><img src="images/frame.avif" loading="lazy" alt="" class="image-24px" />
+              <p class="_16px-text">Copyright © VisitVista by ExploreX</p>
+            </div>
+          </div>
+          <div class="footer-block end">
+            <div class="link-list">
+              <a data-w-id="ae4630f3-25c8-1af0-bf6f-a34696446e8b" href="/"
+                class="footer-link-wrapper w-inline-block">
+                <div class="footer-link">
+                  <div class="text">Home</div>
+                  <div class="text">Home</div>
+                </div>
+                <div class="mask">
+                  <div class="nav-border"></div>
+                </div>
+              </a>
+              <a data-w-id="ae4630f3-25c8-1af0-bf6f-a34696446e8b" href="/visitvista/about-us.php"
+                class="footer-link-wrapper w-inline-block">
+                <div class="footer-link">
+                  <div class="text">About</div>
+                  <div class="text">About</div>
+                </div>
+                <div class="mask">
+                  <div class="nav-border"></div>
+                </div>
+              </a>
+              <a data-w-id="ae4630f3-25c8-1af0-bf6f-a34696446e8b" href="/visitvista/explore.php" class="footer-link-wrapper w-inline-block">
+                <div class="footer-link">
+                  <div class="text">Explore</div>
+                  <div class="text">Explore</div>
+                </div>
+                <div class="mask">
+                  <div class="nav-border"></div>
+                </div>
+              </a>
+              <a data-w-id="ae4630f3-25c8-1af0-bf6f-a34696446e8b" href="/visitvista/article.php"
+                class="footer-link-wrapper w-inline-block">
+                <div class="footer-link">
+                  <div class="text">Article</div>
+                  <div class="text">Article</div>
+                </div>
+                <div class="mask">
+                  <div class="nav-border"></div>
+                </div>
+              </a>
+            </div>
+            <div class="social-icons-container"><a href="http://instagram.com" target="_blank"
+                class="social-icon-wrapper w-inline-block"><img src="images/group-2027181.png" loading="lazy" alt=""
+                  class="footer-icon" /></a><a href="http://linkedin.com" target="_blank"
+                class="social-icon-wrapper w-inline-block"><img src="images/group-2027180.png" loading="lazy" alt=""
+                  class="footer-icon" /></a><a href="http://tiktok.com" class="social-icon-wrapper w-inline-block"><img
+                  src="images/vector-20-1-.png" loading="lazy" alt="" class="footer-icon" /></a><a
+                href="http://dribble.com" target="_blank" class="social-icon-wrapper w-inline-block"><img
+                  src="images/vector.avif" loading="lazy" alt="" class="footer-icon" /></a>
+            </div>
+          </div>
         </div>
       </div>
-      <div class="footer-block end">
-        <div class="link-list"><a data-w-id="ae4630f3-25c8-1af0-bf6f-a34696446e8b" href="/" class="footer-link-wrapper w-inline-block">
-            <div class="footer-link">
-              <div class="text">Home</div>
-              <div class="text">Home</div>
-            </div>
-            <div class="mask">
-              <div class="nav-border"></div>
-            </div>
-          </a><a data-w-id="ae4630f3-25c8-1af0-bf6f-a34696446e8b" href="/visitvista/about-us.php" class="footer-link-wrapper w-inline-block">
-            <div class="footer-link">
-              <div class="text">About</div>
-              <div class="text">About</div>
-            </div>
-            <div class="mask">
-              <div class="nav-border"></div>
-            </div>
-          </a><a data-w-id="ae4630f3-25c8-1af0-bf6f-a34696446e8b" href="/visitvista/article.php" class="footer-link-wrapper w-inline-block">
-            <div class="footer-link">
-              <div class="text">Article</div>
-              <div class="text">Article</div>
-            </div>
-            <div class="mask">
-              <div class="nav-border"></div>
-            </div>
-          </a><a data-w-id="ae4630f3-25c8-1af0-bf6f-a34696446e8b" href="/visitvista/explore.php" class="footer-link-wrapper w-inline-block">
-            <div class="footer-link">
-              <div class="text">Explore</div>
-              <div class="text">Explore</div>
-            </div>
-            <div class="mask">
-              <div class="nav-border"></div>
-            </div>
-          </a></div>
-        <div class="social-icons-container"><a href="http://instagram.com" target="_blank" class="social-icon-wrapper w-inline-block"><img src="../images/group-2027181.png" loading="lazy" alt="" class="footer-icon" /></a><a href="http://linkedin.com" target="_blank" class="social-icon-wrapper w-inline-block"><img src="../images/group-2027180.png" loading="lazy" alt="" class="footer-icon" /></a><a href="http://tiktok.com" class="social-icon-wrapper w-inline-block"><img src="../images/vector-20-1-.png" loading="lazy" alt="" class="footer-icon" /></a><a href="http://dribble.com" target="_blank" class="social-icon-wrapper w-inline-block"><img src="../images/vector.avif" loading="lazy" alt="" class="footer-icon" /></a></div>
+      <div data-w-id="9fe381cd-c836-00c2-b807-19331181b79b" class="site-line-wrapper">
+        <div class="line">
+          <div class="line-infinity _1"></div>
+        </div>
+        <div class="line">
+          <div class="line-infinity _2"></div>
+        </div>
+        <div class="line _3">
+          <div class="line-infinity _3"></div>
+        </div>
       </div>
-    </div>
-  </div>
-  <div data-w-id="9fe381cd-c836-00c2-b807-19331181b79b" class="site-line-wrapper">
-    <div class="line">
-      <div class="line-infinity _1"></div>
-    </div>
-    <div class="line">
-      <div class="line-infinity _2"></div>
-    </div>
-    <div class="line _3">
-      <div class="line-infinity _3"></div>
-    </div>
-  </div>
-</footer>
+    </footer>
     <div class="cursor-mouse-wrapper">
       <div class="main-cursor">
         <div class="cursor-mouse-pointer">

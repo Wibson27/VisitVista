@@ -60,19 +60,42 @@ $places = getAllPlaces();
 </head>
 
 <body>
+  <!-- Site Wrapper -->
   <div data-w-id="23d7d02c-4317-0890-8bf3-20ad7d0c046c" class="site-wrapper">
+    <!-- Progress Bar -->
     <div class="progress-bar">
       <div class="progress-bar-line"></div>
     </div>
+    <!-- Custom Cursor -->
+    <div class="cursor-mouse-wrapper">
+      <div class="main-cursor">
+        <div class="cursor-mouse-pointer">
+          <div class="side-parts"></div>
+          <div class="cursor-mouse"></div>
+          <div class="side-parts"></div>
+        </div>
+        <div class="cursor-circle"></div>
+      </div>
+      <div class="main-cursor horizontal">
+        <div class="arrow-part left"></div>
+        <div class="arrow-part right"></div>
+        <div class="main-part"></div>
+      </div>
+    </div>
+    <!-- Navbar Wrapper -->
     <div class="navbar-hide-show-effect">
       <div data-w-id="9dabe443-61bf-363b-c654-3ce84672a380" class="navbar-hide"></div>
     </div>
+    <!-- Navbar -->
     <div data-animation="over-left" class="navbar-rounded w-nav" data-easing2="ease" data-easing="ease-out-quart"
       data-collapse="medium" data-w-id="51e4b855-d29a-c7d2-d7af-78ea1dffdf68" role="banner" data-duration="1000"
       id="navbar">
+      <!-- Navbar Container -->
       <div class="w-layout-blockcontainer container nav-container w-container">
+        <!-- Navbar Main -->
         <div class="navbar-main">
-          <a data-w-id="ac2971f4-6f26-e7be-f7cd-a20c97325007" href="/" class="w-inline-block">
+          <!-- Logo -->
+          <a data-w-id="783761a9-bb85-bb38-0e07-8475a4b307cb" href="/" class="w-inline-block">
             <img src="images/logovisitvista.png" loading="lazy" alt="" class="site-logo" />
           </a>
           <!-- Navigation Menu -->
@@ -92,14 +115,14 @@ $places = getAllPlaces();
                 </div>
                 <div class="absolute-hover-bottom"></div>
               </a>
-              <a href="explore.php" data-w-id="279a1d22-4f80-d177-04f5-58c1a704eb82" class="nav-link-wrapper w-inline-block">
+              <a href="explore.php" data-w-id="783761a9-bb85-bb38-0e07-8475a4b307cb" class="nav-link-wrapper w-inline-block">
                 <div class="nav-link">
                   <div class="default-text">Explore</div>
                   <div class="default-text black-heading">Explore</div>
                 </div>
                 <div class="absolute-hover-bottom"></div>
               </a>
-              <a href="article.php" data-w-id="aeb1c1fc-3038-8a62-2af0-a4afc7395963" class="nav-link-wrapper w-inline-block">
+              <a href="article.php" data-w-id="783761a9-bb85-bb38-0e07-8475a4b307cb" class="nav-link-wrapper w-inline-block">
                 <div class="nav-link">
                   <div class="default-text">Article</div>
                   <div class="default-text black-heading">Article</div>
@@ -414,8 +437,9 @@ $places = getAllPlaces();
                 </div>
               </div>
             </div>
-            <div class="pointer"><a href="register.php" class="log-button" data-wf-user-logout="logout" data-wf-user-login="login"
-                type="button">logout</a></div>
+            <div class="pointer">
+              <a href="register.php" class="log-button" data-wf-user-logout="logout" data-wf-user-login="login" type="button">login</a>
+            </div>
             <div data-w-id="c83eb7d7-4575-cda2-4005-1e693e785387" class="hamburger-menu w-nav-button">
               <div class="bars">
                 <div class="bar-wrapper">
@@ -567,9 +591,13 @@ $places = getAllPlaces();
             <div class="margin-bottom-23px">
               <p class="footer-text">Daftar sekarang dan optimalkan pengalaman wisata anda!</p>
             </div>
+            <div class="horizontal-left-center-11px-gap"><img src="images/frame.avif" loading="lazy" alt="" class="image-24px" />
+              <p class="_16px-text">Copyright © VisitVista by ExploreX</p>
+            </div>
           </div>
           <div class="footer-block end">
-            <div class="link-list"><a data-w-id="ae4630f3-25c8-1af0-bf6f-a34696446e8b" href="/"
+            <div class="link-list">
+              <a data-w-id="ae4630f3-25c8-1af0-bf6f-a34696446e8b" href="/"
                 class="footer-link-wrapper w-inline-block">
                 <div class="footer-link">
                   <div class="text">Home</div>
@@ -578,7 +606,8 @@ $places = getAllPlaces();
                 <div class="mask">
                   <div class="nav-border"></div>
                 </div>
-              </a><a data-w-id="ae4630f3-25c8-1af0-bf6f-a34696446e8b" href="/visitvista/about-us.php"
+              </a>
+              <a data-w-id="ae4630f3-25c8-1af0-bf6f-a34696446e8b" href="/visitvista/about-us.php"
                 class="footer-link-wrapper w-inline-block">
                 <div class="footer-link">
                   <div class="text">About</div>
@@ -587,7 +616,17 @@ $places = getAllPlaces();
                 <div class="mask">
                   <div class="nav-border"></div>
                 </div>
-              </a><a data-w-id="ae4630f3-25c8-1af0-bf6f-a34696446e8b" href="/visitvista/article.php"
+              </a>
+              <a data-w-id="ae4630f3-25c8-1af0-bf6f-a34696446e8b" href="/visitvista/explore.php" class="footer-link-wrapper w-inline-block">
+                <div class="footer-link">
+                  <div class="text">Explore</div>
+                  <div class="text">Explore</div>
+                </div>
+                <div class="mask">
+                  <div class="nav-border"></div>
+                </div>
+              </a>
+              <a data-w-id="ae4630f3-25c8-1af0-bf6f-a34696446e8b" href="/visitvista/article.php"
                 class="footer-link-wrapper w-inline-block">
                 <div class="footer-link">
                   <div class="text">Article</div>
@@ -596,15 +635,8 @@ $places = getAllPlaces();
                 <div class="mask">
                   <div class="nav-border"></div>
                 </div>
-              </a><a data-w-id="ae4630f3-25c8-1af0-bf6f-a34696446e8b" href="/visitvista/explore.php" class="footer-link-wrapper w-inline-block">
-                <div class="footer-link">
-                  <div class="text">Explore</div>
-                  <div class="text">Explore</div>
-                </div>
-                <div class="mask">
-                  <div class="nav-border"></div>
-                </div>
-              </a></div>
+              </a>
+            </div>
             <div class="social-icons-container"><a href="http://instagram.com" target="_blank"
                 class="social-icon-wrapper w-inline-block"><img src="images/group-2027181.png" loading="lazy" alt=""
                   class="footer-icon" /></a><a href="http://linkedin.com" target="_blank"
@@ -612,7 +644,8 @@ $places = getAllPlaces();
                   class="footer-icon" /></a><a href="http://tiktok.com" class="social-icon-wrapper w-inline-block"><img
                   src="images/vector-20-1-.png" loading="lazy" alt="" class="footer-icon" /></a><a
                 href="http://dribble.com" target="_blank" class="social-icon-wrapper w-inline-block"><img
-                  src="images/vector.avif" loading="lazy" alt="" class="footer-icon" /></a></div>
+                  src="images/vector.avif" loading="lazy" alt="" class="footer-icon" /></a>
+            </div>
           </div>
         </div>
       </div>
