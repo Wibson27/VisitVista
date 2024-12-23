@@ -392,8 +392,11 @@
                 </div>
               </div>
             </div>
-            <div class="pointer"><button class="log-button" data-wf-user-logout="logout" data-wf-user-login="login"
-                type="button">logout</button></div>
+            <div class="pointer">
+              <button class="log-button" data-wf-user-logout="logout" data-wf-user-login="login"
+                type="button">logout
+              </button>
+            </div>
             <div data-w-id="c83eb7d7-4575-cda2-4005-1e693e785387" class="hamburger-menu w-nav-button">
               <div class="bars">
                 <div class="bar-wrapper">
@@ -449,7 +452,7 @@
               <div class="gradient-title">
                 <div class="_8px-circle-title"></div>
                 <div class="mask">
-                  <div class="text">Features</div>
+                  <div class="text">ExploreX</div>
                 </div>
               </div>
               <div class="gradient-color"></div>
@@ -465,17 +468,17 @@
         <div class="_2-column-block">
           <div class="double-image-wrapper">
             <div data-w-id="1ca7ec2a-d1a6-f41a-bcd5-97a5715dc68d" class="full-rounded-image"><img
-                src="images/toa-heftiba-4xe-yvfjcvw-unsplash.avif" loading="lazy"
+                src="images/analisisdata.jpg" loading="lazy"
                 sizes="(max-width: 479px) 100vw, (max-width: 767px) 44vw, (max-width: 991px) 46vw, 22vw"
-                srcset="images/toa-heftiba-4xe-yvfjcvw-unsplash-p-500.avif 500w, images/toa-heftiba-4xe-yvfjcvw-unsplash-p-800.avif 800w, images/toa-heftiba-4xe-yvfjcvw-unsplash-p-1080.avif 1080w, images/toa-heftiba-4xe-yvfjcvw-unsplash.avif 1920w"
+                srcset="images/analisisdata.jpg 500w, images/analisisdata.jpg 800w, images/analisisdata.jpg 1080w, images/analisisdata.jpg 1920w"
                 alt="Office Meeting
 " class="full-image-rouned" />
               <div class="gradient-color"></div>
             </div>
             <div data-w-id="1ca7ec2a-d1a6-f41a-bcd5-97a5715dc690" class="full-rounded-image hide-in-mobile"><img
-                src="images/pexels-huseyn-ibadzade-743775288-20616198.avif" loading="lazy"
+                src="images/prambanan.jpg" loading="lazy"
                 sizes="(max-width: 479px) 100vw, (max-width: 767px) 44vw, (max-width: 991px) 46vw, 22vw"
-                srcset="images/pexels-huseyn-ibadzade-743775288-20616198-p-500.avif 500w, images/pexels-huseyn-ibadzade-743775288-20616198-p-800.avif 800w, images/pexels-huseyn-ibadzade-743775288-20616198.avif 1280w"
+                srcset="images/prambanan.jpg 500w, images/prambanan.jpg 800w, images/prambanan.jpg 1280w"
                 alt="" class="full-image-rouned" />
               <div class="gradient-color"></div>
             </div>
@@ -486,7 +489,7 @@
                 <div class="primary-title-divider-loop"></div>
               </div>
               <div data-w-id="5b919fa1-84ae-d7b6-0ea1-41df149cc60e" class="_10px-diamond"></div>
-              <div>About Us</div>
+              <div>About VisitVista</div>
             </div>
             <div class="mask">
               <h2 class="heading">Analitik Data untuk Pariwisata yang Lebih Baik</h2>
@@ -519,15 +522,15 @@
         <div class="_3-column-grid-middle-big">
           <div id="w-node-_3710a2f7-0700-e3c9-b6b6-0aad97b1a244-6baae74d">
             <div class="vertical-40px-gap">
-              <div class="_20px-rounded-wrapper"><img src="images/arlington-research-nflmpaf9dvc-unsplash.avif"
+              <div class="_20px-rounded-wrapper"><img src="images/datascience.jpg"
                   loading="lazy" sizes="(max-width: 479px) 100vw, (max-width: 991px) 270.9375px, 27vw"
-                  srcset="images/arlington-research-nflmpaf9dvc-unsplash-p-500.avif 500w, images/arlington-research-nflmpaf9dvc-unsplash-p-800.avif 800w, images/arlington-research-nflmpaf9dvc-unsplash.avif 1920w"
+                  srcset="images/datascience.jpg 500w, images/datascience.jpg 800w, images/datascience.jpg 1920w"
                   alt="" class="full-image" /></div>
               <div class="space-between-20px">
                 <div class="vertical-center-align">
                   <div class="animated-counter">
                     <div class="counter-number-wrapper">
-                      <div class="counter-number-text">1</div>
+                      <div class="counter-number-text">7</div>
                       <div class="counter-number-text">1<br /></div>
                       <div class="counter-number-text">2</div>
                       <div class="counter-number-text">3<br /></div>
@@ -550,22 +553,22 @@
                       <div class="counter-number-text">7</div>
                       <div class="counter-number-text">8</div>
                       <div class="counter-number-text">9</div>
-                      <div class="counter-number-text">6</div>
+                      <div class="counter-number-text">8</div>
                     </div>
                     <div class="counter-symbol-wrapper">
                       <div class="mask">
-                        <div class="postfix">Y</div>
+                        <div class="postfix">D</div>
                       </div>
                     </div>
                   </div>
                   <div class="margin-bottom-8px">
-                    <h4 class="counter-title">Years of Experience</h4>
+                    <h4 class="counter-title">Building This Website</h4>
                   </div>
                 </div>
                 <div class="vertical-center-align">
                   <div class="animated-counter">
                     <div class="counter-number-wrapper">
-                      <div class="counter-number-text">1</div>
+                      <div class="counter-number-text">7</div>
                       <div class="counter-number-text">1<br /></div>
                       <div class="counter-number-text">2</div>
                       <div class="counter-number-text">3<br /></div>
@@ -588,28 +591,28 @@
                       <div class="counter-number-text">7</div>
                       <div class="counter-number-text">8</div>
                       <div class="counter-number-text">9</div>
-                      <div class="counter-number-text">6</div>
+                      <div class="counter-number-text">8</div>
                     </div>
                     <div class="counter-symbol-wrapper">
                       <div class="mask">
-                        <div class="postfix">Y</div>
+                        <div class="postfix">D</div>
                       </div>
                     </div>
                   </div>
                   <div class="margin-bottom-8px">
-                    <h4 class="counter-title">Years of Experience</h4>
+                    <h4 class="counter-title">Building This Website</h4>
                   </div>
                 </div>
               </div>
             </div>
           </div>
           <div id="w-node-_3710a2f7-0700-e3c9-b6b6-0aad97b1a24b-6baae74d" class="_20px-rounded-wrapper"><img
-              src="images/adolfo-felix-pg8nym_mcts-unsplash.avif" loading="lazy"
+              src="images/fotobooking.jpg" loading="lazy"
               sizes="(max-width: 479px) 100vw, (max-width: 767px) 40vw, (max-width: 991px) 36vw, 46vw"
-              srcset="images/adolfo-felix-pg8nym_mcts-unsplash-p-500.avif 500w, images/adolfo-felix-pg8nym_mcts-unsplash-p-800.avif 800w, images/adolfo-felix-pg8nym_mcts-unsplash.avif 1920w"
+              srcset="images/fotobooking.jpg 500w, images/fotobooking.jpg 800w, images/fotobooking.jpg 1920w"
               alt="" class="full-image" /></div>
           <div id="w-node-_3710a2f7-0700-e3c9-b6b6-0aad97b1a250-6baae74d" class="_20px-rounded-wrapper"><img
-              src="images/linkedin-sales-solutions-hrhjn6ztgrm-unsplash.avif" loading="lazy" alt=""
+              src="images/tari.jpg" loading="lazy" alt=""
               class="full-image" /></div>
         </div>
       </div>
@@ -623,11 +626,7 @@
                 <div class="primary-title-divider-loop"></div>
               </div>
               <div data-w-id="5b919fa1-84ae-d7b6-0ea1-41df149cc60e" class="_10px-diamond"></div>
-              <div>Why Choose Us</div>
-            </div>
-            <div data-w-id="31205a3c-7929-4802-de05-79618652852f" class="text-merge-title">
-              <h2 class="heading">solusi berbasis data, wawasan pengunjung, dan strategi untuk meningkatkan pengalaman wisata.</h2>
-              <div class="absolute-style-text"></div>
+              <div>Main Features</div>
             </div>
           </div>
         </div>
@@ -635,409 +634,43 @@
           class="address-tab w-tabs">
           <div class="address-tab-menu w-tab-menu"><a data-w-tab="Tab 1"
               class="address-tab-link w-inline-block w-tab-link w--current">
-              <div class="_70px-icon-wrapper"><img loading="lazy" src="images/line-chart.avif" alt=""
-                  class="image-24px" /></div>
+              <div class="_70px-icon-wrapper">
+                <img loading="lazy" src="images/line-chart.avif" alt=""
+                  class="image-24px" />
+              </div>
               <div class="vertical-left-top-10px-gap">
-                <h3 class="_30px-text">Trusted Expertise</h3>
-                <div class="tab-summery">Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed.</div>
+                <h3 class="_30px-text">Real-Time Visitor Insights</h3>
+                <div class="tab-summery">Memantau jumlah pengunjung secara langsung untuk memberikan data akurat dan relevan.</div>
               </div>
             </a><a data-w-tab="Tab 2" class="address-tab-link w-inline-block w-tab-link">
               <div class="_70px-icon-wrapper"><img loading="lazy" src="images/targeting.avif" alt=""
                   class="image-24px" /></div>
               <div class="vertical-left-top-10px-gap">
-                <h3 class="_30px-text">Custom Solutions</h3>
-                <div class="tab-summery">Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed.</div>
+                <h3 class="_30px-text">User-Friendly Registration</h3>
+                <div class="tab-summery">Fitur pendaftaran yang sederhana dan mudah digunakan untuk wisatawan.</div>
               </div>
             </a><a data-w-tab="Tab 3" id="w-node-e3f31453-c665-384e-5961-bb7011a49c6b-6baae74d"
               class="address-tab-link w-inline-block w-tab-link">
               <div class="_70px-icon-wrapper"><img loading="lazy" src="images/relationship.avif" alt=""
                   class="image-24px" /></div>
               <div class="vertical-left-top-10px-gap">
-                <h3 class="_30px-text">Proven Success</h3>
-                <div class="tab-summery">Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed.</div>
+                <h3 class="_30px-text">Feedback & Booking System</h3>
+                <div class="tab-summery">Memadukan fitur pemesanan tiket pariwisata yang mudah dengan sistem ulasan yang memungkinkan pengunjung memberikan komentar dan rating, membantu meningkatkan pengalaman wisata dan kualitas layanan</div>
               </div>
             </a><a data-w-tab="Tab 4" id="w-node-d95bb3f2-57ed-4706-c69d-6db369fbc43f-6baae74d"
               class="address-tab-link w-inline-block w-tab-link">
               <div class="_70px-icon-wrapper"><img loading="lazy" src="images/return-on-investment.avif" alt=""
                   class="image-24px" /></div>
               <div class="vertical-left-top-10px-gap">
-                <h3 class="_30px-text">Collaborative Process</h3>
-                <div class="tab-summery">Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed.</div>
+                <h3 class="_30px-text">Comprehensive Analytics</h3>
+                <div class="tab-summery">Memberikan laporan statistik pengunjung dan tren untuk mendukung pengambilan keputusan berbasis data.</div>
               </div>
-            </a></div>
-          <div class="w-tab-content">
-            <div data-w-tab="Tab 1" class="w-tab-pane w--tab-active">
-              <div class="mask-20px-rounded-full"><img class="landscape-image" src="images/2149241213.avif" alt=""
-                  style="-webkit-transform:translate3d(0, 0, 0) scale3d(1.2, 1.2, 1) rotateX(0) rotateY(0) rotateZ(0) skew(0, 0);-moz-transform:translate3d(0, 0, 0) scale3d(1.2, 1.2, 1) rotateX(0) rotateY(0) rotateZ(0) skew(0, 0);-ms-transform:translate3d(0, 0, 0) scale3d(1.2, 1.2, 1) rotateX(0) rotateY(0) rotateZ(0) skew(0, 0);transform:translate3d(0, 0, 0) scale3d(1.2, 1.2, 1) rotateX(0) rotateY(0) rotateZ(0) skew(0, 0)"
-                  sizes="(max-width: 479px) 100vw, (max-width: 767px) 92vw, (max-width: 991px) 95vw, 63vw"
-                  data-w-id="60ea4224-51dd-afb7-c5d4-98009f7b3a5b" loading="lazy"
-                  srcset="images/2149241213-p-500.avif 500w, images/2149241213-p-800.avif 800w, images/2149241213.avif 1500w" />
-                <div data-w-id="1693a48e-246a-7de0-367e-da1746c303c5" class="image-show-effect">
-                  <div class="white-background-image"></div>
-                  <div class="primary-background-image"></div>
-                </div>
-              </div>
-            </div>
-            <div data-w-tab="Tab 2" class="w-tab-pane">
-              <div class="mask-20px-rounded-full"><img
-                  sizes="(max-width: 479px) 100vw, (max-width: 767px) 92vw, (max-width: 991px) 95vw, 63vw"
-                  srcset="images/kobu-agency-7okkfhxrxnw-unsplash-p-500.avif 500w, images/kobu-agency-7okkfhxrxnw-unsplash-p-800.avif 800w, images/kobu-agency-7okkfhxrxnw-unsplash.avif 1920w"
-                  alt="" src="images/kobu-agency-7okkfhxrxnw-unsplash.avif" loading="lazy" class="landscape-image" />
-                <div data-w-id="1693a48e-246a-7de0-367e-da1746c303c5" class="image-show-effect">
-                  <div class="white-background-image"></div>
-                  <div class="primary-background-image"></div>
-                </div>
-              </div>
-            </div>
-            <div data-w-tab="Tab 3" class="w-tab-pane">
-              <div class="mask-20px-rounded-full"><img
-                  sizes="(max-width: 479px) 100vw, (max-width: 767px) 92vw, (max-width: 991px) 95vw, 63vw"
-                  srcset="images/austin-distel-wd1lrb9oeeo-unsplash-p-500.avif 500w, images/austin-distel-wd1lrb9oeeo-unsplash-p-800.avif 800w, images/austin-distel-wd1lrb9oeeo-unsplash-p-1080.avif 1080w, images/austin-distel-wd1lrb9oeeo-unsplash.avif 1920w"
-                  alt="" src="images/austin-distel-wd1lrb9oeeo-unsplash.avif" loading="lazy" class="landscape-image" />
-                <div data-w-id="1693a48e-246a-7de0-367e-da1746c303c5" class="image-show-effect">
-                  <div class="white-background-image"></div>
-                  <div class="primary-background-image"></div>
-                </div>
-              </div>
-            </div>
-            <div data-w-tab="Tab 4" class="w-tab-pane">
-              <div class="mask-20px-rounded-full"><img
-                  sizes="(max-width: 479px) 100vw, (max-width: 767px) 92vw, (max-width: 991px) 95vw, 63vw"
-                  srcset="images/pexels-cadomaestro-1170412-p-500.avif 500w, images/pexels-cadomaestro-1170412-p-800.avif 800w, images/pexels-cadomaestro-1170412-p-1080.avif 1080w, images/pexels-cadomaestro-1170412-p-1600.avif 1600w, images/pexels-cadomaestro-1170412-p-2000.avif 2000w, images/pexels-cadomaestro-1170412.avif 4256w"
-                  alt="" src="images/pexels-cadomaestro-1170412.avif" loading="lazy" class="landscape-image" />
-                <div data-w-id="1693a48e-246a-7de0-367e-da1746c303c5" class="image-show-effect">
-                  <div class="white-background-image"></div>
-                  <div class="primary-background-image"></div>
-                </div>
-              </div>
-            </div>
+            </a>
           </div>
         </div>
       </div>
     </section>
-    <section id="about" class="section">
-      <div class="container">
-        <div class="title-bar">
-          <div class="_2px-height-border"></div>
-          <div class="product-bar-texts-vertical">
-            <div class="dynamic-gradient-title">
-              <div class="gradient-title">
-                <div class="_8px-circle-title"></div>
-                <div class="mask">
-                  <div class="text">Know Us</div>
-                </div>
-              </div>
-              <div class="gradient-color"></div>
-              <div class="gradient-color-initial-90"></div>
-            </div>
-            <div data-w-id="f1a75d16-09b6-443b-a25b-8f49522648ba" class="text-merge-title">
-              <h2 class="heading">Our Process</h2>
-              <div class="absolute-style-text"></div>
-            </div>
-          </div>
-          <div class="_2px-height-border right"></div>
-        </div>
-        <div class="tech-grid">
-          <div id="w-node-bb8897a0-d4f3-43d9-a157-0dd1557ed0a8-6baae74d" class="tech-circle-card">
-            <div id="w-node-bb8897a0-d4f3-43d9-a157-0dd1557ed0a9-6baae74d" class="circle"><img loading="lazy"
-                src="images/webflow_logo_icon_169218.webp" alt="" class="image-70px" />
-              <h3 class="_30px-text">Webflow</h3>
-            </div>
-            <div data-w-id="bb8897a0-d4f3-43d9-a157-0dd1557ed0ad"
-              style="-webkit-transform:translate3d(0, 0, 0) scale3d(1, 1, 1) rotateX(0) rotateY(null) rotateZ(0deg) skew(0, 0);-moz-transform:translate3d(0, 0, 0) scale3d(1, 1, 1) rotateX(0) rotateY(null) rotateZ(0deg) skew(0, 0);-ms-transform:translate3d(0, 0, 0) scale3d(1, 1, 1) rotateX(0) rotateY(null) rotateZ(0deg) skew(0, 0);transform:translate3d(0, 0, 0) scale3d(1, 1, 1) rotateX(0) rotateY(null) rotateZ(0deg) skew(0, 0);transform-style:preserve-3d"
-              class="gradient-color-full"></div>
-            <div class="absolute-hover-color"></div>
-          </div>
-          <div id="w-node-bb8897a0-d4f3-43d9-a157-0dd1557ed0af-6baae74d" class="tech-circle-card">
-            <div class="circle"><img sizes="(max-width: 479px) 100vw, 80px"
-                srcset="images/framer-icon-2048x2048-msauaaio.avif 500w, images/framer-icon-2048x2048-msauaaio.avif 2048w"
-                alt="" src="images/framer-icon-2048x2048-msauaaio.avif" loading="lazy" class="image-70px" />
-              <h3 class="_30px-text">Framer</h3>
-            </div>
-            <div data-w-id="bb8897a0-d4f3-43d9-a157-0dd1557ed0b4"
-              style="-webkit-transform:translate3d(0, 0, 0) scale3d(1, 1, 1) rotateX(0) rotateY(null) rotateZ(0deg) skew(0, 0);-moz-transform:translate3d(0, 0, 0) scale3d(1, 1, 1) rotateX(0) rotateY(null) rotateZ(0deg) skew(0, 0);-ms-transform:translate3d(0, 0, 0) scale3d(1, 1, 1) rotateX(0) rotateY(null) rotateZ(0deg) skew(0, 0);transform:translate3d(0, 0, 0) scale3d(1, 1, 1) rotateX(0) rotateY(null) rotateZ(0deg) skew(0, 0);transform-style:preserve-3d"
-              class="gradient-color-full"></div>
-            <div class="absolute-hover-color"></div>
-          </div>
-          <div id="w-node-bb8897a0-d4f3-43d9-a157-0dd1557ed0b6-6baae74d" class="tech-circle-card">
-            <div class="circle"><img sizes="(max-width: 479px) 100vw, 80px"
-                srcset="images/wordpress_blue_logo.avif 500w, images/wordpress_blue_logo.avif 2000w" alt=""
-                src="images/wordpress_blue_logo.avif" loading="lazy" class="image-70px" />
-              <h3 class="_30px-text">Wordpress</h3>
-            </div>
-            <div data-w-id="bb8897a0-d4f3-43d9-a157-0dd1557ed0bb"
-              style="-webkit-transform:translate3d(0, 0, 0) scale3d(1, 1, 1) rotateX(0) rotateY(null) rotateZ(0deg) skew(0, 0);-moz-transform:translate3d(0, 0, 0) scale3d(1, 1, 1) rotateX(0) rotateY(null) rotateZ(0deg) skew(0, 0);-ms-transform:translate3d(0, 0, 0) scale3d(1, 1, 1) rotateX(0) rotateY(null) rotateZ(0deg) skew(0, 0);transform:translate3d(0, 0, 0) scale3d(1, 1, 1) rotateX(0) rotateY(null) rotateZ(0deg) skew(0, 0);transform-style:preserve-3d"
-              class="gradient-color-full"></div>
-            <div class="absolute-hover-color"></div>
-          </div>
-          <div id="w-node-bb8897a0-d4f3-43d9-a157-0dd1557ed0bd-6baae74d" class="tech-circle-card">
-            <div class="circle"><img loading="lazy" src="images/nextjs-icon-512x512-y563b8iq.avif" alt=""
-                class="image-70px invert" />
-              <h3 class="_30px-text">Nextjs</h3>
-            </div>
-            <div data-w-id="bb8897a0-d4f3-43d9-a157-0dd1557ed0c2"
-              style="-webkit-transform:translate3d(0, 0, 0) scale3d(1, 1, 1) rotateX(0) rotateY(null) rotateZ(0deg) skew(0, 0);-moz-transform:translate3d(0, 0, 0) scale3d(1, 1, 1) rotateX(0) rotateY(null) rotateZ(0deg) skew(0, 0);-ms-transform:translate3d(0, 0, 0) scale3d(1, 1, 1) rotateX(0) rotateY(null) rotateZ(0deg) skew(0, 0);transform:translate3d(0, 0, 0) scale3d(1, 1, 1) rotateX(0) rotateY(null) rotateZ(0deg) skew(0, 0);transform-style:preserve-3d"
-              class="gradient-color-full"></div>
-            <div class="absolute-hover-color"></div>
-          </div>
-        </div>
-      </div>
-    </section>
-    <section id="about" class="section">
-      <div class="container">
-        <div class="contents margin-bottom-40px">
-          <div class="margin-bottom-32px">
-            <div class="mask">
-              <div class="title">
-                <div class="title-divider">
-                  <div class="primary-title-divider-loop"></div>
-                </div>
-                <div data-w-id="5b919fa1-84ae-d7b6-0ea1-41df149cc60e" class="_10px-diamond"></div>
-                <div>Why Choose Us</div>
-              </div>
-              <div data-w-id="31205a3c-7929-4802-de05-79618652852f" class="text-merge-title">
-                <h2 class="heading">Why We’re the Perfect Partner for Your Success</h2>
-                <div class="absolute-style-text"></div>
-              </div>
-            </div>
-          </div>
-        </div>
-        <div class="_3-column-grid">
-          <div id="w-node-_70196a01-56da-5047-2348-c671a8b00645-6baae74d" class="step-number-arrow-wrapper">
-            <div class="step-number">
-              <div>Step 1</div>
-            </div>
-            <div class="step-line">
-              <div class="step-circle"></div>
-              <div class="step-circle right"></div>
-            </div>
-          </div>
-          <div id="w-node-_6ae662e8-c415-26e2-c1b9-cb69d3b379e9-6baae74d" class="step-number-arrow-wrapper">
-            <div class="step-number">
-              <div>Step 2</div>
-            </div>
-            <div class="step-line">
-              <div class="step-circle"></div>
-              <div class="step-circle right"></div>
-            </div>
-          </div>
-          <div id="w-node-_1a872d96-9e75-2136-b7ff-9afb6307d9ac-6baae74d" class="step-number-arrow-wrapper">
-            <div class="step-number">
-              <div>Step 3</div>
-            </div>
-            <div class="step-line">
-              <div class="step-circle"></div>
-              <div class="step-circle right"></div>
-            </div>
-          </div>
-          <div id="w-node-_6950ad58-a9aa-a983-eab4-427923bf344f-6baae74d" class="tech-card-wrapper">
-            <div id="w-node-_6950ad58-a9aa-a983-eab4-427923bf3450-6baae74d" class="tech-card">
-              <div class="icon-wrapper-white-70px"><img loading="lazy" src="images/targeting.avif" alt=""
-                  class="image-32px" /></div>
-              <h3 class="_24px-text">Discover &amp; Plan</h3>
-              <div class="mt-25px">
-                <p>We start by understanding your needs, goals, and vision. Through in-depth consultation and research,
-                  we create a strategic plan tailored to your project.</p>
-              </div>
-              <ul role="list" class="main-list-wrapper">
-                <li class="list-item">
-                  <div>consectetur adipiscing elit.</div>
-                </li>
-                <li class="list-item">
-                  <div>vel fringilla lorem aliquet Curabitur</div>
-                </li>
-                <li class="list-item">
-                  <div>dapibus elit facilisis</div>
-                </li>
-              </ul>
-            </div>
-            <div class="gradient-color"></div>
-            <div class="gradient-color-initial-125"></div>
-          </div>
-          <div id="w-node-e7761965-aca0-7b5d-a96c-13b7b73edb93-6baae74d" class="tech-card-wrapper">
-            <div id="w-node-e7761965-aca0-7b5d-a96c-13b7b73edb94-6baae74d" class="tech-card">
-              <div class="icon-wrapper-white-70px"><img loading="lazy" src="images/relationship.avif" alt=""
-                  class="image-32px" /></div>
-              <h3 class="_24px-text">Design &amp; Develop</h3>
-              <div class="mt-25px">
-                <p>Our team transforms ideas into creative solutions, from concept to execution. We focus on delivering
-                  innovative, high-quality designs that align with your brand.</p>
-              </div>
-              <ul role="list" class="main-list-wrapper">
-                <li class="list-item">
-                  <div>consectetur adipiscing elit.</div>
-                </li>
-                <li class="list-item">
-                  <div>vel fringilla lorem aliquet Curabitur</div>
-                </li>
-                <li class="list-item">
-                  <div>dapibus elit facilisis</div>
-                </li>
-              </ul>
-            </div>
-            <div class="gradient-color"></div>
-            <div class="gradient-color-initial-125"></div>
-          </div>
-          <div id="w-node-be600a75-dd95-5ad1-bc0e-3fc720a7df77-6baae74d" class="tech-card-wrapper">
-            <div id="w-node-be600a75-dd95-5ad1-bc0e-3fc720a7df78-6baae74d" class="tech-card">
-              <div class="icon-wrapper-white-70px"><img loading="lazy" src="images/line-chart.avif" alt=""
-                  class="image-32px" /></div>
-              <h3 class="_24px-text">Deliver &amp; Support</h3>
-              <div class="mt-25px">
-                <p>Once the project is completed, we ensure a smooth delivery and provide ongoing support, ensuring
-                  everything runs seamlessly and exceeds your expectations.</p>
-              </div>
-              <ul role="list" class="main-list-wrapper">
-                <li class="list-item">
-                  <div>consectetur adipiscing elit.</div>
-                </li>
-                <li class="list-item">
-                  <div>vel fringilla lorem aliquet Curabitur</div>
-                </li>
-                <li class="list-item">
-                  <div>dapibus elit facilisis</div>
-                </li>
-              </ul>
-            </div>
-            <div class="gradient-color"></div>
-            <div class="gradient-color-initial-125"></div>
-          </div>
-        </div>
-      </div>
-    </section>
-    <section class="section">
-      <div class="title-bar">
-        <div class="_2px-height-border"></div>
-        <div class="product-bar-texts-vertical">
-          <div class="dynamic-gradient-title">
-            <div class="gradient-title">
-              <div class="_8px-circle-title"></div>
-              <div class="mask">
-                <div class="text">Partners</div>
-              </div>
-            </div>
-            <div class="gradient-color"></div>
-            <div class="gradient-color-initial-90"></div>
-          </div>
-          <div data-w-id="f1a75d16-09b6-443b-a25b-8f49522648ba" class="text-merge-title">
-            <h2 class="heading">Brands We Worked With</h2>
-            <div class="absolute-style-text"></div>
-          </div>
-        </div>
-        <div class="_2px-height-border right"></div>
-      </div>
-      <div class="container">
-        <div class="_4-column-grid">
-          <div id="w-node-adaca8f0-9a12-2b09-62e0-9a7b965a28c3-6baae74d" class="rounded-logo-wrapper"><img
-              src="images/logo-wand.svg" loading="lazy" alt="" class="logo-image-h-35px" /></div>
-          <div id="w-node-_2be0f3d7-bc54-530c-2232-bcea570bfe76-6baae74d" class="rounded-logo-wrapper"><img
-              src="images/logo-ronda.svg" loading="lazy" alt="" class="logo-image-h-35px" /></div>
-          <div id="w-node-_9b46c10f-07fd-0ba4-ab06-08e18f52991d-6baae74d" class="rounded-logo-wrapper"><img
-              src="images/logo-tate.svg" loading="lazy" alt="" class="logo-image-h-35px" /></div>
-          <div id="w-node-ba978a27-39eb-3abc-46a8-f8d6c7c9726d-6baae74d" class="rounded-logo-wrapper"><img
-              src="images/nexoy.webp" loading="lazy" alt="" class="logo-image-h-35px" /></div>
-          <div id="w-node-_879b114f-529a-29ab-8211-4f0a8df4ffe6-6baae74d" class="rounded-logo-wrapper"><img
-              src="images/logo-belfort.svg" loading="lazy" alt="" class="logo-image-h-35px" /></div>
-          <div id="w-node-d0c0d16a-12e8-0623-608c-756d90f5a662-6baae74d" class="rounded-logo-wrapper"><img
-              src="images/logo-bronx.svg" loading="lazy" alt="" class="logo-image-h-35px" /></div>
-          <div id="w-node-a71c40b9-5cb4-ed6d-3faf-ede3e4a84e5b-6baae74d" class="rounded-logo-wrapper"><img
-              src="images/logo-shogun.svg" loading="lazy" alt="" class="logo-image-h-35px" /></div>
-          <div id="w-node-a0f54836-d48a-b946-91cf-9bb7075ab5ee-6baae74d" class="rounded-logo-wrapper"><img
-              src="images/agency-20logo.avif" loading="lazy" alt="" class="logo-image-h-35px" /></div>
-        </div>
-      </div>
-    </section>
-    <section class="section">
-      <div class="container">
-        <div class="_2-column-block">
-          <div class="contents">
-            <h2 class="inline">Creative Solutions for the Modern World</h2>
-            <div class="client-images-wrapper inline"><img src="images/ellipse-205.avif" loading="lazy" alt="Client"
-                class="client-image no-margin" /><img src="images/ellipse-204.avif" loading="lazy" alt="Client"
-                class="client-image _1" /><img src="images/ellipse-203.avif" loading="lazy" alt="Client"
-                class="client-image _2" /><img src="images/ellipse-202.avif" loading="lazy" alt="Client"
-                class="client-image _3" /><img src="images/ellipse-201.avif" loading="lazy" alt="Client"
-                class="client-image _4" /></div>
-          </div><a data-w-id="a1890dc8-1362-ef22-3a95-7f0b4d650309" href="/about-us-3" aria-current="page"
-            class="arc-wrapper w-inline-block w--current"><img src="images/circle-text.avif" loading="lazy"
-              style="-webkit-transform:translate3d(0, 0, 0) scale3d(1, 1, 1) rotateX(0) rotateY(null) rotateZ(0deg) skew(0, 0);-moz-transform:translate3d(0, 0, 0) scale3d(1, 1, 1) rotateX(0) rotateY(null) rotateZ(0deg) skew(0, 0);-ms-transform:translate3d(0, 0, 0) scale3d(1, 1, 1) rotateX(0) rotateY(null) rotateZ(0deg) skew(0, 0);transform:translate3d(0, 0, 0) scale3d(1, 1, 1) rotateX(0) rotateY(null) rotateZ(0deg) skew(0, 0);transform-style:preserve-3d"
-              data-w-id="0121fcb7-3ac1-f9dd-66d0-69535062537f" alt="" class="arc-image" />
-            <div class="arc-icon-block">
-              <div class="arc"><img src="images/up-right-arrow.png" loading="lazy" alt="" /></div>
-            </div>
-          </a>
-        </div>
-        <div class="margin-40px">
-          <div class="mask"><img class="wide-image-400px" src="images/pexels-cadomaestro-1170412.avif" alt=""
-              style="-webkit-transform:translate3d(0, 0, 0) scale3d(1.2, 1.2, 1) rotateX(0) rotateY(0) rotateZ(0) skew(0, 0);-moz-transform:translate3d(0, 0, 0) scale3d(1.2, 1.2, 1) rotateX(0) rotateY(0) rotateZ(0) skew(0, 0);-ms-transform:translate3d(0, 0, 0) scale3d(1.2, 1.2, 1) rotateX(0) rotateY(0) rotateZ(0) skew(0, 0);transform:translate3d(0, 0, 0) scale3d(1.2, 1.2, 1) rotateX(0) rotateY(0) rotateZ(0) skew(0, 0)"
-              sizes="(max-width: 479px) 100vw, (max-width: 767px) 92vw, (max-width: 991px) 95vw, 97vw"
-              data-w-id="da5b1529-c442-562a-5be1-2b59baaab0db" loading="lazy"
-              srcset="images/pexels-cadomaestro-1170412-p-500.avif 500w, images/pexels-cadomaestro-1170412-p-800.avif 800w, images/pexels-cadomaestro-1170412-p-1080.avif 1080w, images/pexels-cadomaestro-1170412-p-1600.avif 1600w, images/pexels-cadomaestro-1170412-p-2000.avif 2000w, images/pexels-cadomaestro-1170412.avif 4256w" />
-            <div data-w-id="86948c09-9ea6-0d24-c71d-cfb6b9e521b5" class="image-show-style">
-              <div class="bg-column-mask">
-                <div class="bg-color-column"></div>
-                <div class="primary-color-column"></div>
-              </div>
-              <div id="w-node-_86948c09-9ea6-0d24-c71d-cfb6b9e521b9-b9e521b5" class="bg-column-mask">
-                <div class="bg-color-column"></div>
-                <div class="primary-color-column"></div>
-              </div>
-              <div id="w-node-_86948c09-9ea6-0d24-c71d-cfb6b9e521bc-b9e521b5" class="bg-column-mask">
-                <div class="bg-color-column"></div>
-                <div class="primary-color-column"></div>
-              </div>
-              <div id="w-node-_86948c09-9ea6-0d24-c71d-cfb6b9e521bf-b9e521b5" class="bg-column-mask">
-                <div class="bg-color-column"></div>
-                <div class="primary-color-column"></div>
-              </div>
-            </div>
-          </div>
-        </div>
-      </div>
-    </section>
-    <section class="section">
-      <div class="container">
-        <div id="w-node-e86986f4-cf62-eda0-0575-b9c399d9f654-6baae74d" class="award-row">
-          <div class="award-header-block">
-            <div>Award</div>
-            <div>Platform</div>
-            <div>Year</div>
-          </div>
-          <div data-w-id="36edbcd0-338c-a038-b24b-c40dd187cf76" class="award-full-block">
-            <div>1. Best Creative Agency</div>
-            <div>Design Excellence Awards</div>
-            <div>2023</div><img src="images/2149458773.avif" loading="lazy"
-              id="w-node-_93f6ed37-1010-0dfe-3664-4c2eb1f558bf-6baae74d" alt="" class="award-award" />
-          </div>
-          <div class="award-full-block">
-            <div>2. Innovative Branding Award</div>
-            <div>Agency of the Year Awards</div>
-            <div>2022</div><img src="images/2149059971.avif" loading="lazy" sizes="100vw"
-              srcset="images/2149059971-p-500.avif 500w, images/2149059971.avif 667w" alt="" class="award-award" />
-          </div>
-          <div class="award-full-block">
-            <div>3. Top Web Design Agency</div>
-            <div>Web Innovators Summit</div>
-            <div>2021</div><img src="images/2149458778.avif" loading="lazy"
-              id="w-node-_964fc59a-f478-dd8d-516e-0ee6e9005b60-6baae74d" alt="" class="award-award" />
-          </div>
-          <div class="award-full-block">
-            <div>4. Excellence in Marketing</div>
-            <div>Global Marketing Awards</div>
-            <div>2019</div><img src="images/2149059612.avif" loading="lazy"
-              id="w-node-d2ad4a99-3ce0-bce5-1abb-af8e54e5bfea-6baae74d" sizes="100vw" alt=""
-              srcset="images/2149059612-p-500.avif 500w, images/2149059612.avif 843w" class="award-award" />
-          </div>
-          <div class="award-full-block">
-            <div>5. Outstanding User Design</div>
-            <div>UX Design Awards</div>
-            <div>2016</div><img src="images/2149458777.avif" loading="lazy"
-              id="w-node-_466d6bea-fd0b-4e07-4004-20cacefd59d8-6baae74d" sizes="100vw" alt=""
-              srcset="images/2149458777-p-500.avif 500w, images/2149458777.avif 1000w" class="award-award" />
-          </div>
-        </div>
-      </div>
-    </section>
+    
     <section id="services" class="section">
       <div class="container">
         <div class="w-dyn-list">
@@ -1051,7 +684,7 @@
                 </div>
                 <div class="thumbnail-wrapper-580px-height"><img src="images/13487.avif" alt=""
                     sizes="(max-width: 479px) 100vw, (max-width: 767px) 46vw, (max-width: 991px) 47vw, 22vw"
-                    srcset="images/13487-p-500.avif 500w, images/13487.avif 768w" class="portrait-full" /></div><a
+                    srcset="images/fotowibson.jpg 500w, images/fotowibson.jpg 768w" class="portrait-full" /></div><a
                   href="/team/sarah-leah" class="team-member-card-absolute w-inline-block">
                   <h3 class="_22px-text">Rifqi Wibisono</h3>
                   <p class="_16px-500-primary">Project Manager</p>
@@ -1067,7 +700,7 @@
                 </div>
                 <div class="thumbnail-wrapper-580px-height"><img src="images/303.avif" alt=""
                     sizes="(max-width: 479px) 100vw, (max-width: 767px) 46vw, (max-width: 991px) 47vw, 22vw"
-                    srcset="images/303-p-500.avif 500w, images/303.avif 1000w" class="portrait-full" /></div><a
+                    srcset="images/fotolintang.png 500w, images/fotolintang.png 1000w" class="portrait-full" /></div><a
                   href="/team/john-doe" class="team-member-card-absolute w-inline-block">
                   <h3 class="_22px-text">Cahya Lintang Ayu Langitan</h3>
                   <p class="_16px-500-primary">-</p>
@@ -1083,7 +716,7 @@
                 </div>
                 <div class="thumbnail-wrapper-580px-height"><img src="images/2148493050-1.avif" alt=""
                     sizes="(max-width: 479px) 100vw, (max-width: 767px) 46vw, (max-width: 991px) 47vw, 22vw"
-                    srcset="images/2148493050-p-500-1.avif 500w, images/2148493050-1.avif 1000w"
+                    srcset="images/fotonopal.jpg 500w, images/fotonopal.jpg 1000w"
                     class="portrait-full" /></div><a href="/team/jane-smith"
                   class="team-member-card-absolute w-inline-block">
                   <h3 class="_22px-text">Naufalqi Dwiskara</h3>
@@ -1098,7 +731,7 @@
                   <a id="w-node-_068beef7-fc07-7b79-951c-001bc5465e33-c5465e2f"
                     href="https://instagram.com" class="social-links-rounded"></a>
                 </div>
-                <div class="thumbnail-wrapper-580px-height"><img src="images/15569-1.avif" alt=""
+                <div class="thumbnail-wrapper-580px-height"><img src="images/fotoibnu.jpg" alt=""
                     class="portrait-full" /></div><a href="/team/mark-johnson"
                   class="team-member-card-absolute w-inline-block">
                   <h3 class="_22px-text">Muhammad Ibnu R.</h3>

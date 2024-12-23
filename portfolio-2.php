@@ -450,8 +450,9 @@ $articles = getAllArticles();
                 </div>
               </div>
             </div>
-            <div class="pointer"><button class="log-button" data-wf-user-logout="logout" data-wf-user-login="login"
-                type="button">logout</button></div>
+            <div class="pointer">
+              <button class="log-button" data-wf-user-logout="logout" data-wf-user-login="login" type="button">logout</button>
+            </div>
             <div data-w-id="c83eb7d7-4575-cda2-4005-1e693e785387" class="hamburger-menu w-nav-button">
               <div class="bars">
                 <div class="bar-wrapper">
