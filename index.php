@@ -2,8 +2,10 @@
 require_once __DIR__ . '/functions/database_functions.php';
 error_reporting(E_ALL);
 ini_set('display_errors', 1);
-// Get all places using the function
 
+// Get top recommended places
+$recommendations = getTopRecommendedPlaces();
+foreach ($recommendations as $place) {}
 ?>
 
 <!DOCTYPE html>
@@ -657,17 +659,17 @@ ini_set('display_errors', 1);
     </div>
     <header
       data-poster-url="images/66f00efc0ba3b86a13792a55-2f66f5a5ceb1d778a4b77b35f7_1112875_teamwork_coworking_1920x1080-poster-00001.jpg"
-      data-video-urls="images/66f00efc0ba3b86a13792a55-2f66f5a5ceb1d778a4b77b35f7_1112875_teamwork_coworking_1920x1080-transcode.mp4,images/66f00efc0ba3b86a13792a55-2f66f5a5ceb1d778a4b77b35f7_1112875_teamwork_coworking_1920x1080-transcode.webm"
+      data-video-urls="images/index_video.mp4,images/index_video.mp4"
       data-autoplay="true" data-loop="true" data-wf-ignore="true" data-w-id="05fb9eaf-e923-5288-7ffa-b827944f5e75"
       class="hero-section w-background-video w-background-video-atom"><video
         id="05fb9eaf-e923-5288-7ffa-b827944f5e75-video" autoplay="" loop=""
         style="background-image:url(&quot;images/66f00efc0ba3b86a13792a55-2f66f5a5ceb1d778a4b77b35f7_1112875_teamwork_coworking_1920x1080-poster-00001.jpg&quot;)"
         muted="" playsinline="" data-wf-ignore="true" data-object-fit="cover">
         <source
-          src="images/66f00efc0ba3b86a13792a55-2f66f5a5ceb1d778a4b77b35f7_1112875_teamwork_coworking_1920x1080-transcode.mp4"
+          src="images/index_video.mp4"
           data-wf-ignore="true" />
         <source
-          src="images/66f00efc0ba3b86a13792a55-2f66f5a5ceb1d778a4b77b35f7_1112875_teamwork_coworking_1920x1080-transcode.webm"
+          src="images/index_video.mp4"
           data-wf-ignore="true" /></video>
       <div class="container"><img width="1168.5" loading="eager" alt="Hero Image" src="images/hero-20bg.avif"
           class="hero-bg-image" />
@@ -677,23 +679,14 @@ ini_set('display_errors', 1);
               <div class="primary-title-divider-loop"></div>
             </div>
             <div data-w-id="5b919fa1-84ae-d7b6-0ea1-41df149cc60e" class="_10px-diamond"></div>
-            <div>Specialize Services</div>
+            <div>Tourism Services</div>
           </div>
           <div class="hero-title-block">
-            <h1 class="hero-heading-17cqw">We Create</h1>
-            <h1 class="hero-heading-17cqw stroked">A New Brand</h1>
-            <h1 class="hero-heading-17cqw">For You</h1>
+            <h1 class="hero-heading-17cqw">DISCOVER</h1>
+            <h1 class="hero-heading-17cqw stroked">YOGYAKARTA'S</h1>
+            <h1 class="hero-heading-17cqw">WONDERS</h1>
           </div>
-          <div class="mask">
-            <div class="button-selection"><a href="/services-1" data-w-id="bbe70ef4-67d7-8d67-30dc-46a75f07dbd9"
-                class="white-button w-inline-block">
-                <div class="button-text-wrapper">
-                  <div class="default-text">View Services</div>
-                  <div class="default-text">View Services</div>
-                </div>
-                <div class="absolute-hover-bottom primary"></div>
-              </a></div>
-          </div>
+
           <div class="circle-hero"></div>
           <div class="circle-left-top"></div>
           <div
@@ -734,183 +727,33 @@ ini_set('display_errors', 1);
       <div class="infinity-carousel-container-2deg-rotate primary">
         <div data-w-id="c3dc4773-4a3a-4bda-eadd-8abc4e6b0b93" class="infinity-slider-carousel">
           <div class="infinity-item-container inline">
-            <div class="infinity-text">Design Studio</div>
-            <div class="infinity-text">Web Agency</div>
-            <div class="infinity-text">SEO AGENCY</div>
+            <div class="infinity-text">Visit Vista  </div>
+            <div class="infinity-text">By ExploreX  </div>
+            <div class="infinity-text">Visit Vista  </div>
           </div>
           <div class="infinity-item-container inline">
-            <div class="infinity-text">Design Studio</div>
-            <div class="infinity-text">Web Agency</div>
-            <div class="infinity-text">SEO AGENCY</div>
+            <div class="infinity-text">By ExploreX  </div>
+            <div class="infinity-text">Visit Vista  </div>
+            <div class="infinity-text">By ExploreX  </div>
           </div>
         </div>
       </div>
       <div class="infinity-carousel-container-2deg-rotate">
         <div data-w-id="199af4cf-9391-de7e-fcca-051cab517297" class="infinity-slider-carousel">
           <div class="infinity-item-container inline">
-            <div class="infinity-text">Design Studio</div>
-            <div class="infinity-text">Web Agency</div>
-            <div class="infinity-text">SEO AGENCY</div>
+            <div class="infinity-text">TRAVEL</div>
+            <div class="infinity-text">JOURNEY</div>
+            <div class="infinity-text">DISCOVER</div>
           </div>
           <div class="infinity-item-container inline">
-            <div class="infinity-text">Design Studio</div>
-            <div class="infinity-text">Web Agency</div>
-            <div class="infinity-text">SEO AGENCY</div>
+            <div class="infinity-text">TRAVEL</div>
+            <div class="infinity-text">JOURNEY</div>
+            <div class="infinity-text">DISCOVER</div>
           </div>
         </div>
       </div>
     </section>
-    <section class="section">
-      <div class="container">
-        <div class="_2-column-block margin-bottom-50px">
-          <div class="contents">
-            <div class="title">
-              <div class="title-divider">
-                <div class="primary-title-divider-loop"></div>
-              </div>
-              <div data-w-id="5b919fa1-84ae-d7b6-0ea1-41df149cc60e" class="_10px-diamond"></div>
-              <div>About Us</div>
-            </div>
-            <div data-w-id="31205a3c-7929-4802-de05-79618652852f" class="text-merge-title">
-              <h2 class="heading">Crafting Creative Solutions for Modern Brands</h2>
-              <div class="absolute-style-text"></div>
-            </div>
-          </div>
-          <div class="contents-40">
-            <p>At the intersection of vision and execution, we bringcreative ideas team transforms concepts
-              intocompelling narratives,</p>
-          </div>
-        </div>
-        <div class="_2-column-block">
-          <div class="image-wrapper-between">
-            <div class="w-layout-vflex image-with-banner">
-              <div class="mask-20px-rounded-full"><img src="images/toa-heftiba-4xe-yvfjcvw-unsplash.avif" loading="lazy"
-                  sizes="(max-width: 479px) 97vw, (max-width: 767px) 44vw, (max-width: 991px) 46vw, 26vw"
-                  srcset="images/toa-heftiba-4xe-yvfjcvw-unsplash-p-500.avif 500w, images/toa-heftiba-4xe-yvfjcvw-unsplash-p-800.avif 800w, images/toa-heftiba-4xe-yvfjcvw-unsplash-p-1080.avif 1080w, images/toa-heftiba-4xe-yvfjcvw-unsplash.avif 1920w"
-                  alt="Office Meeting
-" class="max-height-390px" />
-                <div data-w-id="86948c09-9ea6-0d24-c71d-cfb6b9e521b5" class="image-show-style">
-                  <div class="bg-column-mask">
-                    <div class="bg-color-column"></div>
-                    <div class="primary-color-column"></div>
-                  </div>
-                  <div id="w-node-_86948c09-9ea6-0d24-c71d-cfb6b9e521b9-b9e521b5" class="bg-column-mask">
-                    <div class="bg-color-column"></div>
-                    <div class="primary-color-column"></div>
-                  </div>
-                  <div id="w-node-_86948c09-9ea6-0d24-c71d-cfb6b9e521bc-b9e521b5" class="bg-column-mask">
-                    <div class="bg-color-column"></div>
-                    <div class="primary-color-column"></div>
-                  </div>
-                  <div id="w-node-_86948c09-9ea6-0d24-c71d-cfb6b9e521bf-b9e521b5" class="bg-column-mask">
-                    <div class="bg-color-column"></div>
-                    <div class="primary-color-column"></div>
-                  </div>
-                </div>
-              </div>
-              <div class="image-card">
-                <div class="vertical-center-align">
-                  <div class="animated-counter">
-                    <div class="counter-number-wrapper">
-                      <div class="counter-number-text">1</div>
-                      <div class="counter-number-text">1<br /></div>
-                      <div class="counter-number-text">2</div>
-                      <div class="counter-number-text">3<br /></div>
-                      <div class="counter-number-text">4</div>
-                      <div class="counter-number-text">5</div>
-                      <div class="counter-number-text">6</div>
-                      <div class="counter-number-text">7</div>
-                      <div class="counter-number-text">8</div>
-                      <div class="counter-number-text">9</div>
-                      <div class="counter-number-text">0</div>
-                    </div>
-                    <div class="counter-number-wrapper-reverse">
-                      <div class="counter-number-text">0</div>
-                      <div class="counter-number-text">1<br /></div>
-                      <div class="counter-number-text">2</div>
-                      <div class="counter-number-text">3<br /></div>
-                      <div class="counter-number-text">4</div>
-                      <div class="counter-number-text">5</div>
-                      <div class="counter-number-text">6</div>
-                      <div class="counter-number-text">7</div>
-                      <div class="counter-number-text">8</div>
-                      <div class="counter-number-text">9</div>
-                      <div class="counter-number-text">00</div>
-                    </div>
-                    <div class="counter-symbol-wrapper">
-                      <div class="mask">
-                        <div class="postfix white">Y</div>
-                      </div>
-                    </div>
-                  </div>
-                  <div class="margin-bottom-8px">
-                    <div class="counter-title">Client Satisfaction</div>
-                  </div>
-                </div>
-              </div>
-            </div>
-            <div class="portrait-image-wrapper-max-600px">
-              <div class="mask-20px-rounded-full"><img src="images/pexels-huseyn-ibadzade-743775288-20616198.avif"
-                  loading="lazy"
-                  sizes="(max-width: 479px) 100vw, (max-width: 767px) 44vw, (max-width: 991px) 46vw, 26vw"
-                  srcset="images/pexels-huseyn-ibadzade-743775288-20616198-p-500.avif 500w, images/pexels-huseyn-ibadzade-743775288-20616198-p-800.avif 800w, images/pexels-huseyn-ibadzade-743775288-20616198.avif 1280w"
-                  alt="" class="full-image" />
-                <div data-w-id="1693a48e-246a-7de0-367e-da1746c303c5" class="image-show-effect">
-                  <div class="white-background-image"></div>
-                  <div class="primary-background-image"></div>
-                </div>
-              </div>
-              <div class="absolute-image-border"></div>
-            </div>
-          </div>
-          <div class="contents-40-40px-gap">
-            <div class="icon-and-texts">
-              <div class="icon-and-divider">
-                <div class="_60px-icon-wrapper"><img src="images/about.avif" loading="lazy" alt="" class="image-30px" />
-                </div>
-                <div class="gradient-divider"></div>
-              </div>
-              <div class="w-layout-vflex _10px-gap">
-                <h2 class="_24px-text">About Us</h2>
-                <p>Sed ut perspiciatis unde omnis iste natus error sit voluptatem accusantium doloremque laudantium,
-                  totam rem aper.</p>
-              </div>
-            </div>
-            <div class="icon-and-texts">
-              <div class="icon-and-divider">
-                <div class="_60px-icon-wrapper"><img src="images/startup.avif" loading="lazy" alt=""
-                    class="image-30px" /></div>
-                <div class="gradient-divider"></div>
-              </div>
-              <div class="w-layout-vflex _10px-gap">
-                <h3 class="_24px-text">Our Mission</h3>
-                <p>Sed ut perspiciatis unde omnis iste natus error sit voluptatem accusantium doloremque laudantium,
-                  totam rem aper.</p>
-              </div>
-            </div>
-            <div class="icon-and-texts">
-              <div class="icon-and-divider">
-                <div class="_60px-icon-wrapper"><img src="images/binoculars.avif" loading="lazy" alt=""
-                    class="image-30px" /></div>
-                <div class="gradient-divider"></div>
-              </div>
-              <div class="w-layout-vflex _10px-gap">
-                <h4 class="_24px-text">Our Vision</h4>
-                <p>Sed ut perspiciatis unde omnis iste natus error sit voluptatem accusantium doloremque laudantium,
-                  totam rem aper.</p>
-              </div>
-            </div><a href="/about-us-1" data-w-id="7e33fa6d-bf4c-a683-438d-941a73dca7da"
-              class="primary-button w-inline-block">
-              <div class="button-text-wrapper">
-                <div class="default-text">Learn More</div>
-                <div class="default-text black-heading">Learn More</div>
-              </div>
-              <div class="absolute-hover-bottom"></div>
-            </a>
-          </div>
-        </div>
-      </div>
-    </section>
+
     <section class="section">
       <div class="container">
         <div class="title-bar">
@@ -920,14 +763,14 @@ ini_set('display_errors', 1);
               <div class="gradient-title">
                 <div class="_8px-circle-title"></div>
                 <div class="mask">
-                  <div class="text">Services</div>
+                  <div class="text">view our</div>
                 </div>
               </div>
               <div class="gradient-color"></div>
               <div class="gradient-color-initial-90"></div>
             </div>
             <div data-w-id="f1a75d16-09b6-443b-a25b-8f49522648ba" class="text-merge-title">
-              <h2 class="heading">View Our SErvices</h2>
+              <h2 class="heading">recommended places</h2>
               <div class="absolute-style-text"></div>
             </div>
           </div>
@@ -1087,6 +930,107 @@ ini_set('display_errors', 1);
         </div>
       </div>
     </section>
+
+    <section class="section">
+      <div class="container">
+        <div class="title-bar">
+          <div class="_2px-height-border"></div>
+          <div class="product-bar-texts-vertical">
+            <div class="dynamic-gradient-title">
+              <div class="gradient-title">
+                <div class="_8px-circle-title"></div>
+                <div class="mask">
+                  <div class="text">Popular Places</div>
+                </div>
+              </div>
+              <div class="gradient-color"></div>
+              <div class="gradient-color-initial-90"></div>
+            </div>
+            <div data-w-id="f1a75d16-09b6-443b-a25b-8f49522648ba" class="text-merge-title">
+              <h2 class="heading">Our Recommendations</h2>
+              <div class="absolute-style-text"></div>
+            </div>
+          </div>
+          <div class="_2px-height-border right"></div>
+        </div>
+        <div class="w-dyn-list">
+          <div role="list" class="_3-column-grid w-dyn-items">
+
+            <div role="listitem" class="w-dyn-item">
+              <div data-w-id="3aa9b968-98e2-906a-c7d1-034fdca8e2e9" class="blog-card">
+                <div class="blog-thubnail-mask"><a href="/post/how-to-build-a-strong-brand-identity"
+                    class="mask-10px-rounded-full w-inline-block"><img src="images/pexels-fauxels-3184357.avif"
+                      loading="lazy" alt=""
+                      sizes="(max-width: 479px) 100vw, (max-width: 767px) 92vw, (max-width: 991px) 46vw, 28vw"
+                      srcset="images/pexels-fauxels-3184357-p-500.avif 500w, images/pexels-fauxels-3184357-p-800.avif 800w, images/pexels-fauxels-3184357.avif 1920w"
+                      class="blog-thumbnail-300px" /></a><a href="/blog-categories/corporate"
+                    class="blog-category w-inline-block">
+                    <div class="blog-category-left-shape"></div>
+                    <div>Corporate</div>
+                    <div class="blog-category-right-shape"></div>
+                  </a>
+                  <div data-w-id="86948c09-9ea6-0d24-c71d-cfb6b9e521b5" class="image-show-style">
+                    <div class="bg-column-mask">
+                      <div class="bg-color-column"></div>
+                      <div class="primary-color-column"></div>
+                    </div>
+                    <div id="w-node-_86948c09-9ea6-0d24-c71d-cfb6b9e521b9-b9e521b5" class="bg-column-mask">
+                      <div class="bg-color-column"></div>
+                      <div class="primary-color-column"></div>
+                    </div>
+                    <div id="w-node-_86948c09-9ea6-0d24-c71d-cfb6b9e521bc-b9e521b5" class="bg-column-mask">
+                      <div class="bg-color-column"></div>
+                      <div class="primary-color-column"></div>
+                    </div>
+                    <div id="w-node-_86948c09-9ea6-0d24-c71d-cfb6b9e521bf-b9e521b5" class="bg-column-mask">
+                      <div class="bg-color-column"></div>
+                      <div class="primary-color-column"></div>
+                    </div>
+                  </div>
+                </div>
+                <div class="w-layout-vflex blog-body">
+                  <div class="w-layout-vflex heading-category-wrapper">
+                    <div class="horizontal-left-center-8px-gap-wrap">
+                      <p href="#" class="_14px-text">October 17, 2024</p>
+                      <div class="_5px-circle"></div>
+                      <div class="horizontal-left-center-5px-gap">
+                        <p class="_14px-text">By</p><a href="/author/sara-lee" class="w-inline-block">
+                          <p href="#" class="_14px-link">Sara Lee</p>
+                        </a>
+                      </div>
+                    </div>
+                    <div class="horizontal-left-center-8px-gap-wrap">
+                      <p href="#" class="_14px-text">October 17, 2024</p>
+                      <div class="_5px-circle"></div>
+                      <div class="horizontal-left-center-5px-gap">
+                        <p class="_14px-text">By</p><a href="/author/sara-lee" class="w-inline-block">
+                          <p href="#" class="_14px-link">Sara Lee</p>
+                        </a>
+                      </div>
+                    </div>
+                    <a href="/post/how-to-build-a-strong-brand-identity" class="w-inline-block">
+                      <h3 class="_24px-link">How to Build a Strong Brand Identity</h3>
+                    </a>
+                    <div class="blog-divider">
+                      <div class="blog-hover-divider"></div>
+                    </div>
+                  </div><a href="/post/how-to-build-a-strong-brand-identity"
+                    class="text-link-with-border w-inline-block">
+                    <div>Read More</div>
+                    <div class="mask">
+                      <div class="link-border"></div>
+                      <div class="link-border-secodnary"></div>
+                    </div>
+                  </a>
+                </div>
+              </div>
+            </div>
+
+          </div>
+        </div>
+      </div>
+    </section>
+
     <section class="section">
       <div class="container">
         <div class="_2-column-block margin-bottom-50px">
@@ -2432,6 +2376,7 @@ ini_set('display_errors', 1);
         </div>
       </div>
     </section>
+
     <section class="section">
       <div class="container">
         <div class="title-bar">
@@ -2634,6 +2579,7 @@ ini_set('display_errors', 1);
         </div>
       </div>
     </section>
+
     <footer class="footer">
       <div class="container">
         <div data-w-id="3447bad0-4c97-caf6-2cc4-1b7d3321ffb7" class="footer-container">
