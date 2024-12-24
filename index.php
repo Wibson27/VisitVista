@@ -52,7 +52,7 @@ $articles = getLatestArticles();
 
 <head>
   <meta charset="utf-8" />
-  <title>CorporateAgency - Webflow Ecommerce Website Template</title>
+  <title>Home</title>
   <meta content="width=device-width, initial-scale=1" name="viewport" />
   <meta content="Webflow" name="generator" />
   <link href="css/agency-nx.webflow.6599087d1.min.css" rel="stylesheet" type="text/css" />
@@ -664,7 +664,7 @@ $articles = getLatestArticles();
                       loading="lazy" alt=""
                       sizes="(max-width: 479px) 100vw, (max-width: 767px) 92vw, (max-width: 991px) 46vw, 28vw"
                       srcset="<?= htmlspecialchars($place['image_url']) ?>, <?= htmlspecialchars($place['image_url']) ?>, <?= htmlspecialchars($place['image_url']) ?>"
-                      class="blog-thumbnail-300px" /></a><a href="/blog-categories/corporate"
+                      class="blog-thumbnail-300px" /></a><a href="/visitvista/product/booking.php"
                     class="blog-category w-inline-block">
                     <div class="blog-category-left-shape"></div>
                     <div><?= htmlspecialchars($place['category']) ?></div>
@@ -720,13 +720,13 @@ $articles = getLatestArticles();
                         </a>
                       </div>
                     </div>
-                    <a href="/post/how-to-build-a-strong-brand-identity" class="w-inline-block">
+                    <a href="/visitvista/product/booking.php" class="w-inline-block">
                       <h3 class="_24px-link"><?= htmlspecialchars($place['name']) ?></h3>
                     </a>
                     <div class="blog-divider">
                       <div class="blog-hover-divider"></div>
                     </div>
-                  </div><a href="/post/how-to-build-a-strong-brand-identity"
+                  </div><a href="/visitvista/product/booking.php"
                     class="text-link-with-border w-inline-block">
                     <div>Read More</div>
                     <div class="mask">
