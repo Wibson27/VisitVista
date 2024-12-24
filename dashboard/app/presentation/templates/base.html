@@ -1,0 +1,81 @@
+{# app/presentation/templates/base.html #}
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>{% block title %}Business Dashboard{% endblock %}</title>
+    <link href="https://cdnjs.cloudflare.com/ajax/libs/tailwindcss/2.2.19/tailwind.min.css" rel="stylesheet">
+    <link href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0/css/all.min.css" rel="stylesheet">
+    <style>
+        :root {
+            --neon-accent: #bbf340;
+            --neon-shadow: 0 0 5px #bbf340, 0 0 20px #bbf340;
+        }
+
+        .bg-custom-dark {
+            background-color: #1a1a1a;
+        }
+
+        .sidebar-link {
+            transition: all 0.3s ease;
+        }
+
+        .sidebar-link:hover {
+            background-color: rgba(187, 243, 64, 0.1);
+            box-shadow: var(--neon-shadow);
+            color: var(--neon-accent);
+        }
+
+        .active-link {
+            background-color: rgba(187, 243, 64, 0.1);
+            border-left: 4px solid var(--neon-accent);
+            color: var(--neon-accent);
+        }
+    </style>
+</head>
+<body class="bg-custom-dark text-white min-h-screen flex">
+    <!-- Sidebar -->
+    <aside class="w-64 bg-black fixed h-full">
+        <div class="p-4">
+            <h1 class="text-2xl font-bold mb-8" style="color: var(--neon-accent);">VisitVista</h1>
+            <nav>
+                <a href="{{ url_for('dashboard.dashboard_view') }}"
+                   class="sidebar-link block py-3 px-4 rounded mb-2 {% if request.endpoint == 'dashboard.dashboard_view' %}active-link{% endif %}">
+                    <i class="fas fa-home mr-2"></i> Home
+                </a>
+                <a href="{{ url_for('dashboard.insights_view') }}"
+                   class="sidebar-link block py-3 px-4 rounded mb-2 {% if request.endpoint == 'dashboard.insights_view' %}active-link{% endif %}">
+                    <i class="fas fa-chart-line mr-2"></i> Insights
+                </a>
+                <a href="{{ url_for('dashboard.statistics_view') }}"
+                   class="sidebar-link block py-3 px-4 rounded mb-2 {% if request.endpoint == 'dashboard.statistics_view' %}active-link{% endif %}">
+                    <i class="fas fa-chart-bar mr-2"></i> Statistics
+                </a>
+                <a href="{{ url_for('dashboard.reviews_view') }}"
+       class="sidebar-link block py-3 px-4 rounded mb-2 {% if request.endpoint == 'dashboard.reviews_view' %}active-link{% endif %}">
+        <i class="fas fa-star mr-2"></i> Reviews
+                </a>
+                <a href="{{ url_for('dashboard.select_business') }}"
+                  class="sidebar-link block py-3 px-4 rounded mb-2">
+                    <i class="fas fa-sign-out-alt mr-2"></i> Change Business
+                </a>
+                <a href="{{ url_for('dashboard.select_business') }}"
+                   class="sidebar-link block py-3 px-4 rounded mb-2">
+                    <i class="fas fa-sign-out-alt mr-2"></i> Change Business
+                </a>
+            </nav>
+        </div>
+    </aside>
+
+    <!-- Main Content -->
+    <main class="ml-64 flex-grow p-8">
+        <div class="max-w-7xl mx-auto">
+            {% block content %}{% endblock %}
+        </div>
+    </main>
+
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/Chart.js/3.7.0/chart.min.js"></script>
+    {% block scripts %}{% endblock %}
+</body>
+</html>

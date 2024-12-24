@@ -1,8 +1,17 @@
 <?php
+if (session_status() === PHP_SESSION_NONE) {
+  session_start();
+}
+require_once '../functions/auth_functions.php';
 require_once '../functions/database_functions.php';
 error_reporting(E_ALL);
 ini_set('display_errors', 1);
-$places = getAllPlaces();
+// Get booking ID from URL
+$place_id = isset($_GET['id']) ? $_GET['id'] : null;
+
+// Get place details
+$place = getPlaceById($place_id);
+
 ?>
 
 <!DOCTYPE html>
@@ -67,7 +76,7 @@ $places = getAllPlaces();
             class="w-inline-block"><img src="../images/logovisitvista.png" loading="lazy" alt="" class="site-logo" /></a>
           <nav role="navigation" class="nav-menu-wrapper w-nav-menu">
             <div class="nav-menu-left-sidebar">
-              <a href="/" data-w-id="783761a9-bb85-bb38-0e07-8475a4b307cb" class="nav-link-wrapper w-inline-block">
+              <a href="../index.php" data-w-id="783761a9-bb85-bb38-0e07-8475a4b307cb" class="nav-link-wrapper w-inline-block">
                 <div class="nav-link">
                   <div class="default-text">Home</div>
                   <div class="default-text black-heading">Home</div>
@@ -81,14 +90,14 @@ $places = getAllPlaces();
                 </div>
                 <div class="absolute-hover-bottom"></div>
               </a>
-              <a href="explore.php" data-w-id="279a1d22-4f80-d177-04f5-58c1a704eb82" class="nav-link-wrapper w-inline-block">
+              <a href="../explore.php" data-w-id="279a1d22-4f80-d177-04f5-58c1a704eb82" class="nav-link-wrapper w-inline-block">
                 <div class="nav-link">
                   <div class="default-text">Explore</div>
                   <div class="default-text black-heading">Explore</div>
                 </div>
                 <div class="absolute-hover-bottom"></div>
               </a>
-              <a href="article.php" data-w-id="aeb1c1fc-3038-8a62-2af0-a4afc7395963" class="nav-link-wrapper w-inline-block">
+              <a href="../article.php" data-w-id="aeb1c1fc-3038-8a62-2af0-a4afc7395963" class="nav-link-wrapper w-inline-block">
                 <div class="nav-link">
                   <div class="default-text">Article</div>
                   <div class="default-text black-heading">Article</div>
@@ -277,7 +286,7 @@ $places = getAllPlaces();
                                 data-wf-bindings="%5B%7B%22innerHTML%22%3A%7B%22type%22%3A%22PlainText%22%2C%22filter%22%3A%7B%22type%22%3A%22identity%22%2C%22params%22%3A%5B%5D%7D%2C%22dataPath%22%3A%22database.commerceOrder.userItems%5B%5D.product.f_name_%22%7D%7D%5D"
                                 class="w-commerce-commercecartproductname _24px-text w-dyn-bind-empty"></div>
                               <p data-wf-bindings="%5B%7B%22innerHTML%22%3A%7B%22type%22%3A%22CommercePrice%22%2C%22filter%22%3A%7B%22type%22%3A%22price%22%2C%22params%22%3A%5B%5D%7D%2C%22dataPath%22%3A%22database.commerceOrder.userItems%5B%5D.price%22%7D%7D%5D"
-                                class="_14px-text-500">$ 0.00 USD</p>
+                                class="_14px-text-500">Rp <?php echo htmlspecialchars($place['price']); ?></p>
                               <script type="text/x-wf-template"
                                 id="wf-template-c3bc403f-e038-7da7-8235-50266ba96845">%3Cli%3E%3Cspan%20data-wf-bindings%3D%22%255B%257B%2522innerHTML%2522%253A%257B%2522type%2522%253A%2522PlainText%2522%252C%2522filter%2522%253A%257B%2522type%2522%253A%2522identity%2522%252C%2522params%2522%253A%255B%255D%257D%252C%2522dataPath%2522%253A%2522database.commerceOrder.userItems%255B%255D.product.f_sku_properties_3dr%255B%255D.name%2522%257D%257D%255D%22%20class%3D%22w-dyn-bind-empty%22%3E%3C%2Fspan%3E%3Cspan%3E%3A%20%3C%2Fspan%3E%3Cspan%20data-wf-bindings%3D%22%255B%257B%2522innerHTML%2522%253A%257B%2522type%2522%253A%2522CommercePropValues%2522%252C%2522filter%2522%253A%257B%2522type%2522%253A%2522identity%2522%252C%2522params%2522%253A%255B%255D%257D%252C%2522dataPath%2522%253A%2522database.commerceOrder.userItems%255B%255D.product.f_sku_properties_3dr%255B%255D%2522%257D%257D%255D%22%20class%3D%22w-dyn-bind-empty%22%3E%3C%2Fspan%3E%3C%2Fli%3E</script>
                               <ul
@@ -415,9 +424,22 @@ $places = getAllPlaces();
     <div class="navbar-hide-show-effect">
       <div data-w-id="9dabe443-61bf-363b-c654-3ce84672a380" class="navbar-hide"></div>
     </div>
-    <section class="banner">
+    <section class="banner" style="margin-bottom: -150px;">
       <div class="container">
-        <h1 class="heading">Borobudur Sunrise Tour</h1>
+        <h1 class="heading"><?php echo htmlspecialchars($place['name']); ?></h1>
+      </div>
+      <div class="container">
+        <div class="project-main-image-wrapper" style="margin-top: 50px;">
+          <div id="Project-Details-Block" class="project-details-block">
+          </div>
+          <div class="_20px-rounded-mask"><img loading="lazy" src="../<?php echo htmlspecialchars($place['image_url']); ?>" alt=""
+              class="project-cover" />
+            <div class="image-show-effect">
+              <div class="white-background-image-2"></div>
+              <div class="primary-background-image-2"></div>
+            </div>
+          </div>
+        </div>
       </div>
       <div class="absolute-hover background-color-linear"></div>
       <div data-w-id="86948c09-9ea6-0d24-c71d-cfb6b9e521b5" class="image-show-style">
@@ -446,15 +468,15 @@ $places = getAllPlaces();
             <div class="widget">
               <div class="relative-block"><img
                   data-wf-sku-bindings="%5B%7B%22from%22%3A%22f_main_image_4dr%22%2C%22to%22%3A%22src%22%7D%5D"
-                  src="../images/75385.avif" alt="" loading="eager"
+                  src="../<?php echo htmlspecialchars($place['image_url']); ?>" alt="" loading="eager"
                   sizes="(max-width: 479px) 100vw, (max-width: 767px) 77vw, (max-width: 991px) 85vw, 308px"
-                  srcset="../images/75385-p-500.avif 500w, ../images/75385-p-800.avif 800w, ../images/75385.avif 1500w"
+                  srcset="../<?php echo htmlspecialchars($place['image_url']); ?>, ../<?php echo htmlspecialchars($place['image_url']); ?>, ../images/<?php echo htmlspecialchars($place['image_url']); ?>"
                   class="course-cover-image" />
                 <div data-wf-sku-bindings="%5B%7B%22from%22%3A%22f_price_%22%2C%22to%22%3A%22innerHTML%22%7D%5D"
-                  class="course-price">$ 1,200.00 USD</div>
+                  class="course-price">Rp <?php echo htmlspecialchars($place['price']); ?>/ Ticket</div>
               </div>
               <div class="mt-20px">
-                <h2 class="_30px-text">Professional</h2>
+                <h2 class="_30px-text"><?php echo htmlspecialchars($place['name']); ?></h2>
                 <div class="sidebar-title-divider-wrapper">
                   <div class="title-divider-50px"></div>
                   <div class="title-divider-5px"></div>
@@ -467,14 +489,40 @@ $places = getAllPlaces();
                     inputMode="numeric" id="quantity-11bfa4b5d2e5d7fdd56b216c3e190dbf"
                     name="commerce-add-to-cart-quantity-input" min="1"
                     class="w-commerce-commerceaddtocartquantityinput qurantity w-condition-invisible" value="1" />
-                  <div class="primary-button user-button"><input type="submit"
-                      data-node-type="commerce-add-to-cart-button" data-loading-text="Adding to cart..."
-                      aria-busy="false" aria-haspopup="dialog"
-                      class="w-commerce-commerceaddtocartbutton custom-button black" value="Add to Cart" />
-                    <div class="absolute-hover-bottom"></div>
-                  </div><a data-node-type="commerce-buy-now-button" data-default-text="Buy now"
-                    data-subscription-text="Subscribe now" aria-busy="false" aria-haspopup="false"
-                    class="w-commerce-commercebuynowbutton default-button-white" href="/checkout">Buy now</a>
+                    <div class="primary-button user-button">
+                        <input type="submit"
+                            data-node-type="commerce-add-to-cart-button"
+                            data-loading-text="Adding to cart..."
+                            aria-busy="false"
+                            aria-haspopup="dialog"
+                            class="w-commerce-commerceaddtocartbutton custom-button black"
+                            value="Add to Cart"
+                            onclick="<?php
+                                if(!isset($_SESSION['user_id'])) {
+                                    $_SESSION['redirect_url'] = $_SERVER['REQUEST_URI'];
+                                    echo 'window.location.href=\'../register.php\'';
+                                } else {
+                                    echo 'window.location.href=\'../checkout.php\'';
+                                }
+                            ?>" />
+                          <div class="absolute-hover-bottom"></div>
+                    </div>
+                    <a data-node-type="commerce-buy-now-button"
+                        data-default-text="Buy now"
+                        data-subscription-text="Subscribe now"
+                        aria-busy="false"
+                        aria-haspopup="false"
+                        class="w-commerce-commercebuynowbutton default-button-white"
+                        href="<?php
+                            if(!isset($_SESSION['user_id'])) {
+                                $_SESSION['redirect_url'] = $_SERVER['REQUEST_URI'];
+                                echo '../register.php';
+                            } else {
+                                echo '../checkout.php';
+                            }
+                        ?>">
+                        Buy now
+                    </a>
                 </form>
                 <div style="display:none" class="w-commerce-commerceaddtocartoutofstock" tabindex="0">
                   <div>This product is out of stock.</div>
@@ -491,51 +539,20 @@ $places = getAllPlaces();
                     available in this quantity.</div>
                 </div>
               </div>
-              <div class="vertical-left-top-20px-gap">
-                <div class="horizontal-left-center-12px-gap">
-                  <div class="primary-icon">payments</div>
-                  <div class="_14px-text-500">30-Day Money Back Guarantee</div>
-                </div>
-                <div class="horizontal-left-center-12px-gap">
-                  <div class="primary-icon">vpn_key</div>
-                  <div class="_14px-text-500">Lifetime Access</div>
-                </div>
-                <div class="horizontal-left-center-12px-gap">
-                  <div class="primary-icon">verified</div>
-                  <div class="_14px-text-500">Certificate of Completion</div>
-                </div>
-              </div>
+
             </div>
           </div>
           <div class="main-block">
             <div class="rich-text-block w-richtext">
-              <h3>About The Package</h3>
-              <p>Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et
-                dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip
-                ex ea commodo consequat. Duis aute irure dolor in reprehenderit in voluptate velit esse cillum dolore eu
-                fugiat nulla pariatur. Excepteur sint occaecat cupidatat non proident, sunt in culpa qui officia
-                deserunt mollit anim id est laborum.</p>
-              <h4>Features Included</h4>
-              <ul role="list">
-                <li><strong>Complete Brand Overhaul:</strong> Redesign your entire brand identity with a fresh logo,
-                  guidelines, and marketing materials.</li>
-                <li><strong>Custom-Built Website (10 Pages):</strong> Full-featured website with up to 10 pages,
-                  advanced functionality, and tracking.</li>
-                <li><strong>SEO Optimization &amp; Analytics:</strong> In-depth SEO setup and analytics tracking to
-                  enhance visibility.</li>
-                <li><strong>3-Month Social Media &amp; Marketing Management:</strong> Comprehensive management to drive
-                  brand growth and engagement.</li>
-              </ul>
-              <h4>Ideal For</h4>
-              <ul role="list">
-                <li>Startups</li>
-                <li>Corporate Comanies</li>
-                <li>Design Agency</li>
-                <li>Marketing Agencies</li>
-              </ul>
-              <p>Quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat. Duis aute irure
-                dolor in reprehenderit in voluptate velit esse cillum dolore eu fugiat nulla pariatur. Excepteur sint
-                occaecat cupidatat non proident, sunt in culpa qui officia deserunt mollit anim id est laborum.</p>
+              <h3>Description</h3>
+              <p><?php echo htmlspecialchars($place['description']); ?></p>
+              <h3>Location</h3>
+              <p><?php echo htmlspecialchars($place['location']); ?></p>
+              <h3>Capacity</h3>
+              <p><?php echo htmlspecialchars($place['capacity']); ?></p>
+              <h3>Category</h3>
+              <p><?php echo htmlspecialchars($place['category']); ?></p>
+
             </div>
           </div>
         </div>
@@ -551,7 +568,7 @@ $places = getAllPlaces();
             </div>
           </div>
           <div class="footer-block end">
-            <div class="link-list"><a data-w-id="ae4630f3-25c8-1af0-bf6f-a34696446e8b" href="/"
+            <div class="link-list"><a data-w-id="ae4630f3-25c8-1af0-bf6f-a34696446e8b" href="../index.php"
                 class="footer-link-wrapper w-inline-block">
                 <div class="footer-link">
                   <div class="text">Home</div>

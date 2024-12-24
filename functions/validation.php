@@ -43,15 +43,19 @@ function validateRegistration($data, $role) {
 }
 
 function validateLogin($data) {
-    $errors = [];
+  $errors = [];
 
-    if (empty($data['email']) || !filter_var($data['email'], FILTER_VALIDATE_EMAIL)) {
-        $errors['email'] = "Valid email is required";
-    }
+  if (empty($data['email'])) {
+      $errors['email'] = 'Email is required';
+  }
 
-    if (empty($data['password'])) {
-        $errors['password'] = "Password is required";
-    }
+  if (empty($data['password'])) {
+      $errors['password'] = 'Password is required';
+  }
 
-    return $errors;
+  if (empty($data['role'])) {
+      $errors['role'] = 'Role is required';
+  }
+
+  return $errors;
 }

@@ -7,6 +7,7 @@ ini_set('display_errors', 1);
 $recommendations = getTopRecommendedPlaces();
 $reviews = getAllReviews();
 $places = getAllPlaces();
+$articles = getLatestArticles();
 // // Debug reviews distribution
 // $debugQuery = "
 //     SELECT
@@ -658,7 +659,7 @@ $places = getAllPlaces();
           <?php foreach ($recommendations as $place): ?>
             <div role="listitem" class="w-dyn-item">
               <div data-w-id="3aa9b968-98e2-906a-c7d1-034fdca8e2e9" class="blog-card">
-                <div class="blog-thubnail-mask"><a href="/post/how-to-build-a-strong-brand-identity"
+                <div class="blog-thubnail-mask"><a href="/visitvista/product/booking.php?id=<?php echo $place['id']; ?>"
                     class="mask-10px-rounded-full w-inline-block"><img src="<?= htmlspecialchars($place['image_url']) ?>"
                       loading="lazy" alt=""
                       sizes="(max-width: 479px) 100vw, (max-width: 767px) 92vw, (max-width: 991px) 46vw, 28vw"
@@ -1021,7 +1022,7 @@ $places = getAllPlaces();
               <div role="list" class="portfolio-horizontal w-dyn-items">
                 <?php
                 $start = 4;
-                $length = 5;
+                $length = 3;
                 foreach (array_slice($places, $start, $length) as $place): ?>
                 <div role="listitem" class="full-image w-dyn-item"><a data-w-id="d945ec06-2068-2df4-5892-acfa5542b07b"
                     href="/project/digital-marketing-campaign-for-startup" class="portfolio-card w-inline-block"><img
@@ -1044,76 +1045,47 @@ $places = getAllPlaces();
           <div class="item">
             <div class="full-width-height w-dyn-list">
               <div role="list" class="portfolio-horizontal w-dyn-items">
+                <?php
+                $start = 0;
+                $length = 3;
+                foreach (array_slice($places, $start, $length) as $place): ?>
                 <div role="listitem" class="full-image w-dyn-item"><a data-w-id="d945ec06-2068-2df4-5892-acfa5542b07b"
                     href="/project/content-marketing-project" class="portfolio-card w-inline-block"><img
-                      src="images/pexels-kaboompics-6224.avif" loading="lazy" alt=""
-                      sizes="(max-width: 767px) 32vw, 33vw"
-                      srcset="images/pexels-kaboompics-6224-p-500.avif 500w, images/pexels-kaboompics-6224-p-800.avif 800w, images/pexels-kaboompics-6224.avif 1920w"
+                      src="<?php echo htmlspecialchars($place['image_url']); ?>" loading="lazy" alt=""
+                      sizes="(min-width: 767px) 32vw, 33vw"
+                      srcset="<?php echo htmlspecialchars($place['image_url']); ?>, <?php echo htmlspecialchars($place['image_url']); ?>, <?php echo htmlspecialchars($place['image_url']); ?>"
                       class="portfolio-thumbnail" />
                     <div class="black-overlay"></div>
                     <div class="portfolio-info-card">
-                      <h3 class="_20px-text-black">Content Marketing Strategy for E-commerce</h3>
+                      <h3 class="_20px-text-black"><?php echo htmlspecialchars($place['name']); ?></h3>
                     </div>
-                  </a></div>
-                <div role="listitem" class="full-image w-dyn-item"><a data-w-id="d945ec06-2068-2df4-5892-acfa5542b07b"
-                    href="/project/ux-ui-design-project" class="portfolio-card w-inline-block"><img
-                      src="images/pexels-pixabay-221185.avif" loading="lazy" alt=""
-                      sizes="(max-width: 767px) 32vw, 33vw"
-                      srcset="images/pexels-pixabay-221185-p-500.avif 500w, images/pexels-pixabay-221185-p-800.avif 800w, images/pexels-pixabay-221185.avif 1920w"
-                      class="portfolio-thumbnail" />
-                    <div class="black-overlay"></div>
-                    <div class="portfolio-info-card">
-                      <h3 class="_20px-text-black">UX/UI Design for Mobile App</h3>
-                    </div>
-                  </a></div>
-                <div role="listitem" class="full-image w-dyn-item"><a data-w-id="d945ec06-2068-2df4-5892-acfa5542b07b"
-                    href="/project/social-media-project" class="portfolio-card w-inline-block"><img
-                      src="images/2149629602.avif" loading="lazy" alt="" sizes="(max-width: 767px) 32vw, 33vw"
-                      srcset="images/2149629602-p-500.avif 500w, images/2149629602-p-800.avif 800w, images/2149629602.avif 1500w"
-                      class="portfolio-thumbnail" />
-                    <div class="black-overlay"></div>
-                    <div class="portfolio-info-card">
-                      <h3 class="_20px-text-black">Social Media Management for Brand</h3>
-                    </div>
-                  </a></div>
+                  </a>
+                </div>
+                <?php endforeach; ?>
+
               </div>
             </div>
           </div>
           <div class="item">
             <div class="full-width-height w-dyn-list">
               <div role="list" class="portfolio-horizontal w-dyn-items">
+                <?php
+                $start = 4;
+                $length = 3;
+                foreach (array_slice($places, $start, $length) as $place): ?>
                 <div role="listitem" class="full-image w-dyn-item"><a data-w-id="d945ec06-2068-2df4-5892-acfa5542b07b"
                     href="/project/website-redesign-project" class="portfolio-card w-inline-block"><img
-                      src="images/campaign-creators-3wni-5s4lvg-unsplash.avif" loading="lazy" alt=""
-                      sizes="(max-width: 767px) 32vw, 33vw"
-                      srcset="images/campaign-creators-3wni-5s4lvg-unsplash-p-500.avif 500w, images/campaign-creators-3wni-5s4lvg-unsplash-p-800.avif 800w, images/campaign-creators-3wni-5s4lvg-unsplash-p-1080.avif 1080w, images/campaign-creators-3wni-5s4lvg-unsplash.avif 1920w"
+                      src="<?php echo htmlspecialchars($place['image_url']); ?>" loading="lazy" alt=""
+                      sizes="(min-width: 767px) 32vw, 33vw"
+                      srcset="<?php echo htmlspecialchars($place['image_url']); ?>, <?php echo htmlspecialchars($place['image_url']); ?>, <?php echo htmlspecialchars($place['image_url']); ?>"
                       class="portfolio-thumbnail" />
                     <div class="black-overlay"></div>
                     <div class="portfolio-info-card">
-                      <h3 class="_20px-text-black">Website Redesign for Corporate Client</h3>
+                      <h3 class="_20px-text-black"><?php echo htmlspecialchars($place['name']); ?></h3>
                     </div>
-                  </a></div>
-                <div role="listitem" class="full-image w-dyn-item"><a data-w-id="d945ec06-2068-2df4-5892-acfa5542b07b"
-                    href="/project/email-marketing-project-10" class="portfolio-card w-inline-block"><img
-                      src="images/pexels-kindelmedia-7688336.avif" loading="lazy" alt=""
-                      sizes="(max-width: 767px) 32vw, 33vw"
-                      srcset="images/pexels-kindelmedia-7688336-p-500.avif 500w, images/pexels-kindelmedia-7688336-p-800.avif 800w, images/pexels-kindelmedia-7688336-p-1080.avif 1080w, images/pexels-kindelmedia-7688336.avif 1920w"
-                      class="portfolio-thumbnail" />
-                    <div class="black-overlay"></div>
-                    <div class="portfolio-info-card">
-                      <h3 class="_20px-text-black">Email Marketing Campaign for Retailer</h3>
-                    </div>
-                  </a></div>
-                <div role="listitem" class="full-image w-dyn-item"><a data-w-id="d945ec06-2068-2df4-5892-acfa5542b07b"
-                    href="/project/web-design-project-1" class="portfolio-card w-inline-block"><img
-                      src="images/2148625686.avif" loading="lazy" alt="" sizes="(max-width: 767px) 32vw, 33vw"
-                      srcset="images/2148625686-p-500.avif 500w, images/2148625686-p-800.avif 800w, images/2148625686.avif 1500w"
-                      class="portfolio-thumbnail" />
-                    <div class="black-overlay"></div>
-                    <div class="portfolio-info-card">
-                      <h3 class="_20px-text-black">E-commerce Website Development</h3>
-                    </div>
-                  </a></div>
+                  </a>
+                </div>
+                <?php endforeach; ?>
               </div>
             </div>
           </div>
@@ -1127,49 +1099,6 @@ $places = getAllPlaces();
             <div class="circle-percentage-color"></div>
           </div>
         </a>
-      </div>
-    </section>
-
-    <section class="section-60px">
-      <div class="infinity-carousel-container primary">
-        <div data-w-id="845ec2e7-0244-5b21-d67d-d4ec523c3585" class="infinity-slider-carousel">
-          <div
-            style="-webkit-transform:translate3d(0%, 0, 0) scale3d(1, 1, 1) rotateX(0) rotateY(0) rotateZ(0) skew(0, 0);-moz-transform:translate3d(0%, 0, 0) scale3d(1, 1, 1) rotateX(0) rotateY(0) rotateZ(0) skew(0, 0);-ms-transform:translate3d(0%, 0, 0) scale3d(1, 1, 1) rotateX(0) rotateY(0) rotateZ(0) skew(0, 0);transform:translate3d(0%, 0, 0) scale3d(1, 1, 1) rotateX(0) rotateY(0) rotateZ(0) skew(0, 0)"
-            class="infinity-item-container"><img width="59.5" loading="lazy" alt="" src="images/logo-bronx.svg"
-              class="partner-logo" /><img width="59.5" loading="lazy" alt="" src="images/nexoy.webp"
-              class="partner-logo" /><img width="70" loading="lazy" alt="" src="images/logo-wand.svg"
-              class="partner-logo" /><img width="59.5" loading="lazy" alt="" src="images/logo-ronda.svg"
-              class="partner-logo" /><img width="59.5" loading="lazy" alt="" src="images/logo-tate.svg"
-              class="partner-logo" /></div>
-          <div
-            style="-webkit-transform:translate3d(0%, 0, 0) scale3d(1, 1, 1) rotateX(0) rotateY(0) rotateZ(0) skew(0, 0);-moz-transform:translate3d(0%, 0, 0) scale3d(1, 1, 1) rotateX(0) rotateY(0) rotateZ(0) skew(0, 0);-ms-transform:translate3d(0%, 0, 0) scale3d(1, 1, 1) rotateX(0) rotateY(0) rotateZ(0) skew(0, 0);transform:translate3d(0%, 0, 0) scale3d(1, 1, 1) rotateX(0) rotateY(0) rotateZ(0) skew(0, 0)"
-            class="infinity-item-container"><img width="59.5" loading="lazy" alt="" src="images/logo-bronx.svg"
-              class="partner-logo" /><img width="59.5" loading="lazy" alt="" src="images/nexoy.webp"
-              class="partner-logo" /><img width="70" loading="lazy" alt="" src="images/logo-wand.svg"
-              class="partner-logo" /><img width="59.5" loading="lazy" alt="" src="images/logo-ronda.svg"
-              class="partner-logo" /><img width="59.5" loading="lazy" alt="" src="images/logo-tate.svg"
-              class="partner-logo" /></div>
-        </div>
-      </div>
-      <div class="infinity-carousel-container">
-        <div data-w-id="845ec2e7-0244-5b21-d67d-d4ec523c3593" class="infinity-slider-carousel">
-          <div
-            style="-webkit-transform:translate3d(-100%, 0, 0) scale3d(1, 1, 1) rotateX(0) rotateY(0) rotateZ(0) skew(0, 0);-moz-transform:translate3d(-100%, 0, 0) scale3d(1, 1, 1) rotateX(0) rotateY(0) rotateZ(0) skew(0, 0);-ms-transform:translate3d(-100%, 0, 0) scale3d(1, 1, 1) rotateX(0) rotateY(0) rotateZ(0) skew(0, 0);transform:translate3d(-100%, 0, 0) scale3d(1, 1, 1) rotateX(0) rotateY(0) rotateZ(0) skew(0, 0)"
-            class="infinity-item-container"><img width="70" loading="lazy" alt="" src="images/customers_7.svg"
-              class="sponser-logo" /><img width="59.5" loading="lazy" alt="" src="images/customers_6.svg"
-              class="sponser-logo" /><img width="59.5" loading="lazy" alt="" src="images/customers_2.svg"
-              class="sponser-logo" /><img width="59.5" loading="lazy" alt="" src="images/customers_5.svg"
-              class="sponser-logo" /><img width="59.5" loading="lazy" alt="" src="images/bronx.svg"
-              class="sponser-logo" /></div>
-          <div
-            style="-webkit-transform:translate3d(-100%, 0, 0) scale3d(1, 1, 1) rotateX(0) rotateY(0) rotateZ(0) skew(0, 0);-moz-transform:translate3d(-100%, 0, 0) scale3d(1, 1, 1) rotateX(0) rotateY(0) rotateZ(0) skew(0, 0);-ms-transform:translate3d(-100%, 0, 0) scale3d(1, 1, 1) rotateX(0) rotateY(0) rotateZ(0) skew(0, 0);transform:translate3d(-100%, 0, 0) scale3d(1, 1, 1) rotateX(0) rotateY(0) rotateZ(0) skew(0, 0)"
-            class="infinity-item-container"><img width="70" loading="lazy" alt="" src="images/customers_7.svg"
-              class="sponser-logo" /><img width="59.5" loading="lazy" alt="" src="images/customers_6.svg"
-              class="sponser-logo" /><img width="59.5" loading="lazy" alt="" src="images/customers_2.svg"
-              class="sponser-logo" /><img width="59.5" loading="lazy" alt="" src="images/customers_5.svg"
-              class="sponser-logo" /><img width="59.5" loading="lazy" alt="" src="images/bronx.svg"
-              class="sponser-logo" /></div>
-        </div>
       </div>
     </section>
 
@@ -1198,16 +1127,16 @@ $places = getAllPlaces();
         <div class="w-dyn-list">
           <div role="list" class="vertical-left-stretch w-dyn-items">
             <div role="listitem" class="w-dyn-item">
+              <?php foreach($articles as $article): ?>
               <div data-w-id="904617dc-ba8b-90f7-616e-2c583349f757" class="service-list-card-wrapper"><a
-                  href="/services/marketing-copywriting" class="service-list-card w-inline-block">
+                  href="/visitvista/project/article.php?id=<?php echo $article['id']; ?>" class="service-list-card w-inline-block">
                   <div class="service-logo-title-wrapper">
                     <div class="_60px-icon-wrapper"><img src="images/marketing-automation.avif" loading="lazy" alt=""
                         class="service-card-logo" /></div>
-                    <h3 class="_30px-text">Branding &amp; Marketing</h3>
+                    <h3 class="_30px-text"><?php echo htmlspecialchars($article['title']); ?></h3>
                   </div>
                   <div class="service-summery-wrapper">
-                    <p class="service-summery">Develop content that drives traffic and conversions, with engaging blog
-                      posts, web copy, and email campaigns.</p>
+                    <p class="service-summery"><?php echo htmlspecialchars($article['content']); ?></p>
                     <div
                       style="-webkit-transform:translate3d(0, 0, 0) scale3d(1, 1, 1) rotateX(0) rotateY(0) rotateZ(-45deg) skew(0, 0);-moz-transform:translate3d(0, 0, 0) scale3d(1, 1, 1) rotateX(0) rotateY(0) rotateZ(-45deg) skew(0, 0);-ms-transform:translate3d(0, 0, 0) scale3d(1, 1, 1) rotateX(0) rotateY(0) rotateZ(-45deg) skew(0, 0);transform:translate3d(0, 0, 0) scale3d(1, 1, 1) rotateX(0) rotateY(0) rotateZ(-45deg) skew(0, 0)"
                       class="service-arrow-link-rotate">
@@ -1216,135 +1145,15 @@ $places = getAllPlaces();
                           loading="lazy" width="12" alt="Left Right Arrow" class="navigation-icon-image" /></div>
                     </div>
                   </div>
-                </a><img src="images/60511.avif" loading="lazy"
+                </a><img src="<?php echo htmlspecialchars($article['image_url']); ?>" loading="lazy"
                   style="-webkit-transform:translate3d(0, 0, 0) scale3d(1.4, 1.4, 1) rotateX(0) rotateY(0) rotateZ(-15deg) skew(0, 0);-moz-transform:translate3d(0, 0, 0) scale3d(1.4, 1.4, 1) rotateX(0) rotateY(0) rotateZ(-15deg) skew(0, 0);-ms-transform:translate3d(0, 0, 0) scale3d(1.4, 1.4, 1) rotateX(0) rotateY(0) rotateZ(-15deg) skew(0, 0);transform:translate3d(0, 0, 0) scale3d(1.4, 1.4, 1) rotateX(0) rotateY(0) rotateZ(-15deg) skew(0, 0);display:block;opacity:0"
                   alt="" sizes="100vw"
-                  srcset="images/60511-p-500.avif 500w, images/60511-p-800.avif 800w, images/60511.avif 1500w"
-                  class="service-hover-image" /></div>
+                  srcset="<?php echo htmlspecialchars($article['image_url']); ?>, <?php echo htmlspecialchars($article['image_url']); ?>, <?php echo htmlspecialchars($article['image_url']); ?>"
+                  class="service-hover-image" />
+                </div>
+                <?php endforeach; ?>
             </div>
-            <div role="listitem" class="w-dyn-item">
-              <div data-w-id="904617dc-ba8b-90f7-616e-2c583349f757" class="service-list-card-wrapper"><a
-                  href="/services/video-production" class="service-list-card w-inline-block">
-                  <div class="service-logo-title-wrapper">
-                    <div class="_60px-icon-wrapper"><img src="images/video-call.avif" loading="lazy" alt=""
-                        class="service-card-logo" /></div>
-                    <h3 class="_30px-text">Video Production</h3>
-                  </div>
-                  <div class="service-summery-wrapper">
-                    <p class="service-summery">Engage your audience with professional videos and animations, from
-                      explainer videos to motion graphics.</p>
-                    <div
-                      style="-webkit-transform:translate3d(0, 0, 0) scale3d(1, 1, 1) rotateX(0) rotateY(0) rotateZ(-45deg) skew(0, 0);-moz-transform:translate3d(0, 0, 0) scale3d(1, 1, 1) rotateX(0) rotateY(0) rotateZ(-45deg) skew(0, 0);-ms-transform:translate3d(0, 0, 0) scale3d(1, 1, 1) rotateX(0) rotateY(0) rotateZ(-45deg) skew(0, 0);transform:translate3d(0, 0, 0) scale3d(1, 1, 1) rotateX(0) rotateY(0) rotateZ(-45deg) skew(0, 0)"
-                      class="service-arrow-link-rotate">
-                      <div class="horizontal-wrapper-24px"><img src="images/frame-20-1-.svg" loading="lazy"
-                          alt="Left Right Arrow" class="navigation-icon-image" /><img src="images/frame-20-1-.svg"
-                          loading="lazy" width="12" alt="Left Right Arrow" class="navigation-icon-image" /></div>
-                    </div>
-                  </div>
-                </a><img src="images/2149066324.avif" loading="lazy"
-                  style="-webkit-transform:translate3d(0, 0, 0) scale3d(1.4, 1.4, 1) rotateX(0) rotateY(0) rotateZ(-15deg) skew(0, 0);-moz-transform:translate3d(0, 0, 0) scale3d(1.4, 1.4, 1) rotateX(0) rotateY(0) rotateZ(-15deg) skew(0, 0);-ms-transform:translate3d(0, 0, 0) scale3d(1.4, 1.4, 1) rotateX(0) rotateY(0) rotateZ(-15deg) skew(0, 0);transform:translate3d(0, 0, 0) scale3d(1.4, 1.4, 1) rotateX(0) rotateY(0) rotateZ(-15deg) skew(0, 0);display:block;opacity:0"
-                  alt="" sizes="100vw"
-                  srcset="images/2149066324-p-500.avif 500w, images/2149066324-p-800.avif 800w, images/2149066324.avif 1500w"
-                  class="service-hover-image" /></div>
-            </div>
-            <div role="listitem" class="w-dyn-item">
-              <div data-w-id="904617dc-ba8b-90f7-616e-2c583349f757" class="service-list-card-wrapper"><a
-                  href="/services/graphic-design" class="service-list-card w-inline-block">
-                  <div class="service-logo-title-wrapper">
-                    <div class="_60px-icon-wrapper"><img src="images/branding.avif" loading="lazy" alt=""
-                        class="service-card-logo" /></div>
-                    <h3 class="_30px-text">Graphic Design</h3>
-                  </div>
-                  <div class="service-summery-wrapper">
-                    <p class="service-summery">Create a unique brand identity with logo design and visuals that connect
-                      with your target audience.</p>
-                    <div
-                      style="-webkit-transform:translate3d(0, 0, 0) scale3d(1, 1, 1) rotateX(0) rotateY(0) rotateZ(-45deg) skew(0, 0);-moz-transform:translate3d(0, 0, 0) scale3d(1, 1, 1) rotateX(0) rotateY(0) rotateZ(-45deg) skew(0, 0);-ms-transform:translate3d(0, 0, 0) scale3d(1, 1, 1) rotateX(0) rotateY(0) rotateZ(-45deg) skew(0, 0);transform:translate3d(0, 0, 0) scale3d(1, 1, 1) rotateX(0) rotateY(0) rotateZ(-45deg) skew(0, 0)"
-                      class="service-arrow-link-rotate">
-                      <div class="horizontal-wrapper-24px"><img src="images/frame-20-1-.svg" loading="lazy"
-                          alt="Left Right Arrow" class="navigation-icon-image" /><img src="images/frame-20-1-.svg"
-                          loading="lazy" width="12" alt="Left Right Arrow" class="navigation-icon-image" /></div>
-                    </div>
-                  </div>
-                </a><img src="images/17660.avif" loading="lazy"
-                  style="-webkit-transform:translate3d(0, 0, 0) scale3d(1.4, 1.4, 1) rotateX(0) rotateY(0) rotateZ(-15deg) skew(0, 0);-moz-transform:translate3d(0, 0, 0) scale3d(1.4, 1.4, 1) rotateX(0) rotateY(0) rotateZ(-15deg) skew(0, 0);-ms-transform:translate3d(0, 0, 0) scale3d(1.4, 1.4, 1) rotateX(0) rotateY(0) rotateZ(-15deg) skew(0, 0);transform:translate3d(0, 0, 0) scale3d(1.4, 1.4, 1) rotateX(0) rotateY(0) rotateZ(-15deg) skew(0, 0);display:block;opacity:0"
-                  alt="" sizes="100vw"
-                  srcset="images/17660-p-500.avif 500w, images/17660-p-800.avif 800w, images/17660.avif 1500w"
-                  class="service-hover-image" /></div>
-            </div>
-            <div role="listitem" class="w-dyn-item">
-              <div data-w-id="904617dc-ba8b-90f7-616e-2c583349f757" class="service-list-card-wrapper"><a
-                  href="/services/seo-optimization" class="service-list-card w-inline-block">
-                  <div class="service-logo-title-wrapper">
-                    <div class="_60px-icon-wrapper"><img src="images/seo-adn-web.avif" loading="lazy" alt=""
-                        class="service-card-logo" /></div>
-                    <h3 class="_30px-text">SEO Optimization</h3>
-                  </div>
-                  <div class="service-summery-wrapper">
-                    <p class="service-summery">Boost your website&#x27;s visibility with tailored SEO strategies, from
-                      keyword research to technical optimization.</p>
-                    <div
-                      style="-webkit-transform:translate3d(0, 0, 0) scale3d(1, 1, 1) rotateX(0) rotateY(0) rotateZ(-45deg) skew(0, 0);-moz-transform:translate3d(0, 0, 0) scale3d(1, 1, 1) rotateX(0) rotateY(0) rotateZ(-45deg) skew(0, 0);-ms-transform:translate3d(0, 0, 0) scale3d(1, 1, 1) rotateX(0) rotateY(0) rotateZ(-45deg) skew(0, 0);transform:translate3d(0, 0, 0) scale3d(1, 1, 1) rotateX(0) rotateY(0) rotateZ(-45deg) skew(0, 0)"
-                      class="service-arrow-link-rotate">
-                      <div class="horizontal-wrapper-24px"><img src="images/frame-20-1-.svg" loading="lazy"
-                          alt="Left Right Arrow" class="navigation-icon-image" /><img src="images/frame-20-1-.svg"
-                          loading="lazy" width="12" alt="Left Right Arrow" class="navigation-icon-image" /></div>
-                    </div>
-                  </div>
-                </a><img src="images/90929.avif" loading="lazy"
-                  style="-webkit-transform:translate3d(0, 0, 0) scale3d(1.4, 1.4, 1) rotateX(0) rotateY(0) rotateZ(-15deg) skew(0, 0);-moz-transform:translate3d(0, 0, 0) scale3d(1.4, 1.4, 1) rotateX(0) rotateY(0) rotateZ(-15deg) skew(0, 0);-ms-transform:translate3d(0, 0, 0) scale3d(1.4, 1.4, 1) rotateX(0) rotateY(0) rotateZ(-15deg) skew(0, 0);transform:translate3d(0, 0, 0) scale3d(1.4, 1.4, 1) rotateX(0) rotateY(0) rotateZ(-15deg) skew(0, 0);display:block;opacity:0"
-                  alt="" sizes="100vw"
-                  srcset="images/90929-p-500.avif 500w, images/90929-p-800.avif 800w, images/90929.avif 1500w"
-                  class="service-hover-image" /></div>
-            </div>
-            <div role="listitem" class="w-dyn-item">
-              <div data-w-id="904617dc-ba8b-90f7-616e-2c583349f757" class="service-list-card-wrapper"><a
-                  href="/services/ui-ux-design" class="service-list-card w-inline-block">
-                  <div class="service-logo-title-wrapper">
-                    <div class="_60px-icon-wrapper"><img src="images/ui-design.avif" loading="lazy" alt=""
-                        class="service-card-logo" /></div>
-                    <h3 class="_30px-text">UI/UX Design</h3>
-                  </div>
-                  <div class="service-summery-wrapper">
-                    <p class="service-summery">Create captivating videos and animations that tell your brand’s story,
-                      engage audiences, and enhance online visibility.</p>
-                    <div
-                      style="-webkit-transform:translate3d(0, 0, 0) scale3d(1, 1, 1) rotateX(0) rotateY(0) rotateZ(-45deg) skew(0, 0);-moz-transform:translate3d(0, 0, 0) scale3d(1, 1, 1) rotateX(0) rotateY(0) rotateZ(-45deg) skew(0, 0);-ms-transform:translate3d(0, 0, 0) scale3d(1, 1, 1) rotateX(0) rotateY(0) rotateZ(-45deg) skew(0, 0);transform:translate3d(0, 0, 0) scale3d(1, 1, 1) rotateX(0) rotateY(0) rotateZ(-45deg) skew(0, 0)"
-                      class="service-arrow-link-rotate">
-                      <div class="horizontal-wrapper-24px"><img src="images/frame-20-1-.svg" loading="lazy"
-                          alt="Left Right Arrow" class="navigation-icon-image" /><img src="images/frame-20-1-.svg"
-                          loading="lazy" width="12" alt="Left Right Arrow" class="navigation-icon-image" /></div>
-                    </div>
-                  </div>
-                </a><img src="images/2150104516.jpg" loading="lazy"
-                  style="-webkit-transform:translate3d(0, 0, 0) scale3d(1.4, 1.4, 1) rotateX(0) rotateY(0) rotateZ(-15deg) skew(0, 0);-moz-transform:translate3d(0, 0, 0) scale3d(1.4, 1.4, 1) rotateX(0) rotateY(0) rotateZ(-15deg) skew(0, 0);-ms-transform:translate3d(0, 0, 0) scale3d(1.4, 1.4, 1) rotateX(0) rotateY(0) rotateZ(-15deg) skew(0, 0);transform:translate3d(0, 0, 0) scale3d(1.4, 1.4, 1) rotateX(0) rotateY(0) rotateZ(-15deg) skew(0, 0);display:block;opacity:0"
-                  alt="" class="service-hover-image" /></div>
-            </div>
-            <div role="listitem" class="w-dyn-item">
-              <div data-w-id="904617dc-ba8b-90f7-616e-2c583349f757" class="service-list-card-wrapper"><a
-                  href="/services/web-development" class="service-list-card w-inline-block">
-                  <div class="service-logo-title-wrapper">
-                    <div class="_60px-icon-wrapper"><img src="images/code-optimisation-20-1-.avif" loading="lazy" alt=""
-                        class="service-card-logo" /></div>
-                    <h3 class="_30px-text">Web Development</h3>
-                  </div>
-                  <div class="service-summery-wrapper">
-                    <p class="service-summery">We design responsive, custom websites on Webflow that boost performance,
-                      ensuring a seamless user experience.</p>
-                    <div
-                      style="-webkit-transform:translate3d(0, 0, 0) scale3d(1, 1, 1) rotateX(0) rotateY(0) rotateZ(-45deg) skew(0, 0);-moz-transform:translate3d(0, 0, 0) scale3d(1, 1, 1) rotateX(0) rotateY(0) rotateZ(-45deg) skew(0, 0);-ms-transform:translate3d(0, 0, 0) scale3d(1, 1, 1) rotateX(0) rotateY(0) rotateZ(-45deg) skew(0, 0);transform:translate3d(0, 0, 0) scale3d(1, 1, 1) rotateX(0) rotateY(0) rotateZ(-45deg) skew(0, 0)"
-                      class="service-arrow-link-rotate">
-                      <div class="horizontal-wrapper-24px"><img src="images/frame-20-1-.svg" loading="lazy"
-                          alt="Left Right Arrow" class="navigation-icon-image" /><img src="images/frame-20-1-.svg"
-                          loading="lazy" width="12" alt="Left Right Arrow" class="navigation-icon-image" /></div>
-                    </div>
-                  </div>
-                </a><img src="images/33353.avif" loading="lazy"
-                  style="-webkit-transform:translate3d(0, 0, 0) scale3d(1.4, 1.4, 1) rotateX(0) rotateY(0) rotateZ(-15deg) skew(0, 0);-moz-transform:translate3d(0, 0, 0) scale3d(1.4, 1.4, 1) rotateX(0) rotateY(0) rotateZ(-15deg) skew(0, 0);-ms-transform:translate3d(0, 0, 0) scale3d(1.4, 1.4, 1) rotateX(0) rotateY(0) rotateZ(-15deg) skew(0, 0);transform:translate3d(0, 0, 0) scale3d(1.4, 1.4, 1) rotateX(0) rotateY(0) rotateZ(-15deg) skew(0, 0);display:block;opacity:0"
-                  alt="" sizes="100vw"
-                  srcset="images/33353-p-500.avif 500w, images/33353-p-800.avif 800w, images/33353.avif 1500w"
-                  class="service-hover-image" /></div>
-            </div>
+
           </div>
         </div>
       </div>
@@ -1364,7 +1173,7 @@ $places = getAllPlaces();
           </div>
           <div class="footer-block end">
             <div class="link-list">
-              <a data-w-id="ae4630f3-25c8-1af0-bf6f-a34696446e8b" href="/visitvista/index.php"
+              <a data-w-id="ae4630f3-25c8-1af0-bf6f-a34696446e8b" href="index.php"
                 class="footer-link-wrapper w-inline-block">
                 <div class="footer-link">
                   <div class="text">Home</div>
@@ -1374,7 +1183,7 @@ $places = getAllPlaces();
                   <div class="nav-border"></div>
                 </div>
               </a>
-              <a data-w-id="ae4630f3-25c8-1af0-bf6f-a34696446e8b" href="/visitvista/about-us.php"
+              <a data-w-id="ae4630f3-25c8-1af0-bf6f-a34696446e8b" href="about-us.php"
                 class="footer-link-wrapper w-inline-block">
                 <div class="footer-link">
                   <div class="text">About</div>
@@ -1384,7 +1193,7 @@ $places = getAllPlaces();
                   <div class="nav-border"></div>
                 </div>
               </a>
-              <a data-w-id="ae4630f3-25c8-1af0-bf6f-a34696446e8b" href="/visitvista/explore.php" class="footer-link-wrapper w-inline-block">
+              <a data-w-id="ae4630f3-25c8-1af0-bf6f-a34696446e8b" href="explore.php" class="footer-link-wrapper w-inline-block">
                 <div class="footer-link">
                   <div class="text">Explore</div>
                   <div class="text">Explore</div>
@@ -1393,7 +1202,7 @@ $places = getAllPlaces();
                   <div class="nav-border"></div>
                 </div>
               </a>
-              <a data-w-id="ae4630f3-25c8-1af0-bf6f-a34696446e8b" href="/visitvista/article.php"
+              <a data-w-id="ae4630f3-25c8-1af0-bf6f-a34696446e8b" href="article.php"
                 class="footer-link-wrapper w-inline-block">
                 <div class="footer-link">
                   <div class="text">Article</div>

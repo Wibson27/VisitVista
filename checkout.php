@@ -1,66 +1,40 @@
-<?php
-require_once __DIR__ . '/functions/database_functions.php';
-error_reporting(E_ALL);
-ini_set('display_errors', 1);
-// Get all articles using the function
-$articles = getAllArticles();
-?>
-
 <!DOCTYPE html>
-<html data-wf-page="6706d222109220a821634b02" data-wf-site="66f00efc0ba3b86a13792a55" lang="en">
+<html data-wf-page="670c29405947824a1a06bc1a" data-wf-site="66f00efc0ba3b86a13792a55" lang="en">
 
 <head>
   <meta charset="utf-8" />
-  <title>Article</title>
-  <meta content="Article" property="og:title" />
-  <meta content="Article" property="twitter:title" />
+  <title>Agency</title>
   <meta content="width=device-width, initial-scale=1" name="viewport" />
   <meta content="Webflow" name="generator" />
-
-  <!-- CSS -->
   <link href="css/agency-nx.webflow.6599087d1.min.css" rel="stylesheet" type="text/css" />
-
-  <!-- Google Fonts Preconnect -->
   <link href="https://fonts.googleapis.com" rel="preconnect" />
   <link href="https://fonts.gstatic.com" rel="preconnect" crossorigin="anonymous" />
-
-  <!-- WebFont Loader -->
   <script src="https://ajax.googleapis.com/ajax/libs/webfont/1.6.26/webfont.js" type="text/javascript"></script>
   <script type="text/javascript">
     WebFont.load({
       google: {
-        families: [
-          "Oswald:200,300,400,500,600,700",
-          "Inter:300,regular,500,600,700,800",
-          "Material Icons:regular",
+        families: ["Oswald:200,300,400,500,600,700", "Inter:300,regular,500,600,700,800", "Material Icons:regular",
           "Material Icons Outlined:regular"
         ]
       }
     });
   </script>
-
   <script type="text/javascript">
-    ! function(o, c) {
+    ! function (o, c) {
       var n = c.documentElement,
         t = " w-mod-";
-      n.className += t + "js",
-        ("ontouchstart" in o || o.DocumentTouch && c instanceof DocumentTouch) && (n.className += t + "touch")
+      n.className += t + "js", ("ontouchstart" in o || o.DocumentTouch && c instanceof DocumentTouch) && (n.className +=
+        t + "touch")
     }(window, document);
   </script>
-
-  <!-- Favicon and App Icon -->
   <link href="images/favicon.png" rel="shortcut icon" type="image/x-icon" />
   <link href="images/app-icon.png" rel="apple-touch-icon" />
-
-  <!-- Inline CSS -->
   <style>
     body {
       -webkit-font-smoothing: antialiased;
       -moz-osx-font-smoothing: grayscale;
     }
   </style>
-
-  <!-- Currency Settings -->
   <script type="text/javascript">
     window.__WEBFLOW_CURRENCY_SETTINGS = {
       "currencyCode": "USD",
@@ -72,22 +46,12 @@ $articles = getAllArticles();
       "hideDecimalForWholeNumbers": false
     };
   </script>
-
-  <!-- External CSS and JS -->
   <link href="css/style.css" rel="stylesheet" type="text/css" />
   <script type="text/javascript" src="js/script.js"></script>
 </head>
 
 <body>
-  <!-- Site Wrapper -->
-  <div data-w-id="23d7d02c-4317-0890-8bf3-20ad7d0c046c" class="site-wrapper">
-
-    <!-- Progress Bar -->
-    <div class="progress-bar">
-      <div class="progress-bar-line"></div>
-    </div>
-
-    <!-- Custom Cursor -->
+  <div data-w-id="b191021e-59f8-40d6-bc45-743c7b46ec1b" class="site-wrapper">
     <div class="cursor-mouse-wrapper">
       <div class="main-cursor">
         <div class="cursor-mouse-pointer">
@@ -103,7 +67,9 @@ $articles = getAllArticles();
         <div class="main-part"></div>
       </div>
     </div>
-
+    <div class="progress-bar">
+      <div class="progress-bar-line"></div>
+    </div>
     <!-- Navbar Wrapper -->
     <div class="navbar-hide-show-effect">
       <div data-w-id="9dabe443-61bf-363b-c654-3ce84672a380" class="navbar-hide"></div>
@@ -475,7 +441,11 @@ $articles = getAllArticles();
     </div>
     <section class="banner">
       <div class="container">
-        <h1 class="heading">Article</h1>
+        <h1 class="heading">Checkout</h1>
+        <div class="breadcrumb-block"><a href="/" class="breadcrumb">Home</a>
+          <div class="_8px-circle-title"></div>
+          <div class="breadcrumb">Checkout</div>
+        </div>
       </div>
       <div data-w-id="86948c09-9ea6-0d24-c71d-cfb6b9e521b5" class="image-show-style">
         <div class="bg-column-mask">
@@ -496,50 +466,422 @@ $articles = getAllArticles();
         </div>
       </div>
     </section>
-    <section class="section">
-      <div class="container">
-        <div class="w-dyn-list">
-            <div role="list" class="_3-column-grid w-dyn-items">
-            <?php foreach($articles as $article): ?>
-                    <div role="listitem" class="w-dyn-item">
-                        <a data-w-id="89a00a31-e1dd-6742-3b71-4fad578cb15c"
-                            href="/visitvista/project/article.php?id=<?php echo $article['id']; ?>"
-                            class="portfolio-slide border w-inline-block">
-                            <div class="_5px-rounded-mask">
-                                <img src="<?php echo htmlspecialchars($article['image_url']); ?>"
-                                     loading="lazy"
-                                     alt="<?php echo htmlspecialchars($article['title']); ?>"
-                                     class="portfolio-thumbnail-420px" />
-                                <div class="linear-background">
-                                    <h3 class="_24px-text"><?php echo htmlspecialchars($article['title']); ?></h3>
-                                    <p class="_14px-text"><?php echo htmlspecialchars($article['content']); ?></p>
-                                </div>
-                            </div>
-                            <div style="height:0%" class="hover-from-bottom"></div>
-                            <div style="height:0%" class="hover-from-top"></div>
-                        </a>
-                    </div>
-                <?php endforeach; ?>
+    <div class="section">
+      <div data-node-type="commerce-checkout-form-container" data-wf-checkout-query="query Dynamo2 {
+  database {
+    id
+    commerceOrder {
+      availableShippingMethods {
+        description
+        id
+        mode
+        name
+        price {
+          value
+          unit
+          decimalValue
+          string
+        }
+        selected
+      }
+      comment
+      customData {
+        checkbox
+        name
+        textArea
+        textInput
+      }
+      customerInfo {
+        billingAddress {
+          addressee
+          city
+          country
+          japanType
+          line1
+          line2
+          postalCode
+          state
+          type
+        }
+        identity {
+          email
+          fullName
+        }
+        shippingAddress {
+          addressee
+          city
+          country
+          japanType
+          line1
+          line2
+          postalCode
+          state
+          type
+        }
+        stripePayment {
+          card {
+            expires {
+              month
+              year
+            }
+            last4
+            provided
+            provider
+          }
+        }
+      }
+      downloadFiles {
+        id
+        name
+        url
+      }
+      extraItems {
+        name
+        pluginId
+        pluginName
+        price {
+          value
+          unit
+          decimalValue
+          string
+        }
+      }
+      id
+      paymentProcessor
+      startedOn
+      statusFlags {
+        billingAddressRequiresPostalCode
+        hasDownloads
+        hasSubscription
+        isFreeOrder
+        needAddress
+        needIdentity
+        needItems
+        needPayment
+        requiresShipping
+        shippingAddressRequiresPostalCode
+        shouldRecalc
+      }
+      subtotal {
+        value
+        unit
+        decimalValue
+        string
+      }
+      total {
+        value
+        unit
+        decimalValue
+        string
+      }
+      updatedOn
+      userItems {
+        count
+        id
+        product {
+          id
+          cmsLocaleId
+          f__draft_0ht
+          f__archived_0ht
+          f_name_
+          f_sku_properties_3dr {
+            id
+            name
+            enum {
+              id
+              name
+              slug
+            }
+          }
+        }
+        rowTotal {
+          value
+          unit
+          decimalValue
+          string
+        }
+        sku {
+          cmsLocaleId
+          f__draft_0ht
+          f__archived_0ht
+          f_main_image_4dr {
+            url
+            file {
+              size
+              origFileName
+              createdOn
+              updatedOn
+              mimeType
+              width
+              height
+              variants {
+                origFileName
+                quality
+                height
+                width
+                s3Url
+                error
+                size
+              }
+            }
+            alt
+          }
+          f_sku_values_3dr {
+            property {
+              id
+            }
+            value {
+              id
+            }
+          }
+          id
+        }
+        subscriptionFrequency
+        subscriptionInterval
+        subscriptionTrial
+      }
+      userItemsCount
+    }
+  }
+  site {
+    id
+    commerce {
+      businessAddress {
+        country
+      }
+      defaultCountry
+      defaultCurrency
+      quickCheckoutEnabled
+    }
+  }
+}" data-wf-page-link-href-prefix="" class="w-commerce-commercecheckoutformcontainer checkout-container">
+        <div class="w-commerce-commercelayoutmain checkout-left-bar">
+          <div class="checkout-header">
+            <h1 class="checkout-title">Checkout</h1>
+          </div>
+          <form data-node-type="commerce-checkout-customer-info-wrapper"
+            class="w-commerce-commercecheckoutcustomerinfowrapper block-card">
+            <div class="w-commerce-commercecheckoutblockheader block-contents">
+              <h3 class="checkout-sub-title with-border">Billing details</h3>
             </div>
+            <fieldset class="w-commerce-commercecheckoutblockcontent block-contents"><label for="wf-ecom-email"
+                class="w-commerce-commercecheckoutlabel checkout-label">Email *</label><input id="wf-ecom-email"
+                data-wf-bindings="%5B%7B%22value%22%3A%7B%22type%22%3A%22PlainText%22%2C%22filter%22%3A%7B%22type%22%3A%22identity%22%2C%22params%22%3A%5B%5D%7D%2C%22dataPath%22%3A%22database.commerceOrder.customerEmail%22%7D%7D%5D"
+                class="w-commerce-commercecheckoutemailinput checkout-field" type="text" name="email" required="" />
+            </fieldset>
+          </form>
+          <div class="w-commerce-commercecheckoutpaymentinfowrapper block-card">
+            <div class="w-commerce-commercecheckoutblockheader block-contents">
+              <h3 class="sub-total-text">Payment</h3>
+            </div>
+            <fieldset class="w-commerce-commercecheckoutblockcontent block-contents"><label for=""
+                class="w-commerce-commercecheckoutlabel checkout-label">Card Number *</label>
+              <div data-wf-stripe-element-type="cardNumber" data-wf-style-map="{}"
+                class="w-commerce-commercecheckoutcardnumber checkout-field">
+                <div></div>
+              </div>
+              <div class="w-commerce-commercecheckoutrow">
+                <div class="w-commerce-commercecheckoutcolumn"><label for=""
+                    class="w-commerce-commercecheckoutlabel checkout-label">Expiration Date *</label>
+                  <div data-wf-stripe-element-type="cardExpiry" data-wf-style-map="{}"
+                    class="w-commerce-commercecheckoutcardexpirationdate checkout-field">
+                    <div></div>
+                  </div>
+                </div>
+                <div class="w-commerce-commercecheckoutcolumn"><label for=""
+                    class="w-commerce-commercecheckoutlabel checkout-label">Security Code *</label>
+                  <div data-wf-stripe-element-type="cardCvc" data-wf-style-map="{}"
+                    class="w-commerce-commercecheckoutcardsecuritycode checkout-field">
+                    <div></div>
+                  </div>
+                </div>
+              </div>
+              <div data-wf-bindings="%5B%5D"
+                data-wf-conditions="%7B%22condition%22%3A%7B%22fields%22%3A%7B%22requiresShipping%22%3A%7B%22eq%22%3A%22true%22%2C%22type%22%3A%22Bool%22%7D%7D%7D%2C%22dataPath%22%3A%22database.commerceOrder%22%7D"
+                class="w-commerce-commercecheckoutbillingaddresstogglewrapper billing-address-toggle"><input
+                  id="billing-address-toggle" data-node-type="commerce-checkout-billing-address-toggle-checkbox"
+                  class="w-commerce-commercecheckoutbillingaddresstogglecheckbox checkbox-billing" type="checkbox"
+                  checked="" /><label for="billing-address-toggle"
+                  class="w-commerce-commercecheckoutbillingaddresstogglelabel heading">Billing address same as
+                  shipping</label></div>
+            </fieldset>
+          </div>
+
+
+
+        </div>
+        <div class="w-commerce-commercelayoutsidebar sticky-right-bar">
+          <div class="w-commerce-commercecheckoutorderitemswrapper block">
+            <div class="w-commerce-commercecheckoutsummaryblockheader block-contents">
+              <h3 class="checkout-title with-border">Your Order</h3>
+            </div>
+            <fieldset class="w-commerce-commercecheckoutblockcontent block-contents">
+              <script type="text/x-wf-template" id="wf-template-e9e6047d-07b7-e446-3e21-de5e31ad4a32">
+                %3Cdiv%20role%3D%22listitem%22%20class%3D%22w-commerce-commercecheckoutorderitem%20checkout-products-wrapper%22%3E%3Cdiv%20class%3D%22checkout-product-info%22%3E%3Cdiv%20class%3D%22checkout-image-wrapper%22%3E%3Cimg%20data-wf-bindings%3D%22%255B%257B%2522src%2522%253A%257B%2522type%2522%253A%2522ImageRef%2522%252C%2522filter%2522%253A%257B%2522type%2522%253A%2522identity%2522%252C%2522params%2522%253A%255B%255D%257D%252C%2522dataPath%2522%253A%2522database.commerceOrder.userItems%255B%255D.sku.f_main_image_4dr%2522%257D%257D%255D%22%20src%3D%22%22%20alt%3D%22%22%20class%3D%22w-commerce-commercecartitemimage%20checkout-image%20w-dyn-bind-empty%22%2F%3E%3C%2Fdiv%3E%3Cdiv%20class%3D%22w-commerce-commercecheckoutorderitemdescriptionwrapper%20checkout-product-info-block%22%3E%3Cdiv%20data-wf-bindings%3D%22%255B%257B%2522innerHTML%2522%253A%257B%2522type%2522%253A%2522PlainText%2522%252C%2522filter%2522%253A%257B%2522type%2522%253A%2522identity%2522%252C%2522params%2522%253A%255B%255D%257D%252C%2522dataPath%2522%253A%2522database.commerceOrder.userItems%255B%255D.product.f_name_%2522%257D%257D%255D%22%20class%3D%22w-commerce-commerceboldtextblock%20checkout-product-title%20w-dyn-bind-empty%22%3E%3C%2Fdiv%3E%3Cdiv%20class%3D%22w-commerce-commercecheckoutorderitemquantitywrapper%20checkout-quantity-block%22%3E%3Cdiv%3EItems%3A%20%3C%2Fdiv%3E%3Cdiv%20data-wf-bindings%3D%22%255B%257B%2522innerHTML%2522%253A%257B%2522type%2522%253A%2522Number%2522%252C%2522filter%2522%253A%257B%2522type%2522%253A%2522numberPrecision%2522%252C%2522params%2522%253A%255B%25220%2522%252C%2522numberPrecision%2522%255D%257D%252C%2522dataPath%2522%253A%2522database.commerceOrder.userItems%255B%255D.count%2522%257D%257D%255D%22%3E1%3C%2Fdiv%3E%3C%2Fdiv%3E%3Cscript%20type%3D%22text%2Fx-wf-template%22%20id%3D%22wf-template-e9e6047d-07b7-e446-3e21-de5e31ad4a3d%22%3E%253Cli%253E%253Cspan%2520data-wf-bindings%253D%2522%25255B%25257B%252522innerHTML%252522%25253A%25257B%252522type%252522%25253A%252522PlainText%252522%25252C%252522filter%252522%25253A%25257B%252522type%252522%25253A%252522identity%252522%25252C%252522params%252522%25253A%25255B%25255D%25257D%25252C%252522dataPath%252522%25253A%252522database.commerceOrder.userItems%25255B%25255D.product.f_sku_properties_3dr%25255B%25255D.name%252522%25257D%25257D%25255D%2522%2520class%253D%2522w-dyn-bind-empty%2522%253E%253C%252Fspan%253E%253Cspan%253E%253A%2520%253C%252Fspan%253E%253Cspan%2520data-wf-bindings%253D%2522%25255B%25257B%252522innerHTML%252522%25253A%25257B%252522type%252522%25253A%252522CommercePropValues%252522%25252C%252522filter%252522%25253A%25257B%252522type%252522%25253A%252522identity%252522%25252C%252522params%252522%25253A%25255B%25255D%25257D%25252C%252522dataPath%252522%25253A%252522database.commerceOrder.userItems%25255B%25255D.product.f_sku_properties_3dr%25255B%25255D%252522%25257D%25257D%25255D%2522%2520class%253D%2522w-dyn-bind-empty%2522%253E%253C%252Fspan%253E%253C%252Fli%253E%3C%2Fscript%3E%3Cul%20data-wf-bindings%3D%22%255B%257B%2522optionSets%2522%253A%257B%2522type%2522%253A%2522CommercePropTable%2522%252C%2522filter%2522%253A%257B%2522type%2522%253A%2522identity%2522%252C%2522params%2522%253A%255B%255D%257D%252C%2522dataPath%2522%253A%2522database.commerceOrder.userItems%255B%255D.product.f_sku_properties_3dr%5B%5D%2522%257D%257D%252C%257B%2522optionValues%2522%253A%257B%2522type%2522%253A%2522CommercePropValues%2522%252C%2522filter%2522%253A%257B%2522type%2522%253A%2522identity%2522%252C%2522params%2522%253A%255B%255D%257D%252C%2522dataPath%2522%253A%2522database.commerceOrder.userItems%255B%255D.sku.f_sku_values_3dr%2522%257D%257D%255D%22%20class%3D%22w-commerce-commercecheckoutorderitemoptionlist%22%20data-wf-collection%3D%22database.commerceOrder.userItems%255B%255D.product.f_sku_properties_3dr%22%20data-wf-template-id%3D%22wf-template-e9e6047d-07b7-e446-3e21-de5e31ad4a3d%22%3E%3Cli%3E%3Cspan%20data-wf-bindings%3D%22%255B%257B%2522innerHTML%2522%253A%257B%2522type%2522%253A%2522PlainText%2522%252C%2522filter%2522%253A%257B%2522type%2522%253A%2522identity%2522%252C%2522params%2522%253A%255B%255D%257D%252C%2522dataPath%2522%253A%2522database.commerceOrder.userItems%255B%255D.product.f_sku_properties_3dr%255B%255D.name%2522%257D%257D%255D%22%20class%3D%22w-dyn-bind-empty%22%3E%3C%2Fspan%3E%3Cspan%3E%3A%20%3C%2Fspan%3E%3Cspan%20data-wf-bindings%3D%22%255B%257B%2522innerHTML%2522%253A%257B%2522type%2522%253A%2522CommercePropValues%2522%252C%2522filter%2522%253A%257B%2522type%2522%253A%2522identity%2522%252C%2522params%2522%253A%255B%255D%257D%252C%2522dataPath%2522%253A%2522database.commerceOrder.userItems%255B%255D.product.f_sku_properties_3dr%255B%255D%2522%257D%257D%255D%22%20class%3D%22w-dyn-bind-empty%22%3E%3C%2Fspan%3E%3C%2Fli%3E%3C%2Ful%3E%3C%2Fdiv%3E%3C%2Fdiv%3E%3Cdiv%20data-wf-bindings%3D%22%255B%257B%2522innerHTML%2522%253A%257B%2522type%2522%253A%2522CommercePrice%2522%252C%2522filter%2522%253A%257B%2522type%2522%253A%2522price%2522%252C%2522params%2522%253A%255B%255D%257D%252C%2522dataPath%2522%253A%2522database.commerceOrder.userItems%255B%255D.rowTotal%2522%257D%257D%255D%22%20class%3D%22checkout-product-price%22%3E%24%C2%A00.00%C2%A0USD%3C%2Fdiv%3E%3C%2Fdiv%3E
+              </script>
+              <div role="list" class="w-commerce-commercecheckoutorderitemslist order-item-list"
+                data-wf-collection="database.commerceOrder.userItems"
+                data-wf-template-id="wf-template-e9e6047d-07b7-e446-3e21-de5e31ad4a32">
+                <div role="listitem" class="w-commerce-commercecheckoutorderitem checkout-products-wrapper">
+                  <div class="checkout-product-info">
+                    <div class="checkout-image-wrapper"><img
+                        data-wf-bindings="%5B%7B%22src%22%3A%7B%22type%22%3A%22ImageRef%22%2C%22filter%22%3A%7B%22type%22%3A%22identity%22%2C%22params%22%3A%5B%5D%7D%2C%22dataPath%22%3A%22database.commerceOrder.userItems%5B%5D.sku.f_main_image_4dr%22%7D%7D%5D"
+                        src="" alt="" class="w-commerce-commercecartitemimage checkout-image w-dyn-bind-empty" /></div>
+                    <div class="w-commerce-commercecheckoutorderitemdescriptionwrapper checkout-product-info-block">
+                      <div
+                        data-wf-bindings="%5B%7B%22innerHTML%22%3A%7B%22type%22%3A%22PlainText%22%2C%22filter%22%3A%7B%22type%22%3A%22identity%22%2C%22params%22%3A%5B%5D%7D%2C%22dataPath%22%3A%22database.commerceOrder.userItems%5B%5D.product.f_name_%22%7D%7D%5D"
+                        class="w-commerce-commerceboldtextblock checkout-product-title w-dyn-bind-empty"></div>
+                      <div class="w-commerce-commercecheckoutorderitemquantitywrapper checkout-quantity-block">
+                        <div>Items: </div>
+                        <div
+                          data-wf-bindings="%5B%7B%22innerHTML%22%3A%7B%22type%22%3A%22Number%22%2C%22filter%22%3A%7B%22type%22%3A%22numberPrecision%22%2C%22params%22%3A%5B%220%22%2C%22numberPrecision%22%5D%7D%2C%22dataPath%22%3A%22database.commerceOrder.userItems%5B%5D.count%22%7D%7D%5D">
+                          1</div>
+                      </div>
+                      <script type="text/x-wf-template" id="wf-template-e9e6047d-07b7-e446-3e21-de5e31ad4a3d">
+                        %3Cli%3E%3Cspan%20data-wf-bindings%3D%22%255B%257B%2522innerHTML%2522%253A%257B%2522type%2522%253A%2522PlainText%2522%252C%2522filter%2522%253A%257B%2522type%2522%253A%2522identity%2522%252C%2522params%2522%253A%255B%255D%257D%252C%2522dataPath%2522%253A%2522database.commerceOrder.userItems%255B%255D.product.f_sku_properties_3dr%255B%255D.name%2522%257D%257D%255D%22%20class%3D%22w-dyn-bind-empty%22%3E%3C%2Fspan%3E%3Cspan%3E%3A%20%3C%2Fspan%3E%3Cspan%20data-wf-bindings%3D%22%255B%257B%2522innerHTML%2522%253A%257B%2522type%2522%253A%2522CommercePropValues%2522%252C%2522filter%2522%253A%257B%2522type%2522%253A%2522identity%2522%252C%2522params%2522%253A%255B%255D%257D%252C%2522dataPath%2522%253A%2522database.commerceOrder.userItems%255B%255D.product.f_sku_properties_3dr%255B%255D%2522%257D%257D%255D%22%20class%3D%22w-dyn-bind-empty%22%3E%3C%2Fspan%3E%3C%2Fli%3E
+                      </script>
+                      <ul
+                        data-wf-bindings="%5B%7B%22optionSets%22%3A%7B%22type%22%3A%22CommercePropTable%22%2C%22filter%22%3A%7B%22type%22%3A%22identity%22%2C%22params%22%3A%5B%5D%7D%2C%22dataPath%22%3A%22database.commerceOrder.userItems%5B%5D.product.f_sku_properties_3dr[]%22%7D%7D%2C%7B%22optionValues%22%3A%7B%22type%22%3A%22CommercePropValues%22%2C%22filter%22%3A%7B%22type%22%3A%22identity%22%2C%22params%22%3A%5B%5D%7D%2C%22dataPath%22%3A%22database.commerceOrder.userItems%5B%5D.sku.f_sku_values_3dr%22%7D%7D%5D"
+                        class="w-commerce-commercecheckoutorderitemoptionlist"
+                        data-wf-collection="database.commerceOrder.userItems%5B%5D.product.f_sku_properties_3dr"
+                        data-wf-template-id="wf-template-e9e6047d-07b7-e446-3e21-de5e31ad4a3d">
+                        <li><span
+                            data-wf-bindings="%5B%7B%22innerHTML%22%3A%7B%22type%22%3A%22PlainText%22%2C%22filter%22%3A%7B%22type%22%3A%22identity%22%2C%22params%22%3A%5B%5D%7D%2C%22dataPath%22%3A%22database.commerceOrder.userItems%5B%5D.product.f_sku_properties_3dr%5B%5D.name%22%7D%7D%5D"
+                            class="w-dyn-bind-empty"></span><span>: </span><span
+                            data-wf-bindings="%5B%7B%22innerHTML%22%3A%7B%22type%22%3A%22CommercePropValues%22%2C%22filter%22%3A%7B%22type%22%3A%22identity%22%2C%22params%22%3A%5B%5D%7D%2C%22dataPath%22%3A%22database.commerceOrder.userItems%5B%5D.product.f_sku_properties_3dr%5B%5D%22%7D%7D%5D"
+                            class="w-dyn-bind-empty"></span></li>
+                      </ul>
+                    </div>
+                  </div>
+                  <div
+                    data-wf-bindings="%5B%7B%22innerHTML%22%3A%7B%22type%22%3A%22CommercePrice%22%2C%22filter%22%3A%7B%22type%22%3A%22price%22%2C%22params%22%3A%5B%5D%7D%2C%22dataPath%22%3A%22database.commerceOrder.userItems%5B%5D.rowTotal%22%7D%7D%5D"
+                    class="checkout-product-price">$ 0.00 USD</div>
+                </div>
+              </div>
+            </fieldset>
+          </div>
+          <div class="block-contents">
+            <div class="w-commerce-commercecheckoutordersummarywrapper total-block">
+              <div class="w-commerce-commercecheckoutsummarylineitem line-item">
+                <div class="sub-total-text">Subtotal</div>
+
+                <div
+                  data-wf-bindings="%5B%7B%22innerHTML%22%3A%7B%22type%22%3A%22CommercePrice%22%2C%22filter%22%3A%7B%22type%22%3A%22price%22%2C%22params%22%3A%5B%5D%7D%2C%22dataPath%22%3A%22database.commerceOrder.subtotal%22%7D%7D%5D"
+                  class="sub-total-text"></div>
+              </div>
+              <script type="text/x-wf-template" id="wf-template-e9e6047d-07b7-e446-3e21-de5e31ad4a4a">
+                %3Cdiv%20class%3D%22w-commerce-commercecheckoutordersummaryextraitemslistitem%22%3E%3Cdiv%20data-wf-bindings%3D%22%255B%257B%2522innerHTML%2522%253A%257B%2522type%2522%253A%2522PlainText%2522%252C%2522filter%2522%253A%257B%2522type%2522%253A%2522identity%2522%252C%2522params%2522%253A%255B%255D%257D%252C%2522dataPath%2522%253A%2522database.commerceOrder.extraItems%255B%255D.name%2522%257D%257D%255D%22%20class%3D%22w-dyn-bind-empty%22%3E%3C%2Fdiv%3E%3Cdiv%20data-wf-bindings%3D%22%255B%257B%2522innerHTML%2522%253A%257B%2522type%2522%253A%2522CommercePrice%2522%252C%2522filter%2522%253A%257B%2522type%2522%253A%2522price%2522%252C%2522params%2522%253A%255B%255D%257D%252C%2522dataPath%2522%253A%2522database.commerceOrder.extraItems%255B%255D.price%2522%257D%257D%255D%22%3E%24%C2%A00.00%C2%A0USD%3C%2Fdiv%3E%3C%2Fdiv%3E
+              </script>
+              <div class="w-commerce-commercecheckoutordersummaryextraitemslist"
+                data-wf-collection="database.commerceOrder.extraItems"
+                data-wf-template-id="wf-template-e9e6047d-07b7-e446-3e21-de5e31ad4a4a">
+                <div class="w-commerce-commercecheckoutordersummaryextraitemslistitem">
+                  <div
+                    data-wf-bindings="%5B%7B%22innerHTML%22%3A%7B%22type%22%3A%22PlainText%22%2C%22filter%22%3A%7B%22type%22%3A%22identity%22%2C%22params%22%3A%5B%5D%7D%2C%22dataPath%22%3A%22database.commerceOrder.extraItems%5B%5D.name%22%7D%7D%5D"
+                    class="w-dyn-bind-empty"></div>
+                  <div
+                    data-wf-bindings="%5B%7B%22innerHTML%22%3A%7B%22type%22%3A%22CommercePrice%22%2C%22filter%22%3A%7B%22type%22%3A%22price%22%2C%22params%22%3A%5B%5D%7D%2C%22dataPath%22%3A%22database.commerceOrder.extraItems%5B%5D.price%22%7D%7D%5D">
+                    $ 0.00 USD</div>
+                </div>
+              </div>
+            </div>
+            <div class="checkout-total-price-block">
+              <div class="_30px-title-2">Total</div>
+              <div
+                data-wf-bindings="%5B%7B%22innerHTML%22%3A%7B%22type%22%3A%22CommercePrice%22%2C%22filter%22%3A%7B%22type%22%3A%22price%22%2C%22params%22%3A%5B%5D%7D%2C%22dataPath%22%3A%22database.commerceOrder.total%22%7D%7D%5D"
+                class="w-commerce-commercecheckoutsummarytotal total-text"></div>
+            </div>
+          </div>
+          <div data-node-type="commerce-cart-quick-checkout-actions" style="display:none"><a role="button"
+              aria-haspopup="dialog" aria-label="Apple Pay" data-node-type="commerce-cart-apple-pay-button"
+              style="background-image:-webkit-named-image(apple-pay-logo-white);background-size:100% 50%;background-position:50% 50%;background-repeat:no-repeat"
+              class="w-commerce-commercecartapplepaybutton apple-pay-button" tabindex="0">
+              <div></div>
+            </a><a role="button" tabindex="0" aria-haspopup="dialog"
+              data-node-type="commerce-cart-quick-checkout-button" style="display:none"
+              class="w-commerce-commercecartquickcheckoutbutton"><svg class="w-commerce-commercequickcheckoutgoogleicon"
+                xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink" width="16" height="16"
+                viewBox="0 0 16 16">
+                <defs>
+                  <polygon id="google-mark-a" points="0 .329 3.494 .329 3.494 7.649 0 7.649"></polygon>
+                  <polygon id="google-mark-c" points=".894 0 13.169 0 13.169 6.443 .894 6.443"></polygon>
+                </defs>
+                <g fill="none" fill-rule="evenodd">
+                  <path fill="#4285F4"
+                    d="M10.5967,12.0469 L10.5967,14.0649 L13.1167,14.0649 C14.6047,12.6759 15.4577,10.6209 15.4577,8.1779 C15.4577,7.6339 15.4137,7.0889 15.3257,6.5559 L7.8887,6.5559 L7.8887,9.6329 L12.1507,9.6329 C11.9767,10.6119 11.4147,11.4899 10.5967,12.0469">
+                  </path>
+                  <path fill="#34A853"
+                    d="M7.8887,16 C10.0137,16 11.8107,15.289 13.1147,14.067 C13.1147,14.066 13.1157,14.065 13.1167,14.064 L10.5967,12.047 C10.5877,12.053 10.5807,12.061 10.5727,12.067 C9.8607,12.556 8.9507,12.833 7.8887,12.833 C5.8577,12.833 4.1387,11.457 3.4937,9.605 L0.8747,9.605 L0.8747,11.648 C2.2197,14.319 4.9287,16 7.8887,16">
+                  </path>
+                  <g transform="translate(0 4)">
+                    <mask id="google-mark-b" fill="#fff">
+                      <use xlink:href="#google-mark-a"></use>
+                    </mask>
+                    <path fill="#FBBC04"
+                      d="M3.4639,5.5337 C3.1369,4.5477 3.1359,3.4727 3.4609,2.4757 L3.4639,2.4777 C3.4679,2.4657 3.4749,2.4547 3.4789,2.4427 L3.4939,0.3287 L0.8939,0.3287 C0.8799,0.3577 0.8599,0.3827 0.8459,0.4117 C-0.2821,2.6667 -0.2821,5.3337 0.8459,7.5887 L0.8459,7.5997 C0.8549,7.6167 0.8659,7.6317 0.8749,7.6487 L3.4939,5.6057 C3.4849,5.5807 3.4729,5.5587 3.4639,5.5337"
+                      mask="url(#google-mark-b)"></path>
+                  </g>
+                  <mask id="google-mark-d" fill="#fff">
+                    <use xlink:href="#google-mark-c"></use>
+                  </mask>
+                  <path fill="#EA4335"
+                    d="M0.894,4.3291 L3.478,6.4431 C4.113,4.5611 5.843,3.1671 7.889,3.1671 C9.018,3.1451 10.102,3.5781 10.912,4.3671 L13.169,2.0781 C11.733,0.7231 9.85,-0.0219 7.889,0.0001 C4.941,0.0001 2.245,1.6791 0.894,4.3291"
+                    mask="url(#google-mark-d)"></path>
+                </g>
+              </svg><svg class="w-commerce-commercequickcheckoutmicrosofticon" xmlns="http://www.w3.org/2000/svg"
+                width="16" height="16" viewBox="0 0 16 16">
+                <g fill="none" fill-rule="evenodd">
+                  <polygon fill="#F05022" points="7 7 1 7 1 1 7 1"></polygon>
+                  <polygon fill="#7DB902" points="15 7 9 7 9 1 15 1"></polygon>
+                  <polygon fill="#00A4EE" points="7 15 1 15 1 9 7 9"></polygon>
+                  <polygon fill="#FFB700" points="15 15 9 15 9 9 15 9"></polygon>
+                </g>
+              </svg>
+              <div>Pay with browser.</div>
+            </a></div>
+          <div data-w-id="e9e6047d-07b7-e446-3e21-de5e31ad4a5a" class="primary-button user-button"><a href="index.php"
+              value="Place Order" data-node-type="commerce-checkout-place-order-button"
+              class="w-commerce-commercecheckoutplaceorderbutton custom-button black"
+              data-loading-text="Placing Order...">Place Order</a>
+            <div class="absolute-hover-bottom"></div>
+          </div>
+          <div data-node-type="commerce-checkout-error-state" style="display:none"
+            class="w-commerce-commercecheckouterrorstate">
+            <div aria-live="polite" class="w-checkout-error-msg"
+              data-w-info-error="There was an error processing your customer info. Please try again, or contact us if you continue to have problems."
+              data-w-shipping-error="Sorry. We can’t ship your order to the address provided."
+              data-w-billing-error="Your payment could not be completed with the payment information provided. Please make sure that your card and billing address information is correct, or try a different payment card, to complete this order. Contact us if you continue to have problems."
+              data-w-payment-error="There was an error processing your payment. Please try again, or contact us if you continue to have problems."
+              data-w-pricing-error="The prices of one or more items in your cart have changed. Please refresh this page and try again."
+              data-w-minimum-error="The order minimum was not met. Add more items to your cart to continue."
+              data-w-extras-error="A merchant setting has changed that impacts your cart. Please refresh and try again."
+              data-w-product-error="One or more of the products in your cart have been removed. Please refresh the page and try again."
+              data-w-invalid-discount-error="This discount is invalid."
+              data-w-expired-discount-error="This discount is no longer available."
+              data-w-usage-reached-discount-error="This discount is no longer available."
+              data-w-requirements-not-met-error="Your order does not meet the requirements for this discount.">There was
+              an error processing your customer info. Please try again, or contact us if you continue to have problems.
+            </div>
+          </div>
         </div>
       </div>
-    </section>
-    <!-- Footer -->
+    </div>
     <footer class="footer">
       <div class="container">
         <div data-w-id="3447bad0-4c97-caf6-2cc4-1b7d3321ffb7" class="footer-container">
           <div class="footer-block">
-            <div><img width="70" loading="lazy" alt="" src="images/logovisitvista.png" class="site-logo" /></div>
+            <div><img width="70" loading="lazy" alt="" src="images/agency-20logo.avif" class="site-logo" /></div>
             <div class="margin-bottom-23px">
-              <p class="footer-text">Daftar sekarang dan optimalkan pengalaman wisata anda!</p>
+              <p class="footer-text">Ready to elevate your online presence? Contact us today to discuss your project and
+                discover how we can bring your vision to life.</p>
             </div>
-            <div class="horizontal-left-center-11px-gap"><img src="images/frame.avif" loading="lazy" alt="" class="image-24px" />
-              <p class="_16px-text">Copyright © VisitVista by ExploreX</p>
+            <div class="horizontal-left-center-11px-gap"><img src="images/frame.avif" loading="lazy" alt=""
+                class="image-24px" />
+              <p class="_16px-text">Copyright © Agency | Designed by Nexoy</p>
             </div>
           </div>
           <div class="footer-block end">
-            <div class="link-list">
-              <a data-w-id="ae4630f3-25c8-1af0-bf6f-a34696446e8b" href="/visitvista/index.php"
+            <div class="link-list"><a data-w-id="ae4630f3-25c8-1af0-bf6f-a34696446e8b" href="/"
                 class="footer-link-wrapper w-inline-block">
                 <div class="footer-link">
                   <div class="text">Home</div>
@@ -548,8 +890,7 @@ $articles = getAllArticles();
                 <div class="mask">
                   <div class="nav-border"></div>
                 </div>
-              </a>
-              <a data-w-id="ae4630f3-25c8-1af0-bf6f-a34696446e8b" href="/visitvista/about-us.php"
+              </a><a data-w-id="ae4630f3-25c8-1af0-bf6f-a34696446e8b" href="/about-us-1"
                 class="footer-link-wrapper w-inline-block">
                 <div class="footer-link">
                   <div class="text">About</div>
@@ -558,41 +899,33 @@ $articles = getAllArticles();
                 <div class="mask">
                   <div class="nav-border"></div>
                 </div>
-              </a>
-              <a data-w-id="ae4630f3-25c8-1af0-bf6f-a34696446e8b" href="/visitvista/explore.php" class="footer-link-wrapper w-inline-block">
-                <div class="footer-link">
-                  <div class="text">Explore</div>
-                  <div class="text">Explore</div>
-                </div>
-                <div class="mask">
-                  <div class="nav-border"></div>
-                </div>
-              </a>
-              <a data-w-id="ae4630f3-25c8-1af0-bf6f-a34696446e8b" href="/visitvista/article.php"
+              </a><a data-w-id="ae4630f3-25c8-1af0-bf6f-a34696446e8b" href="/portfolio-1"
                 class="footer-link-wrapper w-inline-block">
                 <div class="footer-link">
-                  <div class="text">Article</div>
-                  <div class="text">Article</div>
+                  <div class="text">Works</div>
+                  <div class="text">Works</div>
                 </div>
                 <div class="mask">
                   <div class="nav-border"></div>
                 </div>
-              </a>
-            </div>
-            <div class="social-icons-container">
-              <a href="http://instagram.com/rifqiwbsno" target="_blank" class="social-icon-wrapper w-inline-block">
-                <img src="images/group-2027181.png" loading="lazy" alt="" class="footer-icon" />
-              </a>
-              <a href="http://instagram.com/lintanglangitan" target="_blank" class="social-icon-wrapper w-inline-block">
-                <img src="images/group-2027181.png" loading="lazy" alt="" class="footer-icon" />
-              </a>
-              <a href="http://instagram.com/nfllqid" target="_blank" class="social-icon-wrapper w-inline-block">
-                <img src="images/group-2027181.png" loading="lazy" alt="" class="footer-icon" />
-              </a>
-              <a href="http://instagram.com" target="_blank" class="social-icon-wrapper w-inline-block">
-                <img src="images/group-2027181.png" loading="lazy" alt="" class="footer-icon" />
-              </a>
-            </div>
+              </a><a data-w-id="ae4630f3-25c8-1af0-bf6f-a34696446e8b" href="/utility/license"
+                class="footer-link-wrapper w-inline-block">
+                <div class="footer-link">
+                  <div class="text">Licensing</div>
+                  <div class="text">Licensing</div>
+                </div>
+                <div class="mask">
+                  <div class="nav-border"></div>
+                </div>
+              </a></div>
+            <div class="social-icons-container"><a href="http://instagram.com" target="_blank"
+                class="social-icon-wrapper w-inline-block"><img src="images/group-2027181.png" loading="lazy" alt=""
+                  class="footer-icon" /></a><a href="http://linkedin.com" target="_blank"
+                class="social-icon-wrapper w-inline-block"><img src="images/group-2027180.png" loading="lazy" alt=""
+                  class="footer-icon" /></a><a href="http://tiktok.com" class="social-icon-wrapper w-inline-block"><img
+                  src="images/vector-20-1-.png" loading="lazy" alt="" class="footer-icon" /></a><a
+                href="http://dribble.com" target="_blank" class="social-icon-wrapper w-inline-block"><img
+                  src="images/vector.avif" loading="lazy" alt="" class="footer-icon" /></a></div>
           </div>
         </div>
       </div>

@@ -1,0 +1,271 @@
+{# app/presentation/templates/dashboard/insights.html #}
+{% extends "base.html" %}
+
+{% block title %}Insights - Business Dashboard{% endblock %}
+
+{% block content %}
+<div class="container mx-auto px-4">
+    <h1 class="text-3xl font-bold mb-8" style="color: var(--neon-accent);">Tourism Insights</h1>
+
+    <!-- City Tourism Overview -->
+    <div class="card p-6 rounded-lg mb-8">
+        <h2 class="text-xl font-semibold mb-4">City Tourism Overview</h2>
+        <div class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-4 gap-6">
+            <div class="bg-black bg-opacity-50 p-4 rounded-lg">
+                <h3 class="text-sm font-medium mb-2">Local Visitors</h3>
+                <p class="text-2xl font-bold" id="localVisitors">0</p>
+            </div>
+            <div class="bg-black bg-opacity-50 p-4 rounded-lg">
+                <h3 class="text-sm font-medium mb-2">Foreign Visitors</h3>
+                <p class="text-2xl font-bold" id="foreignVisitors">0</p>
+            </div>
+            <div class="bg-black bg-opacity-50 p-4 rounded-lg">
+                <h3 class="text-sm font-medium mb-2">Hotel Occupancy</h3>
+                <p class="text-2xl font-bold" id="hotelOccupancy">0%</p>
+            </div>
+            <div class="bg-black bg-opacity-50 p-4 rounded-lg">
+                <h3 class="text-sm font-medium mb-2">Average Stay</h3>
+                <p class="text-2xl font-bold" id="averageStay">0 days</p>
+            </div>
+        </div>
+    </div>
+
+    <!-- Tourism Trends -->
+    <div class="grid grid-cols-1 lg:grid-cols-2 gap-8 mb-8">
+        <!-- Visitor Trends -->
+        <div class="card p-6 rounded-lg">
+            <h2 class="text-xl font-semibold mb-4">Visitor Trends</h2>
+            <canvas id="visitorTrendsChart" class="w-full h-64"></canvas>
+        </div>
+
+        <!-- Occupancy Trends -->
+        <div class="card p-6 rounded-lg">
+            <h2 class="text-xl font-semibold mb-4">Hotel Occupancy Trends</h2>
+            <canvas id="occupancyTrendsChart" class="w-full h-64"></canvas>
+        </div>
+    </div>
+
+    <!-- Tourism Analysis -->
+    <div class="grid grid-cols-1 lg:grid-cols-2 gap-8">
+        <!-- Popular Destinations -->
+        <div class="card p-6 rounded-lg">
+            <h2 class="text-xl font-semibold mb-4">Popular Destinations</h2>
+            <div id="popularDestinations" class="space-y-4">
+                <!-- Will be populated by JavaScript -->
+            </div>
+        </div>
+
+        <!-- Seasonal Patterns -->
+        <div class="card p-6 rounded-lg">
+            <h2 class="text-xl font-semibold mb-4">Seasonal Patterns</h2>
+            <canvas id="seasonalPatternsChart" class="w-full h-64"></canvas>
+        </div>
+    </div>
+</div>
+{% endblock %}
+
+{% block scripts %}
+<script>
+document.addEventListener('DOMContentLoaded', function() {
+    // Fetch insights data
+    fetch('/api/insights', {
+        headers: {
+            'X-Business-ID': localStorage.getItem('businessId')
+        }
+    })
+    .then(response => response.json())
+    .then(data => {
+        updateOverviewStats(data);
+        createVisitorTrendsChart(data);
+        createOccupancyTrendsChart(data);
+        updatePopularDestinations(data);
+        createSeasonalPatternsChart(data);
+    })
+    .catch(error => console.error('Error fetching insights:', error));
+});
+
+function updateOverviewStats(data) {
+    const stats = data.current_stats || {};
+    document.getElementById('localVisitors').textContent =
+        new Intl.NumberFormat().format(stats.local_visitors || 0);
+    document.getElementById('foreignVisitors').textContent =
+        new Intl.NumberFormat().format(stats.foreign_visitors || 0);
+    document.getElementById('hotelOccupancy').textContent =
+        `${(stats.hotel_occupancy_rate || 0).toFixed(1)}%`;
+    document.getElementById('averageStay').textContent =
+        `${(stats.average_stay_duration || 0).toFixed(1)} days`;
+}
+
+function createVisitorTrendsChart(data) {
+    const ctx = document.getElementById('visitorTrendsChart').getContext('2d');
+    new Chart(ctx, {
+        type: 'line',
+        data: {
+            labels: data.trends.map(t => t.month),
+            datasets: [
+                {
+                    label: 'Local Visitors',
+                    data: data.trends.map(t => t.local_visitors),
+                    borderColor: '#bbf340',
+                    backgroundColor: 'rgba(187, 243, 64, 0.1)',
+                    tension: 0.4
+                },
+                {
+                    label: 'Foreign Visitors',
+                    data: data.trends.map(t => t.foreign_visitors),
+                    borderColor: '#40bff3',
+                    backgroundColor: 'rgba(64, 191, 243, 0.1)',
+                    tension: 0.4
+                }
+            ]
+        },
+        options: {
+            responsive: true,
+            plugins: {
+                legend: {
+                    position: 'top',
+                    labels: {
+                        color: '#ffffff'
+                    }
+                }
+            },
+            scales: {
+                y: {
+                    beginAtZero: true,
+                    grid: {
+                        color: 'rgba(255, 255, 255, 0.1)'
+                    },
+                    ticks: {
+                        color: '#ffffff'
+                    }
+                },
+                x: {
+                    grid: {
+                        color: 'rgba(255, 255, 255, 0.1)'
+                    },
+                    ticks: {
+                        color: '#ffffff'
+                    }
+                }
+            }
+        }
+    });
+}
+
+function createOccupancyTrendsChart(data) {
+    const ctx = document.getElementById('occupancyTrendsChart').getContext('2d');
+    new Chart(ctx, {
+        type: 'line',
+        data: {
+            labels: data.trends.map(t => t.month),
+            datasets: [{
+                label: 'Hotel Occupancy Rate',
+                data: data.trends.map(t => t.hotel_occupancy_rate),
+                borderColor: '#bbf340',
+                backgroundColor: 'rgba(187, 243, 64, 0.1)',
+                tension: 0.4,
+                fill: true
+            }]
+        },
+        options: {
+            responsive: true,
+            plugins: {
+                legend: {
+                    display: false
+                }
+            },
+            scales: {
+                y: {
+                    beginAtZero: true,
+                    max: 100,
+                    grid: {
+                        color: 'rgba(255, 255, 255, 0.1)'
+                    },
+                    ticks: {
+                        color: '#ffffff',
+                        callback: value => `${value}%`
+                    }
+                },
+                x: {
+                    grid: {
+                        color: 'rgba(255, 255, 255, 0.1)'
+                    },
+                    ticks: {
+                        color: '#ffffff'
+                    }
+                }
+            }
+        }
+    });
+}
+
+function updatePopularDestinations(data) {
+    const container = document.getElementById('popularDestinations');
+    container.innerHTML = '';
+
+    (data.popular_destinations || []).forEach(dest => {
+        const div = document.createElement('div');
+        div.className = 'bg-black bg-opacity-50 p-4 rounded-lg';
+        div.innerHTML = `
+            <div class="flex justify-between items-center">
+                <h3 class="font-medium">${dest.name}</h3>
+                <span class="text-sm" style="color: var(--neon-accent);">
+                    ${dest.visitor_count} visitors
+                </span>
+            </div>
+            <div class="mt-2">
+                <div class="bg-gray-700 h-2 rounded-full">
+                    <div class="h-full rounded-full"
+                         style="width: ${dest.popularity_percentage}%; background-color: var(--neon-accent);">
+                    </div>
+                </div>
+            </div>
+        `;
+        container.appendChild(div);
+    });
+}
+
+function createSeasonalPatternsChart(data) {
+    const ctx = document.getElementById('seasonalPatternsChart').getContext('2d');
+    new Chart(ctx, {
+        type: 'bar',
+        data: {
+            labels: ['Jan', 'Feb', 'Mar', 'Apr', 'May', 'Jun', 'Jul', 'Aug', 'Sep', 'Oct', 'Nov', 'Dec'],
+            datasets: [{
+                label: 'Average Monthly Visitors',
+                data: data.seasonal_patterns || [],
+                backgroundColor: '#bbf340',
+                borderRadius: 5
+            }]
+        },
+        options: {
+            responsive: true,
+            plugins: {
+                legend: {
+                    display: false
+                }
+            },
+            scales: {
+                y: {
+                    beginAtZero: true,
+                    grid: {
+                        color: 'rgba(255, 255, 255, 0.1)'
+                    },
+                    ticks: {
+                        color: '#ffffff'
+                    }
+                },
+                x: {
+                    grid: {
+                        color: 'rgba(255, 255, 255, 0.1)'
+                    },
+                    ticks: {
+                        color: '#ffffff'
+                    }
+                }
+            }
+        }
+    });
+}
+</script>
+{% endblock %}

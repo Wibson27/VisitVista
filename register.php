@@ -4,6 +4,7 @@ if (session_status() === PHP_SESSION_NONE) {
   session_start();
 }
 
+
 require_once __DIR__ . '/config/db_connect.php';
 require_once __DIR__ . '/functions/database_functions.php';
 require_once __DIR__ . '/functions/validation.php';
@@ -77,34 +78,53 @@ if ($_SERVER['REQUEST_METHOD'] === 'POST' && isset($_POST['action']) && $_POST['
 
 // Handle Login
 if ($_SERVER['REQUEST_METHOD'] === 'POST' && isset($_POST['action']) && $_POST['action'] === 'login') {
-    $errors = validateLogin($_POST);
+  error_log("Login attempt received"); // Debug log
+  error_log("POST data: " . print_r($_POST, true)); // Debug log
 
-    if (empty($errors)) {
-        try {
-            $user = getUserByEmail($_POST['email']);
+  $errors = validateLogin($_POST);
 
-            if (!$user || !password_verify($_POST['password'], $user['password'])) {
-                throw new Exception("Invalid email or password");
-            }
+  if (empty($errors)) {
+      try {
+          error_log("Validation passed, attempting login"); // Debug log
+          $user = getUserByEmail($_POST['email']);
 
-            if ($user['role'] !== $_POST['role']) {
-                throw new Exception("Invalid role selected");
-            }
+          if (!$user || !password_verify($_POST['password'], $user['password'])) {
+              throw new Exception("Invalid email or password");
+          }
 
-            // Start session and store user data
-            $_SESSION['user_id'] = $user['id'];
-            $_SESSION['role'] = $user['role'];
-            $_SESSION['name'] = $user['name'];
+          if ($user['role'] !== $_POST['role']) {
+              throw new Exception("Invalid role selected");
+          }
 
-            // Redirect based on role
-            $redirect = $_SESSION['role'] === 'CUSTOMER' ? 'customer_dashboard.php' : 'business_dashboard.php';
-            header("Location: $redirect");
-            exit;
+          error_log("Login successful for user: " . $user['id']); // Debug log
 
-        } catch (Exception $e) {
-            $error = $e->getMessage();
-        }
-    }
+          // Start session and store user data
+          $_SESSION['user_id'] = $user['id'];
+          $_SESSION['role'] = $user['role'];
+          $_SESSION['name'] = $user['name'];
+
+          // Check if there's a redirect URL stored in session
+          if (isset($_SESSION['redirect_url'])) {
+              $redirect = $_SESSION['redirect_url'];
+              unset($_SESSION['redirect_url']); // Clear the stored URL
+              error_log("Redirecting to: " . $redirect); // Debug log
+              header("Location: " . $redirect);
+              exit;
+          }
+
+          // Default redirect based on role
+          $redirect = $_SESSION['role'] === 'CUSTOMER' ? 'customer_dashboard.php' : 'business_dashboard.php';
+          error_log("Redirecting to default: " . $redirect); // Debug log
+          header("Location: " . $redirect);
+          exit;
+
+      } catch (Exception $e) {
+          error_log("Login error: " . $e->getMessage()); // Debug log
+          $error = $e->getMessage();
+      }
+  } else {
+      error_log("Validation errors: " . print_r($errors, true)); // Debug log
+  }
 }
 
 // Get active tab from URL or POST
@@ -337,6 +357,44 @@ $activeTab = isset($_GET['tab']) ? $_GET['tab'] : (isset($_POST['action']) ? $_P
             box-shadow: 0 5px 15px rgba(0, 255, 0, 0.2);
         }
 
+        .back-btn {
+            position: absolute;
+            top: 2rem;
+            left: 2rem;
+            display: flex;
+            align-items: center;
+            gap: 0.5rem;
+            color: var(--white);
+            text-decoration: none;
+            font-weight: 500;
+            padding: 0.75rem 1rem;
+            border-radius: 8px;
+            background: rgba(0, 0, 0, 0.5);
+            backdrop-filter: blur(10px);
+            border: 1px solid var(--grey-light);
+            transition: all 0.3s ease;
+        }
+
+        .back-btn:hover {
+            background: rgba(0, 0, 0, 0.7);
+            border-color: var(--accent-green);
+            transform: translateY(-2px);
+        }
+
+        .back-btn svg {
+            transition: transform 0.3s ease;
+        }
+
+        .back-btn:hover svg {
+            transform: translateX(-4px);
+        }
+
+        @media (max-width: 768px) {
+            .back-btn {
+                top: 1rem;
+                left: 1rem;
+            }
+        }
         /* Form Transitions */
         .auth-form {
             transition: all 0.3s ease;
@@ -357,6 +415,14 @@ $activeTab = isset($_GET['tab']) ? $_GET['tab'] : (isset($_POST['action']) ? $_P
     <!-- Particle Background -->
     <div id="particles-js"></div>
 
+    <a href="index.php" class="back-btn">
+        <svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
+            <line x1="19" y1="12" x2="5" y2="12"></line>
+            <polyline points="12 19 5 12 12 5"></polyline>
+        </svg>
+        Back to Home
+    </a>
+
     <div class="auth-container">
         <?php if ($error): ?>
             <div class="alert alert-error"><?php echo htmlspecialchars($error); ?></div>
@@ -373,35 +439,23 @@ $activeTab = isset($_GET['tab']) ? $_GET['tab'] : (isset($_POST['action']) ? $_P
         </div>
 
         <!-- Login Form -->
-        <form id="loginForm" class="auth-form" method="POST" action="register.php">
+        <form id="loginForm" class="auth-form" method="POST" action="<?php echo htmlspecialchars($_SERVER['PHP_SELF']); ?>">
             <input type="hidden" name="action" value="login">
 
             <div class="role-selector">
-                <div class="role-btn" data-role="CUSTOMER">Customer</div>
+                <div class="role-btn active" data-role="CUSTOMER">Customer</div>
                 <div class="role-btn" data-role="BUSINESS">Business</div>
-                <!-- Make sure the initial value matches the active button -->
                 <input type="hidden" name="role" value="CUSTOMER">
             </div>
 
             <div class="input-group">
                 <label class="input-label">EMAIL</label>
-                <input type="email" name="email"
-                      class="input-field <?php echo isset($errors['email']) ? 'input-error' : ''; ?>"
-                      value="<?php echo htmlspecialchars($_POST['email'] ?? ''); ?>"
-                      required>
-                <?php if (isset($errors['email'])): ?>
-                    <div class="error-text"><?php echo htmlspecialchars($errors['email']); ?></div>
-                <?php endif; ?>
+                <input type="email" name="email" class="input-field" required>
             </div>
 
             <div class="input-group">
                 <label class="input-label">PASSWORD</label>
-                <input type="password" name="password"
-                      class="input-field <?php echo isset($errors['password']) ? 'input-error' : ''; ?>"
-                      required>
-                <?php if (isset($errors['password'])): ?>
-                    <div class="error-text"><?php echo htmlspecialchars($errors['password']); ?></div>
-                <?php endif; ?>
+                <input type="password" name="password" class="input-field" required>
             </div>
 
             <button type="submit" class="submit-btn">ENTER SYSTEM</button>
@@ -607,6 +661,22 @@ $activeTab = isset($_GET['tab']) ? $_GET['tab'] : (isset($_POST['action']) ? $_P
                 }
             });
 
+            // Find this section in your JavaScript and replace it
+            document.getElementById('loginForm').addEventListener('submit', function(e) {
+                const formData = new FormData(this);
+                const email = formData.get('email');
+                const password = formData.get('password');
+
+                // Basic validation
+                if (!email || !password) {
+                    e.preventDefault();
+                    alert('Please fill in all fields');
+                    return;
+                }
+
+                // Allow form submission if validation passes
+                // Remove e.preventDefault() from here
+            });
             // Set initial role values for both forms
             document.querySelectorAll('form').forEach(form => {
                 const roleInput = form.querySelector('input[name="role"]');
@@ -617,39 +687,29 @@ $activeTab = isset($_GET['tab']) ? $_GET['tab'] : (isset($_POST['action']) ? $_P
                 }
             });
 
-            // Tab Switching
             document.querySelectorAll('.tab-btn').forEach(button => {
-                button.addEventListener('click', function(e) {
-                    e.preventDefault(); // Prevent default button behavior
-                    console.log('Tab clicked:', this.dataset.tab); // Debug log
+    button.addEventListener('click', function() {
+        // Remove active class from all tabs
+        document.querySelectorAll('.tab-btn').forEach(btn =>
+            btn.classList.remove('active'));
+        // Add active class to clicked tab
+        this.classList.add('active');
 
-                    // Remove existing success message when switching tabs
-                    const successAlert = document.querySelector('.alert-success');
-                    if (successAlert) {
-                        successAlert.remove();
-                    }
+        // Hide all forms
+        document.querySelectorAll('.auth-form').forEach(form => {
+            form.classList.remove('active');
+            form.style.display = 'none';
+        });
 
-                    // Update active states
-                    document.querySelectorAll('.tab-btn').forEach(btn =>
-                        btn.classList.remove('active'));
-                    this.classList.add('active');
-
-                    // Switch forms
-                    const formType = this.dataset.tab;
-                    document.querySelectorAll('.auth-form').forEach(form => {
-                        form.classList.remove('active');
-                        form.style.display = 'none';
-                    });
-
-                    const targetForm = document.getElementById(formType + 'Form');
-                    if (targetForm) {
-                        targetForm.style.display = 'block';
-                        setTimeout(() => targetForm.classList.add('active'), 50);
-                    } else {
-                        console.error('Target form not found:', formType + 'Form'); // Debug log
-                    }
-                });
-            });
+        // Show selected form
+        const formId = this.dataset.tab + 'Form';
+        const form = document.getElementById(formId);
+        if (form) {
+            form.style.display = 'block';
+            setTimeout(() => form.classList.add('active'), 50);
+        }
+    });
+});
 
             // Manually trigger click on initial active tab
             const initialActiveTab = document.querySelector('.tab-btn.active');

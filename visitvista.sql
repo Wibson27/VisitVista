@@ -3,7 +3,7 @@
 -- https://www.phpmyadmin.net/
 --
 -- Host: 127.0.0.1
--- Generation Time: Dec 21, 2024 at 07:09 PM
+-- Generation Time: Dec 24, 2024 at 05:44 AM
 -- Server version: 10.4.32-MariaDB
 -- PHP Version: 8.2.12
 
@@ -68,13 +68,23 @@ CREATE TABLE `bookings` (
   `user_id` varchar(255) NOT NULL,
   `place_id` varchar(255) NOT NULL,
   `booking_date` timestamp NOT NULL DEFAULT current_timestamp() ON UPDATE current_timestamp(),
-  `visit_date` timestamp NOT NULL DEFAULT '0000-00-00 00:00:00',
-  `number_of_tickets` int(11) NOT NULL,
   `total_price` decimal(10,2) NOT NULL,
   `status` varchar(50) NOT NULL,
-  `created_at` timestamp NOT NULL DEFAULT current_timestamp(),
-  `updated_at` timestamp NOT NULL DEFAULT '0000-00-00 00:00:00' ON UPDATE current_timestamp()
+  `created_at` timestamp NOT NULL DEFAULT current_timestamp()
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_unicode_ci;
+
+--
+-- Triggers `bookings`
+--
+DELIMITER $$
+CREATE TRIGGER `before_booking_insert` BEFORE INSERT ON `bookings` FOR EACH ROW BEGIN
+    DECLARE next_id INT;
+    SET next_id = (SELECT COALESCE(MAX(CAST(SUBSTRING(id, 3) AS UNSIGNED)), 0) + 1 
+                   FROM bookings);
+    SET NEW.id = CONCAT('BK', LPAD(next_id, 3, '0'));
+END
+$$
+DELIMITER ;
 
 -- --------------------------------------------------------
 
@@ -106,7 +116,6 @@ CREATE TABLE `business_profiles` (
   `id` varchar(255) NOT NULL,
   `user_id` varchar(255) NOT NULL,
   `business_name` varchar(255) NOT NULL,
-  `address` text NOT NULL,
   `city` varchar(255) NOT NULL,
   `description` text NOT NULL,
   `verification_status` varchar(50) NOT NULL DEFAULT 'PENDING',
@@ -118,14 +127,14 @@ CREATE TABLE `business_profiles` (
 -- Dumping data for table `business_profiles`
 --
 
-INSERT INTO `business_profiles` (`id`, `user_id`, `business_name`, `address`, `city`, `description`, `verification_status`, `document_url`, `created_at`) VALUES
-('B001', 'B009', 'testing', '', 'Yogyakarta', 'bbbbbbbbbbbbbbbbbbbbbbbbbbbb', 'PENDING', NULL, '2024-12-21 16:36:19'),
-('B002', 'B010', 'Matang', '', 'Yogyakarta', 'ccccccccccccccccccccccccccccccccccc', 'PENDING', NULL, '2024-12-21 17:12:01'),
-('B003', 'B011', 'testing', '', 'Sleman', 'aaaaaaaaaaaaaaaaaaaaaaa', 'PENDING', NULL, '2024-12-21 17:40:24'),
-('BP003', 'B003', 'Jogja Heritage Tours', 'Jl. Malioboro No. 45', 'Yogyakarta', 'Specializing in cultural and historical tours around Yogyakarta', 'VERIFIED', NULL, '2024-11-22 16:25:09'),
-('BP004', 'B004', 'Bandung Adventure Tours', 'Jl. Dago No. 123', 'Bandung', 'Adventure and nature tours in and around Bandung', 'VERIFIED', NULL, '2024-11-22 16:25:09'),
-('BP005', 'B005', 'Raja Ampat Diving Center', 'Jl. Waisai Raya No. 7', 'Raja Ampat', 'Premier diving experience in Raja Ampat', 'VERIFIED', NULL, '2024-11-22 16:25:09'),
-('BP006', 'B006', 'Toraja Cultural Experience', 'Jl. Poros Makale No. 88', 'Toraja', 'Authentic Toraja cultural experiences and tours', 'VERIFIED', NULL, '2024-11-22 16:25:09');
+INSERT INTO `business_profiles` (`id`, `user_id`, `business_name`, `city`, `description`, `verification_status`, `document_url`, `created_at`) VALUES
+('B001', 'B009', 'Kaliurang Adventure Tours', 'Yogyakarta', 'bbbbbbbbbbbbbbbbbbbbbbbbbbbb', 'PENDING', NULL, '2024-12-21 16:36:19'),
+('B002', 'B010', 'Parangtritis Beach Adventures', 'Yogyakarta', 'ccccccccccccccccccccccccccccccccccc', 'PENDING', NULL, '2024-12-21 17:12:01'),
+('B003', 'B011', 'Goa Pindul Tubing', 'Yogyakarta', 'aaaaaaaaaaaaaaaaaaaaaaa', 'PENDING', NULL, '2024-12-21 17:40:24'),
+('BP003', 'B003', 'Jogja Heritage Tours', 'Yogyakarta', 'Specializing in cultural and historical tours around Yogyakarta', 'VERIFIED', NULL, '2024-11-22 16:25:09'),
+('BP004', 'B004', 'Merapi Adventure Tours', 'Yogyakarta', 'Adventure and nature tours in and around Bandung', 'VERIFIED', NULL, '2024-11-22 16:25:09'),
+('BP005', 'B005', 'Prambanan Cultural Tours', 'Yogyakarta', 'Premier diving experience in Raja Ampat', 'VERIFIED', NULL, '2024-11-22 16:25:09'),
+('BP006', 'B006', 'Malioboro Walking Tours', 'Yogyakarta', 'Authentic Toraja cultural experiences and tours', 'VERIFIED', NULL, '2024-11-22 16:25:09');
 
 --
 -- Triggers `business_profiles`
@@ -206,18 +215,31 @@ CREATE TABLE `places` (
 --
 
 INSERT INTO `places` (`id`, `business_id`, `name`, `description`, `location`, `city`, `price`, `capacity`, `category`, `average_rating`, `created_at`, `updated_at`) VALUES
-('P004', 'BP003', 'Borobudur Sunrise Tour', 'Experience the magical sunrise at the world\'s largest Buddhist temple. Includes hotel pickup, traditional breakfast, and guided tour.', 'Borobudur Temple, Yogyakarta', 'Yogyakarta', 75.00, 25, 'Cultural', 4.90, '2024-11-22 16:25:09', '2024-11-22 16:25:09'),
-('P005', 'BP003', 'Prambanan Temple Evening Tour', 'Visit the magnificent Hindu temple complex during sunset, followed by the spectacular Ramayana Ballet performance.', 'Prambanan Temple, Yogyakarta', 'Yogyakarta', 60.00, 30, 'Cultural', 4.80, '2024-11-22 16:25:09', '2024-11-22 16:25:09'),
-('P006', 'BP003', 'Kraton & Malioboro Walking Tour', 'Explore the Sultan\'s Palace and vibrant Malioboro street. Experience traditional Javanese culture and modern city life.', 'Kraton Area, Yogyakarta', 'Yogyakarta', 25.00, 15, 'Cultural', 4.70, '2024-11-22 16:25:09', '2024-11-22 16:25:09'),
-('P007', 'BP004', 'Tangkuban Perahu Volcano Tour', 'Visit the famous volcano crater, enjoy the natural hot springs, and learn about local geology.', 'Tangkuban Perahu, Bandung', 'Bandung', 45.00, 20, 'Nature', 4.60, '2024-11-22 16:25:09', '2024-11-22 16:25:09'),
-('P008', 'BP004', 'Kawah Putih Day Trip', 'Explore the stunning white crater lake, surrounded by misty mountains and lush forests.', 'Kawah Putih, Bandung', 'Bandung', 55.00, 15, 'Nature', 4.80, '2024-11-22 16:25:09', '2024-11-22 16:25:09'),
-('P009', 'BP004', 'Dago Tea House Experience', 'Visit a historic tea plantation, learn about tea processing, and enjoy high tea with city views.', 'Dago, Bandung', 'Bandung', 35.00, 25, 'Cultural', 4.50, '2024-11-22 16:25:09', '2024-11-22 16:25:09'),
-('P010', 'BP005', 'Wayag Island Hopping', 'Explore the iconic limestone karst islands, snorkel in pristine waters, and climb for panoramic views.', 'Wayag, Raja Ampat', 'Raja Ampat', 150.00, 10, 'Adventure', 5.00, '2024-11-22 16:25:09', '2024-11-22 16:25:09'),
-('P011', 'BP005', 'Diving at Melissa\'s Garden', 'Discover one of the world\'s most beautiful coral reefs with experienced diving instructors.', 'Melissa\'s Garden, Raja Ampat', 'Raja Ampat', 200.00, 8, 'Adventure', 4.90, '2024-11-22 16:25:09', '2024-11-22 16:25:09'),
-('P012', 'BP005', 'Arborek Village Cultural Visit', 'Experience local Papuan culture, learn traditional dances, and try handicraft making.', 'Arborek, Raja Ampat', 'Raja Ampat', 85.00, 12, 'Cultural', 4.70, '2024-11-22 16:25:09', '2024-11-22 16:25:09'),
-('P013', 'BP006', 'Tana Toraja Heritage Tour', 'Explore traditional villages, visit ancient burial sites, and witness unique architectural heritage.', 'Tana Toraja', 'Toraja', 65.00, 15, 'Cultural', 4.80, '2024-11-22 16:25:09', '2024-11-22 16:25:09'),
-('P014', 'BP006', 'Toraja Coffee Experience', 'Visit coffee plantations, learn about traditional coffee processing, and taste authentic Toraja coffee.', 'Toraja Highland', 'Toraja', 40.00, 20, 'Cultural', 4.60, '2024-11-22 16:25:09', '2024-11-22 16:25:09'),
-('P015', 'BP006', 'Ke\'te\' Kesu Village Tour', 'Visit one of the most beautiful and well-preserved traditional villages in Toraja.', 'Ke\'te\' Kesu, Toraja', 'Toraja', 35.00, 20, 'Cultural', 4.70, '2024-11-22 16:25:09', '2024-11-22 16:25:09');
+('P004', 'BP003', 'Borobudur Sunrise Tour', 'Experience the magical sunrise at the world\'s largest Buddhist temple. Includes hotel pickup, traditional breakfast, and guided tour.', 'Borobudur Temple, Magelang', 'Yogyakarta', 50000.00, 25, 'Cultural', 3.92, '2024-11-22 16:25:09', '2024-12-23 05:04:21'),
+('P005', 'BP003', 'Prambanan Temple Evening Tour', 'Visit the magnificent Hindu temple complex during sunset, followed by the spectacular Ramayana Ballet performance.', 'Prambanan Temple, Sleman', 'Yogyakarta', 35000.00, 30, 'Cultural', 4.08, '2024-11-22 16:25:09', '2024-12-23 05:04:21'),
+('P006', 'BP003', 'Kraton & Malioboro Walking Tour', 'Explore the Sultan\'s Palace and vibrant Malioboro street. Experience traditional Javanese culture and modern city life.', 'Jl. Malioboro, Yogyakarta', 'Yogyakarta', 15000.00, 15, 'Cultural', 4.00, '2024-11-22 16:25:09', '2024-12-23 05:04:21'),
+('P007', 'BP004', 'Mount Merapi Trekking', 'Visit the famous volcano crater, enjoy the natural hot springs, and learn about local geology.', 'Kaliurang, Sleman', 'Yogyakarta', 25000.00, 20, 'Nature', 3.91, '2024-11-22 16:25:09', '2024-12-23 05:04:21'),
+('P008', 'BP004', 'Tebing Breksi Exploration', 'Explore the stunning white crater lake, surrounded by misty mountains and lush forests.', 'Tebing Breksi, Sleman', 'Yogyakarta', 25000.00, 15, 'Nature', 4.18, '2024-11-22 16:25:09', '2024-12-23 05:04:21'),
+('P009', 'BP004', 'Keraton Cultural Tour', 'Visit a historic tea plantation, learn about tea processing, and enjoy high tea with city views.', 'Keraton Yogyakarta', 'Yogyakarta', 20000.00, 25, 'Cultural', 3.55, '2024-11-22 16:25:09', '2024-12-23 05:04:21'),
+('P010', 'BP005', 'Parangtritis Beach Adventure', 'Explore the iconic limestone karst islands, snorkel in pristine waters, and climb for panoramic views.', 'Parangtritis Beach, Bantul', 'Yogyakarta', 75000.00, 10, 'Adventure', 4.36, '2024-11-22 16:25:09', '2024-12-23 05:04:21'),
+('P011', 'BP005', 'Goa Pindul Cave Tubing', 'Discover one of the world\'s most beautiful coral reefs with experienced diving instructors.', 'Goa Pindul, Gunungkidul', 'Yogyakarta', 100000.00, 8, 'Adventure', 3.80, '2024-11-22 16:25:09', '2024-12-23 05:04:21'),
+('P012', 'BP005', 'Mangunan Pine Forest Visit', 'Experience local Papuan culture, learn traditional dances, and try handicraft making.', 'Hutan Pinus Mangunan, Bantul', 'Yogyakarta', 25000.00, 12, 'Cultural', 0.00, '2024-11-22 16:25:09', '2024-12-23 05:04:21'),
+('P013', 'BP006', 'Taman Sari Water Castle Tour', 'Explore traditional villages, visit ancient burial sites, and witness unique architectural heritage.', 'Taman Sari, Yogyakarta', 'Yogyakarta', 30000.00, 15, 'Cultural', 0.00, '2024-11-22 16:25:09', '2024-12-23 05:04:21'),
+('P014', 'BP006', 'Malioboro Shopping Tour', 'Visit coffee plantations, learn about traditional coffee processing, and taste authentic Toraja coffee.', 'Malioboro, Yogyakarta', 'Yogyakarta', 35000.00, 20, 'Cultural', 0.00, '2024-11-22 16:25:09', '2024-12-23 05:04:21'),
+('P015', 'BP006', 'Yogyakarta City Night Tour', 'Visit one of the most beautiful and well-preserved traditional villages in Toraja.', 'Alun-alun Kidul, Yogyakarta', 'Yogyakarta', 20000.00, 20, 'Cultural', 0.00, '2024-11-22 16:25:09', '2024-12-23 05:04:21');
+
+--
+-- Triggers `places`
+--
+DELIMITER $$
+CREATE TRIGGER `before_place_insert` BEFORE INSERT ON `places` FOR EACH ROW BEGIN
+    DECLARE next_id INT;
+    SET next_id = (SELECT COALESCE(MAX(CAST(SUBSTRING(id, 2) AS UNSIGNED)), 0) + 1 
+                   FROM places);
+    SET NEW.id = CONCAT('P', LPAD(next_id, 3, '0'));
+END
+$$
+DELIMITER ;
 
 -- --------------------------------------------------------
 
@@ -249,6 +271,19 @@ INSERT INTO `place_images` (`id`, `place_id`, `image_url`) VALUES
 ('IMG020', 'P014', 'images/0011.jpeg'),
 ('IMG021', 'P015', 'images/0012.jpeg');
 
+--
+-- Triggers `place_images`
+--
+DELIMITER $$
+CREATE TRIGGER `before_place_image_insert` BEFORE INSERT ON `place_images` FOR EACH ROW BEGIN
+    DECLARE next_id INT;
+    SET next_id = (SELECT COALESCE(MAX(CAST(SUBSTRING(id, 4) AS UNSIGNED)), 0) + 1 
+                   FROM place_images);
+    SET NEW.id = CONCAT('IMG', LPAD(next_id, 3, '0'));
+END
+$$
+DELIMITER ;
+
 -- --------------------------------------------------------
 
 --
@@ -257,13 +292,159 @@ INSERT INTO `place_images` (`id`, `place_id`, `image_url`) VALUES
 
 CREATE TABLE `reviews` (
   `id` varchar(255) NOT NULL,
-  `user_id` varchar(255) NOT NULL,
-  `place_id` varchar(255) NOT NULL,
-  `booking_id` varchar(255) NOT NULL,
+  `user_id` varchar(255) DEFAULT NULL,
+  `place_id` varchar(255) DEFAULT NULL,
+  `booking_id` varchar(255) DEFAULT NULL,
   `rating` int(11) NOT NULL,
   `comment` text DEFAULT NULL,
   `created_at` timestamp NOT NULL DEFAULT current_timestamp()
-) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_general_ci;
+) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_unicode_ci;
+
+--
+-- Dumping data for table `reviews`
+--
+
+INSERT INTO `reviews` (`id`, `user_id`, `place_id`, `booking_id`, `rating`, `comment`, `created_at`) VALUES
+('R001', 'C001', 'P004', 'BK001', 5, 'This place was amazing! The views were breathtaking, and the staff was friendly and knowledgeable. Highly recommend visiting if you\'re in the area!', '2024-11-25 01:30:00'),
+('R002', 'C002', 'P004', 'BK002', 4, 'I had an unforgettable experience here. The tour guide was very informative, and the activities were both fun and educational. A must-visit!', '2024-11-26 02:15:00'),
+('R003', 'C003', 'P004', 'BK003', 5, 'Beautiful location with lots of history. It was a bit crowded, but the experience was still worth it. Would love to come back in the off-season.', '2024-11-27 03:00:00'),
+('R004', 'C001', 'P005', 'BK004', 5, 'This place was amazing! The views were breathtaking, and the staff was friendly and knowledgeable. Highly recommend visiting if you\'re in the area!', '2024-11-28 04:45:00'),
+('R005', 'C002', 'P005', 'BK005', 4, 'I had an unforgettable experience here. The tour guide was very informative, and the activities were both fun and educational. A must-visit!', '2024-11-29 07:20:00'),
+('R006', 'C003', 'P006', 'BK006', 4, 'Beautiful location with lots of history. It was a bit crowded, but the experience was still worth it. Would love to come back in the off-season.', '2024-11-30 09:00:00'),
+('R007', 'C001', 'P007', 'BK007', 5, 'This place was amazing! The views were breathtaking, and the staff was friendly and knowledgeable. Highly recommend visiting if you\'re in the area!', '2024-12-01 02:30:00'),
+('R008', 'C002', 'P008', 'BK008', 5, 'I had an unforgettable experience here. The tour guide was very informative, and the activities were both fun and educational. A must-visit!', '2024-12-02 03:45:00'),
+('R009', 'C003', 'P009', 'BK009', 4, 'Beautiful location with lots of history. It was a bit crowded, but the experience was still worth it. Would love to come back in the off-season.', '2024-12-03 06:15:00'),
+('R010', 'C001', 'P010', 'BK010', 5, 'This place was amazing! The views were breathtaking, and the staff was friendly and knowledgeable. Highly recommend visiting if you\'re in the area!', '2024-12-04 08:30:00'),
+('R011', 'C001', 'P004', 'BK011', 4, 'I had an unforgettable experience here. The tour guide was very informative, and the activities were both fun and educational. A must-visit!', '2024-12-04 09:30:00'),
+('R012', 'C001', 'P005', 'BK012', 3, 'Beautiful location with lots of history. It was a bit crowded, but the experience was still worth it. Would love to come back in the off-season.', '2024-12-04 10:30:00'),
+('R013', 'C001', 'P006', 'BK013', 3, 'This place was amazing! The views were breathtaking, and the staff was friendly and knowledgeable. Highly recommend visiting if you\'re in the area!', '2024-12-04 11:30:00'),
+('R014', 'C001', 'P007', 'BK014', 3, 'I had an unforgettable experience here. The tour guide was very informative, and the activities were both fun and educational. A must-visit!', '2024-12-04 12:30:00'),
+('R015', 'C001', 'P008', 'BK015', 5, 'Beautiful location with lots of history. It was a bit crowded, but the experience was still worth it. Would love to come back in the off-season.', '2024-12-04 13:30:00'),
+('R016', 'C001', 'P009', 'BK016', 4, 'This place was amazing! The views were breathtaking, and the staff was friendly and knowledgeable. Highly recommend visiting if you\'re in the area!', '2024-12-04 14:30:00'),
+('R017', 'C001', 'P010', 'BK017', 5, 'I had an unforgettable experience here. The tour guide was very informative, and the activities were both fun and educational. A must-visit!', '2024-12-04 15:30:00'),
+('R018', 'C001', 'P011', 'BK018', 4, 'Beautiful location with lots of history. It was a bit crowded, but the experience was still worth it. Would love to come back in the off-season.', '2024-12-04 16:30:00'),
+('R019', 'C002', 'P004', 'BK019', 3, 'This place was amazing! The views were breathtaking, and the staff was friendly and knowledgeable. Highly recommend visiting if you\'re in the area!', '2024-12-04 17:30:00'),
+('R020', 'C002', 'P005', 'BK020', 5, 'I had an unforgettable experience here. The tour guide was very informative, and the activities were both fun and educational. A must-visit!', '2024-12-04 18:30:00'),
+('R021', 'C002', 'P006', 'BK021', 4, 'Beautiful location with lots of history. It was a bit crowded, but the experience was still worth it. Would love to come back in the off-season.', '2024-12-04 19:30:00'),
+('R022', 'C002', 'P007', 'BK022', 4, 'This place was amazing! The views were breathtaking, and the staff was friendly and knowledgeable. Highly recommend visiting if you\'re in the area!', '2024-12-04 20:30:00'),
+('R023', 'C002', 'P008', 'BK023', 4, 'I had an unforgettable experience here. The tour guide was very informative, and the activities were both fun and educational. A must-visit!', '2024-12-04 21:30:00'),
+('R024', 'C002', 'P009', 'BK024', 3, 'Beautiful location with lots of history. It was a bit crowded, but the experience was still worth it. Would love to come back in the off-season.', '2024-12-04 22:30:00'),
+('R025', 'C002', 'P010', 'BK025', 4, 'This place was amazing! The views were breathtaking, and the staff was friendly and knowledgeable. Highly recommend visiting if you\'re in the area!', '2024-12-04 23:30:00'),
+('R026', 'C002', 'P011', 'BK026', 4, 'I had an unforgettable experience here. The tour guide was very informative, and the activities were both fun and educational. A must-visit!', '2024-12-05 00:30:00'),
+('R027', 'C003', 'P004', 'BK027', 4, 'Beautiful location with lots of history. It was a bit crowded, but the experience was still worth it. Would love to come back in the off-season.', '2024-12-05 01:30:00'),
+('R028', 'C003', 'P005', 'BK028', 5, 'This place was amazing! The views were breathtaking, and the staff was friendly and knowledgeable. Highly recommend visiting if you\'re in the area!', '2024-12-05 02:30:00'),
+('R029', 'C003', 'P006', 'BK029', 5, 'I had an unforgettable experience here. The tour guide was very informative, and the activities were both fun and educational. A must-visit!', '2024-12-05 03:30:00'),
+('R030', 'C003', 'P007', 'BK030', 4, 'Beautiful location with lots of history. It was a bit crowded, but the experience was still worth it. Would love to come back in the off-season.', '2024-12-05 04:30:00'),
+('R031', 'C003', 'P008', 'BK031', 4, 'This place was amazing! The views were breathtaking, and the staff was friendly and knowledgeable. Highly recommend visiting if you\'re in the area!', '2024-12-05 05:30:00'),
+('R032', 'C003', 'P009', 'BK032', 3, 'I had an unforgettable experience here. The tour guide was very informative, and the activities were both fun and educational. A must-visit!', '2024-12-05 06:30:00'),
+('R033', 'C003', 'P010', 'BK033', 5, 'Beautiful location with lots of history. It was a bit crowded, but the experience was still worth it. Would love to come back in the off-season.', '2024-12-05 07:30:00'),
+('R034', 'C003', 'P011', 'BK034', 4, 'This place was amazing! The views were breathtaking, and the staff was friendly and knowledgeable. Highly recommend visiting if you\'re in the area!', '2024-12-05 08:30:00'),
+('R035', 'C001', 'P004', 'BK035', 3, 'I had an unforgettable experience here. The tour guide was very informative, and the activities were both fun and educational. A must-visit!', '2024-12-05 09:30:00'),
+('R036', 'C001', 'P005', 'BK036', 4, 'Beautiful location with lots of history. It was a bit crowded, but the experience was still worth it. Would love to come back in the off-season.', '2024-12-05 10:30:00'),
+('R037', 'C001', 'P006', 'BK037', 3, 'This place was amazing! The views were breathtaking, and the staff was friendly and knowledgeable. Highly recommend visiting if you\'re in the area!', '2024-12-05 11:30:00'),
+('R038', 'C001', 'P007', 'BK038', 4, 'I had an unforgettable experience here. The tour guide was very informative, and the activities were both fun and educational. A must-visit!', '2024-12-05 12:30:00'),
+('R039', 'C001', 'P008', 'BK039', 4, 'Beautiful location with lots of history. It was a bit crowded, but the experience was still worth it. Would love to come back in the off-season.', '2024-12-05 13:30:00'),
+('R040', 'C001', 'P009', 'BK040', 3, 'This place was amazing! The views were breathtaking, and the staff was friendly and knowledgeable. Highly recommend visiting if you\'re in the area!', '2024-12-05 14:30:00'),
+('R041', 'C001', 'P010', 'BK041', 5, 'I had an unforgettable experience here. The tour guide was very informative, and the activities were both fun and educational. A must-visit!', '2024-12-05 15:30:00'),
+('R042', 'C001', 'P011', 'BK042', 5, 'Beautiful location with lots of history. It was a bit crowded, but the experience was still worth it. Would love to come back in the off-season.', '2024-12-05 16:30:00'),
+('R043', 'C002', 'P004', 'BK043', 3, 'This place was amazing! The views were breathtaking, and the staff was friendly and knowledgeable. Highly recommend visiting if you\'re in the area!', '2024-12-05 17:30:00'),
+('R044', 'C002', 'P005', 'BK044', 4, 'I had an unforgettable experience here. The tour guide was very informative, and the activities were both fun and educational. A must-visit!', '2024-12-05 18:30:00'),
+('R045', 'C002', 'P006', 'BK045', 4, 'Beautiful location with lots of history. It was a bit crowded, but the experience was still worth it. Would love to come back in the off-season.', '2024-12-05 19:30:00'),
+('R046', 'C002', 'P007', 'BK046', 3, 'This place was amazing! The views were breathtaking, and the staff was friendly and knowledgeable. Highly recommend visiting if you\'re in the area!', '2024-12-05 20:30:00'),
+('R047', 'C002', 'P008', 'BK047', 5, 'I had an unforgettable experience here. The tour guide was very informative, and the activities were both fun and educational. A must-visit!', '2024-12-05 21:30:00'),
+('R048', 'C002', 'P009', 'BK048', 4, 'Beautiful location with lots of history. It was a bit crowded, but the experience was still worth it. Would love to come back in the off-season.', '2024-12-05 22:30:00'),
+('R049', 'C002', 'P010', 'BK049', 3, 'This place was amazing! The views were breathtaking, and the staff was friendly and knowledgeable. Highly recommend visiting if you\'re in the area!', '2024-12-05 23:30:00'),
+('R050', 'C002', 'P011', 'BK050', 4, 'I had an unforgettable experience here. The tour guide was very informative, and the activities were both fun and educational. A must-visit!', '2024-12-06 00:30:00'),
+('R051', 'C003', 'P004', 'BK051', 3, 'Beautiful location with lots of history. It was a bit crowded, but the experience was still worth it. Would love to come back in the off-season.', '2024-12-06 01:30:00'),
+('R052', 'C003', 'P005', 'BK052', 4, 'This place was amazing! The views were breathtaking, and the staff was friendly and knowledgeable. Highly recommend visiting if you\'re in the area!', '2024-12-06 02:30:00'),
+('R053', 'C003', 'P006', 'BK053', 4, 'I had an unforgettable experience here. The tour guide was very informative, and the activities were both fun and educational. A must-visit!', '2024-12-06 03:30:00'),
+('R054', 'C003', 'P007', 'BK054', 5, 'Beautiful location with lots of history. It was a bit crowded, but the experience was still worth it. Would love to come back in the off-season.', '2024-12-06 04:30:00'),
+('R055', 'C003', 'P008', 'BK055', 4, 'This place was amazing! The views were breathtaking, and the staff was friendly and knowledgeable. Highly recommend visiting if you\'re in the area!', '2024-12-06 05:30:00'),
+('R056', 'C003', 'P009', 'BK056', 4, 'I had an unforgettable experience here. The tour guide was very informative, and the activities were both fun and educational. A must-visit!', '2024-12-06 06:30:00'),
+('R057', 'C003', 'P010', 'BK057', 4, 'Beautiful location with lots of history. It was a bit crowded, but the experience was still worth it. Would love to come back in the off-season.', '2024-12-06 07:30:00'),
+('R058', 'C003', 'P011', 'BK058', 3, 'This place was amazing! The views were breathtaking, and the staff was friendly and knowledgeable. Highly recommend visiting if you\'re in the area!', '2024-12-06 08:30:00'),
+('R059', 'C001', 'P004', 'BK059', 4, 'I had an unforgettable experience here. The tour guide was very informative, and the activities were both fun and educational. A must-visit!', '2024-12-06 09:30:00'),
+('R060', 'C001', 'P005', 'BK060', 3, 'Beautiful location with lots of history. It was a bit crowded, but the experience was still worth it. Would love to come back in the off-season.', '2024-12-06 10:30:00'),
+('R061', 'C001', 'P006', 'BK061', 4, 'This place was amazing! The views were breathtaking, and the staff was friendly and knowledgeable. Highly recommend visiting if you\'re in the area!', '2024-12-06 11:30:00'),
+('R062', 'C001', 'P007', 'BK062', 4, 'I had an unforgettable experience here. The tour guide was very informative, and the activities were both fun and educational. A must-visit!', '2024-12-06 12:30:00'),
+('R063', 'C001', 'P008', 'BK063', 3, 'Beautiful location with lots of history. It was a bit crowded, but the experience was still worth it. Would love to come back in the off-season.', '2024-12-06 13:30:00'),
+('R064', 'C001', 'P009', 'BK064', 3, 'This place was amazing! The views were breathtaking, and the staff was friendly and knowledgeable. Highly recommend visiting if you\'re in the area!', '2024-12-06 14:30:00'),
+('R065', 'C001', 'P010', 'BK065', 5, 'I had an unforgettable experience here. The tour guide was very informative, and the activities were both fun and educational. A must-visit!', '2024-12-06 15:30:00'),
+('R066', 'C001', 'P011', 'BK066', 3, 'Beautiful location with lots of history. It was a bit crowded, but the experience was still worth it. Would love to come back in the off-season.', '2024-12-06 16:30:00'),
+('R067', 'C002', 'P004', 'BK067', 5, 'This place was amazing! The views were breathtaking, and the staff was friendly and knowledgeable. Highly recommend visiting if you\'re in the area!', '2024-12-06 17:30:00'),
+('R068', 'C002', 'P005', 'BK068', 3, 'I had an unforgettable experience here. The tour guide was very informative, and the activities were both fun and educational. A must-visit!', '2024-12-06 18:30:00'),
+('R069', 'C002', 'P006', 'BK069', 4, 'Beautiful location with lots of history. It was a bit crowded, but the experience was still worth it. Would love to come back in the off-season.', '2024-12-06 19:30:00'),
+('R070', 'C002', 'P007', 'BK070', 4, 'This place was amazing! The views were breathtaking, and the staff was friendly and knowledgeable. Highly recommend visiting if you\'re in the area!', '2024-12-06 20:30:00'),
+('R071', 'C002', 'P008', 'BK071', 4, 'I had an unforgettable experience here. The tour guide was very informative, and the activities were both fun and educational. A must-visit!', '2024-12-06 21:30:00'),
+('R072', 'C002', 'P009', 'BK072', 4, 'Beautiful location with lots of history. It was a bit crowded, but the experience was still worth it. Would love to come back in the off-season.', '2024-12-06 22:30:00'),
+('R073', 'C002', 'P010', 'BK073', 3, 'This place was amazing! The views were breathtaking, and the staff was friendly and knowledgeable. Highly recommend visiting if you\'re in the area!', '2024-12-06 23:30:00'),
+('R074', 'C002', 'P011', 'BK074', 3, 'I had an unforgettable experience here. The tour guide was very informative, and the activities were both fun and educational. A must-visit!', '2024-12-07 00:30:00'),
+('R075', 'C003', 'P004', 'BK075', 4, 'Beautiful location with lots of history. It was a bit crowded, but the experience was still worth it. Would love to come back in the off-season.', '2024-12-07 01:30:00'),
+('R076', 'C003', 'P005', 'BK076', 4, 'This place was amazing! The views were breathtaking, and the staff was friendly and knowledgeable. Highly recommend visiting if you\'re in the area!', '2024-12-07 02:30:00'),
+('R077', 'C003', 'P006', 'BK077', 5, 'I had an unforgettable experience here. The tour guide was very informative, and the activities were both fun and educational. A must-visit!', '2024-12-07 03:30:00'),
+('R078', 'C003', 'P007', 'BK078', 3, 'Beautiful location with lots of history. It was a bit crowded, but the experience was still worth it. Would love to come back in the off-season.', '2024-12-07 04:30:00'),
+('R079', 'C003', 'P008', 'BK079', 5, 'This place was amazing! The views were breathtaking, and the staff was friendly and knowledgeable. Highly recommend visiting if you\'re in the area!', '2024-12-07 05:30:00'),
+('R080', 'C003', 'P009', 'BK080', 3, 'I had an unforgettable experience here. The tour guide was very informative, and the activities were both fun and educational. A must-visit!', '2024-12-07 06:30:00'),
+('R081', 'C003', 'P010', 'BK081', 4, 'Beautiful location with lots of history. It was a bit crowded, but the experience was still worth it. Would love to come back in the off-season.', '2024-12-07 07:30:00'),
+('R082', 'C003', 'P011', 'BK082', 5, 'This place was amazing! The views were breathtaking, and the staff was friendly and knowledgeable. Highly recommend visiting if you\'re in the area!', '2024-12-07 08:30:00'),
+('R083', 'C001', 'P004', 'BK083', 4, 'I had an unforgettable experience here. The tour guide was very informative, and the activities were both fun and educational. A must-visit!', '2024-12-07 09:30:00'),
+('R084', 'C001', 'P005', 'BK084', 5, 'Beautiful location with lots of history. It was a bit crowded, but the experience was still worth it. Would love to come back in the off-season.', '2024-12-07 10:30:00'),
+('R085', 'C001', 'P006', 'BK085', 4, 'This place was amazing! The views were breathtaking, and the staff was friendly and knowledgeable. Highly recommend visiting if you\'re in the area!', '2024-12-07 11:30:00'),
+('R086', 'C001', 'P007', 'BK086', 4, 'I had an unforgettable experience here. The tour guide was very informative, and the activities were both fun and educational. A must-visit!', '2024-12-07 12:30:00'),
+('R087', 'C001', 'P008', 'BK087', 3, 'Beautiful location with lots of history. It was a bit crowded, but the experience was still worth it. Would love to come back in the off-season.', '2024-12-07 13:30:00'),
+('R088', 'C001', 'P009', 'BK088', 4, 'This place was amazing! The views were breathtaking, and the staff was friendly and knowledgeable. Highly recommend visiting if you\'re in the area!', '2024-12-07 14:30:00'),
+('R089', 'C001', 'P010', 'BK089', 5, 'I had an unforgettable experience here. The tour guide was very informative, and the activities were both fun and educational. A must-visit!', '2024-12-07 15:30:00'),
+('R090', 'C001', 'P011', 'BK090', 3, 'Beautiful location with lots of history. It was a bit crowded, but the experience was still worth it. Would love to come back in the off-season.', '2024-12-07 16:30:00');
+
+--
+-- Triggers `reviews`
+--
+DELIMITER $$
+CREATE TRIGGER `after_review_delete` AFTER DELETE ON `reviews` FOR EACH ROW BEGIN
+    UPDATE places 
+    SET average_rating = COALESCE(
+        (SELECT ROUND(AVG(rating), 2)
+         FROM reviews
+         WHERE place_id = OLD.place_id),
+        0.00
+    )
+    WHERE id = OLD.place_id;
+END
+$$
+DELIMITER ;
+DELIMITER $$
+CREATE TRIGGER `after_review_insert` AFTER INSERT ON `reviews` FOR EACH ROW BEGIN
+    UPDATE places 
+    SET average_rating = (
+        SELECT ROUND(AVG(rating), 2)
+        FROM reviews
+        WHERE place_id = NEW.place_id
+    )
+    WHERE id = NEW.place_id;
+END
+$$
+DELIMITER ;
+DELIMITER $$
+CREATE TRIGGER `after_review_update` AFTER UPDATE ON `reviews` FOR EACH ROW BEGIN
+    UPDATE places 
+    SET average_rating = (
+        SELECT ROUND(AVG(rating), 2)
+        FROM reviews
+        WHERE place_id = NEW.place_id
+    )
+    WHERE id = NEW.place_id;
+END
+$$
+DELIMITER ;
+DELIMITER $$
+CREATE TRIGGER `before_review_insert` BEFORE INSERT ON `reviews` FOR EACH ROW BEGIN
+    DECLARE next_id INT;
+    SET next_id = (SELECT COALESCE(MAX(CAST(SUBSTRING(id, 2) AS UNSIGNED)), 0) + 1 
+                   FROM reviews);
+    SET NEW.id = CONCAT('R', LPAD(next_id, 3, '0'));
+END
+$$
+DELIMITER ;
 
 -- --------------------------------------------------------
 
@@ -283,6 +464,19 @@ CREATE TABLE `tourism_statistics` (
   `flight_price` decimal(10,2) DEFAULT NULL,
   `created_at` timestamp NOT NULL DEFAULT current_timestamp()
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_unicode_ci;
+
+--
+-- Triggers `tourism_statistics`
+--
+DELIMITER $$
+CREATE TRIGGER `before_tourism_stat_insert` BEFORE INSERT ON `tourism_statistics` FOR EACH ROW BEGIN
+    DECLARE next_id INT;
+    SET next_id = (SELECT COALESCE(MAX(CAST(SUBSTRING(id, 3) AS UNSIGNED)), 0) + 1 
+                   FROM tourism_statistics);
+    SET NEW.id = CONCAT('TS', LPAD(next_id, 3, '0'));
+END
+$$
+DELIMITER ;
 
 -- --------------------------------------------------------
 
@@ -330,16 +524,16 @@ INSERT INTO `users` (`id`, `email`, `password`, `name`, `phone`, `role`, `create
 ('B004', 'bandung.adventure@example.com', '$2y$10$abcdefghijklmnopqrstuv', 'Bandung Adventure', '+6281234567896', 'BUSINESS', '2024-11-22 16:25:09', '2024-11-22 16:25:09', NULL),
 ('B005', 'raja.ampat@example.com', '$2y$10$abcdefghijklmnopqrstuv', 'Raja Ampat Diving', '+6281234567897', 'BUSINESS', '2024-11-22 16:25:09', '2024-11-22 16:25:09', NULL),
 ('B006', 'toraja.cultural@example.com', '$2y$10$abcdefghijklmnopqrstuv', 'Toraja Cultural Tours', '+6281234567898', 'BUSINESS', '2024-11-22 16:25:09', '2024-11-22 16:25:09', NULL),
-('B007', 'haihai@gmail.com', '$2y$10$xd8SXHHcrhMp72DPx2nYa.Q1x4RitaSKMM0hn.ZQ/pS7X5tUp.Toq', 'Zukhri', NULL, 'BUSINESS', '2024-12-21 16:19:49', NULL, NULL),
-('B008', 'bobobo@gmail.com', '$2y$10$3/A1Uldc2/Df98HIoRDpB.8gvC7rduJLE.AfmZsL8wAWsaJVgQetu', 'Zukhri', NULL, 'BUSINESS', '2024-12-21 16:23:21', NULL, NULL),
-('B009', 'patrick@gmail.com', '$2y$10$vOTtMLieSPqWA0CS1FlBhuf8lud8IoqrqTVtIsx4RzVmxZXRIxQL.', 'Zukhri', NULL, 'BUSINESS', '2024-12-21 16:36:19', NULL, NULL),
+('B007', 'haihai@gmail.com', '$2y$10$xd8SXHHcrhMp72DPx2nYa.Q1x4RitaSKMM0hn.ZQ/pS7X5tUp.Toq', 'Ibnu', NULL, 'BUSINESS', '2024-12-21 16:19:49', '2024-12-23 15:20:29', NULL),
+('B008', 'bobobo@gmail.com', '$2y$10$3/A1Uldc2/Df98HIoRDpB.8gvC7rduJLE.AfmZsL8wAWsaJVgQetu', 'Ibnu', NULL, 'BUSINESS', '2024-12-21 16:23:21', '2024-12-23 15:20:29', NULL),
+('B009', 'patrick@gmail.com', '$2y$10$vOTtMLieSPqWA0CS1FlBhuf8lud8IoqrqTVtIsx4RzVmxZXRIxQL.', 'Ibnu', NULL, 'BUSINESS', '2024-12-21 16:36:19', '2024-12-23 15:20:29', NULL),
 ('B010', 'lintang@gmail.com', '$2y$10$O56Trnx.H.sfOpxpQkVP9OsFcxM.RxtFXQAmesvkJz88FkArxJxtW', 'Dimas', NULL, 'BUSINESS', '2024-12-21 17:12:01', NULL, NULL),
-('B011', 'palqi@gmail.com', '$2y$10$FxC/KhM/XoXgEK9OG/BwUuitLZBiVLIkjxvcH9f2ZPkvF6ua1Hr2W', 'Zukhri', NULL, 'BUSINESS', '2024-12-21 17:40:24', NULL, NULL),
-('C001', 'halohalo@gmail.com', '$2y$10$UVRV4eAUrRt/bbN5bs8FR.QGJgACIBKpzJByjjZ/yJRLNpTOLGAcC', 'Zukhri', NULL, 'CUSTOMER', '2024-12-21 16:21:18', NULL, NULL),
+('B011', 'palqi@gmail.com', '$2y$10$FxC/KhM/XoXgEK9OG/BwUuitLZBiVLIkjxvcH9f2ZPkvF6ua1Hr2W', 'Ibnu', NULL, 'BUSINESS', '2024-12-21 17:40:24', '2024-12-23 15:20:29', NULL),
+('C001', 'halohalo@gmail.com', '$2y$10$UVRV4eAUrRt/bbN5bs8FR.QGJgACIBKpzJByjjZ/yJRLNpTOLGAcC', 'Ibnu', NULL, 'CUSTOMER', '2024-12-21 16:21:18', '2024-12-23 15:20:29', NULL),
 ('C002', 'dadada@gmail.com', '$2y$10$wCVYSa/n4ZD6/QI.LMU0ZO0ZI3L9H96/9PGpft1LBjQhusfX5Xane', 'dadada', NULL, 'CUSTOMER', '2024-12-21 16:22:47', NULL, NULL),
-('C003', 'cponbob@gmail.com', '$2y$10$WinByJ28gi45893ev9fATeP9PWAiOvRgaGyycedsIeM05s4p3T4ke', 'Zukhri', NULL, 'CUSTOMER', '2024-12-21 16:37:24', NULL, NULL),
-('C004', 'sandycheeks@gmail.com', '$2y$10$zZlNPrDp4pNbeFtrhCDT7elYotiPtY7nnM2i6cqTKc0KPD/kKkRMO', 'Zukhri', NULL, 'CUSTOMER', '2024-12-21 17:11:26', NULL, NULL),
-('C005', '12345@gmail.com', '$2y$10$2SuSx/8SnEPIyoBd4sA.7..h0AjlRTMIEvpGnmFghQhIE4v1fsPe.', 'Zukhri', NULL, 'CUSTOMER', '2024-12-21 17:42:55', NULL, NULL),
+('C003', 'cponbob@gmail.com', '$2y$10$WinByJ28gi45893ev9fATeP9PWAiOvRgaGyycedsIeM05s4p3T4ke', 'Ibnu', NULL, 'CUSTOMER', '2024-12-21 16:37:24', '2024-12-23 15:20:29', NULL),
+('C004', 'sandycheeks@gmail.com', '$2y$10$zZlNPrDp4pNbeFtrhCDT7elYotiPtY7nnM2i6cqTKc0KPD/kKkRMO', 'Ibnu', NULL, 'CUSTOMER', '2024-12-21 17:11:26', '2024-12-23 15:20:29', NULL),
+('C005', '12345@gmail.com', '$2y$10$2SuSx/8SnEPIyoBd4sA.7..h0AjlRTMIEvpGnmFghQhIE4v1fsPe.', 'Ibnu', NULL, 'CUSTOMER', '2024-12-21 17:42:55', '2024-12-23 15:20:29', NULL),
 ('C006', '45678@gmail.com', '$2y$10$5y4lLb6JwG/Q2m8zUF4bI.65R5bUZU2e5vTrO2nNDsh1boEd794U2', 'patrick', NULL, 'CUSTOMER', '2024-12-21 17:53:39', NULL, NULL),
 ('C007', 'bbbbbb@gmail.com', '$2y$10$HnwZhzU13lFGI5rI7zqvq.QwBW4nQIQNk7sRrWWmLdBgozOG1wa6K', 'haloooo', NULL, 'CUSTOMER', '2024-12-21 18:03:07', NULL, NULL);
 

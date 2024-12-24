@@ -685,7 +685,7 @@
                     srcset="images/fotowibson.jpg 500w, images/fotowibson.jpg 768w" class="portrait-full" /></div><a
                   href="/team/sarah-leah" class="team-member-card-absolute w-inline-block">
                   <h3 class="_22px-text">Rifqi Wibisono</h3>
-                  <p class="_16px-500-primary">Data Scientist</p>
+                  <p class="_16px-500-primary">ML Engineer</p>
                 </a><a href="/team/sarah-leah" class="black-overlay w-inline-block"></a>
               </div>
             </div>

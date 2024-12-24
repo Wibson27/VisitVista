@@ -3,6 +3,7 @@ require_once 'functions/database_functions.php';
 error_reporting(E_ALL);
 ini_set('display_errors', 1);
 $places = getAllPlaces();
+$reviews = getAllReviews();
 ?>
 <!DOCTYPE html>
 <html data-wf-page="6700fdb6e1bf8d9b83f92131" data-wf-site="66f00efc0ba3b86a13792a55" lang="en">
@@ -492,49 +493,75 @@ $places = getAllPlaces();
               <?php foreach ($places as $place): ?>
                 <div role="listitem" class="w-dyn-item">
                   <div data-w-id="3aa9b968-98e2-906a-c7d1-034fdca8e2e9" class="blog-card">
-                    <div class="blog-thubnail-mask">
-                      <a href="/place/<?php echo htmlspecialchars($place['id']); ?>" class="mask-10px-rounded-full w-inline-block">
-                        <img src="<?php echo htmlspecialchars($place['image_url']); ?>"
-                          loading="lazy"
-                          alt="<?php echo htmlspecialchars($place['name']); ?>"
-                          class="blog-thumbnail-300px" />
-                      </a>
-
-                      <div class="blog-category">
+                    <div class="blog-thubnail-mask"><a href="/visitvista/product/booking.php?id=<?php echo $place['id']; ?>"
+                        class="mask-10px-rounded-full w-inline-block"><img src="<?= htmlspecialchars($place['image_url']) ?>"
+                          loading="lazy" alt=""
+                          sizes="(max-width: 479px) 100vw, (max-width: 767px) 92vw, (max-width: 991px) 46vw, 28vw"
+                          srcset="<?= htmlspecialchars($place['image_url']) ?>, <?= htmlspecialchars($place['image_url']) ?>, <?= htmlspecialchars($place['image_url']) ?>"
+                          class="blog-thumbnail-300px" /></a><a href="/blog-categories/corporate"
+                        class="blog-category w-inline-block">
                         <div class="blog-category-left-shape"></div>
-                        <div><?php echo htmlspecialchars($place['category']); ?></div>
+                        <div><?= htmlspecialchars($place['category']) ?></div>
                         <div class="blog-category-right-shape"></div>
-                      </div>
-
-
-                      <div class="image-show-style">
+                      </a>
+                      <div data-w-id="86948c09-9ea6-0d24-c71d-cfb6b9e521b5" class="image-show-style">
                         <div class="bg-column-mask">
+                          <div class="bg-color-column"></div>
+                          <div class="primary-color-column"></div>
+                        </div>
+                        <div id="w-node-_86948c09-9ea6-0d24-c71d-cfb6b9e521b9-b9e521b5" class="bg-column-mask">
+                          <div class="bg-color-column"></div>
+                          <div class="primary-color-column"></div>
+                        </div>
+                        <div id="w-node-_86948c09-9ea6-0d24-c71d-cfb6b9e521bc-b9e521b5" class="bg-column-mask">
+                          <div class="bg-color-column"></div>
+                          <div class="primary-color-column"></div>
+                        </div>
+                        <div id="w-node-_86948c09-9ea6-0d24-c71d-cfb6b9e521bf-b9e521b5" class="bg-column-mask">
                           <div class="bg-color-column"></div>
                           <div class="primary-color-column"></div>
                         </div>
                       </div>
                     </div>
-
                     <div class="w-layout-vflex blog-body">
                       <div class="w-layout-vflex heading-category-wrapper">
                         <div class="horizontal-left-center-8px-gap-wrap">
-                          <?php echo htmlspecialchars(date('F j, Y', strtotime($place['created_at']))); ?>
+                          <p href="#" class="_14px-text">Rp <?= htmlspecialchars($place['price'], 2) ?>/ Ticket</p>
                           <div class="_5px-circle"></div>
                           <div class="horizontal-left-center-5px-gap">
-                            <p class="_14px-text"><?php echo htmlspecialchars($place['city'] ?? ''); ?></p>
+                            <p class="_14px-text">By</p><a href="/author/sara-lee" class="w-inline-block">
+                              <p href="#" class="_14px-link"><?= htmlspecialchars($place['business_name']) ?></p>
+                            </a>
                           </div>
                         </div>
+                        <div class="horizontal-left-center-8px-gap-wrap">
+                          <div class="horizontal-left-center-5px-gap">
+                            <p class="_14px-text">Rated</p>
+                            <div class="w-layout-hflex testimonial-star-wrapper">
+                                <?php
+                                // Get the full number of stars (floor of average_rating)
+                                $fullStars = floor($place['average_rating']);
 
-                        <a href="/place/<?php echo htmlspecialchars($place['id']); ?>" class="w-inline-block">
-                          <h3 class="_24px-link"><?php echo htmlspecialchars($place['name']); ?></h3>
+                                // Iterate 5 times for 5 possible stars
+                                for($i = 1; $i <= 5; $i++): ?>
+                                    <div class="_16px-star-icon" style="color: <?= $i <= $fullStars ? '#FFD700' : '#808080' ?>">
+                                        star
+                                    </div>
+                                <?php endfor; ?>
+                            </div>
+                            <p class="_14px-text"><?= number_format($place['average_rating'], 1) ?></p>
+                            <p class="_14px-text">(<?= htmlspecialchars($place['review_count']) ?> Reviews)</p>
+                            </a>
+                          </div>
+                        </div>
+                        <a href="/post/how-to-build-a-strong-brand-identity" class="w-inline-block">
+                          <h3 class="_24px-link"><?= htmlspecialchars($place['name']) ?></h3>
                         </a>
-
                         <div class="blog-divider">
                           <div class="blog-hover-divider"></div>
                         </div>
-                      </div>
-
-                      <a href="backup.php?place_id=<?php echo htmlspecialchars($place['id']); ?>">
+                      </div><a href="/post/how-to-build-a-strong-brand-identity"
+                        class="text-link-with-border w-inline-block">
                         <div>Read More</div>
                         <div class="mask">
                           <div class="link-border"></div>

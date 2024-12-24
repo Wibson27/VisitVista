@@ -1,0 +1,149 @@
+{# app/presentation/templates/dashboard/statistics.html #}
+{% extends "base.html" %}
+
+{% block title %}Statistics - Business Dashboard{% endblock %}
+
+{% block content %}
+<div class="container mx-auto px-4">
+    <h1 class="text-3xl font-bold mb-8" style="color: var(--neon-accent);">Tourism Statistics</h1>
+
+    <!-- Overview Cards -->
+    <div class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-4 gap-6 mb-8">
+        <div class="card p-6 rounded-lg bg-black bg-opacity-40 hover:bg-opacity-60 transition-all">
+            <div class="flex items-center justify-between mb-4">
+                <h3 class="text-lg font-semibold">Total Places</h3>
+                <i class="fas fa-map-marked-alt text-2xl" style="color: var(--neon-accent);"></i>
+            </div>
+            <p class="text-3xl font-bold" id="totalPlaces">0</p>
+        </div>
+
+        <div class="card p-6 rounded-lg bg-black bg-opacity-40 hover:bg-opacity-60 transition-all">
+            <div class="flex items-center justify-between mb-4">
+                <h3 class="text-lg font-semibold">Total Bookings</h3>
+                <i class="fas fa-ticket-alt text-2xl" style="color: var(--neon-accent);"></i>
+            </div>
+            <p class="text-3xl font-bold" id="totalBookings">0</p>
+        </div>
+
+        <div class="card p-6 rounded-lg bg-black bg-opacity-40 hover:bg-opacity-60 transition-all">
+            <div class="flex items-center justify-between mb-4">
+                <h3 class="text-lg font-semibold">Average Rating</h3>
+                <i class="fas fa-star text-2xl" style="color: var(--neon-accent);"></i>
+            </div>
+            <p class="text-3xl font-bold" id="averageRating">0.0</p>
+        </div>
+
+        <div class="card p-6 rounded-lg bg-black bg-opacity-40 hover:bg-opacity-60 transition-all">
+            <div class="flex items-center justify-between mb-4">
+                <h3 class="text-lg font-semibold">Total Revenue</h3>
+                <i class="fas fa-dollar-sign text-2xl" style="color: var(--neon-accent);"></i>
+            </div>
+            <p class="text-3xl font-bold" id="totalRevenue">Rp 0</p>
+        </div>
+    </div>
+
+    <!-- Charts -->
+    <div class="grid grid-cols-1 lg:grid-cols-2 gap-8">
+        <div class="card p-6 rounded-lg bg-black bg-opacity-40">
+            <h3 class="text-xl font-semibold mb-4">Revenue Trend</h3>
+            <canvas id="revenueTrendChart" class="w-full h-64"></canvas>
+        </div>
+
+        <div class="card p-6 rounded-lg bg-black bg-opacity-40">
+            <h3 class="text-xl font-semibold mb-4">Bookings by Place</h3>
+            <canvas id="bookingsChart" class="w-full h-64"></canvas>
+        </div>
+    </div>
+</div>
+{% endblock %}
+
+{% block scripts %}
+<script>
+const formatRupiah = (number) => {
+    return new Intl.NumberFormat('id-ID', {
+        style: 'currency',
+        currency: 'IDR'
+    }).format(number);
+};
+
+document.addEventListener('DOMContentLoaded', () => {
+    fetch('/api/statistics', {
+        headers: {
+            'X-Business-ID': localStorage.getItem('businessId')
+        }
+    })
+    .then(response => response.json())
+    .then(data => {
+        updateStatistics(data);
+        createCharts(data);
+    });
+});
+
+function updateStatistics(data) {
+    document.getElementById('totalPlaces').textContent = data.overall.total_places;
+    document.getElementById('totalBookings').textContent = data.overall.total_bookings;
+    document.getElementById('averageRating').textContent =
+        (data.overall.average_rating || 0).toFixed(1);
+    document.getElementById('totalRevenue').textContent =
+        formatRupiah(data.overall.total_revenue || 0);
+}
+
+function createCharts(data) {
+    // Revenue Chart
+    new Chart(document.getElementById('revenueTrendChart').getContext('2d'), {
+        type: 'line',
+        data: {
+            labels: data.places.map(p => p.name),
+            datasets: [{
+                label: 'Revenue',
+                data: data.places.map(p => p.revenue),
+                borderColor: '#bbf340',
+                backgroundColor: 'rgba(187, 243, 64, 0.1)',
+                tension: 0.4,
+                fill: true
+            }]
+        },
+        options: {
+            plugins: {
+                legend: {
+                    display: false
+                }
+            },
+            scales: {
+                y: {
+                    beginAtZero: true,
+                    ticks: {
+                        callback: value => formatRupiah(value)
+                    }
+                }
+            }
+        }
+    });
+
+    // Bookings Chart
+    new Chart(document.getElementById('bookingsChart').getContext('2d'), {
+        type: 'bar',
+        data: {
+            labels: data.places.map(p => p.name),
+            datasets: [{
+                label: 'Bookings',
+                data: data.places.map(p => p.booking_count),
+                backgroundColor: '#bbf340'
+            }]
+        },
+        options: {
+            plugins: {
+                legend: {
+                    display: false
+                }
+            },
+            scales: {
+                y: {
+                    beginAtZero: true
+                }
+            }
+        }
+    });
+}
+</script>
+{% endblock %}

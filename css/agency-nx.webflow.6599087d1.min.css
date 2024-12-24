@@ -8596,7 +8596,7 @@ blockquote {
 
 .banner {
   z-index: 1;
-  background-image: linear-gradient(to bottom, #0000004d, #0000004d), linear-gradient(180deg, var(--transparent), var(--background)), url(../images/tugujogja.jpg);
+  background-image: linear-gradient(to bottom, #0000004d, #0000004d), linear-gradient(180deg, var(--transparent), var(--background));
   background-position: 0 0, 0 0, 50%;
   background-repeat: repeat, repeat, no-repeat;
   background-size: auto, auto, cover;

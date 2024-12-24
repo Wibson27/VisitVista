@@ -3,42 +3,47 @@ require_once __DIR__ . '/../config/db_connect.php';
 
 // ====== Place Functions ======
 function getAllPlaces() {
-    global $db;
-    try {
-        $query = "
-            SELECT
-                p.*,
-                (SELECT image_url FROM place_images WHERE place_id = p.id LIMIT 1) as image_url
-            FROM places p
-            ORDER BY p.created_at DESC
-        ";
-        $stmt = $db->query($query);
-        return $stmt->fetchAll();
-    } catch(Exception $e) {
-        error_log($e->getMessage());
-        return [];
-    }
+  global $db;
+  try {
+      $query = "
+          SELECT
+              p.*,
+              bp.business_name,
+              (SELECT image_url FROM place_images WHERE place_id = p.id LIMIT 1) as image_url,
+              (SELECT COUNT(*) FROM reviews WHERE place_id = p.id) as review_count
+          FROM places p
+          LEFT JOIN business_profiles bp ON p.business_id = bp.id
+          GROUP BY p.id
+          ORDER BY p.created_at DESC
+      ";
+      $stmt = $db->query($query);
+      return $stmt->fetchAll();
+  } catch(Exception $e) {
+      error_log($e->getMessage());
+      return [];
+  }
 }
 
 function getPlaceById($id) {
-    global $db;
-    try {
-        $query = "
-            SELECT
-                p.*,
-                GROUP_CONCAT(pi.image_url) as images
-            FROM places p
-            LEFT JOIN place_images pi ON p.id = pi.place_id
-            WHERE p.id = ?
-            GROUP BY p.id
-        ";
-        $stmt = $db->prepare($query);
-        $stmt->execute([$id]);
-        return $stmt->fetch();
-    } catch(Exception $e) {
-        error_log($e->getMessage());
-        return null;
-    }
+  global $db;
+  try {
+      $query = "
+          SELECT
+              p.*,
+              (SELECT image_url FROM place_images WHERE place_id = p.id LIMIT 1) as image_url,
+              GROUP_CONCAT(pi.image_url) as all_images
+          FROM places p
+          LEFT JOIN place_images pi ON p.id = pi.place_id
+          WHERE p.id = ?
+          GROUP BY p.id
+      ";
+      $stmt = $db->prepare($query);
+      $stmt->execute([$id]);
+      return $stmt->fetch();
+  } catch(Exception $e) {
+      error_log($e->getMessage());
+      return null;
+  }
 }
 
 function getPlacesByBusinessId($businessId) {
@@ -91,6 +96,40 @@ function getTopRecommendedPlaces($limit = 6) {
   } catch(Exception $e) {
       error_log($e->getMessage());
       return [];
+  }
+}
+
+function getCustomerProfile($userId) {
+  global $db;
+  try {
+      $stmt = $db->prepare("
+          SELECT cp.*, u.*
+          FROM customer_profiles cp
+          JOIN users u ON cp.user_id = u.id
+          WHERE cp.user_id = ?
+      ");
+      $stmt->execute([$userId]);
+      return $stmt->fetch(PDO::FETCH_ASSOC);
+  } catch(Exception $e) {
+      error_log($e->getMessage());
+      return null;
+  }
+}
+
+function getBusinessProfile($userId) {
+  global $db;
+  try {
+      $stmt = $db->prepare("
+          SELECT bp.*, u.*
+          FROM business_profiles bp
+          JOIN users u ON bp.user_id = u.id
+          WHERE bp.user_id = ?
+      ");
+      $stmt->execute([$userId]);
+      return $stmt->fetch(PDO::FETCH_ASSOC);
+  } catch(Exception $e) {
+      error_log($e->getMessage());
+      return null;
   }
 }
 
@@ -191,17 +230,12 @@ function getUserByEmail($email) {
     }
 }
 
-// ====== Business Profile Functions ======
-function getBusinessProfile($userId) {
-    global $db;
-    try {
-        $stmt = $db->prepare("SELECT * FROM business_profiles WHERE user_id = ?");
-        $stmt->execute([$userId]);
-        return $stmt->fetch();
-    } catch(Exception $e) {
-        error_log($e->getMessage());
-        return null;
-    }
+function logout() {
+  session_start();
+  session_unset();
+  session_destroy();
+  header('Location: register.php?tab=login');
+  exit;
 }
 
 // ====== Booking Functions ======
@@ -338,6 +372,19 @@ function getAllArticles() {
         return [];
     }
 }
+
+function getLatestArticles() {
+  global $db;
+  try {
+      $query = "SELECT * FROM articles ORDER BY id ASC LIMIT 6";
+      $stmt = $db->query($query);
+      return $stmt->fetchAll(PDO::FETCH_ASSOC);
+  } catch(Exception $e) {
+      error_log($e->getMessage());
+      return [];
+  }
+}
+
 
 function getArticleById($id) {
     global $db; // Gunakan global $db yang sudah ada
