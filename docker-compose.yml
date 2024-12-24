@@ -1,0 +1,42 @@
+version: '3.8'
+
+services:
+  webserver:
+    image: php:8.2-apache
+    container_name: explorex-web
+    ports:
+      - "80:80"
+    volumes:
+      - .:/var/www/html  # This points to your current directory instead of src/
+      - ./explorex.id.conf:/etc/apache2/sites-available/explorex.id.conf
+    depends_on:
+      - database
+    extra_hosts:
+      - "ExploreX.id:127.0.0.1"
+
+  database:
+    image: mysql:8.0
+    container_name: explorex-db
+    environment:
+      MYSQL_ALLOW_EMPTY_PASSWORD: "yes"
+      MYSQL_DATABASE: visitvista
+    ports:
+      - "3306:3306"
+    volumes:
+      - mysql_data:/var/lib/mysql
+
+  nagios:
+    image: jasonrivers/nagios:latest
+    container_name: explorex-nagios
+    ports:
+      - "8081:80"
+    volumes:
+      - ./nagios/apache_monitoring.cfg:/opt/nagios/etc/objects/apache_monitoring.cfg
+    depends_on:
+      - webserver
+    environment:
+      NAGIOSADMIN_USER: nagiosadmin
+      NAGIOSADMIN_PASS: nagios
+
+volumes:
+  mysql_data:
