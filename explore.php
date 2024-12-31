@@ -464,7 +464,6 @@ $reviews = getAllReviews();
     <section class="banner">
       <div class="container">
         <h1 class="heading">Explore</h1>
-
       </div>
       <div data-w-id="86948c09-9ea6-0d24-c71d-cfb6b9e521b5" class="image-show-style">
         <div class="bg-column-mask">
@@ -498,7 +497,7 @@ $reviews = getAllReviews();
                           loading="lazy" alt=""
                           sizes="(max-width: 479px) 100vw, (max-width: 767px) 92vw, (max-width: 991px) 46vw, 28vw"
                           srcset="<?= htmlspecialchars($place['image_url']) ?>, <?= htmlspecialchars($place['image_url']) ?>, <?= htmlspecialchars($place['image_url']) ?>"
-                          class="blog-thumbnail-300px" /></a><a href="/blog-categories/corporate"
+                          class="blog-thumbnail-300px" /></a><a href="/visitvista/product/booking.php?id=<?php echo $place['id']; ?>"
                         class="blog-category w-inline-block">
                         <div class="blog-category-left-shape"></div>
                         <div><?= htmlspecialchars($place['category']) ?></div>
@@ -554,13 +553,13 @@ $reviews = getAllReviews();
                             </a>
                           </div>
                         </div>
-                        <a href="/post/how-to-build-a-strong-brand-identity" class="w-inline-block">
+                        <a href="/visitvista/product/booking.php?id=<?php echo $place['id']; ?>" class="w-inline-block">
                           <h3 class="_24px-link"><?= htmlspecialchars($place['name']) ?></h3>
                         </a>
                         <div class="blog-divider">
                           <div class="blog-hover-divider"></div>
                         </div>
-                      </div><a href="/post/how-to-build-a-strong-brand-identity"
+                      </div><a href="/visitvista/product/booking.php?id=<?php echo $place['id']; ?>"
                         class="text-link-with-border w-inline-block">
                         <div>Read More</div>
                         <div class="mask">

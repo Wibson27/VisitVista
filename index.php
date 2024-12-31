@@ -664,7 +664,7 @@ $articles = getLatestArticles();
                       loading="lazy" alt=""
                       sizes="(max-width: 479px) 100vw, (max-width: 767px) 92vw, (max-width: 991px) 46vw, 28vw"
                       srcset="<?= htmlspecialchars($place['image_url']) ?>, <?= htmlspecialchars($place['image_url']) ?>, <?= htmlspecialchars($place['image_url']) ?>"
-                      class="blog-thumbnail-300px" /></a><a href="/visitvista/product/booking.php"
+                      class="blog-thumbnail-300px" /></a><a href="/visitvista/product/booking.php?id=<?php echo $place['id']; ?>"
                     class="blog-category w-inline-block">
                     <div class="blog-category-left-shape"></div>
                     <div><?= htmlspecialchars($place['category']) ?></div>
@@ -720,13 +720,13 @@ $articles = getLatestArticles();
                         </a>
                       </div>
                     </div>
-                    <a href="/visitvista/product/booking.php" class="w-inline-block">
+                    <a href="/visitvista/product/booking.php?id=<?php echo $place['id']; ?>" class="w-inline-block">
                       <h3 class="_24px-link"><?= htmlspecialchars($place['name']) ?></h3>
                     </a>
                     <div class="blog-divider">
                       <div class="blog-hover-divider"></div>
                     </div>
-                  </div><a href="/visitvista/product/booking.php"
+                  </div><a href="/visitvista/product/booking.php?id=<?php echo $place['id']; ?>"
                     class="text-link-with-border w-inline-block">
                     <div>Read More</div>
                     <div class="mask">

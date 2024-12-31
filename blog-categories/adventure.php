@@ -490,62 +490,63 @@ $places = getAllPlaces();
         <div class="_2-column-block-top">
           <div class="full-width w-dyn-list">
             <div role="list" class="_2-column-grid w-dyn-items">
-              <?php foreach ($places as $place): ?>
-                <div role="listitem" class="w-dyn-item">
+            <?php foreach ($places as $place): ?>
+                <?php if (strtolower($place['category']) === 'adventure'): ?>
+                  <div role="listitem" class="w-dyn-item">
                   <div data-w-id="3aa9b968-98e2-906a-c7d1-034fdca8e2e9" class="blog-card">
                     <div class="blog-thubnail-mask">
-                      <a href="../place/<?php echo htmlspecialchars($place['id']); ?>" class="mask-10px-rounded-full w-inline-block">
-                        <img src="../<?php echo htmlspecialchars($place['image_url']); ?>"
-                          loading="lazy"
-                          alt="<?php echo htmlspecialchars($place['name']); ?>"
-                          class="blog-thumbnail-300px" />
-                      </a>
+                    <a href="../place/<?php echo htmlspecialchars($place['id']); ?>" class="mask-10px-rounded-full w-inline-block">
+                      <img src="../<?php echo htmlspecialchars($place['image_url']); ?>"
+                      loading="lazy"
+                      alt="<?php echo htmlspecialchars($place['name']); ?>"
+                      class="blog-thumbnail-300px" />
+                    </a>
 
-                      <div class="blog-category">
-                        <div class="blog-category-left-shape"></div>
-                        <div><?php echo htmlspecialchars($place['category']); ?></div>
-                        <div class="blog-category-right-shape"></div>
+                    <div class="blog-category">
+                      <div class="blog-category-left-shape"></div>
+                      <div><?php echo htmlspecialchars($place['category']); ?></div>
+                      <div class="blog-category-right-shape"></div>
+                    </div>
+
+                    <div class="image-show-style">
+                      <div class="bg-column-mask">
+                      <div class="bg-color-column"></div>
+                      <div class="primary-color-column"></div>
                       </div>
-
-
-                      <div class="image-show-style">
-                        <div class="bg-column-mask">
-                          <div class="bg-color-column"></div>
-                          <div class="primary-color-column"></div>
-                        </div>
-                      </div>
+                    </div>
                     </div>
 
                     <div class="w-layout-vflex blog-body">
-                      <div class="w-layout-vflex heading-category-wrapper">
-                        <div class="horizontal-left-center-8px-gap-wrap">
-                          <?php echo htmlspecialchars(date('F j, Y', strtotime($place['created_at']))); ?>
-                          <div class="_5px-circle"></div>
-                          <div class="horizontal-left-center-5px-gap">
-                            <p class="_14px-text"><?php echo htmlspecialchars($place['city'] ?? ''); ?></p>
-                          </div>
-                        </div>
-
-                        <a href="../place/<?php echo htmlspecialchars($place['id']); ?>" class="w-inline-block">
-                          <h3 class="_24px-link"><?php echo htmlspecialchars($place['name']); ?></h3>
-                        </a>
-
-                        <div class="blog-divider">
-                          <div class="blog-hover-divider"></div>
-                        </div>
+                    <div class="w-layout-vflex heading-category-wrapper">
+                      <div class="horizontal-left-center-8px-gap-wrap">
+                      <?php echo htmlspecialchars(date('F j, Y', strtotime($place['created_at']))); ?>
+                      <div class="_5px-circle"></div>
+                      <div class="horizontal-left-center-5px-gap">
+                        <p class="_14px-text"><?php echo htmlspecialchars($place['city'] ?? ''); ?></p>
+                      </div>
                       </div>
 
-                      <a href="../backup.php?place_id=<?php echo htmlspecialchars($place['id']); ?>">
-                        <div>Read More</div>
-                        <div class="mask">
-                          <div class="link-border"></div>
-                          <div class="link-border-secodnary"></div>
-                        </div>
+                      <a href="../place/<?php echo htmlspecialchars($place['id']); ?>" class="w-inline-block">
+                      <h3 class="_24px-link"><?php echo htmlspecialchars($place['name']); ?></h3>
                       </a>
+
+                      <div class="blog-divider">
+                      <div class="blog-hover-divider"></div>
+                      </div>
+                    </div>
+
+                    <a href="../backup.php?place_id=<?php echo htmlspecialchars($place['id']); ?>">
+                      <div>Read More</div>
+                      <div class="mask">
+                      <div class="link-border"></div>
+                      <div class="link-border-secodnary"></div>
+                      </div>
+                    </a>
                     </div>
                   </div>
-                </div>
-              <?php endforeach; ?>
+                  </div>
+                <?php endif; ?>
+                <?php endforeach; ?>
             </div>
           </div>
           <!-- Categories Sidebar -->

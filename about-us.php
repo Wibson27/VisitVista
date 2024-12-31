@@ -714,7 +714,7 @@
                 </div>
                 <div class="thumbnail-wrapper-580px-height"><img src="images/2148493050-1.avif" alt=""
                     sizes="(max-width: 479px) 100vw, (max-width: 767px) 46vw, (max-width: 991px) 47vw, 22vw"
-                    srcset="images/fotonopal.jpg 500w, images/fotonopal.jpg 1000w"
+                    srcset="images/FotoNaufal.png 500w, images/FotoNaufal.png 1000w"
                     class="portrait-full" /></div><a href="/team/jane-smith"
                   class="team-member-card-absolute w-inline-block">
                   <h3 class="_22px-text">Naufalqi Dwiskara</h3>
@@ -729,7 +729,9 @@
                   <a id="w-node-_068beef7-fc07-7b79-951c-001bc5465e33-c5465e2f"
                     href="https://instagram.com" class="social-links-rounded"></a>
                 </div>
-                <div class="thumbnail-wrapper-580px-height"><img src="images/fotoibnu.jpg" alt=""
+                <div class="thumbnail-wrapper-580px-height"><img src="images/2148493050-1.avif" alt=""
+                sizes="(max-width: 479px) 100vw, (max-width: 767px) 46vw, (max-width: 991px) 47vw, 22vw"
+                    srcset="images/fotoibnu.jpg 500w, images/fotoibnu.jpg 1000w"
                     class="portrait-full" /></div><a href="/team/mark-johnson"
                   class="team-member-card-absolute w-inline-block">
                   <h3 class="_22px-text">Muhammad Ibnu Rasyid</h3>
